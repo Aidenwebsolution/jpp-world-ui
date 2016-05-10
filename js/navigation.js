@@ -1,9 +1,7 @@
 var adminURL = "";
-if(isproduction)
-{
-  adminURL =  "http://www.wohlig.co.in/demo/index.php";
-}
-else {
+if (isproduction) {
+  adminURL = "http://www.wohlig.co.in/demo/index.php";
+} else {
   adminURL = "http://localhost/demo/index.php";
 }
 
@@ -11,14 +9,33 @@ var navigationservice = angular.module('navigationservice', [])
 
 .factory('NavigationService', function() {
   var navigation = [{
-    name: "Home",
+    name: "HOME",
     classis: "active",
     anchor: "home",
-    subnav: [{
-      name: "Subnav1",
-      classis: "active",
-      link: "#/home"
-    }]
+  }, {
+    name: "JPP'TV'",
+    anchor: "jpp-tv",
+    classis: "active"
+  }, {
+    name: "THE PANTHER DEN",
+    anchor: "panthers-den",
+    classis: "active"
+  }, {
+    name: "GAMES",
+    anchor: "games",
+    classis: "active"
+  }, {
+    name: "NEWS & UPDATES",
+    anchor: "news-updates",
+    classis: "active"
+  }, {
+    name: "GALLERY",
+    anchor: "gallery",
+    classis: "active"
+  }, {
+    name: "PANTHER ROOM",
+    anchor: "panther-room",
+    classis: "active"
   }];
 
   return {

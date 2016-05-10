@@ -1,11 +1,11 @@
-<ul class="nav navbar-nav">
-  <li ng-repeat="menu in navigation" class="{{menu.classis}}">
-    <a ui-sref="{{menu.anchor}}" ng-if="menu.anchor">{{menu.name}}</a>
+<ul class="nav navbar-nav head-menu">
+  <li ng-repeat="menu in navigation" class="menu-custom-li">
+    <a ui-sref="{{menu.anchor}}" class="menu-custom" ng-if="menu.anchor">{{menu.name}}</a>
     <a href="{{menu.link}}" ng-if="menu.link">{{menu.name}}</a>
-    <ul class="dropdown-menu" ng-if="menu.subnav!='';">
+    <!-- <ul class="dropdown-menu" ng-if="menu.subnav!='';">
       <li ng-repeat="submenu in menu.subnav">
         <a ui-serf="{{submenu.link}}">{{submenu.name}}</a>
       </li>
-    </ul>
+    </ul> -->
   </li>
 </ul>

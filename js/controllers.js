@@ -6,17 +6,81 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   console.log("Testing Consoles");
 
   $scope.template = TemplateService.changecontent("home");
-  $scope.menutitle = NavigationService.makeactive("Home");
+  $scope.menutitle = NavigationService.makeactive("HOME");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-
-  $scope.mySlides = [
-    'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
-    'http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg',
-    'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
-    'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
-  ];
 })
+
+  .controller('JPPTVCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("jpp-tv");
+    $scope.menutitle = NavigationService.makeactive("JPP'TV'");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
+
+    .controller('DenCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+      //Used to name the .html file
+
+      console.log("Testing Consoles");
+
+      $scope.template = TemplateService.changecontent("panthers-den");
+      $scope.menutitle = NavigationService.makeactive("THE PANTHER DEN");
+      TemplateService.title = $scope.menutitle;
+      $scope.navigation = NavigationService.getnav();
+    })
+
+    .controller('GamesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+      //Used to name the .html file
+
+      console.log("Testing Consoles");
+
+      $scope.template = TemplateService.changecontent("games");
+      $scope.menutitle = NavigationService.makeactive("GAMES");
+      TemplateService.title = $scope.menutitle;
+      $scope.navigation = NavigationService.getnav();
+    })
+    .controller('NewsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+      //Used to name the .html file
+
+      console.log("Testing Consoles");
+
+      $scope.template = TemplateService.changecontent("news-updates");
+      $scope.menutitle = NavigationService.makeactive("NEWS & UPDATES");
+      TemplateService.title = $scope.menutitle;
+      $scope.navigation = NavigationService.getnav();
+    })
+
+    .controller('GalleryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+      //Used to name the .html file
+
+      console.log("Testing Consoles");
+
+      $scope.template = TemplateService.changecontent("gallery");
+      $scope.menutitle = NavigationService.makeactive("GALLERY");
+      TemplateService.title = $scope.menutitle;
+      $scope.navigation = NavigationService.getnav();
+    })
+    .controller('RoomCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+      //Used to name the .html file
+
+      console.log("Testing Consoles");
+
+      $scope.template = TemplateService.changecontent("panther-room");
+      $scope.menutitle = NavigationService.makeactive("PANTHER ROOM");
+      TemplateService.title = $scope.menutitle;
+      $scope.navigation = NavigationService.getnav();
+    })
+
+  // $scope.mySlides = [
+  //   'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
+  //   'http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg',
+  //   'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
+  //   'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
+  // ];
 
 .controller('headerctrl', function($scope, TemplateService) {
   $scope.template = TemplateService;
