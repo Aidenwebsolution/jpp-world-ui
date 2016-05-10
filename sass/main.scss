@@ -1,0 +1,240 @@
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "../bower_components/flexslider/flexslider.css";
+@import "../bower_components/font-awesome/css/font-awesome.min.css";
+@import "../bower_components/fancyBox/source/jquery.fancybox.css";
+/* Bootstrap Variables Goes Here */
+$brand-primary: #b41e72 !default;
+$brand-success: #4ecaf5 !default;
+$brand-warning: #ffec39 !default;
+$brand-danger: #fc483f !default;
+$brand-info: #000072 !default;
+$base: #262626 !default;
+$white: #fff !default;
+$pink: #ee4a9b !default;
+$font-light: 300 !default;
+$font-grey: #676767 !default;
+$panel-head-odd: #a6e4fa !default;
+$panel-head-even: #dcf4fd !default;
+$facebook: #3d5b97 !default;
+$twitter: #25a8e0 !default;
+$google: #ce3633 !default;
+$pintrest: #cf2228 !default;
+$font-family-sans-serif: "Oswald",  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif: "Oswald", Georgia, "Times New Roman", Times, serif !default;
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@font-face {
+  font-family: "Voyage Fantastique";
+  src: url(../fonts/voyagefantstraight.ttf);
+  src: url(../fonts/voyagefantstraight.eot#iefix) format("embedded-opentype"), url(../fonts/voyagefantstraight.ttf) format("truetype"), url(../fonts/voyagefantstraight.svg) format("svg");
+}
+@font-face {
+  font-family: "Kenyan Coffee";
+  src: url(../fonts/kenyancoffeerg.ttf);
+  src: url(kenyancoffeerg.eot#iefix) format("embedded-opentype"), url(../fonts/kenyancoffeerg.ttf) format("truetype"), url(../fonts/truetype.ttf) format("truetype"), url(../fonts/truetype.svg) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Flaticon";
+  src: url(flaticon.eot);
+  src: url(flaticon.eot#iefix) format("embedded-opentype"), url(../fonts/flaticon.woff) format("woff"), url(../fonts/flaticon.ttf) format("truetype"), url(../fonts/flaticon.svg) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+  font-family: Flaticon;
+  font-size: 20px;
+  font-style: normal;
+}
+.flaticon-tickets:before {
+  content: "\e000";
+}
+.flaticon-tshirt18:before {
+  content: "\e001";
+}
+/* mixing*/
+@mixin placeholder {
+  $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+@mixin transition($transition...) {
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+@mixin x-appearance ($value) {
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  appearance: $value;
+}
+@mixin text-stroke ($width, $color) {
+  $negwidth: -$width;
+  text-shadow:
+  $negwidth+px $negwidth+px 0 $color,
+  $width+px $negwidth+px 0 $color,
+  $negwidth+px $width+px 0 $color,
+  $width+px  $width+px 0 $color;
+}
+@mixin skew ($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+.row-flex {
+  @include display(flex);
+}
+.col-flex {
+  @include flex(1);
+  position: relative;
+}
+body {
+  padding-top: 0;
+  font-family: $font-family-sans-serif;
+  color: $base;
+}
+img.loading {
+  text-align: center;
+  opacity: 1;
+  width: 100px !important;
+  height: auto;
+  position: relative;
+}
+.content {
+  min-height: 600px;
+}
+img {
+  opacity: 0;
+  @include transition(all 300ms ease);
+}
+img.doneLoading {
+  opacity: 1;
+}
+a {
+  text-decoration: none;
+  color: $base;
+  &:hover {
+    text-decoration: none;
+    color: $base;
+  }
+  &:focus {
+    text-decoration: none;
+    outline: 0;
+  }
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-color: transparent!important;
+}
+nav {
+  li {
+    font-size: 20px;
+    font-weight: $font-light;
+    padding-right: 18px;
+    &:hover {
+      .dropdown-menu {
+        display: block;
+      }
+    }
+    &:hover,
+    &.active {
+      a.menu-custom {
+        @include background-image (linear-gradient(#4ac3ed, #217d9e));
+        &:before {
+          left: -12px;
+          height: 100%;
+          width: 25px;
+          position: absolute;
+          content: "";
+          top: 0;
+          @include background-image (linear-gradient(to bottom, #4ac3ed 0%, #217d9e 100%));
+          @include transform(skew(20deg));
+          z-index: -1;
+          @include transition(all 0.5s ease);
+        }
+        &:after {
+          right: -12px;
+          height: 100%;
+          width: 25px;
+          position: absolute;
+          content: "";
+          top: 0;
+          @include background-image (linear-gradient(to bottom, #4ac3ed 0%, #217d9e 100%));
+          @include transform(skew(20deg));
+          z-index: -1;
+          @include transition( all 0.5s ease);
+        }
+      }
+    }
+  }
+  a.menu-custom {
+    padding: 25px 8px !important;
+    font-size: 15px;
+  }
+}
+/* Start writing sass here */
+.padding0 {
+  padding: 0;
+}
+.padding10 {
+  padding: 10px;
+}
+.pb {
+  padding-bottom: 20px;
+}
+.pt {
+  padding-bottom: 20px;
+}
+.uppercase-text {
+  text-transform: uppercase;
+}
+.margin0 {
+  margin: 0;
+}
+.navbar-default {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+}
+.navbar-brand {
+  padding: 0 7px;
+  img {
+    width: 170px;
+  }
+}
+.sticky-bottom .navbar-fixed-top {
+  top: calc(100% - 0px);
+}
+.navbar-fixed-top {
+  border-width: 0 0 0;
+}
+.sticky-bottom .navbar-fixed-top {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 99;
+  @include transition(all 700ms ease);
+}
+.affix {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+}
+.navbar-brand>img {
+    display: block;
+}
+.fancybox-nav {
+  span {
+    visibility: visible !important;
+  }
+}
+@import "fancybox-override";

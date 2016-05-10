@@ -1,0 +1,12 @@
+<ul class="nav navbar-nav head-menu">
+    <li ng-repeat="menu in navigation" class="{{menu.classis}} menu-custom-li">
+        <a ui-sref="{{menu.url}}" class="menu-custom">
+        {{menu.name|translate}}</a>
+         <!-- <ul class="dropdown-menu my-li" ng-if="menu.subnav!='';">
+            <li ng-repeat="submenu in menu.subnav">
+                <a href="{{submenu.link}}">{{submenu.name}}</a>
+            </li>
+        </ul> -->
+    </li>
+
+</ul>
