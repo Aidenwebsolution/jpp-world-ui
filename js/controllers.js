@@ -7,7 +7,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   $scope.template = TemplateService.changecontent("home");
   $scope.menutitle = NavigationService.makeactive("Home");
-  TemplateService.title = $scope.r;
+  TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
   $scope.mySlides = [
@@ -23,32 +23,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     $(window).scrollTop(0);
   });
-});
+})
 
-// .controller('languageCtrl', function($scope, TemplateService,$translate,$rootScope) {
-//
-//     $scope.changeLanguage = function() {
-//       console.log("Language CLicked");
-//
-//       if(!$.jStorage.get("language")){
-//         $translate.use("hi");
-//         $.jStorage.set("language","hi");
-//       }
-//       else {
-//         if($.jStorage.get("language") == "en")
-//         {
-//           $translate.use("hi");
-//           $.jStorage.set("language","hi");
-//         }
-//         else {
-//           $translate.use("en");
-//           $.jStorage.set("language","en");
-//         }
-//       }
+.controller('languageCtrl', function($scope, TemplateService,$translate,$rootScope) {
+
+    $scope.changeLanguage = function() {
+      console.log("Language CLicked");
+
+      if(!$.jStorage.get("language")){
+        $translate.use("hi");
+        $.jStorage.set("language","hi");
+      }
+      else {
+        if($.jStorage.get("language") == "en")
+        {
+          $translate.use("hi");
+          $.jStorage.set("language","hi");
+        }
+        else {
+          $translate.use("en");
+          $.jStorage.set("language","en");
+        }
+      }
     //  $rootScope.$apply();
-    // };
+    };
 
 
-// })
+})
 
-// ;
+;
