@@ -13,7 +13,14 @@ var navigationservice = angular.module('navigationservice', [])
     classis: "active",
     anchor: "home",
     subnav:[]
-  }, {
+  },
+//     {
+//   name: "HOME1",
+//   classis: "active",
+//   anchor: "home",
+//   subnav:[]
+// },
+   {
     name: "JPP'TV'",
     anchor: "jpp-tv",
     classis: "active",
@@ -25,7 +32,7 @@ var navigationservice = angular.module('navigationservice', [])
     subnav: [{
         name: "Panther Army",
         classis: "active",
-        link: "#/panther-army"
+        link: "panther-army"
     },
     {
         name: "Ultimate Panther",

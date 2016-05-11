@@ -18,6 +18,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
               controller: 'HomeCtrl'
           })
 
+          // .state('home1', {
+          //     url: "/home1",
+          //     templateUrl: "views/template.html",
+          //     controller: 'Home1Ctrl'
+          // })
+
           .state('jpp-tv', {
               url: "/jpp-tv",
               templateUrl: "views/template.html",
