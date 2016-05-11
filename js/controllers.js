@@ -74,6 +74,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       TemplateService.title = $scope.menutitle;
       $scope.navigation = NavigationService.getnav();
     })
+    .controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+      //Used to name the .html file
+
+      console.log("Testing Consoles");
+
+      $scope.template = TemplateService.changecontent("panther-army");
+      $scope.menutitle = NavigationService.makeactive("Panther Army");
+      TemplateService.title = $scope.menutitle;
+      $scope.navigation = NavigationService.getnav();
+    })
+    .controller('UltimateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+      //Used to name the .html file
+
+      console.log("Testing Consoles");
+
+      $scope.template = TemplateService.changecontent("ultimate-panther");
+      $scope.menutitle = NavigationService.makeactive("Ultimate Panther");
+      TemplateService.title = $scope.menutitle;
+      $scope.navigation = NavigationService.getnav();
+    })
+    .controller('AuctionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+      //Used to name the .html file
+
+      console.log("Testing Consoles");
+
+      $scope.template = TemplateService.changecontent("auction");
+      $scope.menutitle = NavigationService.makeactive("#AuctionWithAbhishek");
+      TemplateService.title = $scope.menutitle;
+      $scope.navigation = NavigationService.getnav();
+    })
+    .controller('SurveyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+      //Used to name the .html file
+
+      console.log("Testing Consoles");
+
+      $scope.template = TemplateService.changecontent("jpp-survey");
+      $scope.menutitle = NavigationService.makeactive("#JPP Survey");
+      TemplateService.title = $scope.menutitle;
+      $scope.navigation = NavigationService.getnav();
+    })
 
   // $scope.mySlides = [
   //   'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',

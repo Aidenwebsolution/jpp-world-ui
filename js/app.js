@@ -29,6 +29,26 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
           templateUrl: "views/template.html",
           controller: 'DenCtrl'
       })
+      .state('panther-army', {
+          url: "/panther-army",
+          templateUrl: "views/template.html",
+          controller: 'ArmyCtrl'
+      })
+      .state('ultimate-panther', {
+          url: "/ultimate-panther",
+          templateUrl: "views/template.html",
+          controller: 'UltimateCtrl'
+      })
+      .state('auction', {
+          url: "/auction",
+          templateUrl: "views/template.html",
+          controller: 'AuctionCtrl'
+      })
+      .state('jpp-survey', {
+          url: "/jpp-survey",
+          templateUrl: "views/template.html",
+          controller: 'SurveyCtrl'
+      })
 
       .state('games', {
           url: "/games",

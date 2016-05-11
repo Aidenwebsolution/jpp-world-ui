@@ -12,30 +12,55 @@ var navigationservice = angular.module('navigationservice', [])
     name: "HOME",
     classis: "active",
     anchor: "home",
+    subnav:[]
   }, {
     name: "JPP'TV'",
     anchor: "jpp-tv",
-    classis: "active"
+    classis: "active",
+    subnav:[]
   }, {
     name: "THE PANTHER DEN",
     anchor: "panthers-den",
-    classis: "active"
+    classis: "active",
+    subnav: [{
+        name: "Panther Army",
+        classis: "active",
+        link: "#/panther-army"
+    },
+    {
+        name: "Ultimate Panther",
+        classis: "active",
+        link: "#/ultimate-panther"
+    },
+    {
+        name: "#AuctionWithAbhishek",
+        classis: "active",
+        link: "#/auction"
+    }, {
+        name: "#JPP Survey",
+        classis: "active",
+        link: "#/jpp-survey"
+    }, ]
   }, {
     name: "GAMES",
     anchor: "games",
-    classis: "active"
+    classis: "active",
+    subnav:[]
   }, {
     name: "NEWS & UPDATES",
     anchor: "news-updates",
-    classis: "active"
+    classis: "active",
+    subnav:[]
   }, {
     name: "GALLERY",
     anchor: "gallery",
-    classis: "active"
+    classis: "active",
+    subnav:[]
   }, {
     name: "PANTHER ROOM",
     anchor: "panther-room",
-    classis: "active"
+    classis: "active",
+    subnav:[]
   }];
 
   return {

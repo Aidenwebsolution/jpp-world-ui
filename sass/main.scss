@@ -148,15 +148,65 @@ li{
 }
 }
 
+.dropdown-menu{
+  padding: 0;
+  .subnav{
+  color:#000 !important;
+}
+}
+.reg{
+  .btn-primary{
+    
+  }
+}
+.dropdown-menu{
+  background-color: transparent!important;
+  // border: none;
+  // box-shadow:none;
+  li{
+    padding: 0;
+    font-size: 18px;
+    text-align: center;
+    &:nth-child(odd) {
+      background: url(../img/odd.png);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      padding: 8px 25px;
+      margin: -7px 0 0 -45px;
+    }
+      &:nth-child(even) {
+        background: url(../img/even.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding: 8px 26px 8px 25px;
+        margin: 0 20px 0 -75px;
+      }
+}
+}
+li {
+
+
+}
+.dropdown{
+  margin-top: 20px;
+  .drops{
+    li{
+      a{
+        background: transparent !important;
+  }
+}
+}
+}
+
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-  background-color: transparent!important;
+  background:transparent!important;
 }
 nav {
   li {
     font-size: 20px;
     font-weight: $font-light;
-    padding-right: 18px;
+    padding-right: 9px;
     &:hover {
       .dropdown-menu {
         display: block;
@@ -194,7 +244,7 @@ nav {
     }
   }
   a.menu-custom {
-    padding: 25px 8px !important;
+    padding: 25px 4px !important;
     font-size: 15px;
   }
 }
@@ -252,12 +302,12 @@ nav {
   overflow: hidden;
   background-color: black;
 }
-.head-menu {
-  padding: 0;
-  a {
-    color: $white !important;
-  }
-}
+// .head-menu {
+//   padding: 0;
+//   a {
+//     color: $white !important;
+//   }
+// }
 .center-position {
   .logo {
     position: absolute;
@@ -285,6 +335,7 @@ nav {
 // padding: 25px 0px !important;
 // font-size: 12px;
 // }
+
 .jpp-initial{background-color:$brand-success; }
 
 .section2.home {
