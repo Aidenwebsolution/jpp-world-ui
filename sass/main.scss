@@ -149,6 +149,7 @@ a {
   // }
 }
 .reg {
+  margin-top: 13px;
   .btn-primary {
     position: relative;
     background-color: transparent;
@@ -170,11 +171,14 @@ a {
     }
 }
 .photo {
+  height: 40px;
+  width: 40px;
   margin: 0 5px 0 15px;
 }
 .dropdown-menu > li > a:focus,
 .dropdown-menu > li > a:hover {
   background: transparent!important;
+  color:#000!important;
 }
 .reg{
   .dropdown-menu > li > a:focus,
@@ -226,12 +230,19 @@ a {
         border-radius: 0;
         padding: 14px 60px;
       }
-      &:hover{
-        border:none;
-      }
     }
   }
 }
+.nav-tabs{
+  li{
+    a:hover{
+      border:none;
+    }
+  }
+}
+
+
+
 .section2,
 .section3{
   padding: 40px 0 80px 0;
@@ -286,6 +297,15 @@ a {
   h3{
     color: $pinky;
   }
+  h2{
+    color: #fff;
+    font-family: "Kenyan Coffee";
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  p{
+    color: #fff;
+  }
 }
 .previous :before{
   content: "<";
@@ -293,9 +313,10 @@ a {
   position: absolute;
  right: 8%;
 }
+.image-boxes{
 .fa-plus:before{
   color: $pinky;
-
+}
 }
 .form-group{
 background-color: #438daa;
@@ -490,6 +511,57 @@ nav {
   img {
     width: 100%;
   }
+}
+
+.banner-title1{
+  border-bottom: 4px solid $brand-success;
+  position: relative;
+  margin-top: 0px;
+  img {
+    width: 100%;
+  }
+}
+.banner-text{
+    text-align: center;
+    padding: 5px 20px;
+    position: absolute;
+    left: 50%;
+    top: 88%;
+    transform: translate(-50%,-50%);
+    span{
+      color: #fff;
+    }
+    p{
+      color: #fff;
+      width: 112%;
+    font-weight: 300;
+    font-size: 16px;
+    }
+}
+
+.social-icons{
+  .head{
+    font-size: 24px;
+    font-weight: 300;
+  }
+  a{
+    display: inline-block;
+    color: #fff;
+    margin: 0 10px;
+  .fa{
+    vertical-align: middle;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    line-height:60px;
+    text-align: center;
+    border-radius: 100%;
+    border: 1px solid #fff;
+  }
+  &:hover{
+    color: $brand-success;
+  }
+}
 }
 .page-title {
   position: absolute;
@@ -2024,6 +2096,14 @@ img.fancybox-image {
   top: 50%;
   z-index: 0;
   padding: 4px 0;
+}
+.gradient-bar2 {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  @include background-image(linear-gradient(to right, transparent 0%,$pinky 26%, $pinky 22%, $pinky 73%, transparent 100%));
+  z-index: 0;
+  padding: 10px 0;
 }
 .high-z {
   z-index: 1;

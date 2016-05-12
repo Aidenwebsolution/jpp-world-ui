@@ -11,16 +11,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-// .controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout) {
-//   //Used to name the .html file
-//
-//   console.log("Testing Consoles");
-//
-//   $scope.template = TemplateService.changecontent("home1");
-//   $scope.menutitle = NavigationService.makeactive("HOME1");
-//   TemplateService.title = $scope.menutitle;
-//   $scope.navigation = NavigationService.getnav();
-// })
+.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+
+  console.log("Testing Consoles");
+
+  $scope.template = TemplateService.changecontent("home1");
+  $scope.menutitle = NavigationService.makeactive("HOME1");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+})
 
   .controller('JPPTVCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -86,7 +86,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.navigation = NavigationService.getnav();
     })
 
-    
+
 
 
     .controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout) {

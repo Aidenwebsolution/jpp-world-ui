@@ -12,14 +12,13 @@ var navigationservice = angular.module('navigationservice', [])
     name: "HOME",
     classis: "active",
     anchor: "home",
-    subnav:[]
+    subnav:[{
+  name: "HOME1",
+  classis: "active",
+  link: "home1",
+},]
   },
-//     {
-//   name: "HOME1",
-//   classis: "active",
-//   anchor: "home",
-//   subnav:[]
-// },
+
    {
     name: "JPP'TV'",
     anchor: "jpp-tv",

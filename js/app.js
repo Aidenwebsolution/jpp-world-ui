@@ -18,11 +18,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
               controller: 'HomeCtrl'
           })
 
-          // .state('home1', {
-          //     url: "/home1",
-          //     templateUrl: "views/template.html",
-          //     controller: 'Home1Ctrl'
-          // })
+          .state('home1', {
+              url: "/home1",
+              templateUrl: "views/template.html",
+              controller: 'Home1Ctrl'
+          })
 
           .state('jpp-tv', {
               url: "/jpp-tv",
@@ -40,7 +40,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
           templateUrl: "views/template.html",
           controller: 'ArmyCtrl'
       })
-      
+
       .state('ultimate-panther', {
           url: "/ultimate-panther",
           templateUrl: "views/template.html",
