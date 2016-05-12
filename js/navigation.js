@@ -32,7 +32,7 @@ var navigationservice = angular.module('navigationservice', [])
     subnav: [{
         name: "Panther Army",
         classis: "active",
-        link: "panther-army"
+        link: "panther-army",
     },
     {
         name: "Ultimate Panther",

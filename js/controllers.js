@@ -85,6 +85,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       TemplateService.title = $scope.menutitle;
       $scope.navigation = NavigationService.getnav();
     })
+
+    
+
+
     .controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
       //Used to name the .html file
 

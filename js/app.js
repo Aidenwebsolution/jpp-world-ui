@@ -40,6 +40,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
           templateUrl: "views/template.html",
           controller: 'ArmyCtrl'
       })
+      
       .state('ultimate-panther', {
           url: "/ultimate-panther",
           templateUrl: "views/template.html",
