@@ -319,13 +319,52 @@ a {
 }
 }
 .form-group{
-background-color: #438daa;
-  label{
+  min-height: 100px;
+  background-color: rgba(49, 112, 143, 0.71);
+  margin: 0 5px 10px;
+padding: 10px 100px 50px 10px;
+width: 47%;
+  .question{
     display: block;
+    color: #fff;
   }
 }
-.checkbox{
-  margin: 0 15px;
+.section3{
+  .form-control {
+    width: 112%;
+    margin-left: 0;
+    height: 50px;
+    padding: 0;
+}
+}
+.groups{
+  margin: 0 5px 10px;
+}
+.butns{
+  padding: 10px 80px;
+    margin: 0 102px;
+}
+.checkbox-inline {
+   input[type=checkbox] {
+       display: none;
+   }
+   input[type=checkbox]+label span {
+       display: inline-block;
+       width: 15px;
+       height: 15px;
+       margin: -1px 4px 0 0;
+       cursor: pointer;
+       border: 1px solid #438daa;
+       background-color: #438daa;
+   }
+   input[type=checkbox]:checked+label span {
+       background-color: $brand-danger;
+   }
+   label {
+       font-weight: 300;
+       font-size: 16px;
+       color: #fff;
+   }
 }
 .image-boxes{
   display: inline-block;
@@ -2156,6 +2195,7 @@ img.fancybox-image {
   z-index: 1;
 }
 @media (max-width:$screen-xs-max) {
+
   .check-lists {
     @include column-count(2);
   }
@@ -2349,5 +2389,5 @@ a {
     font-size: 13px;
   }
 }
-// @import "mobile";
+@import "mobile";
 // @import "style";
