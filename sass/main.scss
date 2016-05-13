@@ -28,8 +28,8 @@ $facebook: #3d5b97 !default;
 $twitter: #25a8e0 !default;
 $google: #ce3633 !default;
 $pintrest: #cf2228 !default;
-$font-family-sans-serif: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font-family-serif: "Oswald", Georgia, "Times New Roman", Times, serif !default;
+$font-family-sans-serif: "Oswald", "Dreamwalker", Helvetica, Arial, sans-serif !default;
+$font-family-serif: "Oswald", Georgia, "Dreamwalker", Times, serif !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 /* font-family-serif*/
 @font-face {
@@ -48,6 +48,14 @@ $font-family-serif: "Oswald", Georgia, "Times New Roman", Times, serif !default;
   font-family: "Flaticon";
   src: url("flaticon.eot");
   src: url("flaticon.eot#iefix") format("embedded-opentype"), url("../fonts/flaticon.woff") format("woff"), url("../fonts/flaticon.ttf") format("truetype"), url("../fonts/flaticon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dreamwalker";
+  src: url("Dreamwalker.ttf");
+  src: url("Dreamwalker.eot#iefix") format("embedded-opentype"), url("../fonts/Dreamwalker.ttf") format("ttf"), url("../fonts/Dreamwalker.ttf") format("truetype"), url("../fonts/Dreamwalker.svg") format("svg");
+  // src: url("Dreamwalker.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -218,11 +226,21 @@ a {
     }
   }
 }
+
+.bg-blue{
+  box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.35);
+background-color: rgba(49, 112, 143, 0.71);
+    padding: 15px 15px;
+    height: 121px;
+    margin: 10px 0px 0px 0px;
+}
+
 .tabs {
-  padding-top: 12%;
-  margin-left: 15%;
+  padding-top:130px;
+
   .nav-tabs {
     border: none;
+    margin-left: 132px;
     li {
       margin-right: 5px;
       a {
@@ -276,10 +294,7 @@ a {
   border:1px solid $brand-success;
 }
 
-.battle-image{
-  position: relative;
-    right: 6%;
-}
+
 .pager li > a {
     display: inline-block;
     padding: 5px 14px;
@@ -299,23 +314,26 @@ a {
   }
   h2{
     color: #fff;
-    font-family: "Kenyan Coffee";
+    font-family: "Dreamwalker";
     font-weight: 600;
     letter-spacing: 2px;
   }
   p{
     color: #fff;
+    font-weight: 300;
+    letter-spacing: 1px;
   }
 }
+
 .previous :before{
   content: "<";
   color: #fff;
   position: absolute;
- right: 8%;
+ right: 10%;
 }
 .image-boxes{
 .fa-plus:before{
-  color: $pinky;
+  color: #164f66;
 }
 }
 .form-group{
@@ -324,9 +342,16 @@ a {
   margin: 0 5px 10px;
 padding: 10px 100px 50px 10px;
 width: 47%;
+}
+.text-label{
   .question{
+    padding-left: 31px;
+    padding-bottom: 10px;
     display: block;
     color: #fff;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
   }
 }
 .section3{
@@ -336,6 +361,14 @@ width: 47%;
     height: 50px;
     padding: 0;
 }
+}
+.form-controls{
+  width: 76%;
+    margin-left: 15px;
+    height: 50px;
+    padding: 0;
+    background-color:#438daa;
+    border: 1px solid #438daa;
 }
 .groups{
   margin: 0 5px 10px;
@@ -354,11 +387,11 @@ width: 47%;
        height: 15px;
        margin: -1px 4px 0 0;
        cursor: pointer;
-       border: 1px solid #438daa;
-       background-color: #438daa;
+       border: 1px solid #4ecaf5;
+       background-color: #4ecaf5;
    }
    input[type=checkbox]:checked+label span {
-       background-color: $brand-danger;
+       background-color: $brand-primary;
    }
    label {
        font-weight: 300;
@@ -372,7 +405,13 @@ width: 47%;
   padding: 30px 40px;
   margin: 0 10px;
 }
-
+.text-lable{
+  .butns{
+padding: 10px 125px;
+margin: 20px 100px 0;
+border-radius: 0;
+}
+}
 .form-control {
     display: block;
     width: 60%;
@@ -469,6 +508,12 @@ nav {
 }
 .margin0 {
   margin: 0;
+}
+.bx{
+  box-shadow:none;
+}
+.transparent{
+  background-color: transparent!important;
 }
 .navbar-default {
   background-color: $brand-primary;
@@ -825,6 +870,12 @@ nav {
 }
 .mb200 {
   margin-bottom: 200px;
+}
+.mr10{
+  margin-right: 10px;
+}
+.ml10{
+  margin-left: 10px;
 }
 .player-image {
   height: 300px;
