@@ -29,7 +29,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     console.log("Testing Consoles");
 
     $scope.template = TemplateService.changecontent("jpp-tv");
-    $scope.menutitle = NavigationService.makeactive("JPP'TV'");
+    $scope.menutitle = NavigationService.makeactive("JPP 'TV'");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
@@ -131,16 +131,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       TemplateService.title = $scope.menutitle;
       $scope.navigation = NavigationService.getnav();
     })
-    .controller('AuctionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-      //Used to name the .html file
-
-      console.log("Testing Consoles");
-
-      $scope.template = TemplateService.changecontent("auction");
-      $scope.menutitle = NavigationService.makeactive("#AuctionWithAbhishek");
-      TemplateService.title = $scope.menutitle;
-      $scope.navigation = NavigationService.getnav();
-    })
+    // .controller('AuctionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //   //Used to name the .html file
+    //
+    //   console.log("Testing Consoles");
+    //
+    //   $scope.template = TemplateService.changecontent("auction");
+    //   $scope.menutitle = NavigationService.makeactive("#AuctionWithAbhishek");
+    //   TemplateService.title = $scope.menutitle;
+    //   $scope.navigation = NavigationService.getnav();
+    // })
     .controller('SurveyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
       //Used to name the .html file
 

@@ -20,7 +20,7 @@ var navigationservice = angular.module('navigationservice', [])
   },
 
    {
-    name: "JPP'TV'",
+    name: "JPP 'TV'",
     anchor: "jpp-tv",
     classis: "active",
     subnav:[]
@@ -38,11 +38,12 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/ultimate-panther"
     },
-    {
-        name: "#AuctionWithAbhishek",
-        classis: "active",
-        link: "#/auction"
-    }, {
+    // {
+    //     name: "#AuctionWithAbhishek",
+    //     classis: "active",
+    //     link: "#/auction"
+    // },
+     {
         name: "#JPP Survey",
         classis: "active",
         link: "#/jpp-survey"

@@ -261,7 +261,15 @@ background-color: rgba(49, 112, 143, 0.71);
   }
 }
 
-
+.section1{
+  position: relative;
+}
+.panther-army{
+  position: absolute;
+  top: 30%;
+  left: 21%;
+  transform: translate(-50%,-50%);
+}
 
 .section2,
 .section3{
@@ -317,7 +325,7 @@ background-color: rgba(49, 112, 143, 0.71);
   h2{
     color: #fff;
     font-family: "Dreamwalker";
-    font-weight: 600;
+    // font-weight: 600;
     letter-spacing: 2px;
   }
   p{
@@ -326,12 +334,15 @@ background-color: rgba(49, 112, 143, 0.71);
     letter-spacing: 1px;
   }
 }
-
+.previous{
+  position: relative;
+}
 .previous :before{
   content: "<";
   color: #fff;
   position: absolute;
- right: 10%;
+  left: 4px;
+  top:5px;
 }
 .image-boxes{
 .fa-plus:before{
@@ -379,11 +390,11 @@ width: 47%;
   padding: 10px 80px;
     margin: 0 102px;
 }
-.checkbox-inline {
-   input[type=checkbox] {
-       display: none;
+.radio-inline {
+   input[type=radio] {
+      //  display: none;
    }
-   input[type=checkbox]+label span {
+   input[type=radio]+label span {
        display: inline-block;
        width: 15px;
        height: 15px;
@@ -392,7 +403,7 @@ width: 47%;
        border: 1px solid #4ecaf5;
        background-color: #4ecaf5;
    }
-   input[type=checkbox]:checked+label span {
+   input[type=radio]:checked+label span {
        background-color: $brand-primary;
    }
    label {
@@ -592,6 +603,7 @@ nav {
 }
 .banner-title {
   border-bottom: 4px solid $brand-success;
+  border-top: 4px solid $brand-success;
   position: relative;
   margin-top: 70px;
   img {

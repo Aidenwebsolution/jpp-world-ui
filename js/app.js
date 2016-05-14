@@ -46,11 +46,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
           templateUrl: "views/template.html",
           controller: 'UltimateCtrl'
       })
-      .state('auction', {
-          url: "/auction",
-          templateUrl: "views/template.html",
-          controller: 'AuctionCtrl'
-      })
+      // .state('auction', {
+      //     url: "/auction",
+      //     templateUrl: "views/template.html",
+      //     controller: 'AuctionCtrl'
+      // })
       .state('jpp-survey', {
           url: "/jpp-survey",
           templateUrl: "views/template.html",
