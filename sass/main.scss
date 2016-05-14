@@ -107,6 +107,35 @@ $font-family-serif: "Oswald", Georgia, "Dreamwalker", Times, serif !default;
   @include flex(1);
   position: relative;
 }
+.custom-checkbox {
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"] + label {
+    font-size: 18px;
+    padding-left: 10px;
+    color: #fff;
+    font-weight: 300;
+  }
+  input[type="checkbox"] + label span {
+    display: inline-block;
+    @include square(20px);
+    margin: -2px 15px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #299ed3;
+  }
+  input[type="checkbox"] + label span {
+    background-color: transparent;
+  }
+  input[type="checkbox"]:checked + label span {
+    background-color: #299ed3;
+  }
+  input[type="checkbox"] + label span,
+  input[type="checkbox"]:checked + label span {
+    @include transition(background-color 0.4s linear);
+  }
+}
 body {
   padding-top: 0;
   font-family: $font-family-sans-serif;
@@ -249,17 +278,14 @@ background-color: rgba(49, 112, 143, 0.71);
         background-color: $brand-success;
         border-radius: 0;
         padding: 14px 60px;
+        &:hover {
+          border-color: $brand-success;
+        }
       }
     }
   }
 }
-.nav-tabs{
-  li{
-    a:hover{
-      border:none;
-    }
-  }
-}
+
 
 .section1{
   position: relative;
@@ -478,7 +504,7 @@ border-radius: 0;
 .nav-tabs > li.active > a:hover {
   color: #fff;
   background-color: $pinky;
-  border: none;
+  border-color: $pinky;
 }
 
 .bg{
