@@ -3,239 +3,239 @@
     <div class="row">
 
 
-    <div class="tabs">
-      <uib-tabset>
-        <uib-tab index="0">
-          <uib-tab-heading class="uppercase-text">Auction With Abhishek</uib-tab-heading>
-        </uib-tab>
-        <uib-tab index="1">
-          <uib-tab-heading  class="uppercase-text">Panther Army</uib-tab-heading>
-          <div class="battle-image section1">
-            <a href=""><img src="img/home/battle.jpg" alt="" class="img-responsive"></a>
-          </div>
-          <div class="battle-image section2">
-            <form action="">
-              <label class="text-center text-bold title" for="name">First up,let's give your army a name</label>
-              <input type="text" class="form-control" id="name">
-              <div class="add-friend text-center">
-                <label class="text-center text-bold title">Add upto 4 friends to your army</label>
-                <div class="image-box">
-                  <a href="">
-                    <div class="image-boxes">
-                      <p><i class="fa fa-plus fa-2x" aria-hidden="true"></i></p>
+      <div class="tabs">
+        <uib-tabset>
+          <!-- <uib-tab index="0">
+            <uib-tab-heading class="uppercase-text">Auction With Abhishek</uib-tab-heading>
+          </uib-tab> -->
+          <uib-tab index="0">
+            <uib-tab-heading class="uppercase-text">Panther Army</uib-tab-heading>
+            <div class="battle-image section1" ng-show="pageShow==1" ng-click="goToPage(2)">
+              <a href=""><img src="img/home/battle.jpg" alt=""  class="img-responsive"></a>
+            </div>
+            <div  class="battle-image section2" ng-show="pageShow==2">
+              <form action="">
+                <label class="text-center text-bold title" for="name">First up,let's give your army a name</label>
+                <input type="text" class="form-control" id="name">
+                <div class="add-friend text-center">
+                  <label class="text-center text-bold title">Add upto 4 friends to your army</label>
+                  <div class="image-box">
+                    <a href="">
+                      <div class="image-boxes">
+                        <p><i class="fa fa-plus fa-2x" aria-hidden="true"></i></p>
+                      </div>
+                    </a>
+                    <a href="">
+                      <div class="image-boxes">
+                        <p><i class="fa fa-plus fa-2x" aria-hidden="true"></i></p>
+                      </div>
+                    </a>
+                    <a href="">
+                      <div class="image-boxes">
+                        <p><i class="fa fa-plus fa-2x" aria-hidden="true"></i></p>
+                      </div>
+                    </a>
+                    <a href="">
+                      <div class="image-boxes">
+                        <p><i class="fa fa-plus fa-2x" aria-hidden="true"></i></p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <button class="btn butns uppercase-text" ng-click="goToPage(3)">Submit</button>
+              </form>
+              <ul class="pager">
+                <li class="previous pull-right"><a ng-click="goToPage(1)" class="uppercase-text" >Previous</a></li>
+              </ul>
+            </div>
+            <div class="battle-image section3" ng-show="pageShow==3">
+              <div class="info-form text-bold">
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <h3 class="text-capitalize">level 1</h3>
+                    <h2 class="uppercase-text text-bold">conquer all frontiers</h2>
+                    <p>Here's the first challenge.Answer all the questions below correctly to move to the next level.</p>
+                  </div>
+                </div>
+                <div class="row margin0">
+                  <div class="col-md-6">
+                    <div class="bg-blue ml10">
+                      <div class="row">
+                        <div class="text-label">
+                          <label class="question">Our biggest win margin in all the 3 seasons </label>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="28" value="28">
+                              <label for="28"><span></span>28</label>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="32" value="32">
+                              <label for="32"><span></span>32</label>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="30" value="30">
+                              <label for="30"><span></span>30</label>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="20" value="20">
+                              <label for="20"><span></span>20</label>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </a>
-                  <a href="">
-                    <div class="image-boxes">
-                      <p><i class="fa fa-plus fa-2x" aria-hidden="true"></i></p>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="bg-blue mr10">
+                      <div class="row">
+                        <div class="text-label">
+                          <label class="question">Name the Panther who scored the maximum points in season 2</label>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="Rajesh Narwal" value="Rajesh Narwal">
+                              <label for="Rajesh Narwal"><span></span>Rajesh Narwal</label>
+                            </label>
+                          </div>
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="Kuldeep Singh" value="Kuldeep Singh">
+                              <label for="Kuldeep Singh"><span></span>Kuldeep Singh</label>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="Jasveer Singh" value="Jasveer Singh">
+                              <label for="Jasveer Singh"><span></span>Jasveer Singh</label>
+                            </label>
+                          </div>
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="Ran Singh" value="Ran Singh">
+                              <label for="Ran Singh"><span></span>Ran Singh</label>
+                            </label>
+                          </div>
+
+                        </div>
+                      </div>
                     </div>
-                  </a>
-                  <a href="">
-                    <div class="image-boxes">
-                      <p><i class="fa fa-plus fa-2x" aria-hidden="true"></i></p>
+                  </div>
+                </div>
+                <div class="row margin0">
+                  <div class="col-md-6">
+                    <div class="bg-blue ml10">
+                      <div class="row">
+                        <div class="text-label">
+                          <label class="question">Total number of Super Tackles made by the Panthers in PKL </label>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="51" value="51">
+                              <label for="51"><span></span>51</label>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="52" value="52">
+                              <label for="52"><span></span>52</label>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="43" value="43">
+                              <label for="43"><span></span>43</label>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="check-label">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="46" value="46">
+                              <label for="46"><span></span>46</label>
+                            </label>
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-3"></div> -->
+                      </div>
                     </div>
-                  </a>
-                  <a href="">
-                    <div class="image-boxes">
-                      <p><i class="fa fa-plus fa-2x" aria-hidden="true"></i></p>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="bg-blue mr10">
+                      <div class="row">
+                        <div class="text-label">
+                          <label class="question" for="defining">Which was,according to you,the defining moment of season 3 </label>
+                        </div>
+                        <div class="row margin0">
+                          <div class="col-md-12">
+                            <input type="text" class="form-controls" name="defining" id="defining">
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </a>
+                  </div>
+                </div>
+                <div class="row margin0">
+                  <div class="col-md-6">
+                    <div class="bg-blue ml10">
+                      <div class="row">
+                        <div class="text-label">
+                          <label class="question" for="stratergy">What do you think should be our stratergy for season4 </label>
+                        </div>
+                        <div class="row margin0">
+                          <div class="col-md-12">
+                            <input type="text" class="form-controls" name="stratergy" id="stratergy">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="bg-blue mr10 transparent bx">
+                      <div class="row">
+                        <div class="text-lable ">
+                          <button type="submit" class="btn butns uppercase-text">Submit</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <button type="submit" class="btn butns uppercase-text">Submit</button>
-            </form>
-            <ul class="pager">
-              <li class="previous pull-right"><a href="#" class="uppercase-text">Previous</a></li>
-            </ul>
-          </div>
-          <div class="battle-image section3">
-            <div class="info-form text-bold">
-              <div class="row">
-                <div class="col-md-12 text-center">
-              <h3 class="text-capitalize">level 1</h3>
-              <h2 class="uppercase-text text-bold">conquer all frontiers</h2>
-              <p>Here's the first challenge.Answer all the questions below correctly to move to the next level.</p>
-              </div>
-              </div>
-<div class="row margin0">
-  <div class="col-md-6">
-    <div class="bg-blue ml10">
-      <div class="row">
-        <div class="text-label">
-          <label class="question">Our biggest win margin in all the 3 seasons </label>
-        </div>
-        <div class="col-md-3">
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="28" value="28">
-              <label for="28"><span></span>28</label>
-            </label>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="32" value="32">
-              <label for="32"><span></span>32</label>
-            </label>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="30" value="30">
-              <label for="30"><span></span>30</label>
-            </label>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="20" value="20">
-              <label for="20"><span></span>20</label>
-            </label>
-          </div>
-        </div>
+              <ul class="pager">
+                <li class="previous pull-right"><a ng-click="goToPage(2)" class="uppercase-text">Previous</a></li>
+              </ul>
+            </div>
+          </uib-tab>
+          <uib-tab index="1">
+            <uib-tab-heading class="uppercase-text">Ultimate Panther</uib-tab-heading>
+          </uib-tab>
+          <uib-tab index="2">
+            <uib-tab-heading class="uppercase-text">Panther Quiz</uib-tab-heading>
+          </uib-tab>
+        </uib-tabset>
       </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="bg-blue mr10">
-      <div class="row">
-        <div class="text-label">
-          <label class="question">Name the Panther who scored the maximum points in season 2</label>
-        </div>
-        <div class="col-md-4">
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="Rajesh Narwal" value="Rajesh Narwal">
-              <label for="Rajesh Narwal"><span></span>Rajesh Narwal</label>
-            </label>
-          </div>
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="Kuldeep Singh" value="Kuldeep Singh">
-              <label for="Kuldeep Singh"><span></span>Kuldeep Singh</label>
-            </label>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="Jasveer Singh" value="Jasveer Singh">
-              <label for="Jasveer Singh"><span></span>Jasveer Singh</label>
-            </label>
-          </div>
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="Ran Singh" value="Ran Singh">
-              <label for="Ran Singh"><span></span>Ran Singh</label>
-            </label>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row margin0">
-  <div class="col-md-6">
-    <div class="bg-blue ml10">
-      <div class="row">
-        <div class="text-label">
-          <label class="question">Total number of Super Tackles made by the Panthers in PKL  </label>
-        </div>
-        <div class="col-md-3">
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="51" value="51">
-              <label for="51"><span></span>51</label>
-            </label>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="52" value="52">
-              <label for="52"><span></span>52</label>
-            </label>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="43" value="43">
-              <label for="43"><span></span>43</label>
-            </label>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="check-label">
-            <label class="checkbox-inline">
-              <input type="checkbox"  id="46" value="46">
-              <label for="46"><span></span>46</label>
-            </label>
-          </div>
-        </div>
-        <!-- <div class="col-md-3"></div> -->
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="bg-blue mr10">
-      <div class="row">
-        <div class="text-label">
-          <label class="question" for="defining">Which was,according to you,the defining moment of season 3 </label>
-        </div>
-<div class="row margin0">
-  <div class="col-md-12">
-    <input type="text" class="form-controls" name="defining" id="defining">
-  </div>
-</div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row margin0">
-  <div class="col-md-6">
-    <div class="bg-blue ml10">
-      <div class="row">
-        <div class="text-label">
-          <label class="question" for="stratergy">What do you think should be our stratergy for season4 </label>
-        </div>
-        <div class="row margin0">
-          <div class="col-md-12">
-            <input type="text" class="form-controls" name="stratergy" id="stratergy">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="bg-blue mr10 transparent bx">
-      <div class="row">
-        <div class="text-lable ">
-          <button type="submit" class="btn butns uppercase-text">Submit</button>
-        </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-            <ul class="pager">
-              <li class="previous pull-right"><a href="#" class="uppercase-text">Previous</a></li>
-            </ul>
-          </div>
-        </uib-tab>
-        <uib-tab index="2">
-          <uib-tab-heading  class="uppercase-text">Ultimate Panther</uib-tab-heading>
-        </uib-tab>
-        <uib-tab index="3">
-          <uib-tab-heading  class="uppercase-text">Panther Quiz</uib-tab-heading>
-        </uib-tab>
-      </uib-tabset>
-    </div>
     </div>
   </div>
 </div>

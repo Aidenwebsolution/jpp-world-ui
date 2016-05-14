@@ -8,7 +8,7 @@
 @import "../bower_components/fancyBox/source/jquery.fancybox.css";
 @import "../bower_components/fancyBox/source/helpers/jquery.fancybox-thumbs.css";
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
-@import "../bower_components/angular-loading-bar/src/loading-bar.css";
+// @import "../bower_components/angular-loading-bar/src/loading-bar.css";
 //@import "../css/boutique.css";
 /* Bootstrap Variables Goes Here */
 $brand-primary: #b41e72 !default;
@@ -240,8 +240,10 @@ background-color: rgba(49, 112, 143, 0.71);
 
   .nav-tabs {
     border: none;
-    margin-left: 132px;
+    text-align: center;
     li {
+      float: none;
+      display:inline-block;
       margin-right: 5px;
       a {
         background-color: $brand-success;
@@ -264,7 +266,7 @@ background-color: rgba(49, 112, 143, 0.71);
 .section2,
 .section3{
   padding: 40px 0 80px 0;
-  background-image: (url("/img/home/bg.jpg"));
+  background-image: (url("../img/home/bg.jpg"));
 }
 .section2{
 .title{
@@ -441,7 +443,7 @@ border-radius: 0;
 }
 
 .bg{
-  background-image: (url("/img/home/background.jpg"));
+  background-image: (url("../img/home/background.jpg"));
 }
 
 nav {
@@ -2439,6 +2441,9 @@ a {
   span {
     font-size: 13px;
   }
+}
+.margin0top{
+  margin-top: 0;
 }
 @import "mobile";
 // @import "style";

@@ -20,6 +20,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("HOME1");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  TemplateService.header="";
 })
 
   .controller('JPPTVCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -35,13 +36,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     .controller('DenCtrl', function($scope, TemplateService, NavigationService, $timeout) {
       //Used to name the .html file
-
-      console.log("Testing Consoles");
-
       $scope.template = TemplateService.changecontent("panthers-den");
       $scope.menutitle = NavigationService.makeactive("THE PANTHER DEN");
       TemplateService.title = $scope.menutitle;
       $scope.navigation = NavigationService.getnav();
+
+
     })
 
     .controller('GamesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -91,13 +91,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     .controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
       //Used to name the .html file
+      $scope.pageShow = 1;
+      $scope.goToPage = function(page) {
+        $scope.pageShow = page;
+      };
+
 
       console.log("Testing Consoles");
-
+      $scope.registershow=true;
+      console.log("Testing Consoles");
+      $scope.toggleForms= function(choice){
+        $scope.registershow=false;
+        $scope.friendsshow=false;
+        $scope.challengeshow=false;
+        if(choice == 'register'){
+          $scope.registershow=true
+        }else if(choice == 'friends'){
+          $scope.friendsshow=true;
+        }else{
+          $scope.challengeshow=true;
+        }
+      }
       $scope.template = TemplateService.changecontent("panther-army");
       $scope.menutitle = NavigationService.makeactive("Panther Army");
       TemplateService.title = $scope.menutitle;
       $scope.navigation = NavigationService.getnav();
+
+      // $scope.section1 = true;
+      // $scope.section2 = false;
+      // $scope.section3 = false;
     })
     .controller('UltimateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
       //Used to name the .html file
