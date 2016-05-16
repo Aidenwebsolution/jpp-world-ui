@@ -520,6 +520,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
   }
   .image-boxes {
     padding: 25px 35px;
+    margin: 10px;
   }
 }
 @media (max-width: $screen-lg) {
