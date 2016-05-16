@@ -519,7 +519,6 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     padding: 10px 15px;
   }
   .image-boxes {
-    padding: 25px 35px;
     margin: 10px;
   }
 }
@@ -1325,9 +1324,6 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
   }
 }
 @media (max-width: 480px) {
-  .image-boxes {
-    margin: 7px 25px;
-  }
   .tabs .nav-tabs li {
     padding: 0;
     margin: 0;
