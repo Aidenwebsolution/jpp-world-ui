@@ -96,7 +96,7 @@ $font-family-serif: "Oswald", Georgia, "Dreamwalker", Times, serif !default;
   text-shadow: $negwidth+px $negwidth+px 0 $color, $width+px $negwidth+px 0 $color, $negwidth+px $width+px 0 $color, $width+px $width+px 0 $color;
 }
 @mixin skew ($x, $y) {
-   @include transform(skew(#{$x}deg, #{$y}deg));
+  @include transform(skew(#{$x}deg, #{$y}deg));
 }
 .row-flex {
   @include display(flex);
@@ -467,8 +467,8 @@ a {
   i,
   img {
     @include position(absolute,50% null null 50%);
-    @include transform(translate(-50%,-50%));
-  }
+    @include transform(translate(-50%,-50%)); 
+}
 }
 .text-lable {
   .butns {
@@ -2162,7 +2162,7 @@ img.fancybox-image {
 }
 .modal-backdrop.in {
   opacity: 0.8;
-  filter: alpha(opacity=80);
+  filter:alpha(opacity=80);
 }
 .news-logo {
   display: inline-block;
