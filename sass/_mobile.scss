@@ -1,8 +1,7 @@
 $screen-xs: 480px !default;
 $screen-sm: 767px !default;
 $screen-md: 991px !default;
-$screen-lg: 1200px !default;
-// @media only screen and (min-device-width: 1200px) and (max-device-width: 1500px){
+$screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px) and (max-device-width: 1500px){
 // .fixture-match{
 //   zoom:0.7;
 // }
@@ -441,8 +440,8 @@ $screen-lg: 1200px !default;
       // a {
       //   padding: 16px 4px !important;
       // }
-      &:hover,
-      &.active {
+      &.active,
+      &:hover {
         a {
           a.menu-custom {
             &:before {
@@ -516,11 +515,17 @@ $screen-lg: 1200px !default;
       zoom: 0.6;
     }
   }
-  .tabs .nav-tabs li a { padding: 10px 15px; }
-  .image-boxes { padding: 25px 35px; }
+  .tabs .nav-tabs li a {
+    padding: 10px 15px;
+  }
+  .image-boxes {
+    padding: 25px 35px;
+  }
 }
 @media (max-width: $screen-lg) {
-  .section2 .btn {  margin: 0 auto;}
+  .section2 .btn {
+    margin: 0 auto;
+  }
   .fixture {
     .fixtures-done {
       .fixture-match {
@@ -563,6 +568,19 @@ $screen-lg: 1200px !default;
 @media (max-width: $screen-xs-max) {
   .gallery-tab ul li {
     border-right: 0;
+  }
+  .social-icons a .fa {
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    font-size: 26px;
+  }
+  .banner-text p {
+    margin: 5px;
+  }
+  .bg-blue {
+    min-height: auto;
+    height: auto;
   }
   .match-center+.btn-sucess {
     display: block;
@@ -629,9 +647,9 @@ $screen-lg: 1200px !default;
       padding-right: 0 !important;
       margin: 0 !important;
       a.menu-custom {
-        &:before,
         &.active,
-        &:after {
+        &:after,
+        &:before {
           width: 0 !important;
           display: none;
         }
@@ -654,8 +672,8 @@ $screen-lg: 1200px !default;
   .navbar-nav {
     margin: 7.5px 0;
   }
-  .navbar-collapse,
-  .navbar .col-md-10 {
+  .navbar .col-md-10,
+  .navbar-collapse {
     padding: 0;
   }
   //end menu
@@ -802,8 +820,15 @@ $screen-lg: 1200px !default;
     text-align: center;
     margin-top: 10px;
   }
+  .fight-text h4 {
+    font-size: 20px;
+  }
   .news-logo {
     zoom: 0.6;
+  }
+  .img-up {
+    width: 480px;
+    margin: 0 auto;
   }
 }
 @media (max-width: 480px) {
@@ -1051,8 +1076,8 @@ $screen-lg: 1200px !default;
   }
 }
 @media (max-width: 992px) {
-  .mobile-font-h1,
-  .gallery-tab ul li h1 {
+  .gallery-tab ul li h1,
+  .mobile-font-h1 {
     font-size: 24px;
   }
   .fixture .panel-title .schedule {
@@ -1171,13 +1196,44 @@ $screen-lg: 1200px !default;
     margin: 10px 0;
   }
   .info-form {
-    .margin0 { margin: 0 -15px; }
+    .margin0 {
+      margin: 0 -15px;
+    }
   }
-  .text-lable .butns { margin: 0 auto; }
+  .text-lable .butns {
+    margin: 0 auto;
+  }
 }
 @media (max-width: 580px) {
   .contain-fixtures {
     width: auto;
+  }
+  .gradient-bar2 {
+    padding: 5px 0;
+  }
+  .social-icons a {
+    margin: 0 4px;
+  }
+  .banner-text {
+    width: 60%;
+}
+  .social-icons a .fa {
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    font-size: 18px;
+  }
+  .social-icons .head {
+    font-size: 16px;
+  }
+  .img-up {
+    width: 300px;
+  }
+  .fight-text h4 {
+    font-size: 18px;
+  }
+  .up span {
+    font-size: 14px;
   }
   .min-w.ng-scope {
     overflow: auto;
@@ -1277,6 +1333,23 @@ $screen-lg: 1200px !default;
     a {
       padding: 10px 8px;
       font-size: 12px;
+    }
+  }
+  .battle-image .no-imgmobile {
+    display: none;
+  }
+  .img-up {
+    margin-top: 25px;
+  }
+  .panther-army {
+    position: static;
+    transform: translate(0);
+    padding: 0 10px;
+    .row {
+      margin: 0 -10px;
+    }
+    .butns {
+      margin: 10px 0;
     }
   }
 }
