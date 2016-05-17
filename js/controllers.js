@@ -1,5 +1,16 @@
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap','ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
+.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+
+  console.log("Testing Consoles");
+
+  $scope.template = TemplateService.changecontent("home1");
+  $scope.menutitle = NavigationService.makeactive("HOME");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+})
+
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
 
@@ -7,17 +18,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   $scope.template = TemplateService.changecontent("home");
   $scope.menutitle = NavigationService.makeactive("HOME");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-})
-
-.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-
-  console.log("Testing Consoles");
-
-  $scope.template = TemplateService.changecontent("home1");
-  $scope.menutitle = NavigationService.makeactive("HOME1");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
   TemplateService.header="";
