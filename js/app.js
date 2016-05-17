@@ -12,14 +12,14 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
   $httpProvider.defaults.withCredentials = true;
 
       $stateProvider
-          .state('home1', {
-              url: "/home1",
+          .state('home', {
+              url: "/home",
               templateUrl: "views/template.html",
               controller: 'Home1Ctrl'
           })
 
-          .state('home', {
-              url: "/home",
+          .state('home1', {
+              url: "/home1",
               templateUrl: "views/template.html",
               controller: 'HomeCtrl'
           })

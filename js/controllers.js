@@ -1,4 +1,4 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap','ngAnimate', 'ngSanitize', 'angular-flexslider'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
 .controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
@@ -9,6 +9,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("HOME");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  TemplateService.header = "";
 })
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -20,144 +21,164 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("HOME");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  TemplateService.header="";
 })
 
-  .controller('JPPTVCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('JPPTVCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+
+  console.log("Testing Consoles");
+
+  $scope.template = TemplateService.changecontent("jpp-tv");
+  $scope.menutitle = NavigationService.makeactive("JPP 'TV'");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+})
+
+.controller('DenCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("panthers-den");
+  $scope.menutitle = NavigationService.makeactive("THE PANTHER DEN");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+
+
+})
+
+.controller('GamesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("jpp-tv");
-    $scope.menutitle = NavigationService.makeactive("JPP 'TV'");
+    $scope.template = TemplateService.changecontent("games");
+    $scope.menutitle = NavigationService.makeactive("GAMES");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
+  .controller('NewsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("news-updates");
+    $scope.menutitle = NavigationService.makeactive("NEWS & UPDATES");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
 
-    .controller('DenCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-      //Used to name the .html file
-      $scope.template = TemplateService.changecontent("panthers-den");
-      $scope.menutitle = NavigationService.makeactive("THE PANTHER DEN");
-      TemplateService.title = $scope.menutitle;
-      $scope.navigation = NavigationService.getnav();
+.controller('GalleryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
 
+    console.log("Testing Consoles");
 
-    })
+    $scope.template = TemplateService.changecontent("gallery");
+    $scope.menutitle = NavigationService.makeactive("GALLERY");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
 
-    .controller('GamesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-      //Used to name the .html file
+  })
+  .controller('RoomCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
 
-      console.log("Testing Consoles");
+    console.log("Testing Consoles");
 
-      $scope.template = TemplateService.changecontent("games");
-      $scope.menutitle = NavigationService.makeactive("GAMES");
-      TemplateService.title = $scope.menutitle;
-      $scope.navigation = NavigationService.getnav();
-    })
-    .controller('NewsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-      //Used to name the .html file
-
-      console.log("Testing Consoles");
-
-      $scope.template = TemplateService.changecontent("news-updates");
-      $scope.menutitle = NavigationService.makeactive("NEWS & UPDATES");
-      TemplateService.title = $scope.menutitle;
-      $scope.navigation = NavigationService.getnav();
-    })
-
-    .controller('GalleryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-      //Used to name the .html file
-
-      console.log("Testing Consoles");
-
-      $scope.template = TemplateService.changecontent("gallery");
-      $scope.menutitle = NavigationService.makeactive("GALLERY");
-      TemplateService.title = $scope.menutitle;
-      $scope.navigation = NavigationService.getnav();
-    })
-    .controller('RoomCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-      //Used to name the .html file
-
-      console.log("Testing Consoles");
-
-      $scope.template = TemplateService.changecontent("panther-room");
-      $scope.menutitle = NavigationService.makeactive("PANTHER ROOM");
-      TemplateService.title = $scope.menutitle;
-      $scope.navigation = NavigationService.getnav();
-    })
+    $scope.template = TemplateService.changecontent("panther-room");
+    $scope.menutitle = NavigationService.makeactive("PANTHER ROOM");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
 
 
 
 
-    .controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-      //Used to name the .html file
-      $scope.pageShow = 1;
-      $scope.goToPage = function(page) {
-        $scope.pageShow = page;
-      };
+.controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+    //Used to name the .html file
+    $scope.pageShow = 1;
+    $scope.goToPage = function(page) {
+      $scope.pageShow = page;
+    };
 
 
-      console.log("Testing Consoles");
-      $scope.registershow=true;
-      console.log("Testing Consoles");
-      $scope.toggleForms= function(choice){
-        $scope.registershow=false;
-        $scope.friendsshow=false;
-        $scope.challengeshow=false;
-        if(choice == 'register'){
-          $scope.registershow=true
-        }else if(choice == 'friends'){
-          $scope.friendsshow=true;
-        }else{
-          $scope.challengeshow=true;
-        }
+    console.log("Testing Consoles");
+    $scope.registershow = true;
+    console.log("Testing Consoles");
+    $scope.toggleForms = function(choice) {
+      $scope.registershow = false;
+      $scope.friendsshow = false;
+      $scope.challengeshow = false;
+      if (choice == 'register') {
+        $scope.registershow = true
+      } else if (choice == 'friends') {
+        $scope.friendsshow = true;
+      } else {
+        $scope.challengeshow = true;
       }
-      $scope.template = TemplateService.changecontent("panther-army");
-      $scope.menutitle = NavigationService.makeactive("Panther Army");
-      TemplateService.title = $scope.menutitle;
-      $scope.navigation = NavigationService.getnav();
+    }
+    $scope.template = TemplateService.changecontent("panther-army");
+    $scope.menutitle = NavigationService.makeactive("Panther Army");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
 
-      // $scope.section1 = true;
-      // $scope.section2 = false;
-      // $scope.section3 = false;
-    })
-    .controller('UltimateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-      //Used to name the .html file
+    // $scope.section1 = true;
+    // $scope.section2 = false;
+    // $scope.section3 = false;
+    $scope.openfrnds = function() {
+      $uibModal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: 'views/content/select-army.html',
+        controller: 'ArmyCtrl',
+      });
+    };
+    $scope.frnds = [{
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, {
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, {
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, {
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, ]
+  })
+  .controller('UltimateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
 
-      console.log("Testing Consoles");
+    console.log("Testing Consoles");
 
-      $scope.template = TemplateService.changecontent("ultimate-panther");
-      $scope.menutitle = NavigationService.makeactive("Ultimate Panther");
-      TemplateService.title = $scope.menutitle;
-      $scope.navigation = NavigationService.getnav();
-    })
-    // .controller('AuctionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //   //Used to name the .html file
-    //
-    //   console.log("Testing Consoles");
-    //
-    //   $scope.template = TemplateService.changecontent("auction");
-    //   $scope.menutitle = NavigationService.makeactive("#AuctionWithAbhishek");
-    //   TemplateService.title = $scope.menutitle;
-    //   $scope.navigation = NavigationService.getnav();
-    // })
-    .controller('SurveyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-      //Used to name the .html file
+    $scope.template = TemplateService.changecontent("ultimate-panther");
+    $scope.menutitle = NavigationService.makeactive("Ultimate Panther");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
+  // .controller('AuctionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //   //Used to name the .html file
+  //
+  //   console.log("Testing Consoles");
+  //
+  //   $scope.template = TemplateService.changecontent("auction");
+  //   $scope.menutitle = NavigationService.makeactive("#AuctionWithAbhishek");
+  //   TemplateService.title = $scope.menutitle;
+  //   $scope.navigation = NavigationService.getnav();
+  // })
+  .controller('SurveyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
 
-      console.log("Testing Consoles");
+    console.log("Testing Consoles");
 
-      $scope.template = TemplateService.changecontent("jpp-survey");
-      $scope.menutitle = NavigationService.makeactive("#JPP Survey");
-      TemplateService.title = $scope.menutitle;
-      $scope.navigation = NavigationService.getnav();
-    })
+    $scope.template = TemplateService.changecontent("jpp-survey");
+    $scope.menutitle = NavigationService.makeactive("#JPP Survey");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
 
-  // $scope.mySlides = [
-  //   'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
-  //   'http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg',
-  //   'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
-  //   'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
-  // ];
+// $scope.mySlides = [
+//   'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
+//   'http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg',
+//   'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
+//   'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
+// ];
 
 .controller('headerctrl', function($scope, TemplateService) {
   $scope.template = TemplateService;
@@ -166,28 +187,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   });
 })
 
-.controller('languageCtrl', function($scope, TemplateService,$translate,$rootScope) {
+.controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
 
-    $scope.changeLanguage = function() {
-      console.log("Language CLicked");
+  $scope.changeLanguage = function() {
+    console.log("Language CLicked");
 
-      if(!$.jStorage.get("language")){
+    if (!$.jStorage.get("language")) {
+      $translate.use("hi");
+      $.jStorage.set("language", "hi");
+    } else {
+      if ($.jStorage.get("language") == "en") {
         $translate.use("hi");
-        $.jStorage.set("language","hi");
+        $.jStorage.set("language", "hi");
+      } else {
+        $translate.use("en");
+        $.jStorage.set("language", "en");
       }
-      else {
-        if($.jStorage.get("language") == "en")
-        {
-          $translate.use("hi");
-          $.jStorage.set("language","hi");
-        }
-        else {
-          $translate.use("en");
-          $.jStorage.set("language","en");
-        }
-      }
+    }
     //  $rootScope.$apply();
-    };
+  };
 
 
 })

@@ -353,7 +353,7 @@ a {
 }
 .pager li > a {
   display: inline-block;
-  padding: 5px 14px;
+  padding: 7px 14px;
   background-color: transparent;
   border: none;
   border-radius: 0;
@@ -382,13 +382,18 @@ a {
 }
 .previous {
   position: relative;
-}
-.previous:before {
-  content: "<";
-  color: #fff;
-  position: absolute;
-  left: 4px;
-  top: 5px;
+  &:hover {
+    &:before {
+      color: $brand-primary;
+    }
+  }
+  &:before {
+    content: "<";
+    color: #fff;
+    position: absolute;
+    left: 4px;
+    top: 5px;
+  }
 }
 .image-boxes {
   .fa-plus:before {
@@ -467,8 +472,8 @@ a {
   i,
   img {
     @include position(absolute,50% null null 50%);
-    @include transform(translate(-50%,-50%)); 
-}
+    @include transform(translate(-50%,-50%));
+  }
 }
 .text-lable {
   .butns {
@@ -2498,5 +2503,11 @@ a {
 }
 .panther-army {
   overflow: hidden;
+}
+.frnds ul li {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+  color: #fff;
 }
 @import "mobile"; // @import "style";
