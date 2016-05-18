@@ -1,0 +1,24 @@
+<div>
+  <div class="modal-header">
+    <h4 class="title no-margin text-center">Add upto 6 friends to your army</h4>
+  </div>
+  <div class="modal-body">
+    <div class="frnds">
+      <ul class="list-unstyled">
+        <li ng-repeat="item in frnds">
+          <div class="wrapper-frnds" ng-class="{'checked' : toggle}" ng-click="toggle = !toggle">
+            <div class="image-holder"><img ng-src="{{item.image}}" alt=""></div>
+            <p class="text-center">
+              {{item.name}}
+            </p>
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Add Friends</button>
+    <button class="btn" type="button" ng-click="cancel()">Cancel</button>
+  </div>
+</div>

@@ -124,11 +124,44 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.openfrnds = function() {
       $uibModal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: 'views/content/select-army.html',
+        templateUrl: 'views/modal/select-army.html',
         controller: 'ArmyCtrl',
       });
     };
     $scope.frnds = [{
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, {
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, {
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, {
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    },{
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    },{
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    },{
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    },{
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, {
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, {
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, {
+      image: 'img/Abhi.png',
+      name: 'Abhishek Bachan'
+    }, {
       image: 'img/Abhi.png',
       name: 'Abhishek Bachan'
     }, {
