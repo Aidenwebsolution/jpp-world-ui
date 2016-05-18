@@ -1056,10 +1056,6 @@ hr {
 }
 .btn {
   border-radius: 0;
-  &:hover,
-  &:focus {
-    color: lighten(#000,10%);
-  }
 }
 .btn-primary {
   @extend .btn-pink;
@@ -2555,6 +2551,15 @@ a {
         opacity: 1;
       }
     }
+  }
+}
+.hover-css {
+  &:hover,
+  &:focus,
+  &:active:focus {
+    color: lighten(#000, 10%);
+    background: darken(#DDD, 10%);
+    outline: none;
   }
 }
 .no-margin {

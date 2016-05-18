@@ -844,6 +844,12 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
 @media (max-width: 480px) {
   .frnds ul li {
     width: 44%;
+    .wrapper-frnds p {
+      margin-bottom: 0;
+      height: 20px;
+      overflow: hidden;
+      font-size: 12px;
+    }
   }
   .banner-text {
     top: 85%;

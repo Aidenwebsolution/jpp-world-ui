@@ -128,6 +128,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         controller: 'ArmyCtrl',
       });
     };
+    // $scope.closefrnds = function() {
+    //
+    // };
     $scope.frnds = [{
       image: 'img/Abhi.png',
       name: 'Abhishek Bachan'
@@ -140,16 +143,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }, {
       image: 'img/Abhi.png',
       name: 'Abhishek Bachan'
-    },{
+    }, {
       image: 'img/Abhi.png',
       name: 'Abhishek Bachan'
-    },{
+    }, {
       image: 'img/Abhi.png',
       name: 'Abhishek Bachan'
-    },{
+    }, {
       image: 'img/Abhi.png',
       name: 'Abhishek Bachan'
-    },{
+    }, {
       image: 'img/Abhi.png',
       name: 'Abhishek Bachan'
     }, {
