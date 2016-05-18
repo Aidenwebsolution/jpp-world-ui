@@ -154,6 +154,10 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     margin-top: -10px;
     margin-right: -36px;
   }
+  .img-up {
+    width: 650px;
+    margin: 0 auto;
+  }
   .reg {
     .btn-primary {
       font-size: 12px;
@@ -569,6 +573,9 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
   .gallery-tab ul li {
     border-right: 0;
   }
+  .frnds ul li {
+    width: 30%;
+  }
   .social-icons a .fa {
     height: 35px;
     width: 35px;
@@ -830,11 +837,14 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     width: 480px;
     margin: 0 auto;
   }
+  .modal-dialog {
+    width: 80%;
+  }
 }
 @media (max-width: 480px) {
-  // .news-logo {
-  // zoom:0.5;
-  // }
+  .frnds ul li {
+    width: 44%;
+  }
   .banner-text {
     top: 85%;
     p {
@@ -1216,7 +1226,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
   }
   .banner-text {
     width: 60%;
-}
+  }
   .social-icons a .fa {
     height: 25px;
     width: 25px;

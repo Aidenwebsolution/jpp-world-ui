@@ -1056,7 +1056,10 @@ hr {
 }
 .btn {
   border-radius: 0;
-  :
+  &:hover,
+  &:focus {
+    color: lighten(#000,10%);
+  }
 }
 .btn-primary {
   @extend .btn-pink;
@@ -1663,7 +1666,7 @@ img.fancybox-image {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%)!important;
+  @include transform(translate(-50%,-50%)!important);
 }
 .modal-content {
   border-radius: 0;
