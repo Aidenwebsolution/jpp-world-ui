@@ -39,7 +39,7 @@
             <div class="battle-image section2" ng-show="pageShow==2">
               <form action="">
                 <label class="text-center text-bold title" for="name">First up,let's give your army a name</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" id="name" ng-model="register.armyName">
                 <div class="add-friend text-center">
                   <label class="text-center text-bold title">Add upto 6 friends to your army</label>
                   <div class="image-box">
@@ -107,7 +107,7 @@
                           <div class="col-md-3">
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="1" name="season">
+                                <input type="radio" id="1" name="season" ng-model="option.question1option" value="28">
                                 <label for="1"><span></span>28</label>
                               </div>
                             </div>
@@ -115,24 +115,24 @@
                           <div class="col-md-3">
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="2" name="season">
-                                <label for="2"><span></span>28</label>
+                                <input type="radio" id="2" ng-model="option.question1option" name="season" value="32">
+                                <label for="2"><span></span>32</label>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="3" name="season">
-                                <label for="3"><span></span>28</label>
+                                <input type="radio" id="3" ng-model="option.question1option" name="season" value="30">
+                                <label for="3"><span></span>30</label>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="4" name="season">
-                                <label for="4"><span></span>28</label>
+                                <input type="radio" id="4" ng-model="option.question1option" name="season" value="20">
+                                <label for="4"><span></span>20</label>
                               </div>
                             </div>
                           </div>
@@ -148,28 +148,28 @@
                           <div class="col-md-4">
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="5" name="points">
-                                <label for="5"><span></span>28</label>
+                                <input type="radio" id="5" name="points" ng-model="option.question2option" value="Rajesh Narwal">
+                                <label for="5"><span></span>Rajesh Narwal</label>
                               </div>
                             </div>
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="6" name="points">
-                                <label for="6"><span></span>28</label>
+                                <input type="radio" id="6" name="points" ng-model="option.question2option" value="Rohit Rana">
+                                <label for="6"><span></span>Rohit Rana</label>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="7" name="points">
-                                <label for="7"><span></span>28</label>
+                                <input type="radio" id="7" name="points" ng-model="option.question2option" value="Jasvir Singh">
+                                <label for="7"><span></span>Jasvir Singh</label>
                               </div>
                             </div>
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="8" name="points">
-                                <label for="8"><span></span>28</label>
+                                <input type="radio" id="8" name="points" ng-model="option.question2option" value="Ran Singh">
+                                <label for="8"><span></span>Ran Singh</label>
                               </div>
                             </div>
                           </div>
@@ -187,32 +187,32 @@
                           <div class="col-md-3">
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="9" name="tackles">
-                                <label for="9"><span></span>28</label>
+                                <input type="radio" id="9" name="tackles" ng-model="option.question3option" value="51">
+                                <label for="9"><span></span>51</label>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="10" name="tackles">
-                                <label for="10"><span></span>28</label>
+                                <input type="radio" id="10" name="tackles" ng-model="option.question3option" value="52">
+                                <label for="10"><span></span>52</label>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="11" name="tackles">
-                                <label for="11"><span></span>28</label>
+                                <input type="radio" id="11" name="tackles" ng-model="option.question3option" value="43">
+                                <label for="11"><span></span>43</label>
                               </div>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="check-label">
                               <div class="custom-radio">
-                                <input type="radio" id="12" name="tackles">
-                                <label for="12"><span></span>28</label>
+                                <input type="radio" id="12" name="tackles" ng-model="option.question3option" value="46">
+                                <label for="12"><span></span>46</label>
                               </div>
                             </div>
                           </div>
@@ -228,7 +228,7 @@
                           </div>
                           <div class="row margin0">
                             <div class="col-md-12">
-                              <input type="text" class="form-controls" name="defining" id="defining">
+                              <input type="text" ng-model="option.question4option" class="form-controls" name="defining" id="defining">
                             </div>
                           </div>
                         </div>
@@ -244,7 +244,7 @@
                           </div>
                           <div class="row margin0">
                             <div class="col-md-12">
-                              <input type="text" class="form-controls" name="stratergy" id="stratergy">
+                              <input type="text" ng-model="option.question5option" class="form-controls" name="stratergy" id="stratergy">
                             </div>
                           </div>
                         </div>
@@ -254,7 +254,7 @@
                       <div class="bg-blue mr10 transparent bx">
                         <div class="row">
                           <div class="text-lable">
-                            <button type="submit" class="btn butns uppercase-text">Submit</button>
+                            <button type="submit" ng-click="submitAnswer(option)" class="btn butns uppercase-text">Submit</button>
                           </div>
                         </div>
                       </div>
