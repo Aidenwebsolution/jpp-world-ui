@@ -36,52 +36,55 @@
                 </div>
               </div>
             </div>
+
             <div class="battle-image section2" ng-show="pageShow==2">
-              <form action="">
+              <form >
                 <label class="text-center text-bold title" for="name">First up,let's give your army a name</label>
-                <input type="text" class="form-control" id="name" ng-model="register.armyName">
+                <input type="text" class="form-control" id="name" ng-model="armyName">
                 <div class="add-friend text-center">
-                  <label class="text-center text-bold title">Add upto 6 friends to your army</label>
+                  <label class="text-center text-bold title">Add upto 6 friends to your army </label>
                   <div class="image-box">
                     <a ng-click="openfrnds()">
                       <div class="image-boxes">
-                        <!-- <img src="" alt="" class="img-responsive"> -->
-                        <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                        <img ng-src="{{lines[0].picture.data.url}}" ng-if="lines[0].picture.data.url" alt="" class="img-responsive" ng-model="lines[0].picture.data.url">
+                        <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[0].picture.data.url"></i>
                       </div>
                     </a>
                     <a ng-click="openfrnds()">
                       <div class="image-boxes">
-                        <!-- <img src="" alt="" class="img-responsive"> -->
-                        <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                        <img ng-src="{{lines[1].picture.data.url}}" ng-if="lines[1].picture.data.url" alt="" class="img-responsive" ng-model="lines[1].picture.data.url">
+                        <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[1].picture.data.url" ></i>
                       </div>
                     </a>
                     <a ng-click="openfrnds()">
                       <div class="image-boxes">
-                        <!-- <img src="" alt="" class="img-responsive"> -->
-                      <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                        <img ng-src="{{lines[2].picture.data.url}}" ng-if="lines[2].picture.data.url" alt="" class="img-responsive" ng-model="lines[2].picture.data.url">
+                      <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[2].picture.data.url"></i>
                       </div>
                     </a>
                     <a ng-click="openfrnds()">
                       <div class="image-boxes">
-                        <!-- <img src="" alt="" class="img-responsive"> -->
-                      <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                        <img ng-src="{{lines[3].picture.data.url}}" ng-if="lines[3].picture.data.url" alt="" class="img-responsive" ng-model="lines[3].picture.data.url">
+                      <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[3].picture.data.url"></i>
                       </div>
                     </a>
                     <a ng-click="openfrnds()">
                       <div class="image-boxes">
-                        <!-- <img src="" alt="" class="img-responsive"> -->
-                      <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                      <img ng-src="{{lines[4].picture.data.url}}" ng-if="lines[4].picture.data.url" alt="" class="img-responsive" ng-model="lines[4].picture.data.url">
+                      <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[4].picture.data.url"></i>
                       </div>
                     </a>
                     <a ng-click="openfrnds()">
                       <div class="image-boxes">
-                        <!-- <img src="" alt="" class="img-responsive"> -->
-                      <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                        <img ng-src="{{lines[5].picture.data.url}}" ng-if="lines[5].picture.data.url" alt="" class="img-responsive" ng-model="lines[5].picture.data.url">
+                      <i class="fa fa-plus fa-2x" aria-hidden="true"  ng-if="!lines[5].picture.data.url"></i>
                       </div>
                     </a>
                   </div>
                 </div>
-                <button class="btn butns uppercase-text" ng-click="goToPage(3)">Submit</button>
+                <button class="btn butns uppercase-text" ng-click="storeUserData(armyName,lines[0],lines[1],lines[2],lines[3],lines[4],lines[5])">Submit</button>
+              </form>
+                <!-- <button class="btn butns uppercase-text" ng-click="openerror()">openModal</button> -->
               </form>
               <ul class="pager">
                 <li class="previous pull-right"><a ng-click="goToPage(1)" class="uppercase-text">Previous</a></li>

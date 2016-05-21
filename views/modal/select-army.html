@@ -5,9 +5,10 @@
   <div class="modal-body">
     <div class="frnds">
       <ul class="list-unstyled">
-        <li ng-repeat="item in frnds">
-          <div class="wrapper-frnds" ng-class="{'checked' : toggle}" ng-click="toggle = !toggle">
-            <div class="image-holder"><img ng-src="{{item.image}}" alt=""></div>
+        <li ng-repeat="item in obj">
+          <div class="wrapper-frnds" ng-class="{'checked' : item.toggle}">
+            <!-- <div class="image-holder"><img ng-src="{{item.picture.data.url}}" alt="" ng-click="selectedImg.src = item"></div> -->
+            <div class="image-holder"><img ng-src="{{item.picture.data.url}}" alt="" ng-click="insertSelectedFriends(item)"></div>
             <p class="text-center">
               {{item.name}}
             </p>
@@ -18,7 +19,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok()">Add Friends</button>
+    <!-- <button class="btn btn-primary" type="button" ng-click="insertSelectedFriends(item)">Add Friends</button> -->
     <button class="btn hover-css" type="button" ng-click="$close()">Cancel</button>
   </div>
 </div>

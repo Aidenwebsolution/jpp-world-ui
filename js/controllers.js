@@ -1,3 +1,4 @@
+var globalItems = [];
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
 .controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -98,42 +99,83 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 .controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state) {
-  console.log("In army ctrl ");
-  // GET ALL FACEBOOK DETAILS
-  NavigationService.getFacebookDetails(function(data) {
-      console.log("heyy");
-      console.log(data);
-      $scope.obj = JSON.parse(data.data);
-      console.log(  $scope.obj);
-      _($scope.obj.data).forEach(function(value) {
-    console.log(value);
-  });
-  });
+        $scope.sendUserData = {};
+        $scope.storeUserData = function(armyname, obj1, obj2, obj3, obj4, obj5, obj6) {
+          if (armyname=== '' || obj1=== ''|| obj2=== ''|| obj3=== ''|| obj4=== ''|| obj5=== ''|| obj6=== '') {
+              $scope.openerror();
+          }
+          else{  console.log(armyname);
+            console.log(obj1);
+            $scope.sendUserData.armyName = armyname;
+            $scope.sendUserData.friend1 = obj1.name;
+            $scope.sendUserData.friend1image = obj1.picture.data.url;
+            $scope.sendUserData.friend2 = obj2.name;
+            $scope.sendUserData.friend2image = obj2.picture.data.url;
+            $scope.sendUserData.friend3 = obj3.name;
+            $scope.sendUserData.friend3image = obj3.picture.data.url;
+            $scope.sendUserData.friend4 = obj4.name;
+            $scope.sendUserData.friend4image = obj4.picture.data.url;
+            $scope.sendUserData.friend5 = obj5.name;
+            $scope.sendUserData.friend5image = obj5.picture.data.url;
+            $scope.sendUserData.friend6 = obj6.name;
+            $scope.sendUserData.friend6image = obj6.picture.data.url;
+            $scope.pageShow = 3;}
+        };
+        $scope.submitAnswer = function(option) {
+            console.log($scope.sendUserData);
+            $scope.option = option;
+            console.log(option);
+            NavigationService.storeUserData($scope.sendUserData, function(data) {
+                console.log(data);
+            });
+            NavigationService.storeAnswer($scope.option, function(data) {
+                console.log(data);
+                // if (data.value !== true && data.data !== "Logout Successful") {
+                //     $scope.name = data.name;
+                //     $scope.profileimage = data.profilePic;
+                //     $scope.accesstoken = data.K120K200;
+                // } else {
+                //     $state.go('home');
+                // }
+
+            });
+            $state.go('home');
+        };
+        console.log("In cont");
+        // GET ALL FACEBOOK DETAILS
+        NavigationService.getFacebookDetails(function(data) {
+            console.log("heyy");
+            console.log(data);
+            $scope.obj = JSON.parse(data.data);
+            $scope.obj = $scope.obj.data;
+            console.log($scope.obj);
+        });
         //Used to name the .html file
         $scope.pageShow = 1;
         $scope.goToPage = function(page, option) {
             $scope.pageShow = page;
         };
-        $scope.submitAnswer = function(option) {
-            console.log("In ans");
-            console.log(option);
-            $scope.option = option;
-            NavigationService.storeAnswer($scope.option, function(data) {
-                console.log(data);
-                if (data.value !== true && data.data !== "Logout Successful") {
-                    // $.jStorage.set("user",data);
-                    $scope.name = data.name;
-                    $scope.profileimage = data.profilePic;
-                    $scope.accesstoken = data.K120K200;
-                } else {
-                    $state.go('home');
-                }
 
-            });
+        $scope.item = {};
+        $scope.lines = globalItems;
+        $scope.insertSelectedFriends = function(item) {
+            $scope.item = item;
+            console.log($scope.item);
+            var object = $scope.item;
+            if (item.toggle) {
+                item.toggle = !(item.toggle);
+                _.pull($scope.lines, $scope.item);
+            } else if ($scope.lines.length < 6) {
+                $scope.lines.push($scope.item);
+                console.log($scope.lines);
+                console.log("In item");
+                item.toggle = !(item.toggle);
+            } else {
+                console.log("already 6 selected");
+            }
+
         };
-        console.log("Testing Consoles");
         $scope.registershow = true;
-        console.log("Testing Consoles");
         $scope.toggleForms = function(choice) {
             $scope.registershow = false;
             $scope.friendsshow = false;
@@ -151,65 +193,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-        // $scope.section1 = true;
-        // $scope.section2 = false;
-        // $scope.section3 = false;
+
         $scope.openfrnds = function() {
             $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/modal/select-army.html',
-                controller: 'ArmyCtrl',
+                scope: $scope,
             });
         };
-        // $scope.closefrnds = function() {
-        //
-        // };
-        $scope.frnds = [{
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, {
-            image: 'img/Abhi.png',
-            name: 'Abhishek Bachan'
-        }, ]
+
+        $scope.openerror = function() {
+            $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/error-message.html',
+                scope: $scope,
+            });
+        };
+
     })
     .controller('UltimateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -256,11 +256,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
     NavigationService.callProfile(function(data) {
         console.log(data);
-        if (data.value !== true && data.data !== "Logout Successful") {
+        if (data.value === true) {
             // $.jStorage.set("user",data);
-            $scope.name = data.name;
-            $scope.profileimage = data.profilePic;
-            $scope.accesstoken = data.K120K200;
+            $scope.name = data.data.name;
+            $scope.profileimage = data.data.profilePic;
+            $scope.accesstoken = data.data.K120K200;
         } else {
             $state.go('home');
         }
