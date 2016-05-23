@@ -688,11 +688,12 @@ nav {
   .social-login {
     padding: 10px 5px;
     cursor: pointer;
+    @include transition(all ease 300ms);
     i {
       @include transition(all ease 300ms);
     }
     &:hover i {
-      color: darken(#fff, 20%);
+      color: darken(#fff, 10%);
     }
   }
   p {
