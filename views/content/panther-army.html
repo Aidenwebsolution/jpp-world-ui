@@ -31,7 +31,7 @@
                       <span>Official JPP Army card signed by Abhishek Bachchan </span>
                       <span>Title of the first ever Panther Army</span>
                     </div>
-                    <button class="btn butns uppercase-text" ng-click="goToPage(2)">Register</button>
+                    <button class="btn butns uppercase-text" ng-click="checkIfRegistered()">Register</button>
                   </div>
                 </div>
               </div>
@@ -50,8 +50,6 @@
                         <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[0].picture.data.url"></i>
                       </div>
                     </a>
-                    <div>
-                    </div>
                     <a ng-click="openfrnds()">
                       <div class="image-boxes">
                         <img ng-src="{{lines[1].picture.data.url}}" ng-if="lines[1].picture.data.url" alt="" class="img-responsive" ng-model="lines[1].picture.data.url">

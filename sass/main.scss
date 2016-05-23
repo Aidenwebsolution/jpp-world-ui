@@ -192,7 +192,6 @@ a {
   }
   .dropdown-menu {
     position: absolute;
-    left: 45%;
     li:nth-child(even),
     li:nth-child(odd) {
       background: $brand-success!important;
@@ -209,6 +208,7 @@ a {
   height: 40px;
   width: 40px;
   margin: 0 5px 0 15px;
+  border-radius: 50%;
 }
 .dropdown-menu > li > a:focus,
 .dropdown-menu > li > a:hover {
@@ -216,9 +216,14 @@ a {
   color: #000!important;
 }
 .reg {
+  .dropdown-menu > li > a{
+    @include transition(all ease 300ms);
+    padding: 5px 20px;
+  }
   .dropdown-menu > li > a:focus,
   .dropdown-menu > li > a:hover {
     background: $brand-primary!important;
+    color: #fff!important;
   }
 }
 .add-friend {

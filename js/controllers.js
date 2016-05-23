@@ -125,9 +125,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.openerror();
             } else {
                 NavigationService.storeUserData($scope.sendUserData, function(data) {
-                  console.log($scope.sendUserData);
-                  console.log("success user data");
-                  console.log(data);
+                    console.log($scope.sendUserData);
+                    console.log("success user data");
+                    console.log(data);
                 });
                 NavigationService.storeAnswer($scope.option, function(data) {
                     if (data.value === true) {
@@ -147,8 +147,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.sendUserData.friend5image = '';
                         $scope.sendUserData.friend6 = '';
                         $scope.sendUserData.friend6image = '';
-                        $scope.obj='';
-                         globalItems = [];
+                        $scope.obj = '';
+                        globalItems = [];
 
                     } else {
                         $scope.somethingwentwrong();
@@ -174,6 +174,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.pageShow = 1;
         $scope.goToPage = function(page, option) {
             $scope.pageShow = page;
+        };
+
+        //check if registered
+
+        $scope.checkIfRegistered = function() {
+            NavigationService.callProfile(function(data) {
+                console.log(data);
+                if (data.value === true) {
+                    if (data.data.friend1 !== '' || data.data.friend2 !== '' || data.data.friend3 !== '' || data.data.friend4 !== '' || data.data.friend5 !== '' || data.data.friend6 !== '') {
+                        // do not allow to fill form
+                        $scope.doNotRegister();
+                    } else {
+                        $scope.goToPage(2);
+                    }
+                }
+            });
         };
 
         $scope.item = {};
@@ -235,6 +251,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/modal/submitData.html',
+                scope: $scope,
+            });
+        };
+        $scope.doNotRegister = function() {
+            $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/doNotRegister.html',
                 scope: $scope,
             });
         };
