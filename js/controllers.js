@@ -96,11 +96,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 .controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state) {
+        $scope.option = {};
         $scope.sendUserData = {};
-        // $scope.data = {};
-        $scope.storeUserData = function(armyname, url1, url2, url3, url4, url5, url6,friend1,friend2,friend3,friend4,friend5,friend6) {
-            if (armyname === '' || url1 === '' || url2 === '' || url3 === '' || url4 === '' || url5 === '' || url6 === ''|| friend1 === ''|| friend2 === ''|| friend3 === ''|| friend4 === ''|| friend5 === ''|| friend6 === '') {
-                console.log("No data found");
+        $scope.storeUserData = function(armyname, url1, url2, url3, url4, url5, url6, friend1, friend2, friend3, friend4, friend5, friend6) {
+            if (armyname === undefined || url1 === undefined || url2 === undefined || url3 === undefined || url4 === undefined || url5 === undefined || url6 === undefined || friend1 === undefined || friend2 === undefined || friend3 === undefined || friend4 === undefined || friend5 === undefined || friend6 === undefined) {
                 $scope.openerror();
             } else {
                 $scope.sendUserData.armyName = armyname;
@@ -122,21 +121,47 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.submitAnswer = function(option) {
             console.log($scope.sendUserData);
             $scope.option = option;
-            console.log(option);
-            NavigationService.storeUserData($scope.sendUserData, function(data) {
-                console.log(data);
-            });
-            NavigationService.storeAnswer($scope.option, function(data) {
-                console.log(data);
+            if (option.question1option === undefined || option.question2option === undefined || option.question3option === undefined || option.question4option === undefined || option.question5option === undefined) {
+                $scope.openerror();
+            } else {
+                NavigationService.storeUserData($scope.sendUserData, function(data) {});
+                NavigationService.storeAnswer($scope.option, function(data) {
+                    if (data.value === true) {
+                        $scope.submitData();
+                        $scope.option = {};
+                        $scope.sendUserData = {};
+                        $scope.sendUserData.armyName = '';
+                        $scope.sendUserData.friend1 = '';
+                        $scope.sendUserData.friend1image = '';
+                        $scope.sendUserData.friend2 = '';
+                        $scope.sendUserData.friend2image = '';
+                        $scope.sendUserData.friend3 = '';
+                        $scope.sendUserData.friend3image = '';
+                        $scope.sendUserData.friend4 = '';
+                        $scope.sendUserData.friend4image = '';
+                        $scope.sendUserData.friend5 = '';
+                        $scope.sendUserData.friend5image = '';
+                        $scope.sendUserData.friend6 = '';
+                        $scope.sendUserData.friend6image = '';
+                        $scope.obj='';
+                         globalItems = [];
 
-            });
-            $state.go('panther-army');
+                    } else {
+                        $scope.somethingwentwrong();
+                    }
+
+
+                });
+
+            }
+
         };
-        console.log("In cont");
+        $scope.redirectAfterClose = function() {
+            $state.reload();
+
+        };
         // GET ALL FACEBOOK DETAILS
         NavigationService.getFacebookDetails(function(data) {
-            console.log("heyy");
-            console.log(data);
             $scope.obj = JSON.parse(data.data);
             $scope.obj = $scope.obj.data;
             console.log($scope.obj);
@@ -151,19 +176,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.lines = globalItems;
         $scope.insertSelectedFriends = function(item) {
             $scope.item = item;
-            console.log($scope.item);
             var object = $scope.item;
             if (item.toggle) {
                 item.toggle = !(item.toggle);
                 _.pull($scope.lines, $scope.item);
             } else if ($scope.lines.length < 6) {
                 $scope.lines.push($scope.item);
-                console.log($scope.lines);
-                console.log("In item");
                 item.toggle = !(item.toggle);
-            } else {
-                console.log("already 6 selected");
-            }
+            } else {}
 
         };
         $scope.registershow = true;
@@ -200,6 +220,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope,
             });
         };
+        $scope.somethingwentwrong = function() {
+            $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/somethingwentwrong.html',
+                scope: $scope,
+            });
+        };
+        $scope.submitData = function() {
+            $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/submitData.html',
+                scope: $scope,
+            });
+        };
 
     })
     .controller('UltimateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -212,16 +246,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
-    // .controller('AuctionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //   //Used to name the .html file
-    //
-    //   console.log("Testing Consoles");
-    //
-    //   $scope.template = TemplateService.changecontent("auction");
-    //   $scope.menutitle = NavigationService.makeactive("#AuctionWithAbhishek");
-    //   TemplateService.title = $scope.menutitle;
-    //   $scope.navigation = NavigationService.getnav();
-    // })
     .controller('SurveyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
@@ -232,13 +256,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
-
-// $scope.mySlides = [
-//   'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
-//   'http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg',
-//   'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
-//   'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
-// ];
 
 .controller('headerctrl', function($scope, TemplateService, NavigationService, $state) {
     $scope.template = TemplateService;
