@@ -95,14 +95,13 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         storeUserData: function(data,callback) {
-          console.log(data);
-            // $http({
-            //     url: adminurl + 'user/storeUserData',
-            //     method: 'POST',
-            //     withCredentials: true,
-            //     data:data
-            //
-            // }).success(callback);
+            $http({
+                url: adminurl + 'user/storeUserData',
+                method: 'POST',
+                withCredentials: true,
+                data:data
+
+            }).success(callback);
         },
         getFacebookDetails: function(callback) {
             $http.get(adminurl + "user/getFacebookDetails").success(callback);

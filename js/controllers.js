@@ -124,7 +124,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (option.question1option === undefined || option.question2option === undefined || option.question3option === undefined || option.question4option === undefined || option.question5option === undefined) {
                 $scope.openerror();
             } else {
-                NavigationService.storeUserData($scope.sendUserData, function(data) {});
+                NavigationService.storeUserData($scope.sendUserData, function(data) {
+                  console.log($scope.sendUserData);
+                  console.log("success user data");
+                  console.log(data);
+                });
                 NavigationService.storeAnswer($scope.option, function(data) {
                     if (data.value === true) {
                         $scope.submitData();
