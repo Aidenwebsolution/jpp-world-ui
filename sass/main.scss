@@ -681,6 +681,19 @@ nav {
   @include transform(translate(-50%,-50%));
   span {
     color: #fff;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+  .social-login {
+    padding: 10px 5px;
+    cursor: pointer;
+    i {
+      @include transition(all ease 300ms);
+    }
+    &:hover i {
+      color: darken(#fff, 20%);
+    }
   }
   p {
     color: #fff;
@@ -2255,7 +2268,7 @@ img.fancybox-image {
   font-size: 18px;
   @include background-image(linear-gradient(to right, transparent 0%,$pinky 26%, $pinky 22%, $pinky 73%, transparent 100%));
   z-index: 0;
-  padding: 10px 0;
+  // padding: 10px 0;
 }
 .high-z {
   z-index: 1;
