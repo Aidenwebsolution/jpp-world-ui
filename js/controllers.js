@@ -95,31 +95,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-
-
-
 .controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state) {
         $scope.sendUserData = {};
-        $scope.storeUserData = function(armyname, obj1, obj2, obj3, obj4, obj5, obj6) {
-          if (armyname=== '' || obj1=== ''|| obj2=== ''|| obj3=== ''|| obj4=== ''|| obj5=== ''|| obj6=== '') {
-              $scope.openerror();
-          }
-          else{  console.log(armyname);
-            console.log(obj1);
-            $scope.sendUserData.armyName = armyname;
-            $scope.sendUserData.friend1 = obj1.name;
-            $scope.sendUserData.friend1image = obj1.picture.data.url;
-            $scope.sendUserData.friend2 = obj2.name;
-            $scope.sendUserData.friend2image = obj2.picture.data.url;
-            $scope.sendUserData.friend3 = obj3.name;
-            $scope.sendUserData.friend3image = obj3.picture.data.url;
-            $scope.sendUserData.friend4 = obj4.name;
-            $scope.sendUserData.friend4image = obj4.picture.data.url;
-            $scope.sendUserData.friend5 = obj5.name;
-            $scope.sendUserData.friend5image = obj5.picture.data.url;
-            $scope.sendUserData.friend6 = obj6.name;
-            $scope.sendUserData.friend6image = obj6.picture.data.url;
-            $scope.pageShow = 3;}
+        // $scope.data = {};
+        $scope.storeUserData = function(armyname, url1, url2, url3, url4, url5, url6,friend1,friend2,friend3,friend4,friend5,friend6) {
+            if (armyname === '' || url1 === '' || url2 === '' || url3 === '' || url4 === '' || url5 === '' || url6 === ''|| friend1 === ''|| friend2 === ''|| friend3 === ''|| friend4 === ''|| friend5 === ''|| friend6 === '') {
+                console.log("No data found");
+                $scope.openerror();
+            } else {
+                $scope.sendUserData.armyName = armyname;
+                $scope.sendUserData.friend1 = friend1;
+                $scope.sendUserData.friend1image = url1;
+                $scope.sendUserData.friend2 = friend2;
+                $scope.sendUserData.friend2image = url2;
+                $scope.sendUserData.friend3 = friend3;
+                $scope.sendUserData.friend3image = url3;
+                $scope.sendUserData.friend4 = friend4;
+                $scope.sendUserData.friend4image = url4;
+                $scope.sendUserData.friend5 = friend5;
+                $scope.sendUserData.friend5image = url5;
+                $scope.sendUserData.friend6 = friend6;
+                $scope.sendUserData.friend6image = url6;
+                $scope.pageShow = 3;
+            }
         };
         $scope.submitAnswer = function(option) {
             console.log($scope.sendUserData);
@@ -130,16 +128,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
             NavigationService.storeAnswer($scope.option, function(data) {
                 console.log(data);
-                // if (data.value !== true && data.data !== "Logout Successful") {
-                //     $scope.name = data.name;
-                //     $scope.profileimage = data.profilePic;
-                //     $scope.accesstoken = data.K120K200;
-                // } else {
-                //     $state.go('home');
-                // }
 
             });
-            $state.go('home');
+            $state.go('panther-army');
         };
         console.log("In cont");
         // GET ALL FACEBOOK DETAILS

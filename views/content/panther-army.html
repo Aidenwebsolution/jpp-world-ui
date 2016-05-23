@@ -50,6 +50,8 @@
                         <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[0].picture.data.url"></i>
                       </div>
                     </a>
+                    <div>
+                    </div>
                     <a ng-click="openfrnds()">
                       <div class="image-boxes">
                         <img ng-src="{{lines[1].picture.data.url}}" ng-if="lines[1].picture.data.url" alt="" class="img-responsive" ng-model="lines[1].picture.data.url">
@@ -82,7 +84,7 @@
                     </a>
                   </div>
                 </div>
-                <button class="btn butns uppercase-text" ng-click="storeUserData(armyName,lines[0],lines[1],lines[2],lines[3],lines[4],lines[5])">Submit</button>
+                <button class="btn butns uppercase-text" ng-click="storeUserData(armyName,lines[0].picture.data.url,lines[1].picture.data.url,lines[2].picture.data.url,lines[3].picture.data.url,lines[4].picture.data.url,lines[5].picture.data.url,lines[0].name,lines[1].name,lines[2].name,lines[3].name,lines[4].name,lines[5].name,lines[6].name)">Submit</button>
               </form>
                 <!-- <button class="btn butns uppercase-text" ng-click="openerror()">openModal</button> -->
               </form>
