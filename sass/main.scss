@@ -2617,8 +2617,10 @@ padding: 0;
 background-color: #438daa;
 border: 1px solid #438daa;
   }
-  .text-label{
-    margin-left: 50px;
+  .crossword{
+    text-align: center;
+    margin: 0 auto;
+    display: table;
   }
   .task{
     display: inline-block;
@@ -2650,7 +2652,7 @@ border: 1px solid #438daa;
   }
 
   .butns{
-    margin: 50px 190px 0;
+    margin: 50px 0px 0;
   }
   .buttn{
     background-color: #f0318f;
@@ -2763,6 +2765,15 @@ border: 1px solid #438daa;
      margin-top: 0;
    }
   }
+}
+.form-controlling{
+  width: 220px;
+    margin-left: 0;
+    margin-top: 10px;
+    height: 35px;
+    padding: 0;
+    background-color: #438daa;
+    border: 1px solid #438daa;
 }
 
 @import "mobile"; // @import "style";
