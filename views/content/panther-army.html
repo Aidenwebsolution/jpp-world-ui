@@ -311,7 +311,12 @@
                     </div>
                       <div class="text-label text-center margin10">
                         <div class="crossword">
-                        <div class="inp-row">
+                          <div class="{{task.custdiv}}" ng-repeat="task in task3">
+                            <input type="text" class="{{tak.class}}" ng-repeat="tak in task">
+                            <div class="clearfix"></div>
+
+                          </div>
+                        <!-- <div class="inp-row">
                           <input type="text">
                           <input type="text">
                           <input type="text">
@@ -414,7 +419,7 @@
                           <input type="text">
                           <input type="text">
                           <div class="clearfix"></div>
-                        </div>
+                        </div> -->
                                     </div>
                         <input type="text" class="form-controlling text-center" placeholder="Enter the code here">
 

@@ -98,6 +98,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state) {
         $scope.option = {};
         $scope.sendUserData = {};
+        $scope.task3 = [
+          {
+          "custdiv":"inp-row",
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
+        },
+          {
+          "custdiv":"inp-ro",
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"}]
+        },
+          {
+          "custdiv":"inpu-ro",
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
+        },
+          {
+          "custdiv":"input-ro",
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""}]
+        },
+          {
+          "custdiv":"input-row",
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
+        },
+          {
+          "custdiv":"input-rowing",
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
+        },
+          {
+          "custdiv":"input-rowg",
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
+        },
+          {
+          "custdiv":"input-rowig",
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""}]
+        }
+      ];
         $scope.storeUserData = function(armyname, url1, url2, url3, url4, url5, url6, friend1, friend2, friend3, friend4, friend5, friend6) {
             if (armyname === undefined || url1 === undefined || url2 === undefined || url3 === undefined || url4 === undefined || url5 === undefined || url6 === undefined || friend1 === undefined || friend2 === undefined || friend3 === undefined || friend4 === undefined || friend5 === undefined || friend6 === undefined) {
                 $scope.openerror();
