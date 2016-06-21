@@ -275,6 +275,7 @@
                 <h2 class="uppercase-text text-bold">the final frontier</h2>
                 <p>Winning wars is not easy! This one won’t be either. Your army has 30 minutes to complete all the tasks below. </p>
               </div>
+              <form name="invite">
               <div class="row margin0">
                 <div class="col-md-6 col-sm-12 col-xs-12">
                   <div class="bg-blue mr10">
@@ -283,7 +284,7 @@
                     </div>
                       <div class="text-label text-center margintop">
                       <p>Click the Kabaddi button 200 times <br>in the least time possible</p>
-                      <button type="submit" class="btn buttn  uppercase-text">kabaddi</button>
+                      <button type="submit" class="btn buttn uppercase-text" ng-click="kabaddiClick()">kabaddi</button>
                       </div>
                   </div>
                 </div>
@@ -297,8 +298,8 @@
                       <figure class="guess-player">
                         <img src="img/player.png" class="img-responsive" alt="player">
                       </figure>
-                          <input type="text" class="form-controling inline-block">
-                          <input type="text" class="form-controling inline-block">
+                          <input type="text" class="form-controling inline-block" ng-model="accuracy1" required>
+                          <input type="text" class="form-controling inline-block" ng-model="accuracy2" required>
                       </div>
                   </div>
                 </div>
@@ -312,116 +313,11 @@
                       <div class="text-label text-center margin10">
                         <div class="crossword">
                           <div class="{{task.custdiv}}" ng-repeat="task in task3">
-                            <input type="text" class="{{tak.class}}" ng-repeat="tak in task">
+                            <input type="text" class="{{tak.class}}" ng-model="tak.text" ng-change="textChange(tak,$parent.$index)" maxlength="1" data-minlength="1" ng-repeat="tak in task.textfield" required>
                             <div class="clearfix"></div>
-
                           </div>
-                        <!-- <div class="inp-row">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text" class="spl">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <div class="clearfix"></div>
-                        </div>
-                        <div class="inp-ro">
-                          <input type="text">
-                          <input type="text" class="spl">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <div class="clearfix"></div>
-                        </div>
-                        <div class="inpu-ro">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text" class="spl">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <div class="clearfix"></div>
-                        </div>
-                        <div class="input-ro">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text" class="spl">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <div class="clearfix"></div>
-                        </div>
-                        <div class="input-row">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text" class="spl">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <div class="clearfix"></div>
-                        </div>
-                        <div class="input-rowing">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text" class="spl">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <div class="clearfix"></div>
-                        </div>
-                        <div class="input-rowg">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text" class="spl">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <div class="clearfix"></div>
-                        </div>
-                        <div class="input-rowig">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text" class="spl">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <input type="text">
-                          <div class="clearfix"></div>
-                        </div> -->
-                                    </div>
-                        <input type="text" class="form-controlling text-center" placeholder="Enter the code here">
+                          </div>
+                        <input type="text" class="form-controlling text-center" ng-model="games.intelligence" placeholder="Enter the code here">
 
                       </div>
                   </div>
@@ -434,17 +330,19 @@
                     </div>
                       <div class="text-label text-center margintop">
                       <p>Enter the date when were we crowned the PKL champions</p>
-                        <input type="text" class="form-controls">
+                        <input type="text" class="form-controls" ng-model="games.mamory" required>
                       </div>
                   </div>
                 </div>
                 <div class="row margin0">
                   <div class="pink-button text-center">
-                <button type="submit" class="btn butns uppercase-text">Submit</button>
+                    <!-- <p ng-if="invite.$invalid">Complete all the Tasks.</p> -->
+                <button type="submit" ng-disabled="invite.$invalid" class="btn butns uppercase-text" ng-click="levelTwo()">Submit</button>
               </div>
               </div>
                 </div>
               </div>
+            </form>
               <ul class="pager">
                 <li class="previous pull-right"><a class="uppercase-text">Previous</a></li>
               </ul>

@@ -12,10 +12,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     TemplateService.header = "";
     $scope.facebookLogin = function() {
-        window.location.href = "http://jppworld.in:1337/user/loginFacebook";
+        window.location.href = "http://pantherworldadmin.jaipurpinkpanthers.com/user/loginFacebook";
     };
     $scope.twitterLogin = function() {
-        window.location.href = "http://jppworld.in:1337/user/loginTwitter";
+        window.location.href = "http://pantherworldadmin.jaipurpinkpanthers.com/user/loginTwitter";
     };
 })
 
@@ -95,9 +95,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $state) {
+.controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+  $scope.template = TemplateService.changecontent("panther-army");
+  $scope.menutitle = NavigationService.makeactive("Panther Army");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
         $scope.option = {};
         $scope.sendUserData = {};
+        $scope.games = {};
+        $scope.games.speedTime = 0;
+        $scope.games.speedClick = 0;
+        $scope.accuracy1 = "";
+        $scope.accuracy2 = "";
         $scope.task3 = [
           {
           "custdiv":"inp-row",
@@ -105,15 +114,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         },
           {
           "custdiv":"inp-ro",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"}]
+          "textfield":[{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
         },
           {
           "custdiv":"inpu-ro",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
         },
           {
           "custdiv":"input-ro",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""}]
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
         },
           {
           "custdiv":"input-row",
@@ -129,9 +138,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         },
           {
           "custdiv":"input-rowig",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""}]
+          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
         }
       ];
+
+        var inc = 0;
+        var first = new Date();
+        var second = new Date();
+
+
+        //task integration
+        $scope.kabaddiClick = function(){
+          inc++;
+          if (inc === 1) {
+            first = new Date();
+
+          }
+            second = new Date();
+            var a = moment(first);
+            var b = moment(second);
+            $scope.games.speedTime = b.diff(a,'seconds');
+            $scope.games.speedClick = inc;
+
+        }
+        $scope.createJson = [];
+
+        $scope.textChange = function(tak, index){
+          $scope.games.intelligence = "";
+          if (tak.class === 'spl') {
+            $scope.createJson.push({"id":index,"text":tak.text});
+          }
+          var accuracyObj =_.sortBy($scope.createJson, function(o){return o.id});
+          _.each(accuracyObj, function(n){
+            $scope.games.intelligence = $scope.games.intelligence + n.text;
+          });
+        }
+        $scope.levelTwo = function(){
+          $scope.games.accuracy = $scope.accuracy1 + " " + $scope.accuracy2;
+          console.log($scope.games);
+          NavigationService.storeLevel($scope.games, function(data){
+            console.log(data);
+          })
+
+        }
+
         $scope.storeUserData = function(armyname, url1, url2, url3, url4, url5, url6, friend1, friend2, friend3, friend4, friend5, friend6) {
             if (armyname === undefined || url1 === undefined || url2 === undefined || url3 === undefined || url4 === undefined || url5 === undefined || url6 === undefined || friend1 === undefined || friend2 === undefined || friend3 === undefined || friend4 === undefined || friend5 === undefined || friend6 === undefined) {
                 $scope.openerror();
@@ -253,48 +303,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.challengeshow = true;
             }
         };
-        $scope.template = TemplateService.changecontent("panther-army");
-        $scope.menutitle = NavigationService.makeactive("Panther Army");
-        TemplateService.title = $scope.menutitle;
-        $scope.navigation = NavigationService.getnav();
 
-
-        $scope.openfrnds = function() {
-            $uibModal.open({
-                animation: $scope.animationsEnabled,
-                templateUrl: 'views/modal/select-army.html',
-                scope: $scope,
-            });
-        };
-
-        $scope.openerror = function() {
-            $uibModal.open({
-                animation: $scope.animationsEnabled,
-                templateUrl: 'views/modal/error-message.html',
-                scope: $scope,
-            });
-        };
-        $scope.somethingwentwrong = function() {
-            $uibModal.open({
-                animation: $scope.animationsEnabled,
-                templateUrl: 'views/modal/somethingwentwrong.html',
-                scope: $scope,
-            });
-        };
-        $scope.submitData = function() {
-            $uibModal.open({
-                animation: $scope.animationsEnabled,
-                templateUrl: 'views/modal/submitData.html',
-                scope: $scope,
-            });
-        };
-        $scope.doNotRegister = function() {
-            $uibModal.open({
-                animation: $scope.animationsEnabled,
-                templateUrl: 'views/modal/doNotRegister.html',
-                scope: $scope,
-            });
-        };
+        // $scope.openfrnds = function() {
+        //     $uibModal.open({
+        //         animation: $scope.animationsEnabled,
+        //         templateUrl: 'views/modal/select-army.html',
+        //         scope: $scope,
+        //     });
+        // };
+        //
+        // $scope.openerror = function() {
+        //     $uibModal.open({
+        //         animation: $scope.animationsEnabled,
+        //         templateUrl: 'views/modal/error-message.html',
+        //         scope: $scope,
+        //     });
+        // };
+        // $scope.somethingwentwrong = function() {
+        //     $uibModal.open({
+        //         animation: $scope.animationsEnabled,
+        //         templateUrl: 'views/modal/somethingwentwrong.html',
+        //         scope: $scope,
+        //     });
+        // };
+        // $scope.submitData = function() {
+        //     $uibModal.open({
+        //         animation: $scope.animationsEnabled,
+        //         templateUrl: 'views/modal/submitData.html',
+        //         scope: $scope,
+        //     });
+        // };
+        // $scope.doNotRegister = function() {
+        //     $uibModal.open({
+        //         animation: $scope.animationsEnabled,
+        //         templateUrl: 'views/modal/doNotRegister.html',
+        //         scope: $scope,
+        //     });
+        // };
 
     })
     .controller('UltimateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
