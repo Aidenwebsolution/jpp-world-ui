@@ -269,7 +269,7 @@
                 <li class="previous pull-right"><a ng-click="goToPage(2)" class="uppercase-text">Previous</a></li>
               </ul>
             </div>
-            <div class="games section4">
+            <div class="games section4"  ng-show="pageShow==4">
               <div class="level2 text-center">
                 <h3 class="text-capitalize">level 2</h3>
                 <h2 class="uppercase-text text-bold">the final frontier</h2>
@@ -283,8 +283,8 @@
                       <span>Task 1: Speed</span>
                     </div>
                       <div class="text-label text-center margintop">
-                      <p>Click the Kabaddi button 200 times <br>in the least time possible</p>
-                      <button type="submit" class="btn buttn uppercase-text" ng-click="kabaddiClick()">kabaddi</button>
+                      <p>Click the Kabaddi button {{200-games.speedClick}} times <br>in the least time possible</p>
+                      <button type="button" ng-disabled="games.speedClick>=200" class="btn buttn uppercase-text" ng-click="kabaddiClick()">kabaddi</button>
                       </div>
                   </div>
                 </div>
@@ -298,8 +298,8 @@
                       <figure class="guess-player">
                         <img src="img/player.png" class="img-responsive" alt="player">
                       </figure>
-                          <input type="text" class="form-controling inline-block" ng-model="accuracy1" required>
-                          <input type="text" class="form-controling inline-block" ng-model="accuracy2" required>
+                          <input type="text" class="form-controling inline-block" ng-model="game2.accuracy1" required>
+                          <input type="text" class="form-controling inline-block" ng-model="game2.accuracy2" required>
                       </div>
                   </div>
                 </div>
@@ -317,8 +317,8 @@
                             <div class="clearfix"></div>
                           </div>
                           </div>
-                        <input type="text" class="form-controlling text-center" ng-model="games.intelligence" placeholder="Enter the code here">
-
+                        <input type="text" readOnly class="form-controlling text-center" style="text-transform: uppercase;" ng-model="games.intelligence" placeholder="Enter the code here">
+                        <!-- <span ng-bind="pinkCharacters()"></span> -->
                       </div>
                   </div>
                 </div>
@@ -337,7 +337,7 @@
                 <div class="row margin0">
                   <div class="pink-button text-center">
                     <!-- <p ng-if="invite.$invalid">Complete all the Tasks.</p> -->
-                <button type="submit" ng-disabled="invite.$invalid" class="btn butns uppercase-text" ng-click="levelTwo()">Submit</button>
+                <button type="submit" ng-disabled="invite.$invalid && games.speedClick <= 200" class="btn butns uppercase-text" ng-click="levelTwo()">Submit</button>
               </div>
               </div>
                 </div>

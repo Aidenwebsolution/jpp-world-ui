@@ -100,13 +100,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Panther Army");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  $scope.game2 = {accuracy1:"",accuracy2:""};
         $scope.option = {};
         $scope.sendUserData = {};
         $scope.games = {};
         $scope.games.speedTime = 0;
         $scope.games.speedClick = 0;
-        $scope.accuracy1 = "";
-        $scope.accuracy2 = "";
         $scope.task3 = [
           {
           "custdiv":"inp-row",
@@ -163,18 +162,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.createJson = [];
 
-        $scope.textChange = function(tak, index){
-          $scope.games.intelligence = "";
-          if (tak.class === 'spl') {
-            $scope.createJson.push({"id":index,"text":tak.text});
-          }
-          var accuracyObj =_.sortBy($scope.createJson, function(o){return o.id});
-          _.each(accuracyObj, function(n){
-            $scope.games.intelligence = $scope.games.intelligence + n.text;
+        $scope.textChange = function(){
+          var text = "";
+          _.each($scope.task3,function(n) {
+            var spl=_.filter(n.textfield,{class:"spl"});
+            text+=spl[0].text;
           });
+          $scope.games.intelligence = text;
+          console.log(text);
         }
+        // $scope.pinkCharacters  = function() {
+        //
+        //
+        // };
         $scope.levelTwo = function(){
-          $scope.games.accuracy = $scope.accuracy1 + " " + $scope.accuracy2;
+          $scope.games.accuracy = $scope.game2.accuracy1 + " " + $scope.game2.accuracy2;
           console.log($scope.games);
           NavigationService.storeLevel($scope.games, function(data){
             console.log(data);
