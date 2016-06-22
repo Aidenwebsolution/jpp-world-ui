@@ -326,7 +326,8 @@ a {
 }
 .section2,
 .section3,
-.section4 {
+.section4,
+.section5 {
   padding: 40px 0 80px;
   background-image: (url("../img/home/bg.jpg"));
   background-size: cover;
@@ -2775,5 +2776,25 @@ border: 1px solid #438daa;
     background-color: #438daa;
     border: 1px solid #438daa;
 }
+.section5{
+  padding: 15% 0px 25%;
+  h3 {
+    color: $pinky;
+  }
+  h2 {
+    color: #fff;
+    font-family: "Dreamwalker";
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+  p {
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 18px;
+  }
+}
+
+
 
 @import "mobile"; // @import "style";
