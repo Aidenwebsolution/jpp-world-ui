@@ -95,7 +95,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+.controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
   $scope.template = TemplateService.changecontent("panther-army");
   $scope.menutitle = NavigationService.makeactive("Panther Army");
   TemplateService.title = $scope.menutitle;
@@ -306,42 +306,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-        // $scope.openfrnds = function() {
-        //     $uibModal.open({
-        //         animation: $scope.animationsEnabled,
-        //         templateUrl: 'views/modal/select-army.html',
-        //         scope: $scope,
-        //     });
-        // };
-        //
-        // $scope.openerror = function() {
-        //     $uibModal.open({
-        //         animation: $scope.animationsEnabled,
-        //         templateUrl: 'views/modal/error-message.html',
-        //         scope: $scope,
-        //     });
-        // };
-        // $scope.somethingwentwrong = function() {
-        //     $uibModal.open({
-        //         animation: $scope.animationsEnabled,
-        //         templateUrl: 'views/modal/somethingwentwrong.html',
-        //         scope: $scope,
-        //     });
-        // };
-        // $scope.submitData = function() {
-        //     $uibModal.open({
-        //         animation: $scope.animationsEnabled,
-        //         templateUrl: 'views/modal/submitData.html',
-        //         scope: $scope,
-        //     });
-        // };
-        // $scope.doNotRegister = function() {
-        //     $uibModal.open({
-        //         animation: $scope.animationsEnabled,
-        //         templateUrl: 'views/modal/doNotRegister.html',
-        //         scope: $scope,
-        //     });
-        // };
+        $scope.openfrnds = function() {
+            $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/select-army.html',
+                scope: $scope,
+            });
+        };
+
+        $scope.openerror = function() {
+            $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/error-message.html',
+                scope: $scope,
+            });
+        };
+        $scope.somethingwentwrong = function() {
+            $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/somethingwentwrong.html',
+                scope: $scope,
+            });
+        };
+        $scope.submitData = function() {
+            $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/submitData.html',
+                scope: $scope,
+            });
+        };
+        $scope.doNotRegister = function() {
+            $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/doNotRegister.html',
+                scope: $scope,
+            });
+        };
 
     })
     .controller('UltimateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
