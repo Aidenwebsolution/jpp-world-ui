@@ -96,50 +96,302 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 .controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
-  $scope.template = TemplateService.changecontent("panther-army");
-  $scope.menutitle = NavigationService.makeactive("Panther Army");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-  $scope.game2 = {accuracy1:"",accuracy2:""};
+        $scope.template = TemplateService.changecontent("panther-army");
+        $scope.menutitle = NavigationService.makeactive("Panther Army");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.game2 = {
+            accuracy1: "",
+            accuracy2: ""
+        };
+
+        NavigationService.callProfile(function(data) {
+            if (data.value != true) {
+                $state.go('home');
+            } else {
+                switch ($state.params.level) {
+                    case 'level1':
+                        $scope.pageShow = 1;
+                        break;
+                    case 'level2':
+                        $scope.pageShow = 4;
+                        break;
+                    default:
+
+                }
+            }
+        });
+
         $scope.option = {};
         $scope.sendUserData = {};
         $scope.games = {};
         $scope.games.speedTime = 0;
         $scope.games.speedClick = 0;
-        $scope.task3 = [
-          {
-          "custdiv":"inp-row",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
-        },
-          {
-          "custdiv":"inp-ro",
-          "textfield":[{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
-        },
-          {
-          "custdiv":"inpu-ro",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
-        },
-          {
-          "custdiv":"input-ro",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
-        },
-          {
-          "custdiv":"input-row",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
-        },
-          {
-          "custdiv":"input-rowing",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
-        },
-          {
-          "custdiv":"input-rowg",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
-        },
-          {
-          "custdiv":"input-rowig",
-          "textfield":[{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":"spl"},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""},{"text":"","class":""}]
-        }
-      ];
+        $scope.task3 = [{
+            "custdiv": "inp-row",
+            "textfield": [{
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": "spl"
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }]
+        }, {
+            "custdiv": "inp-ro",
+            "textfield": [{
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": "spl"
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }]
+        }, {
+            "custdiv": "inpu-ro",
+            "textfield": [{
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": "spl"
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }]
+        }, {
+            "custdiv": "input-ro",
+            "textfield": [{
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": "spl"
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }]
+        }, {
+            "custdiv": "input-row",
+            "textfield": [{
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": "spl"
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }]
+        }, {
+            "custdiv": "input-rowing",
+            "textfield": [{
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": "spl"
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }]
+        }, {
+            "custdiv": "input-rowg",
+            "textfield": [{
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": "spl"
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }]
+        }, {
+            "custdiv": "input-rowig",
+            "textfield": [{
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": "spl"
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }, {
+                "text": "",
+                "class": ""
+            }]
+        }];
 
         var inc = 0;
         var first = new Date();
@@ -147,40 +399,47 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         //task integration
-        $scope.kabaddiClick = function(){
-          inc++;
-          if (inc === 1) {
-            first = new Date();
+        $scope.kabaddiClick = function() {
+            inc++;
+            if (inc === 1) {
+                first = new Date();
 
-          }
+            }
             second = new Date();
             var a = moment(first);
             var b = moment(second);
-            $scope.games.speedTime = b.diff(a,'seconds');
+            $scope.games.speedTime = b.diff(a, 'seconds');
             $scope.games.speedClick = inc;
 
         }
         $scope.createJson = [];
 
-        $scope.textChange = function(){
-          var text = "";
-          _.each($scope.task3,function(n) {
-            var spl=_.filter(n.textfield,{class:"spl"});
-            text+=spl[0].text;
-          });
-          $scope.games.intelligence = text;
-          console.log(text);
-        }
-        // $scope.pinkCharacters  = function() {
-        //
-        //
-        // };
-        $scope.levelTwo = function(){
-          $scope.games.accuracy = $scope.game2.accuracy1 + " " + $scope.game2.accuracy2;
-          console.log($scope.games);
-          NavigationService.storeLevel($scope.games, function(data){
-            console.log(data);
-          })
+        $scope.textChange = function() {
+                var text = "";
+                _.each($scope.task3, function(n) {
+                    var spl = _.filter(n.textfield, {
+                        class: "spl"
+                    });
+                    text += spl[0].text;
+                });
+                $scope.games.intelligence = text;
+                console.log(text);
+            }
+            // $scope.pinkCharacters  = function() {
+            //
+            //
+            // };
+        $scope.levelTwo = function() {
+            $scope.games.accuracy = $scope.game2.accuracy1 + " " + $scope.game2.accuracy2;
+            console.log($scope.games);
+            NavigationService.storeLevel($scope.games, function(data) {
+                console.log(data);
+                if (data.value === true) {
+                  $scope.submitData();
+                }else {
+                  $scope.somethingwentwrong();
+                }
+            })
 
         }
 
@@ -257,7 +516,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log($scope.obj);
         });
         //Used to name the .html file
-        $scope.pageShow = 1;
+        // $scope.pageShow = 1;
         $scope.goToPage = function(page, option) {
             $scope.pageShow = page;
         };

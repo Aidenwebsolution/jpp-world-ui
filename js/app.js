@@ -36,7 +36,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
           controller: 'DenCtrl'
       })
       .state('panther-army', {
-          url: "/panther-army",
+          url: "/panther-army/:level",
           templateUrl: "views/template.html",
           controller: 'ArmyCtrl'
       })
