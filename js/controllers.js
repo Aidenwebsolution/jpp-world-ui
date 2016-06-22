@@ -506,7 +506,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
         $scope.redirectAfterClose = function() {
-            $state.reload();
+            // $state.reload();
+            $scope.pageShow = 5;
 
         };
         // GET ALL FACEBOOK DETAILS
