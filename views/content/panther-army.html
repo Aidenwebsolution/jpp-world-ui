@@ -313,7 +313,7 @@
                       <div class="text-label text-center margin10">
                         <div class="crossword">
                           <div class="{{task.custdiv}}" ng-repeat="task in task3">
-                            <input type="text" class="{{tak.class}}" ng-model="tak.text" ng-change="textChange(tak,$parent.$index)" maxlength="1" data-minlength="1" ng-repeat="tak in task.textfield" required>
+                            <input type="text" class="{{tak.class}}" ng-model="tak.text" ng-change="textChange(tak,$parent.$index)" maxlength="1" data-minlength="1" ng-repeat="tak in task.textfield" ng-disabled="tak.class=='des'" required>
                             <div class="clearfix"></div>
                           </div>
                           </div>

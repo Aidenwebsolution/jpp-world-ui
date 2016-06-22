@@ -130,8 +130,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.task3 = [{
             "custdiv": "inp-row",
             "textfield": [{
-                "text": "",
-                "class": ""
+                "text": "K",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -151,8 +151,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "text": "",
                 "class": "spl"
             }, {
-                "text": "",
-                "class": ""
+                "text": "S",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -169,8 +169,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             "custdiv": "inp-ro",
             "textfield": [{
-                "text": "",
-                "class": ""
+                "text": "C",
+                "class": "des"
             }, {
                 "text": "",
                 "class": "spl"
@@ -187,8 +187,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             "custdiv": "inpu-ro",
             "textfield": [{
-                "text": "",
-                "class": ""
+                "text": "S",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -199,8 +199,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "text": "",
                 "class": ""
             }, {
-                "text": "",
-                "class": ""
+                "text": "N",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -220,8 +220,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             "custdiv": "input-ro",
             "textfield": [{
-                "text": "",
-                "class": ""
+                "text": "R",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -235,8 +235,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "text": "",
                 "class": "spl"
             }, {
-                "text": "",
-                "class": ""
+                "text": "R",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -250,8 +250,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             "custdiv": "input-row",
             "textfield": [{
-                "text": "",
-                "class": ""
+                "text": "R",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -268,8 +268,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "text": "",
                 "class": "spl"
             }, {
-                "text": "",
-                "class": ""
+                "text": "N",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -289,8 +289,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             "custdiv": "input-rowing",
             "textfield": [{
-                "text": "",
-                "class": ""
+                "text": "N",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -310,8 +310,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "text": "",
                 "class": ""
             }, {
-                "text": "",
-                "class": ""
+                "text": "G",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -331,8 +331,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             "custdiv": "input-rowg",
             "textfield": [{
-                "text": "",
-                "class": ""
+                "text": "J",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -349,8 +349,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "text": "",
                 "class": "spl"
             }, {
-                "text": "",
-                "class": ""
+                "text": "S",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
@@ -367,8 +367,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             "custdiv": "input-rowig",
             "textfield": [{
-                "text": "",
-                "class": ""
+                "text": "R",
+                "class": "des"
             }, {
                 "text": "",
                 "class": ""
