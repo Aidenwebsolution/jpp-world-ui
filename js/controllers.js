@@ -114,11 +114,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.pageShow = 1;
                         break;
                     case 'level2':
-                        $scope.pageShow = 4;
+
+                        NavigationService.checkLevel(function(data) {
+                            console.log(data);
+                            if (data.data.accuracy === '') {
+                                $scope.pageShow = 4;
+                            } else {
+                                $scope.pageShow = 7;
+                            }
+                        })
                         break;
                     default:
 
                 }
+
             }
         });
 
@@ -435,9 +444,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.storeLevel($scope.games, function(data) {
                 console.log(data);
                 if (data.value === true) {
-                  $scope.submitData();
-                }else {
-                  $scope.somethingwentwrong();
+                    $scope.submitData();
+                } else {
+                    $scope.somethingwentwrong();
                 }
             })
 
@@ -507,8 +516,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.redirectAfterClose = function() {
             // $state.reload();
-            $scope.pageShow = 5;
+            switch ($state.params.level) {
+                case 'level1':
+                    $scope.pageShow = 5;
+                    break;
+                case 'level2':
+                    $scope.pageShow = 6;
+                    break;
+                default:
 
+            }
         };
         // GET ALL FACEBOOK DETAILS
         NavigationService.getFacebookDetails(function(data) {
@@ -530,7 +547,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (data.value === true) {
                     if (data.data.friend1 !== '' || data.data.friend2 !== '' || data.data.friend3 !== '' || data.data.friend4 !== '' || data.data.friend5 !== '' || data.data.friend6 !== '') {
                         // do not allow to fill form
-                        $scope.doNotRegister();
+                        // $scope.doNotRegister();
+                        $scope.pageShow = 7;
                     } else {
                         $scope.goToPage(2);
                     }

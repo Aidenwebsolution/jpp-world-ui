@@ -2529,7 +2529,7 @@ a {
   overflow: hidden;
 }
 .frnds {
-  height: 200px;
+  height: 250px;
   overflow: auto;
   ul li {
     display: inline-block;
@@ -2549,6 +2549,7 @@ a {
         cursor: pointer;
         img {
           width: 100%;
+          border-radius: 100%;
         }
       }
       p {
@@ -2562,7 +2563,7 @@ a {
         z-index: 1;
         right: 0;
         color: $brand-primary;
-        font-size: 16px;
+        font-size: 15px;
         @include transition(all ease 300ms);
         opacity: 0;
       }
@@ -2572,6 +2573,18 @@ a {
         opacity: 1;
       }
     }
+  }
+  .search {
+    width: 100%;
+    background-color: transparent;
+    margin: 0;
+    padding: 6px;
+    color: #000;
+  }
+  .input-group-addon:first-child {
+    background-color: transparent;
+    border: 1px solid #438daa;
+    i { color:#438daa }
   }
 }
 .hover-css {
@@ -2794,6 +2807,7 @@ border: 1px solid #438daa;
     font-size: 18px;
   }
 }
+
 
 
 

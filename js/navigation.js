@@ -135,6 +135,13 @@ var navigationservice = angular.module('navigationservice', [])
             }
             return menuname;
         },
+        checkLevel: function(callback) {
+          $http({
+              url: adminurl + 'question/getQuestionDetail',
+              method: 'POST',
+              withCredentials: true
+          }).success(callback);
+        },
 
     };
 });
