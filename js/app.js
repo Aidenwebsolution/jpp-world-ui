@@ -13,7 +13,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
       $stateProvider
           .state('home', {
-              url: "/home",
+              url: "/",
               templateUrl: "views/template.html",
               controller: 'Home1Ctrl'
           })
@@ -86,7 +86,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
        $locationProvider.html5Mode(true);
      }
 
-     $urlRouterProvider.otherwise("/home");
+     $urlRouterProvider.otherwise("/");
 
     });
 
