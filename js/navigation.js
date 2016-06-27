@@ -23,46 +23,44 @@ var navigationservice = angular.module('navigationservice', [])
 
         {
             name: "JPP 'TV'",
-            anchor: "jpp-tv",
+            link: "http://jaipurpinkpanthers.com/jpp-tv",
             classis: "active",
-            subnav: []
-        }, {
+            // subnav: []
+        },
+        {
             name: "THE PANTHER DEN",
             anchor: "panthers-den",
             classis: "active",
-            subnav: [{
-                    name: "Panther Army",
-                    classis: "active",
-                    link: "panther-army",
-                }, {
-                    name: "Ultimate Panther",
-                    classis: "active",
-                    link: "#/ultimate-panther"
-                },
-                // {
-                //     name: "#AuctionWithAbhishek",
-                //     classis: "active",
-                //     link: "#/auction"
-                // },
-                {
-                    name: "#JPP Survey",
-                    classis: "active",
-                    link: "#/jpp-survey"
-                },
-            ]
-        }, {
+            // subnav: [{
+            //         name: "Panther Army",
+            //         classis: "active",
+            //         link: "panther-army",
+            //     }, {
+            //         name: "Ultimate Panther",
+            //         classis: "active",
+            //         link: "#/ultimate-panther"
+            //     },
+            //     {
+            //         name: "#JPP Survey",
+            //         classis: "active",
+            //         link: "#/jpp-survey"
+            //     },
+            // ]
+        }
+        , {
             name: "GAMES",
             anchor: "games",
             classis: "active",
             subnav: []
-        }, {
+        }
+        , {
             name: "NEWS & UPDATES",
-            anchor: "news-updates",
+            link: "http://jaipurpinkpanthers.com/news-media",
             classis: "active",
             subnav: []
         }, {
             name: "GALLERY",
-            anchor: "gallery",
+            link: "http://jaipurpinkpanthers.com/wallpaper",
             classis: "active",
             subnav: []
         }, {

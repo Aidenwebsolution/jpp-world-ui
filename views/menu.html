@@ -1,15 +1,15 @@
 <ul class="nav navbar-nav head-menu">
-  <li ng-repeat="menu in navigation" class="menu-custom-li">
-    <a ui-sref="{{menu.anchor}}" class="menu-custom" ng-if="menu.anchor">{{menu.name}}</a>
-    <a href="{{menu.link}}" ng-if="menu.link">{{menu.name}}</a>
+  <li ng-repeat="menu in navigation" class="menu-custom-li {{menu.classis}}">
+    <a ui-sref="{{menu.anchor}}" ng-if="menu.anchor" class=" menu-custom">{{menu.name}}</a>
+    <a href="{{menu.link}}"class="menu-custom"  ng-if="menu.link">{{menu.name}}</a>
     <ul class="dropdown-menu" ng-if="menu.subnav!='';">
       <li ng-repeat="submenu in menu.subnav">
         <a class="subnav" ui-sref="{{submenu.link}}">{{submenu.name}}</a>
       </li>
     </ul>
   </li>
-  <li class="visible-xs regis">  
-    <div class="dropdown reg">
+  <li class="visible-xs regis">
+    <!-- <div class="dropdown reg">
       <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown">Abhishek<img src="img/Abhi.png" class="img-responsive display-inline photo" alt="">
         <span class="arrow-down"><i class="fa fa-angle-down" aria-hidden="true"></i></span></button>
         <ul class="drops dropdown-menu">
@@ -17,7 +17,7 @@
           <li><a href="#">Suggest a friend</a></li>
           <li><a href="#">Log Out</a></li>
         </ul>
-      </div>
+      </div> -->
       <!-- <select name="registering" id="register">
       <option value="log in">log in</option>
       <option value="know more">know more</option>

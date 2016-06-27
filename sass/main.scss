@@ -523,6 +523,7 @@ nav {
     font-size: 20px;
     font-weight: $font-light;
     padding-right: 15px;
+    margin-right: 9px;
     &:hover {
       .dropdown-menu {
         display: block;
@@ -726,8 +727,8 @@ nav {
       width: 60px;
       line-height: 60px;
       text-align: center;
-      border-radius: 100%;
-      border: 1px solid #fff;
+      // border-radius: 100%;
+      // border: 1px solid #fff;
     }
     &:hover {
       color: $brand-success;
@@ -2864,7 +2865,7 @@ a {
 }
 .log-coming {
   padding-top: 100px;
-  height: 100vh;
+  height: 660px;
   img {
     width: 300px;
   }

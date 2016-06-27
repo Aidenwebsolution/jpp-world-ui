@@ -33,14 +33,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('ComingSoonCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
-
-    console.log("Testing Consoles");
-
     $scope.template = TemplateService.changecontent("comingsoon");
     $scope.menutitle = NavigationService.makeactive("Coming Soon");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
 })
 
 .controller('JPPTVCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -660,6 +656,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
+    console.log($state.current.name);
     NavigationService.callProfile(function(data) {
         console.log(data);
         if (data.value === true) {
@@ -668,7 +665,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.profileimage = data.data.profilePic;
             $scope.accesstoken = data.data.K120K200;
         } else {
-            $state.go('home');
+          if ($state.current.name=="panther-army") {
+            // $state.go('home');
+
+          }
         }
 
     });
