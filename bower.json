@@ -28,7 +28,7 @@
     "font-awesome": "~4.4.0",
     "lodash": "~4.0.0",
     "ui-router": "~0.2.15",
-    "angular": "^1.5.7",
+    "angular": "~1.5.7",
     "fancyBox": "fancybox#^2.1.5",
     "jStorage": "^0.4.12",
     "moment": "^2.13.0"
