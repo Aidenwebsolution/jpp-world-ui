@@ -29,6 +29,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
               templateUrl: "views/template.html",
               controller: 'JPPTVCtrl'
           })
+          .state('comingsoon', {
+              url: "/comingsoon",
+              templateUrl: "views/template.html",
+              controller: 'ComingSoonCtrl'
+          })
 
       .state('panthers-den', {
           url: "/panthers-den",

@@ -2579,4 +2579,18 @@ a {
 .no-margin {
   margin: 0;
 }
+.log-coming {
+  padding-top: 100px;
+  height: 100vh;
+  img {
+    width: 300px;
+  }
+  .comingsoon-p4 {
+    font-size: 50px;
+    text-transform: uppercase;
+    color: $pink;
+    letter-spacing: 2px;
+    font-family: $font-family-sans-serif;
+  }
+}
 @import "mobile"; // @import "style";
