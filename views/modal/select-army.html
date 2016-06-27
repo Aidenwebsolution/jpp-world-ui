@@ -1,25 +1,32 @@
 <div>
-  <div class="modal-header">
-    <h4 class="title no-margin text-center">Add upto 6 friends to your army</h4>
-  </div>
-  <div class="modal-body">
-    <div class="frnds">
-      <ul class="list-unstyled">
-        <li ng-repeat="item in obj">
-          <div class="wrapper-frnds" ng-class="{'checked' : item.toggle}">
-            <!-- <div class="image-holder"><img ng-src="{{item.picture.data.url}}" alt="" ng-click="selectedImg.src = item"></div> -->
-            <div class="image-holder"><img ng-src="{{item.picture.data.url}}" alt="" ng-click="insertSelectedFriends(item)"></div>
-            <p class="text-center">
-              {{item.name}}
-            </p>
-            <i class="fa fa-check-circle" aria-hidden="true"></i>
-          </div>
-        </li>
-      </ul>
+    <div class="modal-header">
+        <h4 class="title no-margin text-center">Add upto 6 friends to your army</h4>
     </div>
-  </div>
-  <div class="modal-footer">
-    <!-- <button class="btn btn-primary" type="button" ng-click="insertSelectedFriends(item)">Add Friends</button> -->
-    <button class="btn hover-css" type="button" ng-click="$close()">Select</button>
-  </div>
+    <div class="modal-body">
+        <div class="frnds">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-search"></i>
+                </span>
+                <input type="text" class="form-control search" ng-model="search" placeholder="Search Friends">
+            </div>
+
+            <ul class="list-unstyled">
+                <li ng-repeat="item in obj | filter:search">
+                    <div class="wrapper-frnds" ng-class="{'checked' : item.toggle}">
+                        <!-- <div class="image-holder"><img ng-src="{{item.picture.data.url}}" alt="" ng-click="selectedImg.src = item"></div> -->
+                        <div class="image-holder"><img ng-src="{{item.picture.data.url}}" alt="" ng-click="insertSelectedFriends(item)"></div>
+                        <p class="text-center">
+                            {{item.name}}
+                        </p>
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <!-- <button class="btn btn-primary" type="button" ng-click="insertSelectedFriends(item)">Add Friends</button> -->
+        <button class="btn hover-css" type="button" ng-click="$close()">Select</button>
+    </div>
 </div>

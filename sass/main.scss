@@ -192,7 +192,6 @@ a {
   }
   .dropdown-menu {
     position: absolute;
-    left: 45%;
     li:nth-child(even),
     li:nth-child(odd) {
       background: $brand-success!important;
@@ -209,6 +208,7 @@ a {
   height: 40px;
   width: 40px;
   margin: 0 5px 0 15px;
+  border-radius: 50%;
 }
 .dropdown-menu > li > a:focus,
 .dropdown-menu > li > a:hover {
@@ -216,9 +216,14 @@ a {
   color: #000!important;
 }
 .reg {
+  .dropdown-menu > li > a {
+    @include transition(all ease 300ms);
+    padding: 5px 20px;
+  }
   .dropdown-menu > li > a:focus,
   .dropdown-menu > li > a:hover {
     background: $brand-primary!important;
+    color: #fff!important;
   }
 }
 .add-friend {
@@ -320,7 +325,9 @@ a {
   }
 }
 .section2,
-.section3 {
+.section3,
+.section4,
+.section5 {
   padding: 40px 0 80px;
   background-image: (url("../img/home/bg.jpg"));
   background-size: cover;
@@ -2520,6 +2527,282 @@ a {
 }
 .panther-army {
   overflow: hidden;
+}
+.frnds {
+  height: 250px;
+  overflow: auto;
+  ul li {
+    display: inline-block;
+    text-align: center;
+    margin: 10px 5px;
+    width: 18%;
+    overflow: hidden;
+    .wrapper-frnds {
+      position: relative;
+      .image-holder {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        border: 1px solid #000;
+        overflow: hidden;
+        margin: 0 auto;
+        cursor: pointer;
+        img {
+          width: 100%;
+          border-radius: 100%;
+        }
+      }
+      p {
+        margin-bottom: 0;
+        height: 20px;
+        overflow: hidden;
+      }
+      i {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        right: 0;
+        color: $brand-primary;
+        font-size: 15px;
+        @include transition(all ease 300ms);
+        opacity: 0;
+      }
+    }
+    .checked {
+      i {
+        opacity: 1;
+      }
+    }
+  }
+  .search {
+    width: 100%;
+    background-color: transparent;
+    margin: 0;
+    padding: 6px;
+    color: #000;
+  }
+  .input-group-addon:first-child {
+    background-color: transparent;
+    border: 1px solid #438daa;
+    i {
+      color: #438daa;
+    }
+  }
+}
+.hover-css {
+  &:hover,
+  &:focus,
+  &:active:focus {
+    color: lighten(#000, 10%);
+    background: darken(#DDD, 10%);
+    outline: none;
+  }
+}
+.no-margin {
+  margin: 0;
+}
+.margintop {
+  margin-top: 50px;
+}
+.margin10 {
+  margin-top: 10px;
+}
+.section4 {
+  h3 {
+    color: $pinky;
+  }
+  h2 {
+    color: #fff;
+    font-family: "Dreamwalker";
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+  p {
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 16px;
+  }
+  .form-controling {
+    width: 36%;
+    margin-left: 15px;
+    margin-top: 10px;
+    height: 35px;
+    padding: 0;
+    background-color: #438daa;
+    border: 1px solid #438daa;
+  }
+  .crossword {
+    text-align: center;
+    margin: 0 auto;
+    display: table;
+  }
+  .task {
+    display: inline-block;
+    background-color: #fff;
+    padding: 5px 15px;
+    position: absolute;
+    top: -20px;
+    left: 215px;
+    span {
+      color: $pinky;
+    }
+  }
+  .bg-blue {
+    position: relative;
+    background: rgba(10 ,95 ,135 ,0.65);
+    height: 250px;
+    margin: 30px 0 0;
+  }
+  .bg-blues {
+    position: relative;
+    background: rgba(10 ,95 ,135 ,0.65);
+    height: 480px;
+    margin: 30px 0 0;
+    .form-controlling {
+      margin-top: 20px;
+    }
+  }
+  .butns {
+    margin: 50px 0 0;
+  }
+  .buttn {
+    background-color: #f0318f;
+    border: 1px solid #f0318f;
+    font-weight: 300;
+    color: #fff;
+    padding: 10px 50px;
+    margin-top: 20px;
+  }
+  .buttn:hover {
+    background-color: $brand-success;
+    border: 1px solid $brand-success;
+  }
+  .guess-player {
+    img {
+      margin: 0 auto;
+      width: 30%;
+    }
+  }
+}
+.inp-row,
+.inp-ro,
+.inpu-ro,
+.input-ro,
+.input-row,
+.input-rowing,
+.input-rowg,
+.input-rowig {
+  input {
+    background-color: transparent;
+    border: 1px solid white;
+    margin: 50px 0 0;
+    float: left;
+    width: 32px;
+    height: 32px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    +input {
+      margin-left: -1px;
+    }
+    &.spl {
+      margin-left: 1px;
+      margin-right: 1px;
+      margin-top: 47px;
+      border-color: $brand-primary;
+      color: $brand-primary;
+      height: 36px;
+    }
+  }
+}
+.inp-ro {
+  margin-left: 155px;
+  margin-top: 5px;
+  input {
+    margin-top: 0;
+    &.spl {
+      margin-top: 0;
+    }
+  }
+}
+.inpu-ro {
+  margin-left: 125px;
+  margin-top: 5px;
+  input {
+    margin-top: 0;
+    &.spl {
+      margin-top: 0;
+    }
+  }
+}
+.input-ro {
+  margin-left: 64px;
+  margin-top: 5px;
+  input {
+    margin-top: 0;
+    &.spl {
+      margin-top: 0;
+    }
+  }
+}
+.input-row {
+  margin-left: 33px;
+  margin-top: 5px;
+  input {
+    margin-top: 0;
+    &.spl {
+      margin-top: 0;
+    }
+  }
+}
+.input-rowing,
+.input-rowg {
+  margin-left: 33px;
+  margin-top: 5px;
+  input {
+    margin-top: 0;
+    &.spl {
+      margin-top: 0;
+    }
+  }
+}
+.input-rowig {
+  margin-left: 96px;
+  margin-top: 5px;
+  input {
+    margin-top: 0;
+    &.spl {
+      margin-top: 0;
+    }
+  }
+}
+.form-controlling {
+  width: 220px;
+  margin-left: 0;
+  margin-top: 10px;
+  height: 35px;
+  padding: 0;
+  background-color: #438daa;
+  border: 1px solid #438daa;
+}
+.section5 {
+  padding: 15% 0 25%;
+  h3 {
+    color: $pinky;
+  }
+  h2 {
+    color: #fff;
+    font-family: "Dreamwalker";
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+  p {
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 18px;
+  }
 }
 .frnds {
   height: 200px;

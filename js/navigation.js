@@ -2,7 +2,9 @@ var adminURL = "";
 // if (isproduction) {
 //     adminURL = "http://www.wohlig.co.in/demo/index.php";
 // } else {
-    adminurl = "http://jppworld.in:1337/";
+    // adminurl = "http://jppworld.in:1337/";
+    // adminurl = "http://192.168.1.105:1337/";
+    adminurl = "http://pantherworldadmin.jaipurpinkpanthers.com/";
 // }
 
 var navigationservice = angular.module('navigationservice', [])
@@ -107,11 +109,19 @@ var navigationservice = angular.module('navigationservice', [])
             $http.get(adminurl + "user/getFacebookDetails").success(callback);
         },
         logout: function(callback) {
-            //console.log('Navigation form data: ', formData);
             $http({
                 url: adminurl + 'register/logout',
                 method: 'POST',
                 withCredentials: true
+
+            }).success(callback);
+        },
+        storeLevel: function(data, callback) {
+            $http({
+                url: adminurl + 'question/storeLevel2',
+                method: 'POST',
+                withCredentials: true,
+                data:data
 
             }).success(callback);
         },
@@ -124,6 +134,13 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }
             return menuname;
+        },
+        checkLevel: function(callback) {
+          $http({
+              url: adminurl + 'question/getQuestionDetail',
+              method: 'POST',
+              withCredentials: true
+          }).success(callback);
         },
 
     };

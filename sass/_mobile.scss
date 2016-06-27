@@ -1,6 +1,4 @@
 $screen-xs: 480px !default;
-$screen-sm: 767px !default;
-$screen-md: 991px !default;
 $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px) and (max-device-width: 1500px){
 // .fixture-match{
 //   zoom:0.7;
@@ -142,6 +140,31 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
   }
 }
 @media (max-width: $screen-sm-max) {
+.section4{
+  .task{
+        left: 315px;
+  }
+  .guess-player{
+    img{
+      width: 24%;
+    }
+  }
+  // .crossword{
+  //   text-align: center;
+  //   margin: 0 auto;
+  //   display: table;
+  // }
+  .pink-button{
+    text-align: center;
+  }
+  p{
+    font-size: 14px;
+  }
+}
+
+
+
+
   nav a.menu-custom {
     padding: 16px 0 !important;
     font-size: 11px;
@@ -842,6 +865,15 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
   }
 }
 @media (max-width: 480px) {
+  .section4  {
+   .task {
+    left: 0px;
+}
+p{
+  font-size: 12px;
+}
+  }
+
   .frnds ul li {
     width: 44%;
     .wrapper-frnds p {
@@ -1044,6 +1076,121 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     border: 1px solid #fff;
     font-size: 1em;
   }
+  .section4{
+    .crossword {
+    text-align: center;
+    margin: 0 auto;
+    display: table;
+}
+.bg-blues{
+  height: 350px;
+}
+    .inp-row input, .inp-ro input, .inpu-ro input, .input-ro input, .input-row input, .input-rowing input, .input-rowg input, .input-rowig input {
+        background-color: transparent;
+        border: 1px solid white;
+        margin: 0;
+        margin-top: 50px;
+        float: left;
+        width: 16px;
+        height: 16px;
+        color: white;
+        border-radius: 0;
+        font-size: 6px;
+        text-transform: uppercase;
+        text-align: center;
+    &.spl{
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 47px;
+    border-color: #b41e72;
+    color: #b41e72;
+    height: 16px;
+    border-radius: 0;
+    font-size: 6px;
+}
+}
+.inp-ro{
+  margin-left: 79px;
+  margin-top: 5px;
+  input{
+    margin-top: 0;
+   &.spl {
+     margin-top: 0;
+   }
+ }
+}
+    p{
+      font-size: 12px;
+    }
+    .task{
+      left: 0px;
+    }
+    .inpu-ro{
+      margin-left: 64px;
+      margin-top: 5px;
+      input{
+        margin-top: 0;
+       &.spl {
+         margin-top: 0;
+       }
+     }
+    }
+    .input-ro{
+      margin-left: 33px;
+      margin-top: 5px;
+      input{
+        margin-top: 0;
+       &.spl {
+         margin-top: 0;
+       }
+     }
+    }
+
+    .input-row{
+      margin-left: 16px;
+      margin-top: 5px;
+      input{
+        margin-top: 0;
+       &.spl {
+         margin-top: 0;
+       }
+     }
+    }
+
+    .input-rowing,.input-rowg{
+      margin-left: 16px;
+      margin-top: 5px;
+      input{
+        margin-top: 0;
+       &.spl {
+         margin-top: 0;
+       }
+     }
+    }
+
+
+    .input-rowig{
+      margin-left:48px;
+      margin-top: 5px;
+      input{
+        margin-top: 0;
+       &.spl {
+         margin-top: 0;
+       }
+      }
+    }
+    .form-controlling{
+      width: 220px;
+        margin-left: 0;
+        margin-top: 10px;
+        height: 35px;
+        padding: 0;
+        background-color: #438daa;
+        border: 1px solid #438daa;
+    }
+
+  }
+
   //     .slider .carousel-control.right {
   //     right: -48px;
   // }

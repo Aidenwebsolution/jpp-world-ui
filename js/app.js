@@ -13,7 +13,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 
       $stateProvider
           .state('home', {
-              url: "/home",
+              url: "/",
               templateUrl: "views/template.html",
               controller: 'Home1Ctrl'
           })
@@ -41,7 +41,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
           controller: 'DenCtrl'
       })
       .state('panther-army', {
-          url: "/panther-army",
+          url: "/panther-army/:level",
           templateUrl: "views/template.html",
           controller: 'ArmyCtrl'
       })
@@ -91,7 +91,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
        $locationProvider.html5Mode(true);
      }
 
-     $urlRouterProvider.otherwise("/home");
+     $urlRouterProvider.otherwise("/");
 
     });
 
@@ -114,6 +114,26 @@ firstapp.directive('img', function($compile, $parse) {
       }
     }
   };
+});
+firstapp.directive('onlyDigits', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attr, ngModelCtrl) {
+            function fromUser(text) {
+                if (text) {
+                    var transformedInput = text.replace(/[^0-9]/g, '');
+
+                    if (transformedInput !== text) {
+                        ngModelCtrl.$setViewValue(transformedInput);
+                        ngModelCtrl.$render();
+                    }
+                    return transformedInput;
+                }
+                return undefined;
+            }
+            ngModelCtrl.$parsers.push(fromUser);
+        }
+    };
 });
 
 firstapp.directive('fancyboxBox', function($document) {
