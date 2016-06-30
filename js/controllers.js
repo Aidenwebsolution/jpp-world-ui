@@ -122,12 +122,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.pageShow = 1;
                         break;
                     case 'level2':
-
+console.log("demodemodemo");
                         NavigationService.checkLevel(function(data) {
                             console.log(data);
-                            if (data.data.accuracy === '') {
+                            if (!data.data.accuracy || data.data.accuracy === '') {
+                              console.log("in if");
                                 $scope.pageShow = 4;
                             } else {
+                              console.log("in else");
                                 $scope.pageShow = 7;
                             }
                         })
