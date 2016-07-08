@@ -1,16 +1,16 @@
 <div class="bg">
-  <div class="container">
-    <div class="row">
+   <div class="container">
+      <div class="row">
 
 
-      <div class="tabs">
-        <uib-tabset>
-          <!-- <uib-tab index="0">
+         <div class="tabs">
+            <uib-tabset>
+               <!-- <uib-tab index="0">
             <uib-tab-heading class="uppercase-text">Auction With Abhishek</uib-tab-heading>
           </uib-tab> -->
-          <uib-tab index="0">
-            <uib-tab-heading class="uppercase-text">Panther Army</uib-tab-heading>
-            <!-- <div class="bg">
+               <uib-tab index="0">
+                  <uib-tab-heading class="uppercase-text">Panther Army</uib-tab-heading>
+                  <!-- <div class="bg">
                         <div class="container">
                           <div class="row text-center">
                             <div class="log-coming">
@@ -23,403 +23,404 @@
                           </div>
                         </div>
                       </div> -->
-            <!-- <div class="battle-image section1" ng-show=""> -->
-            <div class="battle-image section1" ng-show="pageShow==1">
-              <!-- <div class="battle-image section1" ng-show="pageShow==1" ng-click="goToPage(2)"> -->
-              <img src="img/home/bg1.jpg" alt="" class="img-responsive no-imgmobile">
-              <div class="panther-army text-center">
-                <div class="row">
-                  <div class="col-md-offset-2 col-md-8">
-                    <div class="img-up">
-                      <img src="img/home/bg2.png" alt="" class="img-responsive">
-                    </div>
-                    <div class="fight-text">
-                      <h4>
+                  <!-- <div class="battle-image section1" ng-show=""> -->
+                  <div class="battle-image section1" ng-show="pageShow==1">
+                     <!-- <button type="button" name="button" ng-click="sendMessage();">Send MSG</button> -->
+                     <!-- <div class="battle-image section1" ng-show="pageShow==1" ng-click="goToPage(2)"> -->
+                     <img src="img/home/bg1.jpg" alt="" class="img-responsive no-imgmobile">
+                     <div class="panther-army text-center">
+                        <div class="row">
+                           <div class="col-md-offset-2 col-md-8">
+                              <div class="img-up">
+                                 <img src="img/home/bg2.png" alt="" class="img-responsive">
+                              </div>
+                              <div class="fight-text">
+                                 <h4>
                         Fight for glory of forming Jaipur Pink Panthers' first ever Panther Army</h4>
-                    </div>
-                    <div class="up">
-                      <h4>Up for Grabs:</h4>
-                      <span class="text-bold">Team jerseys with winner names</span>
-                      <span>Photo opportunity with the team</span>
-                      <span>Official JPP Army card signed by Abhishek Bachchan</span>
-                      <span>Title of the first ever Panther Army</span>
-                    </div>
-                    <button class="btn butns uppercase-text" ng-click="checkIfRegistered()">Register</button>
+                              </div>
+                              <div class="up">
+                                 <h4>Up for Grabs:</h4>
+                                 <span class="text-bold">Team jerseys with winner names</span>
+                                 <span>Photo opportunity with the team</span>
+                                 <span>Official JPP Army card signed by Abhishek Bachchan</span>
+                                 <span>Title of the first ever Panther Army</span>
+                              </div>
+                              <button class="btn butns uppercase-text" ng-click="checkIfRegistered()">Register</button>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="battle-image section2" ng-show="pageShow==2">
-              <form>
-                <label class="text-center text-bold title" for="name">First up, let's give your army a name</label>
-                <input type="text" class="form-control" id="name" ng-model="armyName">
-                <div class="add-friend text-center">
-                  <label class="text-center text-bold title">Add upto 6 friends to your army </label>
-                  <div class="image-box">
-                    <a ng-click="openfrnds()">
-                      <div class="image-boxes">
-                        <img ng-src="{{lines[0].picture.data.url}}" ng-if="lines[0].picture.data.url" alt="" class="img-responsive" ng-model="lines[0].picture.data.url">
-                        <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[0].picture.data.url"></i>
-                      </div>
-                    </a>
-                    <a ng-click="openfrnds()">
-                      <div class="image-boxes">
-                        <img ng-src="{{lines[1].picture.data.url}}" ng-if="lines[1].picture.data.url" alt="" class="img-responsive" ng-model="lines[1].picture.data.url">
-                        <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[1].picture.data.url"></i>
-                      </div>
-                    </a>
-                    <a ng-click="openfrnds()">
-                      <div class="image-boxes">
-                        <img ng-src="{{lines[2].picture.data.url}}" ng-if="lines[2].picture.data.url" alt="" class="img-responsive" ng-model="lines[2].picture.data.url">
-                        <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[2].picture.data.url"></i>
-                      </div>
-                    </a>
-                    <a ng-click="openfrnds()">
-                      <div class="image-boxes">
-                        <img ng-src="{{lines[3].picture.data.url}}" ng-if="lines[3].picture.data.url" alt="" class="img-responsive" ng-model="lines[3].picture.data.url">
-                        <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[3].picture.data.url"></i>
-                      </div>
-                    </a>
-                    <a ng-click="openfrnds()">
-                      <div class="image-boxes">
-                        <img ng-src="{{lines[4].picture.data.url}}" ng-if="lines[4].picture.data.url" alt="" class="img-responsive" ng-model="lines[4].picture.data.url">
-                        <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[4].picture.data.url"></i>
-                      </div>
-                    </a>
-                    <a ng-click="openfrnds()">
-                      <div class="image-boxes">
-                        <img ng-src="{{lines[5].picture.data.url}}" ng-if="lines[5].picture.data.url" alt="" class="img-responsive" ng-model="lines[5].picture.data.url">
-                        <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[5].picture.data.url"></i>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <button class="btn butns uppercase-text" ng-click="storeUserData(armyName,lines[0].picture.data.url,lines[1].picture.data.url,lines[2].picture.data.url,lines[3].picture.data.url,lines[4].picture.data.url,lines[5].picture.data.url,lines[0].name,lines[1].name,lines[2].name,lines[3].name,lines[4].name,lines[5].name,lines[6].name)">Submit</button>
-              </form>
-              <!-- <button class="btn butns uppercase-text" ng-click="openerror()">openModal</button> -->
-              </form>
-              <ul class="pager">
-                <li class="previous pull-right"><a ng-click="goToPage(1)" class="uppercase-text">Previous</a></li>
-              </ul>
-            </div>
-            <div class="battle-image section3" ng-show="pageShow==3">
-              <div class="container">
-                <div class="info-form text-bold">
-                  <div class="row">
-                    <div class="col-md-12 text-center">
-                      <h3 class="text-capitalize">level 1</h3>
-                      <h2 class="uppercase-text text-bold">conquer all frontiers</h2>
-                      <p>Here's the first challenge. Answer all the questions below correctly to move to the next level.</p>
-                    </div>
-                  </div>
-                  <div class="row margin0">
-                    <div class="col-md-6 col-sm-6">
-                      <div class="bg-blue ml10">
-                        <div class="row">
-                          <div class="text-label">
-                            <label class="question">Our biggest win margin in all the 3 seasons </label>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="1" name="season" ng-model="option.question1option" value="28">
-                                <label for="1"><span></span>28</label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="2" ng-model="option.question1option" name="season" value="32">
-                                <label for="2"><span></span>32</label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="3" ng-model="option.question1option" name="season" value="30">
-                                <label for="3"><span></span>30</label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="4" ng-model="option.question1option" name="season" value="20">
-                                <label for="4"><span></span>20</label>
-                              </div>
-                            </div>
-                          </div>
+                  <div class="battle-image section2" ng-show="pageShow==2">
+                     <form>
+                        <label class="text-center text-bold title" for="name">First up, let's give your army a name</label>
+                        <input type="text" class="form-control" id="name" ng-model="armyName">
+                        <div class="add-friend text-center">
+                           <label class="text-center text-bold title">Add upto 6 friends to your army </label>
+                           <div class="image-box">
+                              <a ng-click="openfrnds()">
+                                 <div class="image-boxes">
+                                    <img ng-src="{{lines[0].picture.data.url}}" ng-if="lines[0].picture.data.url" alt="" class="img-responsive" ng-model="lines[0].picture.data.url">
+                                    <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[0].picture.data.url"></i>
+                                 </div>
+                              </a>
+                              <a ng-click="openfrnds()">
+                                 <div class="image-boxes">
+                                    <img ng-src="{{lines[1].picture.data.url}}" ng-if="lines[1].picture.data.url" alt="" class="img-responsive" ng-model="lines[1].picture.data.url">
+                                    <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[1].picture.data.url"></i>
+                                 </div>
+                              </a>
+                              <a ng-click="openfrnds()">
+                                 <div class="image-boxes">
+                                    <img ng-src="{{lines[2].picture.data.url}}" ng-if="lines[2].picture.data.url" alt="" class="img-responsive" ng-model="lines[2].picture.data.url">
+                                    <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[2].picture.data.url"></i>
+                                 </div>
+                              </a>
+                              <a ng-click="openfrnds()">
+                                 <div class="image-boxes">
+                                    <img ng-src="{{lines[3].picture.data.url}}" ng-if="lines[3].picture.data.url" alt="" class="img-responsive" ng-model="lines[3].picture.data.url">
+                                    <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[3].picture.data.url"></i>
+                                 </div>
+                              </a>
+                              <a ng-click="openfrnds()">
+                                 <div class="image-boxes">
+                                    <img ng-src="{{lines[4].picture.data.url}}" ng-if="lines[4].picture.data.url" alt="" class="img-responsive" ng-model="lines[4].picture.data.url">
+                                    <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[4].picture.data.url"></i>
+                                 </div>
+                              </a>
+                              <a ng-click="openfrnds()">
+                                 <div class="image-boxes">
+                                    <img ng-src="{{lines[5].picture.data.url}}" ng-if="lines[5].picture.data.url" alt="" class="img-responsive" ng-model="lines[5].picture.data.url">
+                                    <i class="fa fa-plus fa-2x" aria-hidden="true" ng-if="!lines[5].picture.data.url"></i>
+                                 </div>
+                              </a>
+                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="bg-blue mr10">
-                        <div class="row">
-                          <div class="text-label ">
-                            <label class="question">Name the Panther who scored the maximum points in season 2</label>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="5" name="points" ng-model="option.question2option" value="Rajesh Narwal">
-                                <label for="5"><span></span>Rajesh Narwal</label>
-                              </div>
-                            </div>
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="6" name="points" ng-model="option.question2option" value="Rohit Rana">
-                                <label for="6"><span></span>Rohit Rana</label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="7" name="points" ng-model="option.question2option" value="Jasvir Singh">
-                                <label for="7"><span></span>Jasvir Singh</label>
-                              </div>
-                            </div>
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="8" name="points" ng-model="option.question2option" value="Ran Singh">
-                                <label for="8"><span></span>Ran Singh</label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                        <button class="btn butns uppercase-text" ng-click="storeUserData(armyName,lines[0].picture.data.url,lines[1].picture.data.url,lines[2].picture.data.url,lines[3].picture.data.url,lines[4].picture.data.url,lines[5].picture.data.url,lines[0].name,lines[1].name,lines[2].name,lines[3].name,lines[4].name,lines[5].name,lines[6].name)">Submit</button>
+                     </form>
+                     <!-- <button class="btn butns uppercase-text" ng-click="openerror()">openModal</button> -->
+                     </form>
+                     <ul class="pager">
+                        <li class="previous pull-right"><a ng-click="goToPage(1)" class="uppercase-text">Previous</a></li>
+                     </ul>
                   </div>
-                  <div class="row margin0">
-                    <div class="col-md-6 col-sm-6">
-                      <div class="bg-blue ml10">
-                        <div class="row">
-                          <div class="text-label">
-                            <label class="question">Total number of Super Tackles made by the Panthers in PKL </label>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="9" name="tackles" ng-model="option.question3option" value="51">
-                                <label for="9"><span></span>51</label>
+                  <div class="battle-image section3" ng-show="pageShow==3">
+                     <div class="container">
+                        <div class="info-form text-bold">
+                           <div class="row">
+                              <div class="col-md-12 text-center">
+                                 <h3 class="text-capitalize">level 1</h3>
+                                 <h2 class="uppercase-text text-bold">conquer all frontiers</h2>
+                                 <p>Here's the first challenge. Answer all the questions below correctly to move to the next level.</p>
                               </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="10" name="tackles" ng-model="option.question3option" value="52">
-                                <label for="10"><span></span>52</label>
+                           </div>
+                           <div class="row margin0">
+                              <div class="col-md-6 col-sm-6">
+                                 <div class="bg-blue ml10">
+                                    <div class="row">
+                                       <div class="text-label">
+                                          <label class="question">Our biggest win margin in all the 3 seasons </label>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="1" name="season" ng-model="option.question1option" value="28">
+                                                <label for="1"><span></span>28</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="2" ng-model="option.question1option" name="season" value="32">
+                                                <label for="2"><span></span>32</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="3" ng-model="option.question1option" name="season" value="30">
+                                                <label for="3"><span></span>30</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="4" ng-model="option.question1option" name="season" value="20">
+                                                <label for="4"><span></span>20</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
                               </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="11" name="tackles" ng-model="option.question3option" value="43">
-                                <label for="11"><span></span>43</label>
+                              <div class="col-md-6 col-sm-6">
+                                 <div class="bg-blue mr10">
+                                    <div class="row">
+                                       <div class="text-label ">
+                                          <label class="question">Name the Panther who scored the maximum points in season 2</label>
+                                       </div>
+                                       <div class="col-md-4">
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="5" name="points" ng-model="option.question2option" value="Rajesh Narwal">
+                                                <label for="5"><span></span>Rajesh Narwal</label>
+                                             </div>
+                                          </div>
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="6" name="points" ng-model="option.question2option" value="Rohit Rana">
+                                                <label for="6"><span></span>Rohit Rana</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-4">
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="7" name="points" ng-model="option.question2option" value="Jasvir Singh">
+                                                <label for="7"><span></span>Jasvir Singh</label>
+                                             </div>
+                                          </div>
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="8" name="points" ng-model="option.question2option" value="Ran Singh">
+                                                <label for="8"><span></span>Ran Singh</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
                               </div>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="check-label">
-                              <div class="custom-radio">
-                                <input type="radio" id="12" name="tackles" ng-model="option.question3option" value="46">
-                                <label for="12"><span></span>46</label>
+                           </div>
+                           <div class="row margin0">
+                              <div class="col-md-6 col-sm-6">
+                                 <div class="bg-blue ml10">
+                                    <div class="row">
+                                       <div class="text-label">
+                                          <label class="question">Total number of Super Tackles made by the Panthers in PKL </label>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="9" name="tackles" ng-model="option.question3option" value="51">
+                                                <label for="9"><span></span>51</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="10" name="tackles" ng-model="option.question3option" value="52">
+                                                <label for="10"><span></span>52</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="11" name="tackles" ng-model="option.question3option" value="43">
+                                                <label for="11"><span></span>43</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="check-label">
+                                             <div class="custom-radio">
+                                                <input type="radio" id="12" name="tackles" ng-model="option.question3option" value="46">
+                                                <label for="12"><span></span>46</label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <!-- <div class="col-md-3"></div> -->
+                                    </div>
+                                 </div>
                               </div>
-                            </div>
-                          </div>
-                          <!-- <div class="col-md-3"></div> -->
+                              <div class="col-md-6 col-sm-6">
+                                 <div class="bg-blue mr10">
+                                    <div class="row">
+                                       <div class="text-label">
+                                          <label class="question" for="defining">Which was,according to you,the defining moment of season 3 </label>
+                                       </div>
+                                       <div class="row margin0">
+                                          <div class="col-md-12">
+                                             <input type="text" ng-model="option.question4option" class="form-controls" name="defining" id="defining">
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row margin0">
+                              <div class="col-md-6 col-sm-12">
+                                 <div class="bg-blue ml10">
+                                    <div class="row">
+                                       <div class="text-label">
+                                          <label class="question" for="stratergy">What do you think should be our stratergy for season4 </label>
+                                       </div>
+                                       <div class="row margin0">
+                                          <div class="col-md-12">
+                                             <input type="text" ng-model="option.question5option" class="form-controls" name="stratergy" id="stratergy">
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="bg-blue mr10 transparent bx">
+                                    <div class="row">
+                                       <div class="text-lable">
+                                          <button type="submit" ng-click="submitAnswer(option)" class="btn butns uppercase-text">Submit</button>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="bg-blue mr10">
-                        <div class="row">
-                          <div class="text-label">
-                            <label class="question" for="defining">Which was,according to you,the defining moment of season 3 </label>
-                          </div>
-                          <div class="row margin0">
-                            <div class="col-md-12">
-                              <input type="text" ng-model="option.question4option" class="form-controls" name="defining" id="defining">
-                            </div>
-                          </div>
+                     </div>
+                     <ul class="pager">
+                        <li class="previous pull-right"><a ng-click="goToPage(2)" class="uppercase-text">Previous</a></li>
+                     </ul>
+                  </div>
+                  <div class="games section4" ng-show="pageShow==4">
+                     <div class="level2 text-center">
+                        <h3 class="text-capitalize">level 2</h3>
+                        <h2 class="uppercase-text text-bold">the final frontier</h2>
+                        <p>Winning wars is not easy! This one won’t be either. Your army has 30 minutes to complete all the tasks below. </p>
+                     </div>
+                     <form name="invite">
+                        <div class="row margin0">
+                           <div class="col-md-6 col-sm-12 col-xs-12">
+                              <div class="bg-blue mr10">
+                                 <div class="task">
+                                    <span>Task 1: Speed</span>
+                                 </div>
+                                 <div class="text-label text-center margintop">
+                                    <p>Click the Kabaddi button {{200-games.speedClick}} times
+                                       <br>in the least time possible</p>
+                                    <button type="button" ng-disabled="games.speedClick>=200" class="btn buttn uppercase-text" ng-click="kabaddiClick()">kabaddi</button>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-6 col-sm-12 col-xs-12">
+                              <div class="bg-blue mr10">
+                                 <div class="task">
+                                    <span>Task 2: Accuracy</span>
+                                 </div>
+                                 <div class="text-label text-center margin10">
+                                    <p>Correctly guess the two Panthers in the image below</p>
+                                    <figure class="guess-player">
+                                       <img src="img/player.png" class="img-responsive" alt="player">
+                                    </figure>
+                                    <input type="text" class="form-controling inline-block" ng-model="game2.accuracy1" required>
+                                    <input type="text" class="form-controling inline-block" ng-model="game2.accuracy2" required>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row margin0">
-                    <div class="col-md-6 col-sm-12">
-                      <div class="bg-blue ml10">
-                        <div class="row">
-                          <div class="text-label">
-                            <label class="question" for="stratergy">What do you think should be our stratergy for season4 </label>
-                          </div>
-                          <div class="row margin0">
-                            <div class="col-md-12">
-                              <input type="text" ng-model="option.question5option" class="form-controls" name="stratergy" id="stratergy">
-                            </div>
-                          </div>
+                        <div class="row margin0">
+                           <div class="col-md-6 col-sm-12 col-xs-12">
+                              <div class="bg-blues mr10">
+                                 <div class="task">
+                                    <span>Task 3: Intelligence </span>
+                                 </div>
+                                 <div class="text-label text-center margin10">
+                                    <div class="crossword">
+                                       <div class="{{task.custdiv}}" ng-repeat="task in task3">
+                                          <input type="text" class="{{tak.class}}" ng-model="tak.text" ng-change="textChange(tak,$parent.$index)" maxlength="1" data-minlength="1" ng-repeat="tak in task.textfield" ng-disabled="tak.class=='des'" required>
+                                          <div class="clearfix"></div>
+                                       </div>
+                                    </div>
+                                    <input type="text" readOnly class="form-controlling text-center" style="text-transform: uppercase;" ng-model="games.intelligence" placeholder="Enter the code here">
+                                    <!-- <span ng-bind="pinkCharacters()"></span> -->
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-6 col-sm-12 col-xs-12">
+                              <div class="row margin0">
+                                 <div class="bg-blue mr10">
+                                    <div class="task">
+                                       <span>Task 4: Memory</span>
+                                    </div>
+                                    <div class="text-label text-center margintop">
+                                       <p>Enter the date when were we crowned the PKL champions</p>
+                                       <input type="text" class="form-controls" ng-model="games.mamory" required>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row margin0">
+                                 <div class="pink-button text-center">
+                                    <!-- <p ng-if="invite.$invalid">Complete all the Tasks.</p> -->
+                                    <button type="submit" ng-disabled="invite.$invalid && games.speedClick <= 200" class="btn butns uppercase-text" ng-click="levelTwo()">Submit</button>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="bg-blue mr10 transparent bx">
-                        <div class="row">
-                          <div class="text-lable">
-                            <button type="submit" ng-click="submitAnswer(option)" class="btn butns uppercase-text">Submit</button>
-                          </div>
+                     </form>
+                     <ul class="pager">
+                        <li class="previous pull-right"><a class="uppercase-text">Previous</a></li>
+                     </ul>
+                  </div>
+                  <div class="games section5" ng-show="pageShow==5">
+                     <div class="thank-text text-center">
+                        <p>"You have successfully completed the 1st task.</p>
+                        <p>Keep your fingers crossed till we announce the winners that progress to the next level!"
+                        </p>
+                     </div>
+                  </div>
+                  <div class="games section5" ng-show="pageShow==6">
+                     <div class="thank-text text-center">
+                        <p>"You have successfully completed the 2nd task.</p>
+                        <p>Keep your fingers crossed till we announce the winners that progress to the next level!"</p>
+                     </div>
+                  </div>
+                  <div class="games section5" ng-show="pageShow==7">
+                     <div class="thank-text text-center">
+                        <p>You have already fought the battle once!</p>
+                        <p>It's time to keep your fingers crossed &amp; follow our Social Media pages for the results.
+                        </p>
+                     </div>
+                  </div>
+               </uib-tab>
+               <uib-tab index="1">
+                  <uib-tab-heading class="uppercase-text">Ultimate Panther</uib-tab-heading>
+                  <section class="section">
+                     <div class="bg">
+                        <div class="container">
+                           <div class="row text-center">
+                              <div class="log-coming">
+                                 <img src="img/logo.png" alt="pantherworld">
+                                 <div class="comingsoon-p4">
+                                    Coming
+                                    <br> Soon
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <ul class="pager">
-                <li class="previous pull-right"><a ng-click="goToPage(2)" class="uppercase-text">Previous</a></li>
-              </ul>
-            </div>
-            <div class="games section4" ng-show="pageShow==4">
-              <div class="level2 text-center">
-                <h3 class="text-capitalize">level 2</h3>
-                <h2 class="uppercase-text text-bold">the final frontier</h2>
-                <p>Winning wars is not easy! This one won’t be either. Your army has 30 minutes to complete all the tasks below. </p>
-              </div>
-              <form name="invite">
-                <div class="row margin0">
-                  <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="bg-blue mr10">
-                      <div class="task">
-                        <span>Task 1: Speed</span>
-                      </div>
-                      <div class="text-label text-center margintop">
-                        <p>Click the Kabaddi button {{200-games.speedClick}} times
-                          <br>in the least time possible</p>
-                        <button type="button" ng-disabled="games.speedClick>=200" class="btn buttn uppercase-text" ng-click="kabaddiClick()">kabaddi</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="bg-blue mr10">
-                      <div class="task">
-                        <span>Task 2: Accuracy</span>
-                      </div>
-                      <div class="text-label text-center margin10">
-                        <p>Correctly guess the two Panthers in the image below</p>
-                        <figure class="guess-player">
-                          <img src="img/player.png" class="img-responsive" alt="player">
-                        </figure>
-                        <input type="text" class="form-controling inline-block" ng-model="game2.accuracy1" required>
-                        <input type="text" class="form-controling inline-block" ng-model="game2.accuracy2" required>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row margin0">
-                  <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="bg-blues mr10">
-                      <div class="task">
-                        <span>Task 3: Intelligence </span>
-                      </div>
-                      <div class="text-label text-center margin10">
-                        <div class="crossword">
-                          <div class="{{task.custdiv}}" ng-repeat="task in task3">
-                            <input type="text" class="{{tak.class}}" ng-model="tak.text" ng-change="textChange(tak,$parent.$index)" maxlength="1" data-minlength="1" ng-repeat="tak in task.textfield" ng-disabled="tak.class=='des'" required>
-                            <div class="clearfix"></div>
-                          </div>
-                        </div>
-                        <input type="text" readOnly class="form-controlling text-center" style="text-transform: uppercase;" ng-model="games.intelligence" placeholder="Enter the code here">
-                        <!-- <span ng-bind="pinkCharacters()"></span> -->
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="row margin0">
-                      <div class="bg-blue mr10">
-                        <div class="task">
-                          <span>Task 4: Memory</span>
-                        </div>
-                        <div class="text-label text-center margintop">
-                          <p>Enter the date when were we crowned the PKL champions</p>
-                          <input type="text" class="form-controls" ng-model="games.mamory" required>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row margin0">
-                      <div class="pink-button text-center">
-                        <!-- <p ng-if="invite.$invalid">Complete all the Tasks.</p> -->
-                        <button type="submit" ng-disabled="invite.$invalid && games.speedClick <= 200" class="btn butns uppercase-text" ng-click="levelTwo()">Submit</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <ul class="pager">
-                <li class="previous pull-right"><a class="uppercase-text">Previous</a></li>
-              </ul>
-            </div>
-            <div class="games section5" ng-show="pageShow==5">
-              <div class="thank-text text-center">
-                <p>"You have successfully completed the 1st task.</p>
-                <p>Keep your fingers crossed till we announce the winners that progress to the next level!"
-                </p>
-              </div>
-            </div>
-            <div class="games section5" ng-show="pageShow==6">
-              <div class="thank-text text-center">
-                <p>"You have successfully completed the 2nd task.</p>
-                <p>Keep your fingers crossed till we announce the winners that progress to the next level!"</p>
-              </div>
-            </div>
-            <div class="games section5" ng-show="pageShow==7">
-              <div class="thank-text text-center">
-                <p>You have already fought the battle once!</p>
-                <p>It's time to keep your fingers crossed &amp; follow our Social Media pages for the results.
-                </p>
-              </div>
-            </div>
-          </uib-tab>
-          <uib-tab index="1">
-            <uib-tab-heading class="uppercase-text">Ultimate Panther</uib-tab-heading>
-            <section class="section">
-              <div class="bg">
-                <div class="container">
-                  <div class="row text-center">
-                    <div class="log-coming">
-                      <img src="img/logo.png" alt="pantherworld">
-                      <div class="comingsoon-p4">
-                        Coming
-                        <br> Soon
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+                     </div>
+                  </section>
 
-          </uib-tab>
-          <uib-tab index="2">
-            <uib-tab-heading class="uppercase-text">Panther Quiz</uib-tab-heading>
-            <section class="section">
-              <div class="bg">
-                <div class="container">
-                  <div class="row text-center">
-                    <div class="log-coming">
-                      <img src="img/logo.png" alt="pantherworld">
-                      <div class="comingsoon-p4">
-                        Coming
-                        <br> Soon
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </uib-tab>
-          <!-- <div class="games section4">
+               </uib-tab>
+               <uib-tab index="2">
+                  <uib-tab-heading class="uppercase-text">Panther Quiz</uib-tab-heading>
+                  <section class="section">
+                     <div class="bg">
+                        <div class="container">
+                           <div class="row text-center">
+                              <div class="log-coming">
+                                 <img src="img/logo.png" alt="pantherworld">
+                                 <div class="comingsoon-p4">
+                                    Coming
+                                    <br> Soon
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </section>
+               </uib-tab>
+               <!-- <div class="games section4">
               <div class="level2 text-center">
                 <h3 class="text-capitalize">level 2</h3>
                 <h2 class="uppercase-text text-bold">the final frontier</h2>
@@ -594,10 +595,10 @@
                 <li class="previous pull-right"><a class="uppercase-text">Previous</a></li>
               </ul>
             </div> -->
-        </uib-tabset>
+            </uib-tabset>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
 </div>
 <!-- <label class="checkbox-inline">
 <input type="checkbox" id="ambassador" value="ambassador">

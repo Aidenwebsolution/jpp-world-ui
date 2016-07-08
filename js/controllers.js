@@ -122,14 +122,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.pageShow = 1;
                         break;
                     case 'level2':
-console.log("demodemodemo");
+                        console.log("demodemodemo");
                         NavigationService.checkLevel(function(data) {
                             console.log(data);
                             if (!data.data.accuracy || data.data.accuracy === '') {
-                              console.log("in if");
+                                console.log("in if");
                                 $scope.pageShow = 4;
                             } else {
-                              console.log("in else");
+                                console.log("in else");
                                 $scope.pageShow = 7;
                             }
                         })
@@ -449,19 +449,26 @@ console.log("demodemodemo");
             //
             // };
         $scope.levelTwo = function() {
-            $scope.games.accuracy = $scope.game2.accuracy1 + " " + $scope.game2.accuracy2;
-            console.log($scope.games);
-            NavigationService.storeLevel($scope.games, function(data) {
-                console.log(data);
-                if (data.value === true) {
-                    $scope.submitData();
-                } else {
-                    $scope.somethingwentwrong();
-                }
-            })
+                $scope.games.accuracy = $scope.game2.accuracy1 + " " + $scope.game2.accuracy2;
+                console.log($scope.games);
+                NavigationService.storeLevel($scope.games, function(data) {
+                    console.log(data);
+                    if (data.value === true) {
+                        $scope.submitData();
+                    } else {
+                        $scope.somethingwentwrong();
+                    }
+                })
 
-        }
-
+            }
+            // $scope.sendMessage = function() {
+            //     // NavigationService.sendMessage($scope.messageToFriends, function(data, status) {
+            //     //     console.log(data);
+            //     // })
+            //     var encoded = encodeURI("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html&redirect_uri=http://jaipurpinkpanthers.com/pantherworld/");
+            //     console.log(encoded);
+            //     // window.location.href = encoded;
+            // }
         $scope.storeUserData = function(armyname, url1, url2, url3, url4, url5, url6, friend1, friend2, friend3, friend4, friend5, friend6) {
             if (armyname === undefined || url1 === undefined || url2 === undefined || url3 === undefined || url4 === undefined || url5 === undefined || url6 === undefined || friend1 === undefined || friend2 === undefined || friend3 === undefined || friend4 === undefined || friend5 === undefined || friend6 === undefined) {
                 $scope.openerror();
@@ -480,6 +487,16 @@ console.log("demodemodemo");
                 $scope.sendUserData.friend6 = friend6;
                 $scope.sendUserData.friend6image = url6;
                 $scope.pageShow = 3;
+
+                var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+                var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+                var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+                var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+                var left = ((width / 2) - (800 / 2)) + dualScreenLeft;
+                var top = ((height / 2) - (500 / 2)) + dualScreenTop;
+                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://jaipurpinkpanthers.com/pantherworld&redirect_uri=http://jaipurpinkpanthers.com/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
             }
         };
         $scope.submitAnswer = function(option) {
@@ -566,6 +583,7 @@ console.log("demodemodemo");
             });
         };
 
+        $scope.messageToFriends = [];
         $scope.item = {};
         $scope.lines = globalItems;
         $scope.insertSelectedFriends = function(item) {
@@ -578,7 +596,7 @@ console.log("demodemodemo");
                 $scope.lines.push($scope.item);
                 item.toggle = !(item.toggle);
             } else {}
-
+            $scope.messageToFriends = $scope.lines;
         };
         $scope.registershow = true;
         $scope.toggleForms = function(choice) {
@@ -667,10 +685,10 @@ console.log("demodemodemo");
             $scope.profileimage = data.data.profilePic;
             $scope.accesstoken = data.data.K120K200;
         } else {
-          if ($state.current.name=="panther-army") {
-            // $state.go('home');
+            if ($state.current.name == "panther-army") {
+                // $state.go('home');
 
-          }
+            }
         }
 
     });

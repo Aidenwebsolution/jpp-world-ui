@@ -2,9 +2,9 @@ var adminURL = "";
 // if (isproduction) {
 //     adminURL = "http://www.wohlig.co.in/demo/index.php";
 // } else {
-    // adminurl = "http://jppworld.in:1337/";
-    // adminurl = "http://192.168.1.105:1337/";
-    adminurl = "http://pantherworldadmin.jaipurpinkpanthers.com/";
+// adminurl = "http://jppworld.in:1337/";
+// adminurl = "http://192.168.1.105:1337/";
+adminurl = "http://pantherworldadmin.jaipurpinkpanthers.com/";
 // }
 
 var navigationservice = angular.module('navigationservice', [])
@@ -26,8 +26,7 @@ var navigationservice = angular.module('navigationservice', [])
             link: "http://jaipurpinkpanthers.com/jpp-tv",
             classis: "active",
             // subnav: []
-        },
-        {
+        }, {
             name: "THE PANTHER DEN",
             anchor: "panthers-den",
             classis: "active",
@@ -46,14 +45,12 @@ var navigationservice = angular.module('navigationservice', [])
             //         link: "#/jpp-survey"
             //     },
             // ]
-        }
-        , {
+        }, {
             name: "GAMES",
             anchor: "games",
             classis: "active",
             subnav: []
-        }
-        , {
+        }, {
             name: "NEWS & UPDATES",
             link: "http://jaipurpinkpanthers.com/news-media",
             classis: "active",
@@ -84,22 +81,22 @@ var navigationservice = angular.module('navigationservice', [])
 
             }).success(callback);
         },
-        storeAnswer: function(option,callback) {
+        storeAnswer: function(option, callback) {
             //console.log('Navigation form data: ', formData);
             $http({
                 url: adminurl + 'question/storeAnswer',
                 method: 'POST',
                 withCredentials: true,
-                data:option
+                data: option
 
             }).success(callback);
         },
-        storeUserData: function(data,callback) {
+        storeUserData: function(data, callback) {
             $http({
                 url: adminurl + 'user/storeUserData',
                 method: 'POST',
                 withCredentials: true,
-                data:data
+                data: data
 
             }).success(callback);
         },
@@ -119,9 +116,16 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'question/storeLevel2',
                 method: 'POST',
                 withCredentials: true,
-                data:data
+                data: data
 
             }).success(callback);
+        },
+        sendMessage: function(data, callback) {
+            FB.ui({
+                method: 'send',
+                link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
+                redirect_uri: "http://jaipurpinkpanthers.com/pantherworld"
+            });
         },
         makeactive: function(menuname) {
             for (var i = 0; i < navigation.length; i++) {
@@ -134,11 +138,11 @@ var navigationservice = angular.module('navigationservice', [])
             return menuname;
         },
         checkLevel: function(callback) {
-          $http({
-              url: adminurl + 'question/getQuestionDetail',
-              method: 'POST',
-              withCredentials: true
-          }).success(callback);
+            $http({
+                url: adminurl + 'question/getQuestionDetail',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
         },
 
     };
