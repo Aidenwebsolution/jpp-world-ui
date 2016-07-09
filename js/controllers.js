@@ -496,7 +496,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 var left = ((width / 2) - (800 / 2)) + dualScreenLeft;
                 var top = ((height / 2) - (500 / 2)) + dualScreenTop;
-                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://jaipurpinkpanthers.com/pantherworld&redirect_uri=http://jaipurpinkpanthers.com/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
+                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://wohlig.co.in/panther-army.html&redirect_uri=http://jaipurpinkpanthers.com/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
             }
         };
         $scope.submitAnswer = function(option) {
