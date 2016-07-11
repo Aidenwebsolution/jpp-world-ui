@@ -7,7 +7,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     console.log("108");
 
     $scope.template = TemplateService.changecontent("home1");
-    $scope.menutitle = NavigationService.makeactive("HOME");
+    $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     TemplateService.header = "";
@@ -25,7 +25,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     console.log("Testing Consoles");
 
     $scope.template = TemplateService.changecontent("home");
-    $scope.menutitle = NavigationService.makeactive("HOME");
+    $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -53,7 +53,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('DenCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("panthers-den");
-    $scope.menutitle = NavigationService.makeactive("THE PANTHER DEN");
+    $scope.menutitle = NavigationService.makeactive("The Panther Den");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -66,7 +66,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("games");
-        $scope.menutitle = NavigationService.makeactive("GAMES");
+        $scope.menutitle = NavigationService.makeactive("Games");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
@@ -76,7 +76,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("news-updates");
-        $scope.menutitle = NavigationService.makeactive("NEWS & UPDATES");
+        $scope.menutitle = NavigationService.makeactive("News & Updates");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
@@ -87,7 +87,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("gallery");
-        $scope.menutitle = NavigationService.makeactive("GALLERY");
+        $scope.menutitle = NavigationService.makeactive("Gallery");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -98,7 +98,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("panther-room");
-        $scope.menutitle = NavigationService.makeactive("PANTHER ROOM");
+        $scope.menutitle = NavigationService.makeactive("Panther Room");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
@@ -496,7 +496,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 var left = ((width / 2) - (800 / 2)) + dualScreenLeft;
                 var top = ((height / 2) - (500 / 2)) + dualScreenTop;
-                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://wohlig.co.in/panther-army.html&redirect_uri=http://jaipurpinkpanthers.com/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
+                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://jaipurpinkpanthers.com/panther-army.html&redirect_uri=http://jaipurpinkpanthers.com/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
             }
         };
         $scope.submitAnswer = function(option) {
