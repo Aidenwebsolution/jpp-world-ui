@@ -1308,6 +1308,9 @@ img.fancybox-image {
 #fancybox-thumbs ul li.active {
     @include transform(scale(1));
 }
+.team{
+  letter-spacing: 1px;
+}
 .fancybox-nav {
     span {
         visibility: visible !important;
