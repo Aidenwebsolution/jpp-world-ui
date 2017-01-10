@@ -79,7 +79,10 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true
 
-            }).success(callback);
+            }).then(function(data){
+              data=data.data;
+              callback(data);
+            });
         },
         storeAnswer: function(option, callback) {
             //console.log('Navigation form data: ', formData);
@@ -89,7 +92,10 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true,
                 data: option
 
-            }).success(callback);
+            }).then(function(data){
+              data=data.data;
+              callback(data);
+            });
         },
         storeUserData: function(data, callback) {
             $http({
@@ -98,10 +104,16 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true,
                 data: data
 
-            }).success(callback);
+            }).then(function(data){
+              data=data.data;
+              callback(data);
+            });
         },
         getFacebookDetails: function(callback) {
-            $http.get(adminurl + "user/getFacebookDetails").success(callback);
+            $http.get(adminurl + "user/getFacebookDetails").then(function(data){
+              data=data.data;
+              callback(data);
+            });
         },
         logout: function(callback) {
             $http({
@@ -109,7 +121,10 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 withCredentials: true
 
-            }).success(callback);
+            }).then(function(data){
+              data=data.data;
+              callback(data);
+            });
         },
         storeLevel: function(data, callback) {
             $http({
@@ -118,7 +133,10 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true,
                 data: data
 
-            }).success(callback);
+            }).then(function(data){
+              data=data.data;
+              callback(data);
+            });
         },
         sendMessage: function(data, callback) {
             FB.ui({
@@ -142,7 +160,10 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'question/getQuestionDetail',
                 method: 'POST',
                 withCredentials: true
-            }).success(callback);
+            }).then(function(data){
+              data=data.data;
+              callback(data);
+            });
         },
 
     };

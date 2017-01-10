@@ -2887,4 +2887,61 @@ a {
         font-family: $font-family-sans-serif;
     }
 }
+.title{
+  background: url('../img/bg-pattern.jpg')no-repeat;
+  padding: 24px 0px 24px 0px;
+background-size: cover;
+
+h4{
+  margin: 0;
+  text-align: center;
+  color: #fff;
+    font-size: 46px;
+  font-family: 'dreamwalker';
+}
+}
+.ps-relative{
+  position: relative;
+}
+.middle-sec {
+  position: absolute;
+  top: 12px;
+}
+.padding0{
+  padding: 0;
+}
+.pdl{
+  padding-left: 0;
+padding-right: 7px;
+}
+.pdr{
+  padding-left: 7px;
+padding-right: 0;
+}
+.pt10{
+      padding-top: 11px;
+}
+.game-count{
+  position: absolute;
+z-index: 99;
+left: 50%;
+bottom: 170px;
+transform: translatex(-50%);
+  h4{
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'dreamwalker';
+    font-size: 40px;
+    font-weight: 100;
+    margin: 0;
+  }
+  p{
+    color: #fff;
+font-family: 'oswald';
+font-weight: 300;
+width: 185px;
+margin: 0 auto;
+padding: 8px 0px;
+  }
+}
 @import "mobile"; // @import "style";
