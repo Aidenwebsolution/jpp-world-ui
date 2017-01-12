@@ -1,21 +1,29 @@
 var globalItems = [];
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
-.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal) {
     //Used to name the .html file
 
     console.log("108");
 
     $scope.template = TemplateService.changecontent("home1");
-    $scope.menutitle = NavigationService.makeactive("Home");
+    $scope.menutitle = NavigationService.makeactive("Panther World");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    TemplateService.header = "";
     $scope.facebookLogin = function() {
         window.location.href = "http://pantherworldadmin.jaipurpinkpanthers.com/user/loginFacebook";
     };
     $scope.twitterLogin = function() {
         window.location.href = "http://pantherworldadmin.jaipurpinkpanthers.com/user/loginTwitter";
+    };
+    $scope.Share = function() {
+        $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'views/modal/share.html',
+            size: 'md',
+            windowClass: 'share',
+            scope: $scope
+        });
     };
 })
 

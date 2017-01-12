@@ -11,9 +11,9 @@ var navigationservice = angular.module('navigationservice', [])
 
 .factory('NavigationService', function($http) {
     var navigation = [{
-            name: "HOME",
+            name: "Fixtures & Results",
             classis: "active",
-            anchor: "home",
+            link: "http://jaipurpinkpanthers.com/fixtures",
             //     subnav:[{
             //   name: "HOME1",
             //   classis: "active",
@@ -22,13 +22,13 @@ var navigationservice = angular.module('navigationservice', [])
         },
 
         {
-            name: "JPP 'TV'",
-            link: "http://jaipurpinkpanthers.com/jpp-tv",
+            name: "Panther World",
+            link: "home1",
             classis: "active",
             // subnav: []
         }, {
-            name: "THE PANTHER DEN",
-            anchor: "panthers-den",
+            name: "Tickets",
+            link: "http://jaipurpinkpanthers.com/ticket",
             classis: "active",
             // subnav: [{
             //         name: "Panther Army",
@@ -46,25 +46,30 @@ var navigationservice = angular.module('navigationservice', [])
             //     },
             // ]
         }, {
-            name: "GAMES",
-            anchor: "games",
+            name: "Merchandize",
+            link: "http://jaipurpinkpanthers.com/ticket-merchandise",
             classis: "active",
             subnav: []
         }, {
-            name: "NEWS & UPDATES",
+            name: "Players",
+            link: "http://jaipurpinkpanthers.com/players",
+            classis: "active",
+            subnav: []
+        }, {
+            name: "About",
+            link: "http://jaipurpinkpanthers.com/about-us",
+            classis: "active",
+            subnav: []
+        }, {
+            name: "News",
             link: "http://jaipurpinkpanthers.com/news-media",
             classis: "active",
-            subnav: []
+            // subnav: []
         }, {
-            name: "GALLERY",
-            link: "http://jaipurpinkpanthers.com/wallpaper",
+            name: "Fan Corner",
+            link: "http://jaipurpinkpanthers.com/fan-corner",
             classis: "active",
-            subnav: []
-        }, {
-            name: "PANTHER ROOM",
-            anchor: "panther-room",
-            classis: "active",
-            subnav: []
+            // subnav: []
         }
     ];
 
