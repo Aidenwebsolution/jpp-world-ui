@@ -23,7 +23,7 @@ var navigationservice = angular.module('navigationservice', [])
 
         {
             name: "Panther World",
-            link: "home1",
+            link: "home",
             classis: "active",
             // subnav: []
         }, {
