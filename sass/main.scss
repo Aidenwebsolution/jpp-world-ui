@@ -711,6 +711,7 @@ nav {
 
 .navbar-fixed-top {
     border-width: 0 0 0;
+    top: 39px;
 }
 
 .sticky-bottom .navbar-fixed-top {
@@ -1110,7 +1111,8 @@ nav {
 }
 
 .pall35 {
-    padding: 15px 0 12px;
+    // padding: 15px 0 12px;
+    padding: 30px 0 30px;
 }
 
 .mb10 {
@@ -2953,13 +2955,26 @@ a {
 }
 
 .language-holder {
+    // position: fixed;
+    // top: 100px;
+    // right: 0;
+    // background-color: $brand-primary;
+    // padding: 10px;
+    // cursor: pointer;
+    // z-index: 100;
     position: fixed;
-    top: 100px;
+    top: 0;
     right: 0;
-    background-color: $brand-primary;
+    background-color: #4ecaf5;
     padding: 10px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 9;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 300;
+    
 
     &:hover .hover-select {
         display: block;
@@ -3551,26 +3566,26 @@ a {
 
 .img-sider {
     background: url("../img/imageside.png") no-repeat;
-    -webkit-clip-path: polygon(0 0, 100% 0%, 92% 100%, 0% 100%);
+    // -webkit-clip-path: polygon(0 0, 100% 0%, 92% 100%, 0% 100%);
     clip-path: polygon(0 0, 100% 0%, 92% 100%, 0% 100%);
-    position: relative;
-    padding: 322px 0 20px;
+    // position: relative;
+    padding: 322px 0 59px;
     background-position: top center;
-    margin: 0 -33px 0 0;
-    z-index: 9;
+    // mar
+    margin-right: -9px;
+    // z-index: 9;
     background-size: cover;
 
 }
 .img-slider2{
 @extend .img-sider;
-    background: url("../img/left-side.png") no-repeat;
-    background-position: top center;
-background-size: cover;
+//     background: url("../img/left-side.png") no-repeat;
+//     background-position: top center;
+// background-size: cover;
 }
 .img-siders {
     background: url("../img/imagesideright.jpg") no-repeat;
-    position: relative;
-    padding: 322px 0 20px;
+    padding: 289px 0 92px;
     background-position: top center;
     background-size: cover;
     margin: 0px 0px 0px -50px;
@@ -3578,10 +3593,10 @@ background-size: cover;
 }
 .img-siders2{
   @extend .img-siders;
-  background: url("../img/right-side.jpg") no-repeat;
+  background: url("../img/nright-side.png") no-repeat;
   background-position: top center;
   background-size: cover;
-    padding: 432px 0 0;
+  padding: 307px 0 0;
 
 
 }
@@ -3623,6 +3638,7 @@ background-size: cover;
     bottom: 20px;
 width: 100%;
 }
+
 .social-link {
     ul {
         li {
@@ -3631,9 +3647,12 @@ width: 100%;
                     background: #2b9ec6;
                     color: #fff;
                     border-radius: 100%;
-                    height: 40px;
-                    width: 40px;
-                    padding: 8px 9px;
+                    // height: 40px;
+                    // width: 40px;
+                    height: 30px;
+                    width: 30px;
+                    // padding: 8px 9px;
+                    padding: 5px 0px;
                     font-size: 22px;
                     @include transition(all ease 300ms);
                     cursor: pointer;
@@ -3742,5 +3761,59 @@ font-style: italic;
 .shar-ic {
     text-align: center;
     padding: 20px 0px 0px 0px;
+}
+
+// navinscss
+.martp15{
+    margin-top: 15px;
+}
+
+
+.banner{
+    margin-top: 100px;
+}
+.land-page{
+    margin: 40px 0px;
+    padding: 0px 40px 0px 40px;
+    .wal-img{
+        position: relative;
+        z-index: 1;
+     .wal-text{
+         position: absolute;
+         bottom: 18%;
+         left: 40%;
+         transform: translateX(-50%);
+     }   
+    }
+    .gal-img{
+        position: relative;
+    .gal-text{
+        position: absolute;
+        bottom: 18%;
+        left: 44%;
+        transform: translateX(-50%);
+    }
+    }
+
+}
+
+.row-mar-1{
+    margin-bottom: 1px;
+}
+.jptv-image{
+    margin-right: -5px;
+    z-index: 1;
+}
+.abs-ps-jptv{
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-61%);
+    width: 100%;
+}
+.abs-ps-games{
+    position: absolute;
+    bottom: 17%;
+    width: 100%;
 }
 @import "mobile"; // @import "style";

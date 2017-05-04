@@ -1,4 +1,14 @@
 <header>
+  <div class="language-holder" ng-controller="languageCtrl">
+        <div class="container">
+            <span class="text-uppercase">The Official website of Jaipur Pink Panthers</span>
+            <div class="pull-right">
+                <span ng-class="{'selected' : languageActive == 'en'}" ng-click="changeLanguage2('en');">English</span>
+                |
+                <span ng-class="{'selected' : languageActive == 'hi'}" ng-click="changeLanguage2('hi');">Hindi</span>
+            </div>
+        </div>
+    </div>
   <nav class="navbar navbar-default navbar-fixed-top head-section">
     <div class="container" ng-controller="headerctrl">
       <div class="row">
