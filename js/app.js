@@ -73,6 +73,20 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'DenCtrl'
         })
+
+          .state('crossword', {
+            url: "/crossword",
+            templateUrl: "views/template.html",
+            controller: 'CrosswordCtrl'
+        })
+
+          .state('rapid', {
+            url: "/rapid-fire",
+            templateUrl: "views/template.html",
+            controller: 'RapidCtrl'
+        })
+
+
         .state('panther-army', {
             url: "/panther-army/:level",
             templateUrl: "views/template.html",
