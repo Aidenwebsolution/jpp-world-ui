@@ -58,7 +58,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('RapidCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('RapidCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -67,6 +67,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Rapid Fire");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+      $scope.confirmAddToCart = function(){
+          $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/quiz.html",
+            scope: $scope
+        });
+      };
+
+   $scope.score = function(){
+          $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/score.html",
+            scope: $scope
+        });
+      };
+
+   $scope.share = function(){
+          $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/share.html",
+            scope: $scope
+        });
+      };
 })
 
 .controller('CrosswordCtrl', function($scope, TemplateService, NavigationService, $timeout) {
