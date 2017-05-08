@@ -4008,35 +4008,35 @@ font-style: italic;
 
 // Games scss
 
-.abs-game1 , .abs-game3{
-    position: absolute;
-    top: 22%;
-    right: 10px;
-    color: #fff;
-    text-align: right;
-    .head-glanding{
-        font-family: "Dreamwalker";
-    }
-    .time-hrs{
-        text-align: center;
-    }
-}
+// .abs-game1 , .abs-game3{
+//     position: absolute;
+//     top: 22%;
+//     right: 10px;
+//     color: #fff;
+//     text-align: right;
+//     .head-glanding{
+//         font-family: "Dreamwalker";
+//     }
+//     .time-hrs{
+//         text-align: center;
+//     }
+// }
 
-.abs-game2 ,.abs-game4{
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    transform: translateY(-50%);
-    color: #fff;
-    text-align: right;
-    .time-hrs{
-        text-align: center;
-    }
-}
+// .abs-game2 ,.abs-game4{
+//     position: absolute;
+//     top: 50%;
+//     left: 0px;
+//     transform: translateY(-50%);
+//     color: #fff;
+//     text-align: right;
+//     .time-hrs{
+//         text-align: center;
+//     }
+// }
 
-.customize-cal{
-    margin-right: 3px;
-    padding: 5px 57px;
-}
-
+// .customize-cal{
+//     margin-right: 3px;
+//     padding: 5px 57px;
+// }
+@import "navin";
 @import "mobile"; // @import "style";
