@@ -1,4 +1,19 @@
 var adminURL = "";
+
+var mainurl = "http://admin.jaipurpinkpanthers.com/index.php/";
+// var mainurl = "http://192.168.0.101/jppbackend/index.php/";
+//wohlig url for testing
+
+var imgurl = "http://admin.jaipurpinkpanthers.com/uploads/";
+var tempUrl ="http://wohlig.co.in/jppbackend/index.php/json/";
+var tempimgurl = "http://wohlig.co.in/jppbackend/uploads/";
+// var imgurl = "http://192.168.1.107/jppbackend/uploads/";
+// var imgurl="";
+var adminurl1 = mainurl + "json/";
+
+var tempUrl ="http://wohlig.co.in/jppbackend/index.php/json/";
+var tempimgurl = "http://wohlig.co.in/jppbackend/uploads/";
+
 // if (isproduction) {
 //     adminURL = "http://www.wohlig.co.in/demo/index.php";
 // } else {
@@ -170,6 +185,12 @@ var navigationservice = angular.module('navigationservice', [])
               callback(data);
             });
         },
+        getpantherworldguesswho: function(callback) {
+            $http.get(tempUrl + "getpantherworldguesswho").then(callback);
+        },
+        getAuthenticate: function(callback) {
+           $http.get(adminurl1 + "authenticate").success(callback);
+       },
 
     };
 });

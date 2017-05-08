@@ -181,6 +181,15 @@ firstapp.directive('onlyDigits', function() {
         }
     };
 });
+firstapp.filter('serverimage1', function() {
+    return function(input) {
+        if (input) {
+            return tempimgurl + input;
+        } else {
+            return "";
+        }
+    };
+});
 
 firstapp.directive('fancyboxBox', function($document) {
     return {

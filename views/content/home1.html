@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="row row-mar-1">
-            <div class="img wallpapper-img ps-relative">
+            <div class="img wallpapper-img ps-relative" ng-click="isCheckLoggedIn()">
                 <img src="img/full-banner.jpg" alt="img-responsive">
                 <div class="text-center text-top abs-ps-games">
                     <h2>
@@ -71,8 +71,9 @@
                 </div>
             </div>
             </div>
+
             <div class="col-md-6 padding0 col-sm-6">
-                <div class="img-siders2 text-top text-center">
+                <div class="img-siders2 text-top text-center"  ng-style="{'background-image': 'url(' + pantherworldguesswho.image + ')'}">
                     <div class="ft-box">
                         <div class="display-inline vert-middle">
                             <span class="sp1">play <br>this</span><span class="sp2">contest</span><span class="sp3">on</span>

@@ -1,7 +1,7 @@
 var globalItems = [];
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
-.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal) {
+.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal,$filter,$rootScope) {
     //Used to name the .html file
 
     console.log("108");
@@ -25,6 +25,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         });
     };
+
+    console.log("im in get pantherword");
+        NavigationService.getpantherworldguesswho(function(data){
+          console.log("im in get pantherword");
+          console.log("data",data.data.data);
+          $scope.pantherworldguesswho=data.data.data;
+          $scope.pantherworldguesswho.image= $filter('serverimage1')($scope.pantherworldguesswho.image);
+        });
+
+        $scope.isCheckLoggedIn = function() {
+                console.log("im authenticate");
+                NavigationService.getAuthenticate(function(data) {
+                    console.log("getAuthenticate", data);
+                    if (data.logged_in) {
+                        console.log("im in true");
+                        $rootScope.loggedIn = true;
+                    } else {
+                        $rootScope.loggedIn = false;
+                        $scope.modalLogsInstance = $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/logs.html',
+                            scope: $scope,
+                        });
+                    }
+                })
+            }
+
 })
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
