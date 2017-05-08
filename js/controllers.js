@@ -67,21 +67,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Rapid Fire");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-      $scope.confirmAddToCart = function(){
-          $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/quiz.html",
-            scope: $scope
-        });
-      };
-
-   $scope.score = function(){
-          $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/score.html",
-            scope: $scope
-        });
-      };
 
    $scope.share = function(){
           $uibModal.open({
@@ -90,6 +75,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         });
       };
+      $scope.sect1= true;
+      $scope.quiz = true;
+      $scope.score = true;
+         $scope.go=function(){
+            $scope.quiz= false;
+               $scope.sect1= false;
+      }
+      $scope.next=function(){
+          $scope.quiz = true;
+            $scope.score= false;
+      }
+
+
+//       var countdownNumberEl = document.getElementsByClassName('countdown-number')[0];
+// var countdown = 90;
+
+// countdownNumberEl.textContent = countdown;
+
+// setInterval(function() {
+//   countdown = --countdown < 0 ? 90 : countdown;
+
+//   countdownNumberEl.textContent = countdown;
+// }, 1000);
 })
 
 .controller('CrosswordCtrl', function($scope, TemplateService, NavigationService, $timeout) {
