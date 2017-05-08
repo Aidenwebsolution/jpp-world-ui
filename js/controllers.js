@@ -58,6 +58,62 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
+.controller('RapidCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("rapid");
+    $scope.menutitle = NavigationService.makeactive("Rapid Fire");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+   $scope.share = function(){
+          $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/share.html",
+            scope: $scope
+        });
+      };
+      $scope.sect1= true;
+      $scope.quiz = true;
+      $scope.score = true;
+         $scope.go=function(){
+            $scope.quiz= false;
+               $scope.sect1= false;
+      }
+      $scope.next=function(){
+          $scope.quiz = true;
+            $scope.score= false;
+      }
+
+
+//       var countdownNumberEl = document.getElementsByClassName('countdown-number')[0];
+// var countdown = 90;
+
+// countdownNumberEl.textContent = countdown;
+
+// setInterval(function() {
+//   countdown = --countdown < 0 ? 90 : countdown;
+
+//   countdownNumberEl.textContent = countdown;
+// }, 1000);
+})
+
+.controller('CrosswordCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("crossword");
+    $scope.menutitle = NavigationService.makeactive("Crossword");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+})
+
+
+
+
 .controller('DenCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("panthers-den");
