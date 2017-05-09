@@ -1,7 +1,16 @@
 var globalItems = [];
+if ($.jStorage.get("languageSet")) {
+    console.log();
+}
+
+var translate = {};
+var globalFunc = {};
+var currentlang = '';
+var globalLocale = moment.locale('hi');
+var localLocale = moment();
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
-.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal,$filter,$rootScope) {
+.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal,$filter,$rootScope,$translate) {
     //Used to name the .html file
 
     console.log("108");
@@ -73,6 +82,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     };
+
+  
+      $scope.currentlang = $.jStorage.get("languageSet");
+    console.log($scope.currentlang);
+
+        globalFunc.changeLang = function() {
+        $scope.currentlang = currentlang;
+        console.log($scope.currentlang);
+    };
+
+
+    
+    //     globalFunc.changeSlides = function(lang) {
+    //     $scope.currentlang = lang;
+    //     if (lang == 'hi') {
+    //         $scope.news = $scope.hindibanner;
+    //     } else {
+    //         $scope.news = $scope.englishbanner;
+    //     }
+    //     $scope.changeSlide($scope.news[0]);
+
+    // };
 
 })
 
