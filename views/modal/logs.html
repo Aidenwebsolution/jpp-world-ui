@@ -18,7 +18,7 @@
         <div class="player-log">
         <h4 class=" whitey  text-left f20 text-uppercase ">  to get exclusive access to </br>raid the panther's universe!</h4>
       <div class="image">
-        <img src="img/player.png"  class="img-responsive" alt="player">
+        <img src="img/home/player.png"  class="img-responsive" alt="player">
       </div>
       </div>
       <form name="loginForm" class="form loging-in" ng-submit="loginSubmit(loginData);">
@@ -60,31 +60,31 @@
       <form class="form" ng-submit="submitSignup(signupdata)" name="signUp">
          <div class="row">
             <div class="col-md-6">
-               <div class="form-group">
+               <div class="form-group signin">
                   <input type="text" class="form-control" placeholder="Name" ng-model="signupdata.firstname" aplha-Only required>
                </div>
                <!--<div class="form-group">
                   <input type="email" class="form-control" placeholder="Email Address" ng-model="signupdata.email" required>
                </div>-->
-                 <div class="form-group">
+                 <div class="form-group signin">
                   <input type="text" class="form-control" placeholder="Phone No." ng-model="signupdata.phoneno" required minlength="8" maxlength="10" only-Digits>
                </div>
-               <div class="form-group">
+               <div class="form-group signin">
                   <input type="password" name="password" class="form-control" placeholder="Password" ng-model="signupdata.password" required minlength="8" maxlength="14" no-Paste>
                   <p class="error" ng-show="signUp.password.$invalid  && (signUp.password.$dirty || signUp.password.$touched)">Please enter Minimum 8 Characters & Maximum 14 Characters.</p>
                </div>
             </div>
             <div class="col-md-6">
-               <div class="form-group">
+               <div class="form-group signin">
                   <input type="text" class="form-control" placeholder="Surname" ng-model="signupdata.lastname" aplha-Only required>
                </div>
-                <div class="form-group">
+                <div class="form-group signin">
                   <input type="email" class="form-control" placeholder="Email Address" ng-model="signupdata.email" required>
                </div>
                <!--<div class="form-group">
                   <input type="text" class="form-control" placeholder="Phone No." ng-model="signupdata.phoneno" required minlength="8" maxlength="10" only-Digits>
                </div>-->
-               <div class="form-group">
+               <div class="form-group signin">
                   <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password" ng-model="signupdata.confirmPass" no-Paste required>
                   <div class="error-msg" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter Your Password</div>
                </div>
