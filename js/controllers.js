@@ -46,11 +46,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.modalLogsInstance = $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/logs.html',
-                            scope: $scope,
+                            scope: $scope
                         });
                     }
                 })
             }
+
+                    $scope.tabs = "design";
+    $scope.classsa = 'active-tab';
+    $scope.classsb = '';
+
+    $scope.tabchanges = function(tab, a) {
+        $scope.tabs = tab;
+        if (a == 1) {
+            $scope.classsa = 'active-tab';
+            $scope.classsb = '';
+
+
+        }
+        if (a == 2) {
+            $scope.classsb = 'active-tab';
+            $scope.classsa = '';
+
+
+        }
+
+
+    };
 
 })
 
@@ -63,6 +85,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
 
 })
 
