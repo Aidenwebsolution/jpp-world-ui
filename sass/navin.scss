@@ -1,30 +1,166 @@
 .abs-game1 , .abs-game3{
     position: absolute;
     top: 22%;
-    right: 10px;
+    right: 40px;
     color: #fff;
     text-align: right;
     .head-glanding{
+      h4{
+        // font-family: "Kenyan Coffee";
+        font-style:italic;
+        text-transform: uppercase;
+        margin-bottom: 0px !important;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-right: -5px;
+      }
+      h2{
         font-family: "Dreamwalker";
+        font-style: italic;
+        font-size: 40px;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+    }
     }
     .time-hrs{
         text-align: center;
+        h1{
+          span{
+            transform: skewX(-14deg);
+            min-width: 40px;
+          }
+        }
     }
+    // .customize-cal{
+    //   &:after{
+    //   height: 18%;
+    //   width: 28px;
+    //   position: absolute;
+    //   content: "";
+    //   background-color: #4ecaf5;
+    //   right: 19px;
+    //   bottom: 0px;
+    //   transform: skew(-14deg);
+    //   }
+      //       &:before{
+      // height: 18%;
+      // width: 28px;
+      // position: absolute;
+      // content: "";
+      // bottom: 0px;
+      // background-color: #4ecaf5;
+      // left: 25px;
+      // transform: skew(-14deg);
+      // }
+    // }
 }
 
 .abs-game2 ,.abs-game4{
     position: absolute;
     top: 50%;
-    left: 0px;
+    left: 40px;
     transform: translateY(-50%);
     color: #fff;
     text-align: right;
+    .head-glanding{
+      h4{
+        // font-family: "Kenyan Coffee";
+        font-style:italic;
+        text-transform: uppercase;
+        margin-bottom: 0px !important;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-right: -5px;
+      }
+      h2{
+        font-family: "Dreamwalker";
+        font-style: italic;
+        font-size: 40px;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+    }
     .time-hrs{
         text-align: center;
+        h1{
+          span{
+            transform: skewX(-14deg);
+            min-width: 40px;
+          }
+        }
     }
+    // .customize-cal{
+    //   &:after{
+    //   height: 18%;
+    //   width: 28px;
+    //   position: absolute;
+    //   content: "";
+    //   background-color: #4ecaf5;
+    //   right: 19px;
+    //   bottom: 0px;
+    //   transform: skew(-14deg);
+    //   }
+    //   &:before{
+    //   height: 18%;
+    //   width: 28px;
+    //   position: absolute;
+    //   content: "";
+    //   bottom: 0px;
+    //   background-color: #4ecaf5;
+    //   left: 8px;
+    //   transform: skew(-14deg);
+    //   }
+    // }
 }
 
+
+// .abs-game1{
+//    .customize-cal{
+//      &:before{
+//        left: 40% !important;
+//     }
+
+//    }
+// }
+// .abs-game4{
+//   .customize-cal{
+//     &:before{
+//       left: 80px !important;
+//       ;
+//     }
+//   }
+
+// } 
 .customize-cal{
-    margin-right: 3px;
-    padding: 5px 57px;
+    margin-right: 20px;
+    padding: 6px 41px;
+    transform: skewX(-14deg);
+}
+
+.custom-list {
+  .time-hrs{
+    span:nth-child(2){
+      font-style: italic;
+    }
+  }
+  // font-style: italic;
+}
+.fa-lg{
+  line-height: 0em !important;
+}
+
+
+.game-row-1{
+  z-index: 1;
+  margin-top: -30px;
+}
+.game-row-3{
+  z-index: 1;
+  margin-top: -48px;
+}
+
+.pink-line{
+  position: absolute;
+  bottom: 0px;
+  opacity: 0.7;
 }
