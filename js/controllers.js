@@ -10,7 +10,7 @@ var globalLocale = moment.locale('hi');
 var localLocale = moment();
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
-.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal,$filter,$rootScope,$translate) {
+.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal,$filter,$rootScope,$translate,$state) {
     //Used to name the .html file
 
     console.log("108");
@@ -42,14 +42,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.pantherworldguesswho=data.data.data;
           $scope.pantherworldguesswho.image= $filter('serverimage1')($scope.pantherworldguesswho.image);
         });
+        $scope.logs = function() {
+          console.log("im in");
+            $scope.modalLogsInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/logs.html',
+                scope: $scope,
+            });
+        };
+        $scope.authentication=function(){
+          NavigationService.getAuthenticate(function(data) {
+            console.log(data);
+              if (data.logged_in) {
+                console.log("data",data.firstname);
+                  $rootScope.userFirstName = data.firstname;
+                        console.log("data",$rootScope.userFirstName);
+                  $rootScope.loggedIn = true;
+              } else {
+                  $rootScope.loggedIn = false;
+              }
+          })
+        }
+
+
+
+
 
         $scope.isCheckLoggedIn = function() {
                 console.log("im authenticate");
-                NavigationService.getAuthenticate(function(data) {
+              NavigationService.getAuthenticate(function(data) {
                     console.log("getAuthenticate", data);
+                    console.log("data",data);
                     if (data.logged_in) {
                         console.log("im in true");
+                          $rootScope.userFirstName = data.firstname;
                         $rootScope.loggedIn = true;
+                        $state.go('games');
+
                     } else {
                         $rootScope.loggedIn = false;
                         $scope.modalLogsInstance = $uibModal.open({
@@ -59,9 +88,79 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         });
                     }
                 })
+            };
+
+            $scope.signupdata = {};
+            $scope.submitSignup = function(signupdata) {
+                console.log("signupdata", signupdata);
+                $scope.incorrectPass = false;
+                $scope.isCheckedmsg = false;
+                $scope.alreadyExist = false;
+                $scope.succesSignup = false;
+                if (signupdata) {
+                    console.log("signupdata", signupdata);
+                    if (signupdata.password == signupdata.confirmPass) {
+
+                        $scope.incorrectPass = false;
+                        NavigationService.submitSignup(signupdata, function(data) {
+                            console.log("data", data);
+                            if (data.logged_in) {
+                                $rootScope.loggedIn = true;
+                                $scope.succesSignup = true;
+                                $scope.alreadyExist = false;
+                                $timeout(function() {
+
+                                    $scope.succesSignup = false;
+                                    $scope.alreadyExist = false;
+                                    $scope.signupdata = {};
+                                    $scope.modalLogsInstance.close();
+                                    $scope.authentication();
+                                }, 2000);
+
+                            } else {
+                                $scope.succesSignup = false;
+                                $rootScope.loggedIn = false;
+                                console.log("im else");
+                                $scope.alreadyExist = true;
+                            }
+                        })
+                    } else {
+                        $scope.incorrectPass = true;
+                    }
+                }
+            };
+
+            $scope.loginData = {};
+            $scope.incorrectDetails = false;
+            $scope.loginSubmit = function(loginData) {
+                console.log("loginData", loginData);
+                $scope.incorrectDetails = false;
+                if (loginData) {
+
+                    NavigationService.submitLogin(loginData, function(data) {
+                        console.log("data", data);
+                        if (data.logged_in) {
+                            $scope.incorrectDetails = false;
+                            $rootScope.loggedIn = true;
+                            $scope.successlogin = true;
+                            $timeout(function() {
+
+                                $scope.successlogin = false;
+                                $scope.incorrectDetails = false;
+                                $scope.loginData = {};
+                                $scope.modalLogsInstance.close();
+                                $scope.authentication();
+                            }, 2000);
+                            console.log("im in");
+                        } else {
+                            $scope.incorrectDetails = true;
+                            $rootScope.loggedIn = false;
+                        }
+                    })
+                }
             }
 
-                    $scope.tabs = "design";
+    $scope.tabs = "design";
     $scope.classsa = 'active-tab';
     $scope.classsb = '';
 
@@ -83,7 +182,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-  
+
       $scope.currentlang = $.jStorage.get("languageSet");
     console.log($scope.currentlang);
 
@@ -93,7 +192,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-    
+
     //     globalFunc.changeSlides = function(lang) {
     //     $scope.currentlang = lang;
     //     if (lang == 'hi') {
@@ -205,7 +304,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('GamesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('GamesCtrl', function($scope, TemplateService, NavigationService, $timeout, $filter,$interval) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -214,6 +313,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Games");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+
+        // 2017-05-09T05:51:26.652Z
+$scope.latestmatch={};
+$scope.latestmatch.starttimedate= new Date('Wed May 10 2017 18:19:38 GMT+0530 (IST)');
+$scope.latestmatch.starttimedate =$scope.latestmatch.starttimedate.setDate($scope.latestmatch.starttimedate.getDate() + 31);
+
+
+
+            $scope.refreshTimer = function(eventTime) {
+              $scope.countdown={};
+              eventTime = new Date(eventTime);
+                console.log(eventTime);
+                $scope.rightNow = new Date();
+                $scope.diffTime = eventTime - $scope.rightNow;
+                var duration = moment.duration($scope.diffTime, 'milliseconds');
+                  $interval(function() {
+                  duration = moment.duration(duration - 1000, 'milliseconds');
+                  console.log("duration",duration._data.days);
+                    $scope.countdown.days = duration._data.days;
+                    $scope.countdown.hours = duration._data.hours;
+                    $scope.countdown.minutes = duration._data.minutes;
+                    $scope.countdown.seconds = duration._data.seconds;
+
+                }, 1000);
+            };
+
+$scope.refreshTimer($scope.latestmatch.starttimedate);
+
     })
     .controller('NewsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -816,7 +943,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('headerctrl', function($scope, TemplateService, NavigationService, $state) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state,$rootScope,$uibModal,$timeout ) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
@@ -837,6 +964,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     });
+    $scope.tabs = "design";
+    $scope.classsa = 'active-tab';
+    $scope.classsb = '';
+
+    $scope.tabchanges = function(tab, a) {
+        $scope.tabs = tab;
+        if (a == 1) {
+            $scope.classsa = 'active-tab';
+            $scope.classsb = '';
+
+
+        }
+        if (a == 2) {
+            $scope.classsb = 'active-tab';
+            $scope.classsa = '';
+
+
+        }
+
+
+    };
+    $scope.logs = function() {
+      console.log("im in");
+        $scope.modalLogsInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/logs.html',
+            scope: $scope,
+        });
+    };
 
     $scope.logout = function() {
         NavigationService.logout(function(data) {
@@ -848,6 +1004,100 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     };
+
+    $scope.logoutUser = function() {
+        $rootScope.loggedIn = false;
+        NavigationService.logoutUser(function(data) {
+            console.log("im in logout", data);
+        })
+    };
+
+    $scope.authentication=function(){
+      NavigationService.getAuthenticate(function(data) {
+        console.log(data);
+          if (data.logged_in) {
+            console.log("data",data.firstname);
+              $rootScope.userFirstName = data.firstname;
+                    console.log("data",$rootScope.userFirstName);
+              $rootScope.loggedIn = true;
+          } else {
+              $rootScope.loggedIn = false;
+          }
+      })
+    }
+$scope.authentication();
+
+
+            $scope.signupdata = {};
+            $scope.submitSignup = function(signupdata) {
+                console.log("signupdata", signupdata);
+                $scope.incorrectPass = false;
+                $scope.isCheckedmsg = false;
+                $scope.alreadyExist = false;
+                $scope.succesSignup = false;
+                if (signupdata) {
+                    console.log("signupdata", signupdata);
+                    if (signupdata.password == signupdata.confirmPass) {
+
+                        $scope.incorrectPass = false;
+                        NavigationService.submitSignup(signupdata, function(data) {
+                            console.log("data", data);
+                            if (data.logged_in) {
+                                $rootScope.loggedIn = true;
+                                $scope.succesSignup = true;
+                                $scope.alreadyExist = false;
+                                $timeout(function() {
+
+                                    $scope.succesSignup = false;
+                                    $scope.alreadyExist = false;
+                                    $scope.signupdata = {};
+                                    $scope.modalLogsInstance.close();
+                                    $scope.authentication();
+                                }, 2000);
+
+                            } else {
+                                $scope.succesSignup = false;
+                                $rootScope.loggedIn = false;
+                                console.log("im else");
+                                $scope.alreadyExist = true;
+                            }
+                        })
+                    } else {
+                        $scope.incorrectPass = true;
+                    }
+                }
+            };
+
+            $scope.loginData = {};
+            $scope.incorrectDetails = false;
+            $scope.loginSubmit = function(loginData) {
+                console.log("loginData", loginData);
+                $scope.incorrectDetails = false;
+                if (loginData) {
+
+                    NavigationService.submitLogin(loginData, function(data) {
+                        console.log("data", data);
+                        if (data.logged_in) {
+                            $scope.incorrectDetails = false;
+                            $rootScope.loggedIn = true;
+                            $scope.successlogin = true;
+                            $timeout(function() {
+
+                                $scope.successlogin = false;
+                                $scope.incorrectDetails = false;
+                                $scope.loginData = {};
+                                $scope.modalLogsInstance.close();
+                                $scope.authentication();
+                            }, 2000);
+                            console.log("im in");
+                        } else {
+                            $scope.incorrectDetails = true;
+                            $rootScope.loggedIn = false;
+                        }
+                    })
+                }
+            }
+
 })
 
 // .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
@@ -867,7 +1117,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 //                 $.jStorage.set("language", "en");
 //             }
 //         }
-    
+
 //     };
 
 

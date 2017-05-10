@@ -189,8 +189,27 @@ var navigationservice = angular.module('navigationservice', [])
             $http.get(tempUrl + "getpantherworldguesswho").then(callback);
         },
         getAuthenticate: function(callback) {
-           $http.get(adminurl1 + "authenticate").success(callback);
+           $http.get(tempUrl + "authenticate").success(callback);
        },
+       submitLogin: function(loginData, callback) {
+         $http({
+           url: tempUrl + 'login',
+           method: 'POST',
+           withCredentials: true,
+           data: loginData
+         }).success(callback);
+       },
+       submitSignup: function(formData, callback) {
+         $http({
+           url: tempUrl + 'signup',
+           method: 'POST',
+           withCredentials: true,
+           data: formData
+         }).success(callback);
+       },
+       logoutUser: function(callback) {
+          $http.get(tempUrl + "logout").success(callback);
+      },
 
     };
 });
