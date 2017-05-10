@@ -216,6 +216,125 @@ firstapp.directive('fancyboxBox', function($document) {
     };
 });
 
+firstapp.filter('hindimonth', function() {
+    return function(date, onlymonth) {
+        date = new Date(date);
+        var onlyday = date.getDate();
+        var onlyyear = date.getFullYear();
+        var day = "";
+        var dayname = "";
+        if (date) {
+            if (onlymonth) {
+
+                switch (date.getMonth()) {
+                    case 0:
+                        day = "जनवरी";
+                        break;
+                    case 1:
+                        day = "फरवरी";
+                        break;
+                    case 2:
+                        day = "मार्च";
+                        break;
+                    case 3:
+                        day = "अप्रैल";
+                        break;
+                    case 4:
+                        day = "मई";
+                        break;
+                    case 5:
+                        day = "जून";
+                        break;
+                    case 6:
+                        day = "जुलाई";
+                        break;
+                    case 7:
+                        day = "अगस्त";
+                        break;
+                    case 8:
+                        day = "सितम्बर";
+                        break;
+                    case 9:
+                        day = "अक्टूबर";
+                        break;
+                    case 10:
+                        day = "नवंबर";
+                        break;
+                    case 11:
+                        day = "दिसंबर";
+                        break;
+                };
+                return onlyday + " " + day + " " + onlyyear;
+            } else {
+                switch (date.getMonth()) {
+                    case 0:
+                        day = "जनवरी";
+                        break;
+                    case 1:
+                        day = "फरवरी";
+                        break;
+                    case 2:
+                        day = "मार्च";
+                        break;
+                    case 3:
+                        day = "अप्रैल";
+                        break;
+                    case 4:
+                        day = "मई";
+                        break;
+                    case 5:
+                        day = "जून";
+                        break;
+                    case 6:
+                        day = "जुलाई";
+                        break;
+                    case 7:
+                        day = "अगस्त";
+                        break;
+                    case 8:
+                        day = "सितम्बर";
+                        break;
+                    case 9:
+                        day = "अक्टूबर";
+                        break;
+                    case 10:
+                        day = "नवंबर";
+                        break;
+                    case 11:
+                        day = "दिसंबर";
+                        break;
+                };
+                switch (date.getDay()) {
+                    case 0:
+                        dayname = "रविवार";
+                        break;
+                    case 1:
+                        dayname = "सोमवार";
+                        break;
+                    case 2:
+                        dayname = "मंगलवर";
+                        break;
+                    case 3:
+                        dayname = "बुधवार";
+                        break;
+                    case 4:
+                        dayname = "गुरुवार";
+                        break;
+
+                    case 5:
+                        dayname = "शुक्रवार";
+                        break;
+                    case 6:
+                        dayname = "शनिवार";
+                        break;
+                };
+                return dayname + " " + onlyday + " " + day + " " + onlyyear;
+
+            }
+        }
+    };
+});
+
 firstapp.config(function($translateProvider) {
     $translateProvider.translations('en', LanguageEnglish);
     $translateProvider.translations('hi', LanguageHindi);
