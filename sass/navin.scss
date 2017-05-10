@@ -132,8 +132,8 @@
 
 // } 
 .customize-cal{
-    margin-right: 20px;
-    padding: 6px 41px;
+    margin-right: 15px;
+    padding: 6px 46px;
     transform: skewX(-14deg);
 }
 
@@ -163,4 +163,33 @@
   position: absolute;
   bottom: 0px;
   opacity: 0.7;
+}
+
+.cust-center{
+  text-align: center;
+}
+
+.pinkback-custom{
+  background-image: linear-gradient(#ee4a9b 50%, #ea1b81 50%);
+    padding: 5px;
+    border-radius: 0;
+    min-width: 50px;
+    display: inline-block;
+    font-size: 20px;
+    transform: skewX(-14deg);
+}
+
+.time-hrs > ul{
+  padding: 0px !important;
+}
+.semi-dot{
+  font-size: 25px;
+  vertical-align: top;
+  padding:0px 5px !important;
+}
+
+.custom-text{
+    padding-right: 10px;
+    font-size: 12px;
+    font-style: italic;
 }
