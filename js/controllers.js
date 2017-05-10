@@ -316,8 +316,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // 2017-05-09T05:51:26.652Z
 $scope.latestmatch={};
-$scope.latestmatch.starttimedate= new Date('Wed May 10 2017 18:19:38 GMT+0530 (IST)');
-$scope.latestmatch.starttimedate =$scope.latestmatch.starttimedate.setDate($scope.latestmatch.starttimedate.getDate() + 31);
+$scope.latestmatch.startTimedate= new Date('Wed May 10 2017 18:19:38 GMT+0530 (IST)');
+$scope.latestmatch.startTimedate =$scope.latestmatch.startTimedate.setDate($scope.latestmatch.startTimedate.getDate() + 31);
 
 
 
@@ -339,7 +339,7 @@ $scope.latestmatch.starttimedate =$scope.latestmatch.starttimedate.setDate($scop
                 }, 1000);
             };
 
-$scope.refreshTimer($scope.latestmatch.starttimedate);
+$scope.refreshTimer($scope.latestmatch.startTimedate);
 
     })
     .controller('NewsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
