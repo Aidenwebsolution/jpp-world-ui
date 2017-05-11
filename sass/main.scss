@@ -2976,7 +2976,7 @@ a {
     cursor: pointer;
     color: #fff;
     font-weight: 300;
-    
+
 
     &:hover .hover-select {
         display: block;
@@ -3785,7 +3785,7 @@ font-style: italic;
          bottom: 18%;
          left: 40%;
          transform: translateX(-50%);
-     }   
+     }
     }
     .gal-img{
         position: relative;
@@ -3913,16 +3913,16 @@ font-style: italic;
     z-index: 9;
 }
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
-	  border-top:none !important; 
+	  border-top:none !important;
 }
 
 .crosswordsection{
-	
+
 	background: black;
 	opacity:0.6;
 	 margin: 50px 0 20px 0;
 	font-size: 20px;
-	
+
 }
 
 .crosswordsec{
@@ -3937,7 +3937,7 @@ font-style: italic;
 	width:475px;
     margin: 0 auto 40px;
 	position: relative;
-	
+
 
 }
 
@@ -3958,7 +3958,7 @@ font-style: italic;
     color: #fff;
     font-family: 'dreamwalker';
     font-style: normal;
-    font-size: 30px;  
+    font-size: 30px;
     }
     li{
         margin: 0 5px;
@@ -4038,7 +4038,7 @@ font-style: italic;
     margin-top: -30px;
     margin-right: 20px;
         }
-    
+
     }
     .form {
         padding: 20px 50px;
@@ -4051,7 +4051,7 @@ font-style: italic;
                 border-bottom: 1px solid #fff;
                 box-shadow: none;
                 border-radius: 0;
-                   
+
             }
         }
         ::-webkit-input-placeholder {
@@ -4142,7 +4142,7 @@ font-style: italic;
         background-image: url("../img/bg.png");
         background-repeat: no-repeat;
         background-size: cover;
-       
+
     }
 
     .checkbox {
@@ -4178,7 +4178,19 @@ font-style: italic;
         width:90% !important;
     }
 }
-    
+
+
+// suksha css
+.login-btn{
+  list-style-type: none;
+    margin-top: 20px;
+    margin-left: -5px;
+    a{
+      color:#fff;
+      font-size:15px;
+    }
+}
+
 //modal//
 
 

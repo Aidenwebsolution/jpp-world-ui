@@ -1,5 +1,5 @@
 <header>
-  <!-- <div class="language-holder" ng-controller="languageCtrl">
+  <div class="language-holder" ng-controller="languageCtrl">
         <div class="container">
             <span class="text-uppercase">The Official website of Jaipur Pink Panthers</span>
             <div class="pull-right">
@@ -8,7 +8,7 @@
                 <span ng-class="{'selected' : languageActive == 'hi'}" ng-click="changeLanguage2('hi');">Hindi</span>
             </div>
         </div>
-    </div> -->
+    </div>
   <nav class="navbar navbar-default navbar-fixed-top head-section">
     <div class="container" ng-controller="headerctrl">
       <div class="row">
@@ -32,7 +32,8 @@
           </div>
 
           <div class="col-md-2 col-sm-2 registration hidden-xs" >
-                <li><a  ng-if="!loggedIn" ng-click="logs();">Login</a></li>
+            <div class="login-btn"><li><a  ng-if="!loggedIn" ng-click="logs();">Login</a></li></div>
+
             <div class="dropdown reg" ng-if="loggedIn" >
 
               <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown" >{{userFirstName}}<img src="img/Abhi.png" class="img-responsive display-inline photo" alt="">

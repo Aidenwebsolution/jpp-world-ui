@@ -193,16 +193,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-    //     globalFunc.changeSlides = function(lang) {
-    //     $scope.currentlang = lang;
-    //     if (lang == 'hi') {
-    //         $scope.news = $scope.hindibanner;
-    //     } else {
-    //         $scope.news = $scope.englishbanner;
-    //     }
-    //     $scope.changeSlide($scope.news[0]);
+        globalFunc.changeSlides = function(lang) {
+        $scope.currentlang = lang;
+        if (lang == 'hi') {
+            $scope.news = $scope.hindibanner;
+        } else {
+            $scope.news = $scope.englishbanner;
+        }
+        $scope.changeSlide($scope.news[0]);
 
-    // };
+    };
 
 })
 
@@ -1101,10 +1101,10 @@ $scope.authentication();
 })
 
 // .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
-
+//
 //     $scope.changeLanguage = function() {
 //         console.log("Language CLicked");
-
+//
 //         if (!$.jStorage.get("language")) {
 //             $translate.use("hi");
 //             $.jStorage.set("language", "hi");
@@ -1117,64 +1117,63 @@ $scope.authentication();
 //                 $.jStorage.set("language", "en");
 //             }
 //         }
-
+//
 //     };
-
-
+//
+//
 // })
-// .controller('languageCtrl', function($scope, $state, TemplateService, $translate, $rootScope, $uibModal) {
-//     var siteLanguage = $.jStorage.get('languageSet');
-//     $scope.languageActive = siteLanguage;
+.controller('languageCtrl', function($scope, $state, TemplateService, $translate, $rootScope, $uibModal) {
+    var siteLanguage = $.jStorage.get('languageSet');
+    $scope.languageActive = siteLanguage;
 
-//     console.log($state);
+    console.log($state);
 
-//     $scope.language = 'img/lan-' + siteLanguage + '.jpg';
-//     if (siteLanguage) {
-//         $translate.use(siteLanguage);
-//         $.jStorage.set("languageSet", siteLanguage);
-//         if ($state.current.name == 'home') {
-//             globalFunc.changeSlides(siteLanguage);
-//         }
-//     }
+    $scope.language = 'img/lan-' + siteLanguage + '.jpg';
+    if (siteLanguage) {
+        $translate.use(siteLanguage);
+        $.jStorage.set("languageSet", siteLanguage);
+        if ($state.current.name == 'home') {
+            globalFunc.changeSlides(siteLanguage);
+        }
+    }
 
-//     var languagePicker = {};
-//     $scope.changeLanguage = function(val) {
-//         $translate.use(val);
-//         if ($state.current.name == 'home') {
-//             globalFunc.changeSlides(val);
-//         }
-//         $.jStorage.set("languageSet", val);
-//         $scope.language = 'img/lan-' + val + '.jpg';
-//         languagePicker.close();
-//         $scope.languageActive = val;
-//     };
-//     $scope.changeLanguage2 = function(val) {
-//         currentlang = val;
-//         console.log('currentlang', currentlang);
-//         $translate.use(val);
-//         if ($state.current.name == 'home') {
-//             globalFunc.changeSlides(val);
-//         }
-//         $.jStorage.set("languageSet", val);
-//         $scope.languageActive = val;
-//         globalFunc.changeLang();
-//     };
+    var languagePicker = {};
+    $scope.changeLanguage = function(val) {
+        $translate.use(val);
+        if ($state.current.name == 'home') {
+            globalFunc.changeSlides(val);
+        }
+        $.jStorage.set("languageSet", val);
+        $scope.language = 'img/lan-' + val + '.jpg';
+        languagePicker.close();
+        $scope.languageActive = val;
+    };
+    $scope.changeLanguage2 = function(val) {
+        currentlang = val;
+        console.log('currentlang', currentlang);
+        $translate.use(val);
+        if ($state.current.name == 'home') {
+            globalFunc.changeSlides(val);
+        }
+        $.jStorage.set("languageSet", val);
+        $scope.languageActive = val;
+        globalFunc.changeLang();
+    };
+    $scope.languagePicker = function() {
+        languagePicker = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/language-picker.html',
+            size: 'md',
+            backdrop: 'static',
+            scope: $scope,
+            keyboard: false
+        });
+    };
 
-//     $scope.languagePicker = function() {
-//         languagePicker = $uibModal.open({
-//             animation: true,
-//             templateUrl: 'views/modal/language-picker.html',
-//             size: 'md',
-//             backdrop: 'static',
-//             scope: $scope,
-//             keyboard: false
-//         });
-//     };
+    if (!siteLanguage) {
+        $scope.languagePicker();
+    }
 
-//     if (!siteLanguage) {
-//         $scope.languagePicker();
-//     }
+})
 
-// })
-
-// ;
+;
