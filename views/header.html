@@ -24,18 +24,26 @@
               <img src="img/mini-logo.png" alt="logo" title="logo" class="img-responsive"> </a>
             </div>
           </div>
+
           <div class="col-md-8 col-sm-8">
             <div class="collapse navbar-collapse" id="nav-collapse">
               <div ng-include="template.menu" class="template menu"></div>
             </div>
           </div>
-          <div class="col-md-2 col-sm-2 registration hidden-xs">
-            <div class="dropdown reg">
-              <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown">{{name}}<img src="img/Abhi.png" class="img-responsive display-inline photo" alt="">
+
+          <div class="col-md-2 col-sm-2 registration hidden-xs" >
+            <div class="login-btn"><li><a  ng-if="!loggedIn" ng-click="logs();">Login</a></li></div>
+
+            <div class="dropdown reg" ng-if="loggedIn" >
+
+              <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown" >{{userFirstName}}<img src="img/Abhi.png" class="img-responsive display-inline photo" alt="">
                 <span class="arrow-down"><i class="fa fa-angle-down" aria-hidden="true"></i></span></button>
                 <ul class="drops dropdown-menu">
-                  <li><a href="#">Details</a></li>
-                  <li><a ng-click="logout()">Log Out</a></li>
+                  <!-- <li><a href="#">Details</a></li> -->
+                  <!-- <li><a ng-click="logout()">Log Out</a></li> -->
+                  <li><a ng-click="logoutUser()" ng-if="loggedIn">Log Out</a></li>
+
+
                 </ul>
               </div>
               <!--<select name="registering" id="register">

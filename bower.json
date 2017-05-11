@@ -16,7 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.5.8",
+    "angular": "~1.5.7",
     "ui-router": "~0.2.15",
     "angular-bootstrap": "^1.2.1",
     "angular-recaptcha": "~2.2.4",
@@ -29,11 +29,9 @@
     "angular-sanitize": "~1.4.3",
     "font-awesome": "~4.4.0",
     "lodash": "~4.0.0",
-    
-    "angular": "~1.5.7",
     "fancyBox": "fancybox#^2.1.5",
     "jStorage": "^0.4.12",
-    "moment": "^2.13.0"
+    "moment": "^2.18.1"
   },
   "devDependencies": {
     "angular-translate": "^2.11.0"
