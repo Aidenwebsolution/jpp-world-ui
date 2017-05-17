@@ -2964,6 +2964,10 @@ a {
     // padding: 10px;
     // cursor: pointer;
     // z-index: 100;
+    span.selected {
+    color: #b41e72;
+    font-weight: 700;
+}
     position: fixed;
     top: 0;
     right: 0;
@@ -4190,6 +4194,13 @@ font-style: italic;
       font-size:15px;
     }
 }
+
+  .marg-top{
+     margin-top: 21px;
+  }
+  .min-h{
+    min-height: 73px;
+  }
 
 //modal//
 

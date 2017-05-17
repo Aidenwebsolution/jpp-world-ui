@@ -61,7 +61,7 @@ var navigationservice = angular.module('navigationservice', [])
             //     },
             // ]
         }, {
-            name: "Merchandize",
+            name: "Merchandise",
             link: "http://jaipurpinkpanthers.com/ticket-merchandise",
             classis: "active",
             subnav: []

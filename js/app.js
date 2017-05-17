@@ -335,6 +335,7 @@ firstapp.filter('hindimonth', function() {
     };
 });
 
+
 firstapp.config(function($translateProvider) {
     $translateProvider.translations('en', LanguageEnglish);
     $translateProvider.translations('hi', LanguageHindi);

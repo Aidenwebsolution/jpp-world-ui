@@ -9,11 +9,15 @@
 
 var LanguageEnglish = {
     "languageCSS": "english",
+    "GAMES":"GAMES",
+    "play this contest on":"play this contest on",
     "ABOUT": "About",
+    "Panther World":"Panther World",
     "Fixtures & Results": "Fixtures & Results",
     "Fixtures": "Fixtures",
     "Players": "Players",
     "Photo Gallery": "Photo Gallery",
+      "Gallery":"Gallery",
     "Wallpapers": "Wallpapers",
     "News": "News",
     "JPP TV": "JPP TV",
@@ -21,6 +25,7 @@ var LanguageEnglish = {
     "SEASON 4 SCHEDULE": "SEASON 4 SCHEDULE",
     "Tickets & Merchandise": "Tickets & Merchandise",
     "Fan Corner": "Fan Corner",
+    "RAID INTO THE PANTHER WORLD AND TACKLE OUR CHALLENGES":"पैंथर वर्ल्ड में रेड करो और हमारी चुनौतियों को टैकल करो",
     "SEASON 3 REVIEW": "SEASON 3 REVIEW",
     "KNOW YOUR PANTHERS": "KNOW YOUR PANTHERS",
     "WALLPAPERS": "WALLPAPERS",
@@ -398,6 +403,8 @@ var LanguageEnglish = {
 
 var LanguageHindi = {
     "JPP IOS APP": "जेपीपी आईओएस ऐप",
+    "play this contest on":"इस काॅन्टेस्ट को यहाँ खेले",
+    "GAMES":"खेल",
     "Kitting Partner": "किट सहयोगी",
     "Title Sponsor": "शीर्षक प्रायोजक",
     "Associate Sponsor": "एसोसिएट प्रायोजक",
@@ -424,6 +431,7 @@ var LanguageHindi = {
     "SEASON 4": "सीज़न 4",
     "SEASON 3": "सीज़न 3",
     "Photo Gallery": "चित्र प्रदर्शनी",
+    "Gallery":"चित्र प्रदर्शनी",
     "JPP TV": "जेपीपी टीवी ",
     "Wallpapers": "वॉलपेपर",
     "News": "समाचार",
@@ -585,6 +593,7 @@ var LanguageHindi = {
     "box4": "box-h4",
     "Jaipur Pink Panthers": "जयपुर पिंक पैंथर्स",
     "U Mumba": "यू मुंबा",
+    "Panther World":"पैंथर वर्ल्ड",
     "Telugu Titans": "तेलुगू टाइटन्स",
     "Bengal Warriors": "बेंगाल वारियर्स",
     "Puneri Paltan": "पुनेरी पलटन",
@@ -782,6 +791,7 @@ var LanguageHindi = {
     "Thailand":"थाइलैंड",
     "2015 International Friendly Games (participation), 2015 National Championship (gold), 2014 East Japan Championship (gold),  Part of Jaipur Pink Panthers team squad in Season 2, 2007 - world cup (bronze - Most valuable player), 2010 - asian games (bronze), 2007 - 2015 All japan tournament (gold)": "2015 अंतरराष्ट्रीय मैत्री खेल (भागीदारी) 2015 राष्ट्रीय चैम्पियनशिप (गोल्ड) , 2014 पूर्व जापान चैम्पियनशिप (गोल्ड) , सीजन 2, 2007 में जयपुर पिंक पैंथर्स टीम टीम का हिस्सा - विश्व कप (ब्रोंज़ - सबसे मूल्यवान खिलाड़ी) , 2010 - एशियाई खेलों (ब्रोंज़) , 2007 - 2015 ऑल जापान टूर्नामेंट (गोल्ड)",
     "Panthers": "पैंथर्स",
+
     "we have exciting contests": "हमारे सामाजिक मीडिया",
     "for all of you on our": "पृष्ठों पर आप सभी के लिए",
     "Social Media pages!": "रोमांचक प्रदान करते है",

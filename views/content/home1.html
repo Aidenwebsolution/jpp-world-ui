@@ -34,7 +34,7 @@
                     <div class="gal-text">
                     <h2>
 
-                          {{'GALLERY'|translate}}
+                          {{'Gallery'|translate}}
                     </h2>
                     <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
                     <div class="text-lable mt15">
@@ -66,7 +66,7 @@
                 <img src="img/left-side.png" alt="img-responsive" class="img-responsive">
                 <div class="text-center text-top abs-ps-jptv">
                     <h2>
-                        {{'JPPTV'|translate}}
+                        {{'JPP TV'|translate}}
 
                     </h2>
                     <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
@@ -81,9 +81,38 @@
 
             <div class="col-md-6 padding0 col-sm-6">
                 <div class="img-siders2 text-top text-center"  ng-style="{'background-image': 'url(' + pantherworldguesswho.image + ')'}">
-                    <div class="ft-box">
+                    <div class="ft-box" ng-if="currentlang=='en'">
                         <div class="display-inline vert-middle">
-                            <span class="sp1">play <br>this</span><span class="sp2">contest</span><span class="sp3">on</span>
+
+                            <span class="sp1" >play <br>this</span><span class="sp2">contest</span><span class="sp3">on</span>
+
+                        </div>
+                        <div class="display-inline ml20">
+                            <div class="social-link custom-list display-inline text-center-md m-l15">
+                                <ul class="padding0 margin0">
+                                    <li>
+                                        <a href="https://www.facebook.com/JaipurPinkPanthers/" target="_blank">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/JaipurPanthers" target="_blank">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/jaipur_pinkpanthers/" target="_blank">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ft-box min-h" ng-if="currentlang=='hi'">
+                        <div class="display-inline">
+
+                          <span class="sp1 marg-top">{{'play this contest on' |translate}}</span>
                         </div>
                         <div class="display-inline ml20">
                             <div class="social-link custom-list display-inline text-center-md m-l15">

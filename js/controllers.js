@@ -200,7 +200,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
             $scope.news = $scope.englishbanner;
         }
-        $scope.changeSlide($scope.news[0]);
+        // $scope.changeSlide($scope.news[0]);
 
     };
 
@@ -1175,5 +1175,3 @@ $scope.authentication();
     }
 
 })
-
-;
