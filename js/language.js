@@ -10,6 +10,7 @@
 var LanguageEnglish = {
     "languageCSS": "english",
     "GAMES":"GAMES",
+    "Guess Who":"Guess Who",
     "play this contest on":"play this contest on",
     "ABOUT": "About",
     "Panther World":"Panther World",
@@ -25,7 +26,8 @@ var LanguageEnglish = {
     "SEASON 4 SCHEDULE": "SEASON 4 SCHEDULE",
     "Tickets & Merchandise": "Tickets & Merchandise",
     "Fan Corner": "Fan Corner",
-    "RAID INTO THE PANTHER WORLD AND TACKLE OUR CHALLENGES":"पैंथर वर्ल्ड में रेड करो और हमारी चुनौतियों को टैकल करो",
+
+    "RAID INTO THE PANTHER WORLD AND TACKLE OUR CHALLENGES":"RAID INTO THE PANTHER WORLD AND TACKLE OUR CHALLENGES",
     "SEASON 3 REVIEW": "SEASON 3 REVIEW",
     "KNOW YOUR PANTHERS": "KNOW YOUR PANTHERS",
     "WALLPAPERS": "WALLPAPERS",
@@ -405,6 +407,7 @@ var LanguageHindi = {
     "JPP IOS APP": "जेपीपी आईओएस ऐप",
     "play this contest on":"इस काॅन्टेस्ट को यहाँ खेले",
     "GAMES":"खेल",
+    "Guess Who":"कौन ,अंदाज लगाओ",
     "Kitting Partner": "किट सहयोगी",
     "Title Sponsor": "शीर्षक प्रायोजक",
     "Associate Sponsor": "एसोसिएट प्रायोजक",
@@ -413,6 +416,7 @@ var LanguageHindi = {
     "TUNE INTO JPP TV": "जेपीपी टीवी से जुड़ें",
     "LATEST NEWS OF JPP": "जेपीपी की ताजा खबर",
     "WALLPAPERS FOR DESKTOP & MOBILE": "डेस्कटॉप और मोबाइल के लिए वॉलपेपर",
+      "RAID INTO THE PANTHER WORLD AND TACKLE OUR CHALLENGES":"पैंथर वर्ल्ड में रेड करो और हमारी चुनौतियों को टैकल करो",
     "JPP GALLERY": "जेपीपी प्रदर्शन",
     "Match Centre": "मैच केंद्र",
     "JPP ANDROID APP": "जेपीपी एंड्रॉयड ऐप",
