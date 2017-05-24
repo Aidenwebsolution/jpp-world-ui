@@ -8,7 +8,7 @@ var globalFunc = {};
 var currentlang = '';
 var globalLocale = moment.locale('hi');
 var localLocale = moment();
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'angular-flexslider'])
 
 .controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal,$filter,$rootScope,$translate,$state) {
     //Used to name the .html file
@@ -1160,14 +1160,14 @@ $scope.authentication();
         globalFunc.changeLang();
     };
     $scope.languagePicker = function() {
-        languagePicker = $uibModal.open({
-            animation: true,
-            templateUrl: 'views/modal/language-picker.html',
-            size: 'md',
-            backdrop: 'static',
-            scope: $scope,
-            keyboard: false
-        });
+        // languagePicker = $uibModal.open({
+        //     animation: true,
+        //     templateUrl: 'views/modal/language-picker.html',
+        //     size: 'md',
+        //     backdrop: 'static',
+        //     scope: $scope,
+        //     keyboard: false
+        // });
     };
 
     if (!siteLanguage) {

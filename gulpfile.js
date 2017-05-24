@@ -1,23 +1,22 @@
 var jsArray = [
     './bower_components/jquery/dist/jquery.min.js',
-    './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
     './bower_components/flexslider/jquery.flexslider-min.js',
+    './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
     './bower_components/fancyBox/source/jquery.fancybox.js',
-    './bower_components/angular/angular.min.js',
-    './bower_components/angular-sanitize/angular-sanitize.min.js',
-    './bower_components/angular-animate/angular-animate.min.js',
+    './bower_components/angular/angular.js',
+    './bower_components/jStorage/jstorage.min.js',
+    './bower_components/angular-flexslider/angular-flexslider.js',
+    './bower_components/ui-router/release/angular-ui-router.min.js',
     './bower_components/angular-bootstrap/ui-bootstrap.min.js',
     './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-    './bower_components/ui-router/release/angular-ui-router.min.js',
-    './bower_components/angular-flexslider/angular-flexslider.js',
+    './bower_components/lodash/lodash.js',
     './bower_components/angular-translate/angular-translate.js',
     './bower_components/moment/moment.js',
-    './bower_components/lodash/lodash.js',
     './js/app.js',
     './js/language.js',
     './js/controllers.js',
-    './js/templateservice.js',
     './js/navigation.js',
+    './js/templateservice.js',
 
     //please do not change it
     './w/js/templates.js',
@@ -25,7 +24,7 @@ var jsArray = [
 var replacehostFrom = "http://localhost/demo/";
 var replacehostTo = "http://wohlig.co.in/demo2/";
 
-var ftpString = "U2FsdGVkX19KJ4w0W1pxaUyRsJcjQO5RL98s2rfWnmpoGlaoPfxb8Ibdl0yu5NoHaLfSDmk2WnqRVpQfIAB8wv/Srsy/Y9OUyx5gs3ZutJ2MdGMlS8IaMJmfLSp77xVx1yuRD4aFlRuo0yQ/Ldy2pA==";
+var ftpString = "U2FsdGVkX18aCMwda1/CcmWUElO9RhbZYtjQPfvu7tCSdlZet2/X0eTzycdDr5BoKPPYwwiMoNDzCVAlvk80wjO1V4u8TBEsRf956gWkESug7IjdJMinftn2JTchSpqVd";
 
 // var ftpString = "U2FsdGVkX1+jcFED/CJbcYNiOJ42eBsjlxqmrcKWSIPH9Sao/4535zPQX5Fa7VYGAHSfkKCXbDpiUfJhkRRijaerS1lJ/k+dSfqsfl45ICkzMTJ7fBNVDj/242ur9ZG4HZDhSe1O/J4vEUboWDRBhg==";
 

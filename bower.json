@@ -16,7 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.5.7",
+    "angular": "1.5.8",
     "ui-router": "~0.2.15",
     "angular-bootstrap": "^1.2.1",
     "angular-recaptcha": "~2.2.4",
@@ -35,8 +35,5 @@
   },
   "devDependencies": {
     "angular-translate": "^2.11.0"
-  },
-  "resolutions": {
-    "angular": ">=1.4.0"
   }
 }
