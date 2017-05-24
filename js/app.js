@@ -68,7 +68,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'ComingSooonCtrl'
         })
         .state('comingsoon1', {
-            url: "/comingsoon",
+            url: "/comingsoon1",
             templateUrl: "views/template.html",
             controller: 'ComingSoonCtrl'
         })
