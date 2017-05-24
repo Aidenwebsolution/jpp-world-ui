@@ -62,11 +62,17 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'HomeCtrl'
         })
-        .state('comingsoon', {
+        .state('ComingSoooon', {
+            url: "/comingsoon",
+            templateUrl: "views/template.html",
+            controller: 'ComingSooonCtrl'
+        })
+        .state('comingsoon1', {
             url: "/comingsoon",
             templateUrl: "views/template.html",
             controller: 'ComingSoonCtrl'
         })
+
 
     .state('panthers-den', {
             url: "/panthers-den",

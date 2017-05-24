@@ -68,8 +68,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-        $scope.isCheckLoggedIn = function() {
+        $scope.isCheckLoggedIn = function(value) {
                 console.log("im authenticate");
+
               NavigationService.getAuthenticate(function(data) {
                     console.log("getAuthenticate", data);
                     console.log("data",data);
@@ -77,7 +78,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         console.log("im in true");
                           $rootScope.userFirstName = data.firstname;
                         $rootScope.loggedIn = true;
-                        $state.go('games');
+
+                        // $state.go('games');
+                        if (value == 'GAMES') {
+                            $state.go('ComingSoooon');
+                        }
+                        if (value == 'Gallery') {
+                         window.location = "http://jaipurpinkpanthers.com/#/gallery";
+                        }
+                        if (value == 'WALLPAPERS') {
+                           window.location = "http://jaipurpinkpanthers.com/#/wallpaper";
+                        }
+                        if (value == 'JPP') {
+                             window.location = "http://jaipurpinkpanthers.com/#/jpp-tv";
+                        }
 
                     } else {
                         $rootScope.loggedIn = false;
@@ -222,6 +236,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('ComingSoonCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("comingsoon");
+    $scope.menutitle = NavigationService.makeactive("Coming Soon");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+})
+.controller('ComingSooonCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("comingSoon");
     $scope.menutitle = NavigationService.makeactive("Coming Soon");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();

@@ -12,7 +12,7 @@
 <section class="land-page">
     <div class="container-fluid">
         <div class="row row-mar-1">
-            <div class="col-md-6 padding0 col-sm-6">
+            <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('WALLPAPERS')" >
                 <div class="wal-img">
                 <div class="img-sider text-center text-top">
                 <div class="wal-text">
@@ -28,7 +28,7 @@
                 </div>
                 </div>
             </div>
-            <div class="col-md-6 padding0 col-sm-6">
+            <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('Gallery')">
                 <div class="gal-img">
                 <div class="img-siders text-top text-center">
                     <div class="gal-text">
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="row row-mar-1">
-            <div class="img wallpapper-img ps-relative" ng-click="isCheckLoggedIn()">
+            <div class="img wallpapper-img ps-relative" ng-click="isCheckLoggedIn('GAMES')">
                 <img src="img/full-banner.jpg" alt="img-responsive">
                 <div class="text-center text-top abs-ps-games">
                     <h2>
@@ -62,7 +62,7 @@
         </div>
         <div class="row">
             <div class="col-md-6 padding0 col-sm-6">
-            <div class="img wallpapper-img ps-relative jptv-image">
+            <div class="img wallpapper-img ps-relative jptv-image"  ng-click="isCheckLoggedIn('JPP')">
                 <img src="img/left-side.png" alt="img-responsive" class="img-responsive">
                 <div class="text-center text-top abs-ps-jptv">
                     <h2>

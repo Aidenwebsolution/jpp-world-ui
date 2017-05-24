@@ -4237,5 +4237,13 @@ font-style: italic;
 //     margin-right: 3px;
 //     padding: 5px 57px;
 // }
+.coming-soon{
+    height: 100vh;
+    margin-top: 100px;
+    background-image: url("../img/cs.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 @import "navin";
 @import "mobile"; // @import "style";

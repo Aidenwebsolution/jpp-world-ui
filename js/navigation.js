@@ -28,7 +28,8 @@ var navigationservice = angular.module('navigationservice', [])
     var navigation = [{
             name: "Fixtures & Results",
             classis: "active",
-            link: "http://jaipurpinkpanthers.com/fixtures",
+            // link: "http://jaipurpinkpanthers.com/fixtures",
+              url: "ComingSoooon",
             //     subnav:[{
             //   name: "HOME1",
             //   classis: "active",
@@ -38,12 +39,13 @@ var navigationservice = angular.module('navigationservice', [])
 
         {
             name: "Panther World",
-            link: "home",
+            // link: "home",
             classis: "active",
             // subnav: []
         }, {
             name: "Tickets",
-            link: "http://jaipurpinkpanthers.com/ticket",
+            // link: "http://jaipurpinkpanthers.com/ticket",
+              url: "ComingSoooon",
             classis: "active",
             // subnav: [{
             //         name: "Panther Army",
@@ -62,12 +64,14 @@ var navigationservice = angular.module('navigationservice', [])
             // ]
         }, {
             name: "Merchandise",
-            link: "http://jaipurpinkpanthers.com/ticket-merchandise",
+            // link: "http://jaipurpinkpanthers.com/ticket-merchandise",
+              url: "ComingSoooon",
             classis: "active",
             subnav: []
         }, {
             name: "Players",
-            link: "http://jaipurpinkpanthers.com/players",
+            // link: "http://jaipurpinkpanthers.com/players",
+              url: "ComingSoooon",
             classis: "active",
             subnav: []
         }, {

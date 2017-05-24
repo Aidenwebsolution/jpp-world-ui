@@ -2,6 +2,7 @@
   <li ng-repeat="menu in navigation" class="menu-custom-li {{menu.classis}}">
     <a ui-sref="{{menu.anchor}}" ng-if="menu.anchor" class=" menu-custom">{{menu.name |translate}}</a>
     <a href="{{menu.link}}"class="menu-custom"  ng-if="menu.link">{{menu.name |translate}}</a>
+    <a  ui-sref="{{menu.url}}"class="menu-custom"  ng-if="menu.url">{{menu.name |translate}}</a>
     <ul class="dropdown-menu" ng-if="menu.subnav!='';">
       <li ng-repeat="submenu in menu.subnav">
         <a class="subnav" ui-sref="{{submenu.link}}">{{submenu.name}}</a>
