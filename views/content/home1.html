@@ -1,4 +1,4 @@
-<section>
+<section class="hidden-xs"  >
     <header class="ps-relative">
         <div class="banner wallpapper-img">
             <img src="img/game.jpg" alt="img-responsive">
@@ -8,8 +8,18 @@
         </div>
     </header>
 </section>
-
-<section class="land-page">
+<section>
+    <header class="ps-relative mobile-header visible-xs hidden-sm hidden-md">
+        <div class="banner wallpapper-img">
+            <img src="img/game.jpg" alt="img-responsive">
+        </div>
+        <div class="text-center bg-layer mobile-layer">
+            <h2 class="color-white">Sign Up with <i class="fa fa-facebook" ng-click=Share();></i><i class="fa fa-twitter"></i></h2>
+        </div>
+    </header>
+</section>
+<!--//desktop//-->
+<section class="land-page hidden-xs">
     <div class="container-fluid">
         <div class="row row-mar-1">
             <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('WALLPAPERS')" >
@@ -20,7 +30,7 @@
                         {{'WALLPAPERS'|translate}}
 
                     </h2>
-                    <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+                   
                     <div class="text-lable mt15">
                          <button class="">{{'CLICK HERE'|translate}}</button>
                     </div>
@@ -36,7 +46,7 @@
 
                           {{'Gallery'|translate}}
                     </h2>
-                    <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+                  
                     <div class="text-lable mt15">
                         <button class="">{{'CLICK HERE'|translate}}</button>
                     </div>
@@ -53,7 +63,7 @@
                          {{'GAMES'|translate}}
 
                     </h2>
-                    <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+                   
                     <div class="text-lable mt15">
                         <button class="">{{'CLICK HERE'|translate}}</button>
                     </div>
@@ -69,7 +79,142 @@
                         {{'JPP TV'|translate}}
 
                     </h2>
-                    <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+                 
+                    <div class="text-lable mt15">
+                        <button class="">
+                            {{' CLICK HERE'|translate}}
+                            </button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-md-6 padding0 col-sm-6">
+                <div class="img-siders2 text-top text-center"  ng-style="{'background-image': 'url(' + pantherworldguesswho.image + ')'}">
+                    <div class="ft-box" ng-if="currentlang=='en'">
+                        <div class="display-inline vert-middle">
+
+                            <span class="sp1" >play <br>this</span><span class="sp2">contest</span><span class="sp3">on</span>
+
+                        </div>
+                        <div class="display-inline ml20">
+                            <div class="social-link custom-list display-inline text-center-md m-l15">
+                                <ul class="padding0 margin0">
+                                    <li>
+                                        <a href="https://www.facebook.com/JaipurPinkPanthers/" target="_blank">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/JaipurPanthers" target="_blank">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/jaipur_pinkpanthers/" target="_blank">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ft-box min-h" ng-if="currentlang=='hi'">
+                        <div class="display-inline">
+
+                          <span class="sp1 marg-top">{{'play this contest on' |translate}}</span>
+                        </div>
+                        <div class="display-inline ml20">
+                            <div class="social-link custom-list display-inline text-center-md m-l15">
+                                <ul class="padding0 margin0">
+                                    <li>
+                                        <a href="https://www.facebook.com/JaipurPinkPanthers/" target="_blank">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/JaipurPanthers" target="_blank">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/jaipur_pinkpanthers/" target="_blank">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--//desktop//-->
+<!--//phone//-->
+<section class="mobile-ui visible-xs hidden-sm hidden-md">
+    <div class="container-fluid">
+        <div class="row row-mar-1">
+            <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('WALLPAPERS')" >
+                <div class="wal-img">
+                <div class="img-sider text-center text-top">
+                <div class="wal-text">
+                    <h2>
+                        {{'WALLPAPERS'|translate}}
+
+                    </h2>
+                   
+                    <div class="text-lable mt15">
+                         <button class="">{{'CLICK HERE'|translate}}</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('Gallery')">
+                <div class="gal-img">
+                <div class="img-siders text-top text-center">
+                    <div class="gal-text">
+                    <h2>
+
+                          {{'Gallery'|translate}}
+                    </h2>
+                  
+                    <div class="text-lable mt15">
+                        <button class="">{{'CLICK HERE'|translate}}</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-mar-1">
+            <div class="img wallpapper-img ps-relative" ng-click="isCheckLoggedIn('GAMES')">
+                <img src="img/mobile/games.jpg" alt="img-responsive">
+                <div class="text-center text-top abs-ps-games">
+                    <h2>
+                         {{'GAMES'|translate}}
+
+                    </h2>
+                   
+                    <div class="text-lable mt15">
+                        <button class="">{{'CLICK HERE'|translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 padding0 col-sm-6">
+            <div class="img wallpapper-img ps-relative jptv-image"  ng-click="isCheckLoggedIn('JPP')">
+                <img src="img/mobile/jpptv.jpg" alt="img-responsive" class="img-responsive">
+                <div class="text-center text-top abs-ps-jptv">
+                    <h2>
+                        {{'JPP TV'|translate}}
+
+                    </h2>
+                 
                     <div class="text-lable mt15">
                         <button class="">
                             {{' CLICK HERE'|translate}}
