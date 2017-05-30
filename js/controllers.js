@@ -288,17 +288,55 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.score= false;
       }
 
-
-//       var countdownNumberEl = document.getElementsByClassName('countdown-number')[0];
+// // var countdownNumberEl=[];
 // var countdown = 90;
+// var countdownNumberEl = document.getElementsByClassName('countdown-number')[0];
+// // countdownNumberEl.textContent=[];
+
+
 
 // countdownNumberEl.textContent = countdown;
+
+// // console.log("Testing Consoles " , countdown) ; 
+// // console.log("Testing Consoles " , countdownNumberEl) ; 
 
 // setInterval(function() {
 //   countdown = --countdown < 0 ? 90 : countdown;
 
 //   countdownNumberEl.textContent = countdown;
 // }, 1000);
+
+})
+
+.controller('GuessCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("guess");
+    $scope.menutitle = NavigationService.makeactive("Guess Who");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+   $scope.share = function(){
+          $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/share.html",
+            scope: $scope
+        });
+      };
+      $scope.sect1= true;
+      $scope.quiz = true;
+      $scope.score = true;
+         $scope.go=function(){
+            $scope.quiz= false;
+               $scope.sect1= false;
+      }
+      $scope.next=function(){
+          $scope.quiz = true;
+            $scope.score= false;
+      }
+
 })
 
 .controller('CrosswordCtrl', function($scope, TemplateService, NavigationService, $timeout) {

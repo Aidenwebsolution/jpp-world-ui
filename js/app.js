@@ -86,10 +86,18 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'CrosswordCtrl'
         })
 
+
+
           .state('rapid', {
             url: "/rapid-fire",
             templateUrl: "views/template.html",
             controller: 'RapidCtrl'
+        })
+
+              .state('guess', {
+            url: "/guess-who",
+            templateUrl: "views/template.html",
+            controller: 'GuessCtrl'
         })
 
 

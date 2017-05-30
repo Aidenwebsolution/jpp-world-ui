@@ -3853,7 +3853,7 @@ font-style: italic;
 
   background: black;
     padding: 50px 40px;
-    opacity: 0.4;
+    opacity: 0.7;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
     h1{
         font-size: 24px;
@@ -4033,8 +4033,6 @@ font-style: italic;
         color: #fff;
     }
     .carts {
-        // background: #322c7b;
-        // background: linear-gradient(to bottom left, #322c7b, rgba(10, 57, 85, 0.49));
         padding: 40px 33px;
         margin-top: -1px;
         position: relative;
@@ -4245,5 +4243,7 @@ font-style: italic;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
 @import "navin";
 @import "mobile"; // @import "style";
