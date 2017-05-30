@@ -94,6 +94,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'RapidCtrl'
         })
 
+            .state('match', {
+            url: "/match",
+            templateUrl: "views/template.html",
+            controller: 'MatchCtrl'
+        })
+
+
               .state('guess', {
             url: "/guess-who",
             templateUrl: "views/template.html",

@@ -908,7 +908,14 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
 }
 }
 
-   
+   .line-after:after {
+    content: "";
+    border: 1px solid #fff;
+    height: 15px;
+    position: absolute;
+    top: 4px;
+    right: -5px;
+   }
 
 
     //ruchi//

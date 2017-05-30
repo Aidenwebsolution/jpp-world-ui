@@ -339,6 +339,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
+.controller('MatchCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("match");
+    $scope.menutitle = NavigationService.makeactive("Match");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+   $scope.share = function(){
+          $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/share.html",
+            scope: $scope
+        });
+      };
+      $scope.sect1= true;
+      $scope.quiz = true;
+      $scope.score = true;
+         $scope.go=function(){
+            $scope.quiz= false;
+               $scope.sect1= false;
+      }
+      $scope.next=function(){
+          $scope.quiz = true;
+            $scope.score= false;
+      }
+
+})
+
 .controller('CrosswordCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 

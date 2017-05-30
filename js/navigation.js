@@ -37,11 +37,29 @@ var navigationservice = angular.module('navigationservice', [])
             // },]
         },
 
-        {
+       {
             name: "Panther World",
-            // link: "home",
+            url: "panther",
+            // id:"panther",
             classis: "active",
-            // subnav: []
+            subnav: []
+            // {
+            //     name: "Wallpapers",
+            //     url: "wallpaper",
+            //     classis: "active"
+            // }, {
+            //     name: "Gallery",
+            //     url: "gallery",
+            //     classis: "active"
+            // }, {
+            //     name: "Games",
+            //     link: "jpp-tv",
+            //     classis: "active"
+            // }, {
+            //     name: "JPP TV",
+            //     url: "jpp-tv",
+            //     classis: "active"
+            // }
         }, {
             name: "Tickets",
             // link: "http://jaipurpinkpanthers.com/ticket",
@@ -74,16 +92,16 @@ var navigationservice = angular.module('navigationservice', [])
               url: "ComingSoooon",
             classis: "active",
             subnav: []
-        }, {
-            name: "About",
-            link: "http://jaipurpinkpanthers.com/about-us",
-            classis: "active",
-            subnav: []
-        }, {
+        },  {
             name: "News",
             link: "http://jaipurpinkpanthers.com/news-media",
             classis: "active",
             // subnav: []
+        },{
+            name: "About",
+            link: "http://jaipurpinkpanthers.com/about-us",
+            classis: "active",
+            subnav: []
         }, {
             name: "Fan Corner",
             link: "http://jaipurpinkpanthers.com/fan-corner",
