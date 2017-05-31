@@ -90,7 +90,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                         // $state.go('games');
                         if (value == 'GAMES') {
-                            $state.go('ComingSoooon');
+                            $state.go('games');
                         }
                         if (value == 'Gallery') {
                          window.location = "http://jaipurpinkpanthers.com/#/gallery";
@@ -101,6 +101,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         if (value == 'JPP') {
                              window.location = "http://jaipurpinkpanthers.com/#/jpp-tv";
                         }
+                        
+                        
 
                     } else {
                         $rootScope.loggedIn = false;

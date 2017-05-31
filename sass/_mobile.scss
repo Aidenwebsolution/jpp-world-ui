@@ -56,6 +56,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         margin: 0 10px;
     }
 }
+
 @media (max-width: $screen-md-max) {
     .font-app {
         font-size: 24px;
@@ -139,6 +140,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         }
     }
 }
+
 @media (max-width: $screen-sm-max) {
     .section4 {
         .task {
@@ -545,6 +547,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         margin: 10px;
     }
 }
+
 @media (max-width: $screen-lg) {
     .section2 .btn {
         margin: 0 auto;
@@ -588,6 +591,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         }
     }
 }
+
 @media (max-width: $screen-xs-max) {
     .gallery-tab ul li {
         border-right: 0;
@@ -710,13 +714,13 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     }
     .sliders .carousel-control.left {
         background: none;
-        filter:none;
+        filter: none;
         left: -47px;
         overflow: hidden;
     }
     .sliders .carousel-control.right {
         background: none;
-        filter:none;
+        filter: none;
         right: -47px;
         overflow: hidden;
     }
@@ -859,67 +863,253 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     .modal-dialog {
         width: 80%;
     }
-
     //ruchi//
-.mobile-ui{
-    .img-sider,.img-siders{
-    height: 50vh;
-    background: url("../img/mobile/wallpaper.jpg") no-repeat;
-    background-size: cover;
-    position: relative;
-    margin: 0;
+    .mobile-ui {
+        .img-sider,
+        .img-siders {
+            height: 50vh;
+            background: url("../img/mobile/wallpaper.jpg") no-repeat;
+            background-size: cover;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+        .img-siders {
+            background: url("../img/mobile/gallery.jpg") no-repeat;
+        }
+        .gal-text,
+        .abs-ps-jptv,
+        .wal-text {
+            @include position(absolute,
+            50% null null 50%);
+            transform: translate(-50%, -50%);
+        }
+        .img-siders2 {
+            background: url("../img/mobile/wallpaper.jpg") no-repeat;
+            background-size: cover;
+        }
+        .jptv-image {
+            margin-right: 0;
+        }
+    }
+    .mobile-header {
+        .mobile-layer {
+            h2 {
+                font-size: 20px;
+            }
+            .fa {
+                font-size: 16px;
+            }
+        }
+        .bg-layer i {
+            @include size (30px,
+            30px);
+            line-height: 168%;
+        }
+        .banner {
+            margin-top: 90px;
+        }
+    }
+    .line-after:after {
+        content: "";
+        border: 1px solid #fff;
+        height: 15px;
+        position: absolute;
+        top: 4px;
+        right: -5px;
+    }
+    //ruchi//
+    //nav //
+    .hello {
+        li h3 {
+            font-size: 16px;
+        }
+        .form {
+            padding: 0;
+        }
+        .carts {
+            padding: 40px 20px;
+            a {
+                margin-right: 0;
+            }
+        }
+    }
+    .social-buttons .signs {
+        margin-bottom: 15px;
+    }
+    .player-log {
+        h4 {
+            margin-left: 0;
+        }
+        .image {
+            @include position(absolute,
+            100px 0 null null);
+            @include size(100px,
+            100px);
+        }
+    }
+    .navbar-fixed-top {
+        .mt20 {
+            margin-top: 0;
+        }
+        .log-sign {
+            float: right;
+        }
+    }
+    .navbar-default .navbar-nav>.active>a {
+        background-color: transparent;
+    }
+    .navbar-brand {
+        img {
+            width: 100px;
+        }
+    }
+    .banner-title {
+        margin-top: 125px;
+    }
+    .fix {
+        h1 {
+            width: 100px;
+        }
+    }
+    .fixings {
+        h1 {
+            width: 180px;
+        }
+    }
+    .line-after {
+        &:after {
+            right: -5px;
+        }
+    }
+    .panther-punch {
+        margin-bottom: -30px;
+    }
+    .panthers-punch {
+        margin-bottom: -30px;
+    }
+    .pl-contest-rg .padding0 {
+        padding: 0;
+    }
+    .mob-icon {
+        img {
+            width: 106px;
+        }
+    }
+    .navbar-brand {
+        margin-left: 37%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .home {
+        padding-top: 102px;
+    }
+    .menu-changed {
+        .log-sign {
+            float: none!important;
+            text-align: center;
+        }
+        .line-after {
+            &:after {
+                height: 14px;
+                top: 6px;
+            }
+        }
+    }
+    .nav {
+        li {
+            a {
+                font-size: 21px !important;
+            }
+        }
+    }
+    .menu-changed .line-after:after {
+        height: 22px;
+        right: -5px;
+    }
+//nav //
+
+    //gameslanding//
+    .calenders,
+    .calendaring {
+        position: absolute;
+        bottom: 5px;
+        padding: 6px 20px !important;
+        margin: 0;
+        left: 10px;
+    }
+    .calendaring {
+        right: 10px;
+        left: initial;
+    }
+    .title  {
+        padding: 14px 0;
+        h4{
+ font-size: 20px;
+        }
+       
+    }
+    .head-glanding {
+        h4,
+        h2 {
+            font-size: 16px !important;
+        }
+    }
+    .abs-game1,
+    .abs-game3 {
+        top: 5% !important;
+    }
+    .game-row-3 {
+        margin-top: -13px !important;
+    }
+    .game-row-1 {
+        margin-top: -10px !important;
+    }
+    .pinkback-custom {
+        min-width: 30px !important;
+        font-size: 14px !important;
+    }
+
+    .pall35 {
+    padding: 15px 0;
+}
+.martp15{
+    margin-top: 0;
+}
+//rapid fire//
+.rapid{
+    .bgclas{
+        padding-top: 30px !important;
+            height: 110vh;
+    }
+    .Modal-box h1{
+        font-size: 18px;
+    }
+    .radio-quiz .form-group{
     padding: 0;
-    }
-     
-     .img-siders{
-    background: url("../img/mobile/gallery.jpg") no-repeat;
-     }
-     
-        .gal-text,.abs-ps-jptv,.wal-text{
-        @include position(absolute,50% null null 50%); 
-         transform: translate(-50%,-50%);
-    }
-
-       .img-siders2{
-  background: url("../img/mobile/wallpaper.jpg") no-repeat;
-  background-size: cover;
-     }
-    
-    .jptv-image{
-        margin-right: 0;
+    label{
+            font-size: 16px;
     }
 }
-.mobile-header{
-.mobile-layer{
-    h2{
-        font-size: 20px;
-    }
-
-    .fa{
-        font-size: 16px;
-    }
 }
-.bg-layer i{
-    @include size (30px,30px);
-    line-height: 168%;
-}
-.banner {
-    margin-top: 90px;
+//
+//crossword//
+.maincrossword{
+    width: auto;
+    .table{
+    td{
+        font-size: 14px; 
+    }
 }
 }
 
-   .line-after:after {
-    content: "";
-    border: 1px solid #fff;
-    height: 15px;
-    position: absolute;
-    top: 4px;
-    right: -5px;
-   }
-
-
-    //ruchi//
+//match//
+.guess-image {
+    width: 150px  !important;
 }
+//ruchi
+}
+
 @media (max-width: 480px) {
     .section4 {
         .task {
@@ -1104,6 +1294,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         height: 60px;
     }
 }
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
     .modal-dialog {
         width: 70%;
@@ -1254,6 +1445,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     //     left: -48px;
     // }
 }
+
 @media only screen and (min-device-width: 340px) and (max-device-width: 400px) and (-webkit-min-device-pixel-ratio: 2) {
     .slider .carousel-control.right {
         right: -35px;
@@ -1262,6 +1454,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         left: -35px;
     }
 }
+
 @media only screen and (min-device-width: 400px) and (max-device-width: 500px) and (-webkit-min-device-pixel-ratio: 2) {
     .slider .carousel-control.right {
         right: -48px;
@@ -1270,6 +1463,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         left: -48px;
     }
 }
+
 @media only screen and (min-device-width: 380px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
     .sliders .carousel-control.right {
         right: -60px;
@@ -1278,6 +1472,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         left: -60px;
     }
 }
+
 @media only screen and (min-device-width: 500px) and (max-device-width: 992px) and (-webkit-min-device-pixel-ratio: 2) {
     .slider .carousel-control.right {
         right: -60px;
@@ -1294,6 +1489,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         margin-left: -30px;
     }
 }
+
 @media (max-width: 992px) {
     .gallery-tab ul li h1,
     .mobile-font-h1 {
@@ -1361,6 +1557,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         margin-top: 0 !important;
     }
 }
+
 @media (max-width: 767px) {
     a.navbar-brand {
         position: relative;
@@ -1423,6 +1620,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         margin: 0 auto;
     }
 }
+
 @media (max-width: 580px) {
     .contain-fixtures {
         width: auto;
@@ -1533,6 +1731,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         padding: 0;
     }
 }
+
 @media (max-width: 420px) {
     .f-span {
         font-size: 10px;
@@ -1542,6 +1741,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         width: 50%;
     }
 }
+
 @media (max-width: 480px) {
     .selected {
         font-size: 11px;
