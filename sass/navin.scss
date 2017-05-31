@@ -6,7 +6,6 @@
     text-align: right;
     .head-glanding{
       h4{
-        // font-family: "Kenyan Coffee";
         font-style:italic;
         text-transform: uppercase;
         margin-bottom: 0px !important;
@@ -31,28 +30,6 @@
           }
         }
     }
-    // .customize-cal{
-    //   &:after{
-    //   height: 18%;
-    //   width: 28px;
-    //   position: absolute;
-    //   content: "";
-    //   background-color: #4ecaf5;
-    //   right: 19px;
-    //   bottom: 0px;
-    //   transform: skew(-14deg);
-    //   }
-      //       &:before{
-      // height: 18%;
-      // width: 28px;
-      // position: absolute;
-      // content: "";
-      // bottom: 0px;
-      // background-color: #4ecaf5;
-      // left: 25px;
-      // transform: skew(-14deg);
-      // }
-    // }
 }
 
 .abs-game2 ,.abs-game4{
@@ -64,7 +41,6 @@
     text-align: right;
     .head-glanding{
       h4{
-        // font-family: "Kenyan Coffee";
         font-style:italic;
         text-transform: uppercase;
         margin-bottom: 0px !important;
@@ -89,48 +65,9 @@
           }
         }
     }
-    // .customize-cal{
-    //   &:after{
-    //   height: 18%;
-    //   width: 28px;
-    //   position: absolute;
-    //   content: "";
-    //   background-color: #4ecaf5;
-    //   right: 19px;
-    //   bottom: 0px;
-    //   transform: skew(-14deg);
-    //   }
-    //   &:before{
-    //   height: 18%;
-    //   width: 28px;
-    //   position: absolute;
-    //   content: "";
-    //   bottom: 0px;
-    //   background-color: #4ecaf5;
-    //   left: 8px;
-    //   transform: skew(-14deg);
-    //   }
-    // }
 }
 
 
-// .abs-game1{
-//    .customize-cal{
-//      &:before{
-//        left: 40% !important;
-//     }
-
-//    }
-// }
-// .abs-game4{
-//   .customize-cal{
-//     &:before{
-//       left: 80px !important;
-//       ;
-//     }
-//   }
-
-// } 
 .customize-cal{
     margin-right: 15px;
     padding: 6px 46px;
@@ -143,7 +80,7 @@
       font-style: italic;
     }
   }
-  // font-style: italic;
+  
 }
 .fa-lg{
   line-height: 0em !important;
@@ -232,6 +169,10 @@ padding: 0px 50px;
         top: 10px;
         right: -3px;
     }
+}
+
+.pointer{
+  cursor:pointer;
 }
 //rapid
 // .countdown {

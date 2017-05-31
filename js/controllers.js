@@ -35,6 +35,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
+         $scope.logs = function() {
+          console.log("im in");
+            $scope.modalLogsInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/logs.html',
+                scope: $scope,
+            });
+        };
+
     console.log("im in get pantherword");
         NavigationService.getpantherworldguesswho(function(data){
           console.log("im in get pantherword");
