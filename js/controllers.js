@@ -386,7 +386,7 @@ var counter = $interval(function () {
     if ($scope.showTimerCount == 0) {
         $interval.cancel(counter);
         $scope.showScore=true;
-        $state.go('rapid-fire-score', {
+        $state.go('rapid-score', {
             id: RapidAnswer.getScore()
         });
 
@@ -422,7 +422,7 @@ function makeArc() {
 .controller('RapidScoreCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal,RapidAnswer,$stateParams,$interval,$state ) {
     //Used to name the .html file
 
-    console.log("Testing Consoles");
+    console.log("Testing Consoles RapidScoreCtrl");
 
     $scope.template = TemplateService.changecontent("rapid");
     $scope.menutitle = NavigationService.makeactive("Rapid Fire");
@@ -436,9 +436,9 @@ function makeArc() {
             scope: $scope
         });
       };
-      $scope.sect1= true;
-      $scope.quiz = true;
-      $scope.score = true;
+      $scope.sect1= false;
+      $scope.quiz = false;
+      $scope.score = false;
          $scope.go=function(){
             $scope.quiz= false;
                $scope.sect1= false;
@@ -454,7 +454,6 @@ function makeArc() {
       $scope.showTimerCount = 0;
       $scope.firstUI = false;
       $scope.showScore = true;
-
       $scope.count = $stateParams.id;
 
 

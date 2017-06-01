@@ -98,6 +98,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'RapidPlayCtrl'
         })
+
         .state('rapid-score', {
           url: "/rapid-fire-score/:id",
           templateUrl: "views/template.html",

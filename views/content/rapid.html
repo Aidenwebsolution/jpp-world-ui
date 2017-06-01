@@ -12,18 +12,12 @@
 
 			<h1 class="modal-h1">GAME 1:<br/>
 			HOW WELL DO YOU KNOW THE PANTHERS ? </h1>
-			<!--<button type="button"><img src="images/Rapid Fire.png" height="50px" width="50px"></button>-->
-			<input type="image" ng-click="go();" class="playbutton" src="img/rapid/rapid-fire.png"  alt="Submit" width="50px" height="50px">
+		<input type="image" ng-click="go();" class="playbutton" src="img/rapid/rapid-fire.png"  alt="Submit" width="50px" height="50px">
 
 			</div>
 
 				<div class="sections2" ng-hide="quiz">
-				<!--<div class="countdown">
-  <div class="countdown-number"></div>
-  <svg>
-    <circle r="18" cx="20" cy="20"></circle>
-  </svg>
-</div>-->
+
 		<h1 class="modal-h1">GAME 1:<br/>
 			HOW WELL DO YOU KNOW THE PANTHERS</h1>
 <div class="Modal-box">
@@ -41,7 +35,7 @@
 	</div>
 
 
- <!-- <h1>Q1: A home town boy and lovingly called the “Prodigal son” by the Panther faithful, He won the title with Jaipur in 2014 and is hoping to do it again, who are we talking about?</h1> -->
+
  <h1>{{currentquestion.quesNo}}: {{currentquestion.question}}</h1>
        <form  class="radio radio-quiz">
 		   <div class="form-group" ng-repeat="s in currentquestion.options">
@@ -74,8 +68,7 @@
 
 
   <div class="quizbutton btn " ng-click="nextQuestion();" ng-hide="count==9" >Next</div>
-  <!-- <div class="quizbutton btn " ng-click="next();nextQuestion();" ng-hide="count==9" >Next</div> -->
-  <div class="quizbutton btn " ng-click="skipQuestion()" >Skip</div>
+<div class="quizbutton btn " ng-click="skipQuestion()" >Skip</div>
 </div>
 
 			</div>
