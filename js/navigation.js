@@ -88,8 +88,8 @@ var navigationservice = angular.module('navigationservice', [])
             subnav: []
         }, {
             name: "Players",
-            // link: "http://jaipurpinkpanthers.com/players",
-              url: "ComingSoooon",
+            link: "http://wohlig.co.in/tingdom/jpp/#/players",
+              // url: "ComingSoooon",
             classis: "active",
             subnav: []
         },  {
@@ -232,6 +232,22 @@ var navigationservice = angular.module('navigationservice', [])
        logoutUser: function(callback) {
           $http.get(tempUrl + "logout").success(callback);
       },
+      changeTimerRapid: function() {
+        var rapidTimer = $.jStorage.get("rapidTimer");
+        var returnVal;
+        if(rapidTimer && rapidTimer != 1) {
+          returnVal  = rapidTimer - 1;
+          $.jStorage.set("rapidTimer",returnVal);
+        }
+        else if( rapidTimer != 1) {
+          $.jStorage.set("rapidTimer",90);
+          returnVal = 90;
+        } else {
+          $.jStorage.set("rapidTimer",null);
+          returnVal = 0;
+        }
+        return returnVal;
+      }
 
     };
 });

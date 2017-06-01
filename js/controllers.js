@@ -8,7 +8,7 @@ var globalFunc = {};
 var currentlang = '';
 var globalLocale = moment.locale('hi');
 var localLocale = moment();
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'angular-flexslider'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'angular-flexslider','rapidAnswer'])
 
 .controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout,$uibModal,$filter,$rootScope,$translate,$state) {
     //Used to name the .html file
@@ -101,8 +101,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         if (value == 'JPP') {
                              window.location = "http://jaipurpinkpanthers.com/#/jpp-tv";
                         }
-                        
-                        
+
+
 
                     } else {
                         $rootScope.loggedIn = false;
@@ -270,7 +270,156 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('RapidCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal) {
+.controller('RapidCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal,RapidAnswer,$stateParams,$interval,$state ) {
+    //Used to name the .html file
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("rapid");
+    $scope.menutitle = NavigationService.makeactive("Rapid Fire");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+   $scope.share = function(){
+          $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/share.html",
+            scope: $scope
+        });
+      };
+      $scope.sect1= true;
+      $scope.quiz = true;
+      $scope.score = true;
+         $scope.go=function(){
+            // $scope.quiz= false;
+            //    $scope.sect1= false;
+               $state.go('rapid-play',{
+                 id:'1'
+               })
+
+      }
+      // $scope.next=function(){
+      //     $scope.quiz = true;
+      //       $scope.score= false;
+      // }
+
+
+
+
+})
+.controller('RapidPlayCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal,RapidAnswer,$stateParams,$interval,$state ) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("rapid");
+    $scope.menutitle = NavigationService.makeactive("Rapid Fire");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+   $scope.share = function(){
+          $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/share.html",
+            scope: $scope
+        });
+      };
+
+      $scope.sect1= true;
+      $scope.quiz = true;
+      $scope.score = true;
+         $scope.go=function(){
+            $scope.quiz= false;
+               $scope.sect1= false;
+      }
+      $scope.go();
+      $scope.next=function(){
+          $scope.quiz = true;
+            $scope.score= false;
+      }
+
+$scope.firstUI = false;
+
+$scope.currentquestion = RapidAnswer.getQuestion($stateParams.id);
+// $scope.myUrll = '';
+$scope.selectAnswer = function (s) {
+    $scope.mDisable = false;
+    _.each($scope.currentquestion.options, function (option) {
+        option.selected = undefined;
+    });
+    s.selected = true;
+};
+$scope.mDisable = true;
+$scope.nextQuestion = function () {
+    $scope.myUrll = window.location.href;
+    console.log('nextq$scope.myUrll', " == ", $scope.myUrll);
+    RapidAnswer.saveAnswer($scope.currentquestion);
+    //console.log(parseInt($stateParams.id), " == ", RapidAnswer.lastAnswer());
+    if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
+
+        $interval.cancel(counter);
+        $state.go('rapid-score', {
+            id: RapidAnswer.getScore()
+        });
+    } else {
+        $interval.cancel(counter);
+        $scope.myState = window.location.href;
+        // //console.log('$scope.myState ', $scope.myState);
+        $state.go('rapid-play', {
+            id: parseInt($stateParams.id) + 1
+        });
+    }
+};
+$scope.skipQuestion = function () {
+    _.each($scope.currentquestion.options, function (option) {
+        option.selected = undefined;
+    });
+    $scope.nextQuestion();
+};
+$scope.showTimerCount = $.jStorage.get("rapidTimer");
+$timeout(function () {
+    makeArc();
+}, 100);
+
+var counter = $interval(function () {
+    $scope.showTimerCount = RapidAnswer.changeTimerRapid();
+    makeArc();
+    if ($scope.showTimerCount == 0) {
+        $interval.cancel(counter);
+        $scope.showScore=true;
+        $state.go('rapid-fire-score', {
+            id: RapidAnswer.getScore()
+        });
+
+    }
+}, 1000);
+
+function makeArc() {
+    var totalTime = RapidAnswer.getTotalTime();
+    currentTime = parseInt($.jStorage.get("rapidTimer"));
+    var can = $('#canvas1').get(0);
+    context = can.getContext('2d');
+
+    var percentage = currentTime / totalTime; // no specific length
+    var degrees = percentage * 360.0;
+    var radians = degrees * (Math.PI / 180);
+
+    var x = 38;
+    var y = 37;
+    var r = 35;
+    var s = 0; //1.5 * Math.PI;
+    context.clearRect(0, 0, 80, 80);
+    context.strokeStyle = '#f37021';
+    context.beginPath();
+    context.lineWidth = 4;
+    context.arc(x, y, r, s, radians, false);
+    //context.closePath();
+    context.stroke();
+}
+
+
+})
+
+.controller('RapidScoreCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal,RapidAnswer,$stateParams,$interval,$state ) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -293,29 +442,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
          $scope.go=function(){
             $scope.quiz= false;
                $scope.sect1= false;
+               $state.go('rapid-play',{
+                 id:'1'
+               })
+
       }
       $scope.next=function(){
           $scope.quiz = true;
             $scope.score= false;
       }
+      $scope.showTimerCount = 0;
+      $scope.firstUI = false;
+      $scope.showScore = true;
 
-// // var countdownNumberEl=[];
-// var countdown = 90;
-// var countdownNumberEl = document.getElementsByClassName('countdown-number')[0];
-// // countdownNumberEl.textContent=[];
+      $scope.count = $stateParams.id;
 
 
-
-// countdownNumberEl.textContent = countdown;
-
-// // console.log("Testing Consoles " , countdown) ; 
-// // console.log("Testing Consoles " , countdownNumberEl) ; 
-
-// setInterval(function() {
-//   countdown = --countdown < 0 ? 90 : countdown;
-
-//   countdownNumberEl.textContent = countdown;
-// }, 1000);
 
 })
 

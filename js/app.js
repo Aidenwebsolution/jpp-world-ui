@@ -86,14 +86,23 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'CrosswordCtrl'
         })
 
+        .state('rapid', {
+          url: "/rapid-fire",
+          templateUrl: "views/template.html",
+          controller: 'RapidCtrl'
+      })
 
 
-          .state('rapid', {
-            url: "/rapid-fire",
+          .state('rapid-play', {
+            url: "/rapid-fire-play/:id",
             templateUrl: "views/template.html",
-            controller: 'RapidCtrl'
+            controller: 'RapidPlayCtrl'
         })
-
+        .state('rapid-score', {
+          url: "/rapid-fire-score/:id",
+          templateUrl: "views/template.html",
+          controller: 'RapidScoreCtrl'
+      })
             .state('match', {
             url: "/match",
             templateUrl: "views/template.html",

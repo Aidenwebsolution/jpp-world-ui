@@ -5,16 +5,16 @@
 		<div class="col-md-5 col-sm-5 col-xs-12">
 			<img src="img/rapid/title.png" class="pull-right" height="200px" width="300px">
 		</div>
-			
-			
+
+
 		<div class="col-md-7 col-sm-7 col-xs-12 crosswordsec ">
 			<div class="sections1" ng-show="sect1">
-				
+
 			<h1 class="modal-h1">GAME 1:<br/>
 			HOW WELL DO YOU KNOW THE PANTHERS ? </h1>
 			<!--<button type="button"><img src="images/Rapid Fire.png" height="50px" width="50px"></button>-->
 			<input type="image" ng-click="go();" class="playbutton" src="img/rapid/rapid-fire.png"  alt="Submit" width="50px" height="50px">
-			
+
 			</div>
 
 				<div class="sections2" ng-hide="quiz">
@@ -28,25 +28,29 @@
 			HOW WELL DO YOU KNOW THE PANTHERS</h1>
 <div class="Modal-box">
 
- <!-- timer -->
- <!--<div class="countdown">
-  <div class="countdown-number"></div>
-  <svg>
-    <circle r="18" cx="20" cy="20"></circle>
-  </svg>
-</div>-->
-<!-- timer end -->
+	<div class="ticker dh-relative">
+			<div class="tp-head" ng-hide="showScore">
+					<img src="img/tp-head.png" alt="">
+					<div>
+							<canvas id="canvas1" width="80" height="80"></canvas>
+					</div>
+					<div class="sc-bg ps-wt">
+						<span class="color-primary font-bold">{{showTimerCount}}</span>
+					</div>
+			</div>
+	</div>
 
 
- <h1>Q1: A home town boy and lovingly called the “Prodigal son” by the Panther faithful, He won the title with Jaipur in 2014 and is hoping to do it again, who are we talking about?</h1>
-       <form action="" class="radio radio-quiz">
-		   <div class="form-group">
- <input type="radio" id="radio1" name="radio" value="Scorpian"  />
-                    <label for="radio1">
-                      <span></span>  Navneet Gautam
+ <!-- <h1>Q1: A home town boy and lovingly called the “Prodigal son” by the Panther faithful, He won the title with Jaipur in 2014 and is hoping to do it again, who are we talking about?</h1> -->
+ <h1>{{currentquestion.quesNo}}: {{currentquestion.question}}</h1>
+       <form  class="radio radio-quiz">
+		   <div class="form-group" ng-repeat="s in currentquestion.options">
+ <input type="radio" id="{{s.id}}" name="radio" value="Scorpian"  ng-model="quest" value="{{s.name}}" ng-change="selectAnswer(s)">
+                    <label for="{{s.id}}">
+                      <span></span>  {{s.name}}
 					  </label>
 		   </div>
-		   <div class="form-group">
+		   <!-- <div class="form-group">
  <input type="radio" id="radio2" name="radio" value="Kaali"  />
                     <label for="radio2">
                       <span></span> Somvir Shekhar
@@ -63,32 +67,34 @@
                     <label for="radio4">
                       <span></span> Kamal Kishor
 					  </label>
-				   </div>	  
+				   </div> -->
                   </form>
-				 
 
 
 
-  <div class="quizbutton btn " ng-click="next();">Next</div> 
-  <div class="quizbutton btn ">Skip</div>
+
+  <div class="quizbutton btn " ng-click="nextQuestion();" ng-hide="count==9" >Next</div>
+  <!-- <div class="quizbutton btn " ng-click="next();nextQuestion();" ng-hide="count==9" >Next</div> -->
+  <div class="quizbutton btn " ng-click="skipQuestion()" >Skip</div>
 </div>
-			
+
 			</div>
 
-			<div class="sections3" ng-hide="score">
-				
+			<div class="sections3" ng-show
+			="showScore">
+			<!-- <div class="sections3" ng-hide="score"> -->
+
 			<div class="Modal-box">
- <p class="f40">Your Score: 7/10</p>
- <h3 >Your Panther Raid Meter is 70%</h3>
+ <p class="f40">Your Score: {{count}} &#47 10</p>
+ <h3 >Your Panther Raid Meter is {{count}}%</h3>
  <button class="btn btn-lg quizbutton" ng-click="share();">SHARE WITH THE WORLD</button>
-   
+
 </div>
-			
+
 			</div>
-					
+
 		</div>
-	</div>	
+	</div>
 	</div>
 </div>
 </div>
-
