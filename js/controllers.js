@@ -272,7 +272,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('RapidCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal,RapidAnswer,$stateParams,$interval,$state ) {
     //Used to name the .html file
-    console.log("Testing Consoles");
+    console.log("Testing Consoles RapidCtrl");
 
     $scope.template = TemplateService.changecontent("rapid");
     $scope.menutitle = NavigationService.makeactive("Rapid Fire");
@@ -299,7 +299,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('RapidPlayCtrl', function($scope, TemplateService, NavigationService, $timeout ,$uibModal,RapidAnswer,$stateParams,$interval,$state ) {
     //Used to name the .html file
 
-    console.log("Testing Consoles");
+    console.log("Testing Consoles RapidPlayCtrl");
 
     $scope.template = TemplateService.changecontent("rapid");
     $scope.menutitle = NavigationService.makeactive("Rapid Fire");
