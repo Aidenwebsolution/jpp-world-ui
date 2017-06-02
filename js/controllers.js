@@ -286,21 +286,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         });
       };
-      $scope.sect1= true;
-      $scope.quiz = true;
-      $scope.score = true;
-         $scope.go=function(){
-            // $scope.quiz= false;
-            //    $scope.sect1= false;
-               $state.go('rapid-play',{
+    $scope.go=function(){
+        $state.go('rapid-play',{
                  id:'1'
                })
-
-      }
-      // $scope.next=function(){
-      //     $scope.quiz = true;
-      //       $scope.score= false;
-      // }
+             }
 
 
 
@@ -324,23 +314,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
       };
 
-      $scope.sect1= true;
-      $scope.quiz = true;
-      $scope.score = true;
-         $scope.go=function(){
-            $scope.quiz= false;
-               $scope.sect1= false;
-      }
-      $scope.go();
-      $scope.next=function(){
-          $scope.quiz = true;
-            $scope.score= false;
-      }
 
-$scope.firstUI = false;
+
+$scope.firstUI = true;
+  // $scope.count = $stateParams.id;
 
 $scope.currentquestion = RapidAnswer.getQuestion($stateParams.id);
-// $scope.myUrll = '';
+
 $scope.selectAnswer = function (s) {
     $scope.mDisable = false;
     _.each($scope.currentquestion.options, function (option) {
@@ -353,17 +333,14 @@ $scope.nextQuestion = function () {
     $scope.myUrll = window.location.href;
     console.log('nextq$scope.myUrll', " == ", $scope.myUrll);
     RapidAnswer.saveAnswer($scope.currentquestion);
-    //console.log(parseInt($stateParams.id), " == ", RapidAnswer.lastAnswer());
-    if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
-
-        $interval.cancel(counter);
+if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
+          $interval.cancel(counter);
         $state.go('rapid-score', {
             id: RapidAnswer.getScore()
         });
     } else {
         $interval.cancel(counter);
         $scope.myState = window.location.href;
-        // //console.log('$scope.myState ', $scope.myState);
         $state.go('rapid-play', {
             id: parseInt($stateParams.id) + 1
         });
@@ -385,7 +362,8 @@ var counter = $interval(function () {
     makeArc();
     if ($scope.showTimerCount == 0) {
         $interval.cancel(counter);
-        $scope.showScore=true;
+        $scope.firstUI=true;
+        // $scope.showScore=true;
         $state.go('rapid-score', {
             id: RapidAnswer.getScore()
         });
@@ -436,24 +414,10 @@ function makeArc() {
             scope: $scope
         });
       };
-      $scope.sect1= false;
-      $scope.quiz = false;
-      $scope.score = false;
-         $scope.go=function(){
-            $scope.quiz= false;
-               $scope.sect1= false;
-               $state.go('rapid-play',{
-                 id:'1'
-               })
 
-      }
-      $scope.next=function(){
-          $scope.quiz = true;
-            $scope.score= false;
-      }
+
       $scope.showTimerCount = 0;
-      $scope.firstUI = false;
-      $scope.showScore = true;
+      $scope.showScorescreen = true;
       $scope.count = $stateParams.id;
 
 
@@ -1368,7 +1332,7 @@ $scope.authentication();
     var siteLanguage = $.jStorage.get('languageSet');
     $scope.languageActive = siteLanguage;
 
-    console.log($state);
+
 
     $scope.language = 'img/lan-' + siteLanguage + '.jpg';
     if (siteLanguage) {

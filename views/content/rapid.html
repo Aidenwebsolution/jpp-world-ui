@@ -1,50 +1,40 @@
 <div class="rapid">
 	<div class="bgclas rapids">
-	<div class="container">
-	<div class="row">
-		<div class="col-md-5 col-sm-5 col-xs-12">
-			<img src="img/rapid/title.png" class="pull-right" height="200px" width="300px">
-		</div>
-
-
-		<div class="col-md-7 col-sm-7 col-xs-12 crosswordsec ">
-			<div class="sections1" ng-show="sect1">
-
-			<h1 class="modal-h1">GAME 1:<br/>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 col-sm-5 col-xs-12">
+					<img src="img/rapid/title.png" class="pull-right" height="200px" width="300px">
+				</div>
+				<div class="col-md-7 col-sm-7 col-xs-12 crosswordsec ">
+					<div class="sections1" ng-if="!firstUI && !showScorescreen">
+						<h1 class="modal-h1">GAME 1:<br/>
 			HOW WELL DO YOU KNOW THE PANTHERS ? </h1>
-		<input type="image" ng-click="go();" class="playbutton" src="img/rapid/rapid-fire.png"  alt="Submit" width="50px" height="50px">
-
-			</div>
-
-				<div class="sections2" ng-hide="quiz">
-
-		<h1 class="modal-h1">GAME 1:<br/>
+						<input type="image" ng-click="go();" class="playbutton" src="img/rapid/rapid-fire.png" alt="Submit" width="50px" height="50px">
+					</div>
+					<div class="sections2" ng-if="firstUI">
+						<h1 class="modal-h1">GAME 1:<br/>
 			HOW WELL DO YOU KNOW THE PANTHERS</h1>
-<div class="Modal-box">
-
-	<div class="ticker dh-relative">
-			<div class="tp-head" ng-hide="showScore">
-					<img src="img/tp-head.png" alt="">
-					<div>
-							<canvas id="canvas1" width="80" height="80"></canvas>
-					</div>
-					<div class="sc-bg ps-wt">
-						<span class="color-primary font-bold">{{showTimerCount}}</span>
-					</div>
-			</div>
-	</div>
-
-
-
- <h1>{{currentquestion.quesNo}}: {{currentquestion.question}}</h1>
-       <form  class="radio radio-quiz">
-		   <div class="form-group" ng-repeat="s in currentquestion.options">
- <input type="radio" id="{{s.id}}" name="radio" value="Scorpian"  ng-model="quest" value="{{s.name}}" ng-change="selectAnswer(s)">
-                    <label for="{{s.id}}">
-                      <span></span>  {{s.name}}
-					  </label>
-		   </div>
-		   <!-- <div class="form-group">
+						<div class="Modal-box">
+							<div class="ticker dh-relative">
+								<div class="tp-head">
+									<img src="img/tp-head.png" alt="">
+									<div>
+										<canvas id="canvas1" width="80" height="80"></canvas>
+									</div>
+									<div class="sc-bg ps-wt">
+										<span class="color-primary font-bold">{{showTimerCount}}</span>
+									</div>
+								</div>
+							</div>
+							<h1>{{currentquestion.quesNo}}: {{currentquestion.question}}</h1>
+							<form class="radio radio-quiz">
+								<div class="form-group" ng-repeat="s in currentquestion.options">
+									<input type="radio" id="{{s.id}}" name="radio" value="Scorpian" ng-model="quest" value="{{s.name}}" ng-change="selectAnswer(s)">
+									<label for="{{s.id}}">
+										<span></span> {{s.name}}
+									</label>
+								</div>
+								<!-- <div class="form-group">
  <input type="radio" id="radio2" name="radio" value="Kaali"  />
                     <label for="radio2">
                       <span></span> Somvir Shekhar
@@ -62,32 +52,24 @@
                       <span></span> Kamal Kishor
 					  </label>
 				   </div> -->
-                  </form>
+							</form>
+							<div ng-hide="count==9">
+								<div class="quizbutton btn " ng-click="nextQuestion();">Next</div>
+								<div class="quizbutton btn " ng-click="skipQuestion()">Skip</div>
+							</div>
 
+						</div>
 
-
-
-  <div class="quizbutton btn " ng-click="nextQuestion();" ng-hide="count==9" >Next</div>
-<div class="quizbutton btn " ng-click="skipQuestion()" >Skip</div>
-</div>
-
+					</div>
+					<div class="sections3" ng-if="showScorescreen">
+						<div class="Modal-box">
+							<p class="f40">Your Score: {{count}} &#47 10</p>
+							<h3>Your Panther Raid Meter is {{count}}%</h3>
+							<button class="btn btn-lg quizbutton" ng-click="share();">SHARE WITH THE WORLD</button>
+						</div>
+					</div>
+				</div>
 			</div>
-
-			<div class="sections3" ng-show
-			="showScore">
-			<!-- <div class="sections3" ng-hide="score"> -->
-
-			<div class="Modal-box">
- <p class="f40">Your Score: {{count}} &#47 10</p>
- <h3 >Your Panther Raid Meter is {{count}}%</h3>
- <button class="btn btn-lg quizbutton" ng-click="share();">SHARE WITH THE WORLD</button>
-
-</div>
-
-			</div>
-
 		</div>
 	</div>
-	</div>
-</div>
 </div>
