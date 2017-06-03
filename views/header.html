@@ -3,8 +3,7 @@
         <div class="container">
             <span>The Official website of Jaipur Pink Panthers</span>
             <div class="pull-right">
-                <span ng-class="{'selected' : languageActive == 'en'}" ng-click="changeLanguage2('en');">English</span>
-                |
+                <span ng-class="{'selected' : languageActive == 'en'}" ng-click="changeLanguage2('en');">English</span> |
                 <span ng-class="{'selected' : languageActive == 'hi'}" ng-click="changeLanguage2('hi');">Hindi</span>
             </div>
         </div>
@@ -30,14 +29,13 @@
                         <div ng-include="template.menu" class="template menu"></div>
                     </div>
                 </div>
-               
                 <div class="col-md-2 col-sm-2 hidden-xs">
- <ul class="list-inline mt20 log-sign text-right">
-    <li class="line-after"  ng-click="logs();"><a>{{'Login' |translate}}</a></li>
-    <li ng-click="logs();" ><a >{{'Signup'|translate}}</a></li>
-    <!--<li ng-if="loggedIn" ng-click="logoutUser();"><a >{{'Logout'|translate}}</a></li>-->
- </ul>
- <!--<div class="dropdown reg" ng-if="loggedIn">
+                    <ul class="list-inline mt20 log-sign text-right">
+                        <li class="line-after" ng-click="logs();" ng-if="!loggedIn"><a>{{'Login' |translate}}</a></li>
+                        <li ng-click="logs();" ng-if="!loggedIn"><a>{{'Signup'|translate}}</a></li>
+                        <li ng-if="loggedIn" ng-click="logoutUser();"><a>{{'Logout'|translate}}</a></li>
+                    </ul>
+                    <!--<div class="dropdown reg" ng-if="loggedIn">
 
               <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown" > Hi {{userFirstName}}<img src="img/Abhi.png" class="img-responsive display-inline photo" alt="">
                 <span class="arrow-down"><i class="fa fa-angle-down" aria-hidden="true"></i></span></button>
@@ -49,9 +47,8 @@
                 </ul>
               </div>-->
                 </div>
-              </div>
-
             </div>
+        </div>
         </div>
     </nav>
 </header>

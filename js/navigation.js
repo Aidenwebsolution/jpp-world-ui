@@ -114,17 +114,21 @@ var navigationservice = angular.module('navigationservice', [])
         getnav: function () {
             return navigation;
         },
-        callProfile: function (callback) {
-            //console.log('Navigation form data: ', formData);
-            $http({
-                url: adminurl + 'user/profile',
-                method: 'POST',
-                withCredentials: true
+        // callProfile: function (callback) {
+        //     //console.log('Navigation form data: ', formData);
+        //     $http({
+        //         url: adminurl + 'user/profile',
+        //         method: 'POST',
+        //         withCredentials: true
 
-            }).then(function (data) {
-                data = data.data;
-                callback(data);
-            });
+        //     }).then(function (data) {
+        //         data = data.data;
+        //         callback(data);
+        //     });
+        // }
+
+        getAuthenticate: function (callback) {
+            $http.get(adminurl + "authenticate").success(callback);
         },
         storeAnswer: function (option, callback) {
             //console.log('Navigation form data: ', formData);
