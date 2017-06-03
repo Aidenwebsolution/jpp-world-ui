@@ -12,7 +12,7 @@ var tempimgurl = "http://wohlig.co.in/pinkpanther/jppbackend/uploads/";
 var adminurl1 = mainurl + "json/";
 
 var tempUrl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/json/";
-var tempimgurl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/uploads/";
+var tempimgurl = "http://wohlig.co.in/pinkpanther/jppbackend/uploads/";
 
 // if (isproduction) {
 //     adminURL = "http://www.wohlig.co.in/demo/index.php";
