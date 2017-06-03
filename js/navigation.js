@@ -1,18 +1,18 @@
 var adminURL = "";
+var mainurl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/"
+    // var mainurl = "http://admin.jaipurpinkpanthers.com/index.php/";
+    // var mainurl = "http://192.168.0.101/jppbackend/index.php/";
+    //wohlig url for testing
 
-var mainurl = "http://admin.jaipurpinkpanthers.com/index.php/";
-// var mainurl = "http://192.168.0.101/jppbackend/index.php/";
-//wohlig url for testing
-
-var imgurl = "http://admin.jaipurpinkpanthers.com/uploads/";
-var tempUrl ="http://wohlig.co.in/jppbackend/index.php/json/";
-var tempimgurl = "http://wohlig.co.in/jppbackend/uploads/";
+var imgurl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/uploads/";
+var tempUrl = "http://wohlig.co.in/pinkpanther/jppbackend/index.phpjson/";
+var tempimgurl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/uploads/";
 // var imgurl = "http://192.168.1.107/jppbackend/uploads/";
 // var imgurl="";
 var adminurl1 = mainurl + "json/";
 
-var tempUrl ="http://wohlig.co.in/jppbackend/index.php/json/";
-var tempimgurl = "http://wohlig.co.in/jppbackend/uploads/";
+var tempUrl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/json/";
+var tempimgurl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/uploads/";
 
 // if (isproduction) {
 //     adminURL = "http://www.wohlig.co.in/demo/index.php";
@@ -24,12 +24,12 @@ adminurl = "http://pantherworldadmin.jaipurpinkpanthers.com/";
 
 var navigationservice = angular.module('navigationservice', [])
 
-.factory('NavigationService', function($http) {
+.factory('NavigationService', function ($http) {
     var navigation = [{
             name: "Fixtures & Results",
             classis: "active",
             // link: "http://jaipurpinkpanthers.com/fixtures",
-              url: "ComingSoooon",
+            url: "ComingSoooon",
             //     subnav:[{
             //   name: "HOME1",
             //   classis: "active",
@@ -37,33 +37,33 @@ var navigationservice = angular.module('navigationservice', [])
             // },]
         },
 
-       {
+        {
             name: "Panther World",
             url: "panther",
             // id:"panther",
             classis: "active",
             subnav: []
-            // {
-            //     name: "Wallpapers",
-            //     url: "wallpaper",
-            //     classis: "active"
-            // }, {
-            //     name: "Gallery",
-            //     url: "gallery",
-            //     classis: "active"
-            // }, {
-            //     name: "Games",
-            //     link: "jpp-tv",
-            //     classis: "active"
-            // }, {
-            //     name: "JPP TV",
-            //     url: "jpp-tv",
-            //     classis: "active"
-            // }
+                // {
+                //     name: "Wallpapers",
+                //     url: "wallpaper",
+                //     classis: "active"
+                // }, {
+                //     name: "Gallery",
+                //     url: "gallery",
+                //     classis: "active"
+                // }, {
+                //     name: "Games",
+                //     link: "jpp-tv",
+                //     classis: "active"
+                // }, {
+                //     name: "JPP TV",
+                //     url: "jpp-tv",
+                //     classis: "active"
+                // }
         }, {
             name: "Tickets",
             // link: "http://jaipurpinkpanthers.com/ticket",
-              url: "ComingSoooon",
+            url: "ComingSoooon",
             classis: "active",
             // subnav: [{
             //         name: "Panther Army",
@@ -83,21 +83,21 @@ var navigationservice = angular.module('navigationservice', [])
         }, {
             name: "Merchandise",
             // link: "http://jaipurpinkpanthers.com/ticket-merchandise",
-              url: "ComingSoooon",
+            url: "ComingSoooon",
             classis: "active",
             subnav: []
         }, {
             name: "Players",
             link: "http://wohlig.co.in/tingdom/jpp/#/players",
-              // url: "ComingSoooon",
+            // url: "ComingSoooon",
             classis: "active",
             subnav: []
-        },  {
+        }, {
             name: "News",
             link: "http://jaipurpinkpanthers.com/news-media",
             classis: "active",
             // subnav: []
-        },{
+        }, {
             name: "About",
             link: "http://jaipurpinkpanthers.com/about-us",
             classis: "active",
@@ -111,22 +111,22 @@ var navigationservice = angular.module('navigationservice', [])
     ];
 
     return {
-        getnav: function() {
+        getnav: function () {
             return navigation;
         },
-        callProfile: function(callback) {
+        callProfile: function (callback) {
             //console.log('Navigation form data: ', formData);
             $http({
                 url: adminurl + 'user/profile',
                 method: 'POST',
                 withCredentials: true
 
-            }).then(function(data){
-              data=data.data;
-              callback(data);
+            }).then(function (data) {
+                data = data.data;
+                callback(data);
             });
         },
-        storeAnswer: function(option, callback) {
+        storeAnswer: function (option, callback) {
             //console.log('Navigation form data: ', formData);
             $http({
                 url: adminurl + 'question/storeAnswer',
@@ -134,60 +134,60 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true,
                 data: option
 
-            }).then(function(data){
-              data=data.data;
-              callback(data);
+            }).then(function (data) {
+                data = data.data;
+                callback(data);
             });
         },
-        storeUserData: function(data, callback) {
+        storeUserData: function (data, callback) {
             $http({
                 url: adminurl + 'user/storeUserData',
                 method: 'POST',
                 withCredentials: true,
                 data: data
 
-            }).then(function(data){
-              data=data.data;
-              callback(data);
+            }).then(function (data) {
+                data = data.data;
+                callback(data);
             });
         },
-        getFacebookDetails: function(callback) {
-            $http.get(adminurl + "user/getFacebookDetails").then(function(data){
-              data=data.data;
-              callback(data);
+        getFacebookDetails: function (callback) {
+            $http.get(adminurl + "user/getFacebookDetails").then(function (data) {
+                data = data.data;
+                callback(data);
             });
         },
-        logout: function(callback) {
+        logout: function (callback) {
             $http({
                 url: adminurl + 'register/logout',
                 method: 'POST',
                 withCredentials: true
 
-            }).then(function(data){
-              data=data.data;
-              callback(data);
+            }).then(function (data) {
+                data = data.data;
+                callback(data);
             });
         },
-        storeLevel: function(data, callback) {
+        storeLevel: function (data, callback) {
             $http({
                 url: adminurl + 'question/storeLevel2',
                 method: 'POST',
                 withCredentials: true,
                 data: data
 
-            }).then(function(data){
-              data=data.data;
-              callback(data);
+            }).then(function (data) {
+                data = data.data;
+                callback(data);
             });
         },
-        sendMessage: function(data, callback) {
+        sendMessage: function (data, callback) {
             FB.ui({
                 method: 'send',
                 link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
                 redirect_uri: "http://jaipurpinkpanthers.com/pantherworld"
             });
         },
-        makeactive: function(menuname) {
+        makeactive: function (menuname) {
             for (var i = 0; i < navigation.length; i++) {
                 if (navigation[i].name == menuname) {
                     navigation[i].classis = "active";
@@ -197,57 +197,56 @@ var navigationservice = angular.module('navigationservice', [])
             }
             return menuname;
         },
-        checkLevel: function(callback) {
+        checkLevel: function (callback) {
             $http({
                 url: adminurl + 'question/getQuestionDetail',
                 method: 'POST',
                 withCredentials: true
-            }).then(function(data){
-              data=data.data;
-              callback(data);
+            }).then(function (data) {
+                data = data.data;
+                callback(data);
             });
         },
-        getpantherworldguesswho: function(callback) {
+        getpantherworldguesswho: function (callback) {
             $http.get(tempUrl + "getpantherworldguesswho").then(callback);
         },
-        getAuthenticate: function(callback) {
-           $http.get(tempUrl + "authenticate").success(callback);
-       },
-       submitLogin: function(loginData, callback) {
-         $http({
-           url: tempUrl + 'login',
-           method: 'POST',
-           withCredentials: true,
-           data: loginData
-         }).success(callback);
-       },
-       submitSignup: function(formData, callback) {
-         $http({
-           url: tempUrl + 'signup',
-           method: 'POST',
-           withCredentials: true,
-           data: formData
-         }).success(callback);
-       },
-       logoutUser: function(callback) {
-          $http.get(tempUrl + "logout").success(callback);
-      },
-      changeTimerRapid: function() {
-        var rapidTimer = $.jStorage.get("rapidTimer");
-        var returnVal;
-        if(rapidTimer && rapidTimer != 1) {
-          returnVal  = rapidTimer - 1;
-          $.jStorage.set("rapidTimer",returnVal);
+        getAuthenticate: function (callback) {
+            $http.get(tempUrl + "authenticate").success(callback);
+        },
+        submitLogin: function (loginData, callback) {
+            $http({
+                url: tempUrl + 'login',
+                method: 'POST',
+                withCredentials: true,
+                data: loginData
+            }).success(callback);
+        },
+        submitSignup: function (formData, callback) {
+            $http({
+                url: tempUrl + 'signup',
+                method: 'POST',
+                withCredentials: true,
+                data: formData
+            }).success(callback);
+        },
+        logoutUser: function (callback) {
+            $http.get(tempUrl + "logout").success(callback);
+        },
+        changeTimerRapid: function () {
+            var rapidTimer = $.jStorage.get("rapidTimer");
+            var returnVal;
+            if (rapidTimer && rapidTimer != 1) {
+                returnVal = rapidTimer - 1;
+                $.jStorage.set("rapidTimer", returnVal);
+            } else if (rapidTimer != 1) {
+                $.jStorage.set("rapidTimer", 90);
+                returnVal = 90;
+            } else {
+                $.jStorage.set("rapidTimer", null);
+                returnVal = 0;
+            }
+            return returnVal;
         }
-        else if( rapidTimer != 1) {
-          $.jStorage.set("rapidTimer",90);
-          returnVal = 90;
-        } else {
-          $.jStorage.set("rapidTimer",null);
-          returnVal = 0;
-        }
-        return returnVal;
-      }
 
     };
 });
