@@ -7,22 +7,22 @@
 				</div>
 				<div class="col-md-7 col-sm-7 col-xs-12 crosswordsec ">
 					<div class="sections1" ng-if="!firstUI && !showScorescreen">
-						<h1 class="modal-h1">GAME 1:<br/>
-			HOW WELL DO YOU KNOW THE PANTHERS ? </h1>
+						<h1 class="modal-h1">GAME 1:<br/> HOW WELL DO YOU KNOW THE PANTHERS ? </h1>
 						<input type="image" ng-click="go();" class="playbutton" src="img/rapid/rapid-fire.png" alt="Submit" width="50px" height="50px">
 					</div>
 					<div class="sections2" ng-if="firstUI">
-						<h1 class="modal-h1">GAME 1:<br/>
-			HOW WELL DO YOU KNOW THE PANTHERS</h1>
+						<h1 class="modal-h1">GAME 1:<br/> HOW WELL DO YOU KNOW THE PANTHERS</h1>
 						<div class="Modal-box">
-							<div class="ticker dh-relative">
-								<div class="tp-head">
-									<img src="img/tp-head.png" alt="">
-									<div>
-										<canvas id="canvas1" width="80" height="80"></canvas>
-									</div>
-									<div class="sc-bg ps-wt">
-										<span class="color-primary font-bold">{{showTimerCount}}</span>
+							<div class="relative">
+								<div class="ticker dh-relative">
+									<div class="tp-head">
+										<!--<img src="img/tp-head.png" alt="">-->
+										<div class="margin-top">
+											<canvas id="canvas1" width="80" height="80"></canvas>
+										</div>
+										<div class="sc-bg ps-wt">
+											<span class="color-primary font-bold">{{showTimerCount}}</span>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -57,9 +57,7 @@
 								<div class="quizbutton btn " ng-click="nextQuestion();">Next</div>
 								<div class="quizbutton btn " ng-click="skipQuestion()">Skip</div>
 							</div>
-
 						</div>
-
 					</div>
 					<div class="sections3" ng-if="showScorescreen">
 						<div class="Modal-box">
