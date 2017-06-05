@@ -385,10 +385,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var y = 37;
             var r = 35;
             var s = 0; //1.5 * Math.PI;
-            context.clearRect(0, 0, 80, 80);
+            context.clearRect(0, 0, 50, 50);
             context.strokeStyle = '#f37021';
             context.beginPath();
-            context.lineWidth = 4;
+            context.lineWidth = 2;
             context.arc(x, y, r, s, radians, false);
             //context.closePath();
             context.stroke();

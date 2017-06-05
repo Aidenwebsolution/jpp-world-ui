@@ -1,179 +1,202 @@
-.abs-game1 , .abs-game3{
-    position: absolute;
-    top: 22%;
-    right: 40px;
-    color: #fff;
-    text-align: right;
-    .head-glanding{
-      h4{
-        font-style:italic;
-        text-transform: uppercase;
-        margin-bottom: 0px !important;
-        font-weight: bold;
-        letter-spacing: 2px;
-        margin-right: -5px;
+.abs-game1,
+.abs-game3 {
+  position: absolute;
+  top: 22%;
+  right: 40px;
+  color: #fff;
+  text-align: right;
+  .head-glanding {
+    h4 {
+      font-style: italic;
+      text-transform: uppercase;
+      margin-bottom: 0px !important;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-right: -5px;
+    }
+    h2 {
+      font-family: "Dreamwalker";
+      font-style: italic;
+      font-size: 50px;
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+    }
+  }
+  .time-hrs {
+    text-align: center;
+    h1 {
+      span {
+        transform: skewX(-14deg);
+        min-width: 40px;
       }
-      h2{
-        font-family: "Dreamwalker";
-        font-style: italic;
-        font-size: 50px;
-        margin-top: 0px !important;
-        margin-bottom: 0px !important;
     }
-    }
-    .time-hrs{
-        text-align: center;
-        h1{
-          span{
-            transform: skewX(-14deg);
-            min-width: 40px;
-          }
-        }
-    }
+  }
 }
 
-.abs-game2 ,.abs-game4{
-    position: absolute;
-    top: 50%;
-    left: 40px;
-    transform: translateY(-50%);
-    color: #fff;
-    text-align: right;
-    .head-glanding{
-      h4{
-        font-style:italic;
-        text-transform: uppercase;
-        margin-bottom: 0px !important;
-        font-weight: bold;
-        letter-spacing: 2px;
-        margin-right: -5px;
+.abs-game2,
+.abs-game4 {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+  color: #fff;
+  text-align: right;
+  .head-glanding {
+    h4 {
+      font-style: italic;
+      text-transform: uppercase;
+      margin-bottom: 0px !important;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-right: -5px;
+    }
+    h2 {
+      font-family: "Dreamwalker";
+      font-style: italic;
+      font-size: 50px;
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+    }
+  }
+  .time-hrs {
+    text-align: center;
+    h1 {
+      span {
+        transform: skewX(-14deg);
+        min-width: 40px;
       }
-      h2{
-        font-family: "Dreamwalker";
-        font-style: italic;
-        font-size: 50px;
-        margin-top: 0px !important;
-        margin-bottom: 0px !important;
     }
-    }
-    .time-hrs{
-        text-align: center;
-        h1{
-          span{
-            transform: skewX(-14deg);
-            min-width: 40px;
-          }
-        }
-    }
+  }
 }
 
-
-.customize-cal{
-    margin-right: 15px;
-    padding: 6px 46px;
-    transform: skewX(-14deg);
+.customize-cal {
+  margin-right: 15px;
+  padding: 6px 46px;
+  transform: skewX(-14deg);
 }
 
 .custom-list {
-  .time-hrs{
-    span:nth-child(2){
+  .time-hrs {
+    span:nth-child(2) {
       font-style: italic;
     }
   }
-  
 }
-.fa-lg{
+
+.fa-lg {
   line-height: 0em !important;
 }
 
-
-.game-row-1{
+.game-row-1 {
   z-index: 1;
   margin-top: -30px;
 }
-.game-row-3{
+
+.game-row-3 {
   z-index: 1;
   margin-top: -48px;
 }
 
-.pink-line{
+.pink-line {
   position: absolute;
   bottom: 0px;
   opacity: 0.7;
 }
 
-.cust-center{
+.cust-center {
   text-align: center;
 }
 
-.pinkback-custom{
+.pinkback-custom {
   background-image: linear-gradient(#ee4a9b 50%, #ea1b81 50%);
-    padding: 5px;
-    border-radius: 0;
-    min-width: 50px;
-    display: inline-block;
-    font-size: 20px;
-    transform: skewX(-14deg);
+  padding: 5px;
+  border-radius: 0;
+  min-width: 50px;
+  display: inline-block;
+  font-size: 20px;
+  transform: skewX(-14deg);
 }
 
-.time-hrs > ul{
+.time-hrs>ul {
   padding: 0px !important;
 }
-.semi-dot{
+
+.semi-dot {
   font-size: 25px;
   vertical-align: top;
-  padding:0px 5px !important;
+  padding: 0px 5px !important;
 }
 
-.custom-text{
-    padding-right: 10px;
-    font-size: 12px;
-    font-style: italic;
+.custom-text {
+  padding-right: 10px;
+  font-size: 12px;
+  font-style: italic;
 }
 
-.guess-image{
+.guess-image {
   width: 200px;
-    height: auto;
-    margin: 0 auto;
+  height: auto;
+  margin: 0 auto;
 }
-.guess{
 
- .Modal-box{
-padding: 10px;
- }
-  .radio-quiz{
-    .form-group{
-padding: 0px 50px;
+.guess {
+  .Modal-box {
+    padding: 10px;
+  }
+  .radio-quiz {
+    .form-group {
+      padding: 0px 50px;
     }
-    
-  }    
+  }
 }
-.log-sign{
+
+.log-sign {
   margin: 0;
-    margin-top: 20px;
-    li{
-      a{
-        font-size: 15px;
-    color: #fff;
-      }
+  margin-top: 20px;
+  li {
+    a {
+      font-size: 15px;
+      color: #fff;
     }
+  }
 }
 
 .line-after {
-    position: relative;
-    &:after {
-        content: "";
-        border: 1px solid #fff;
-        height: 15px;
-        position: absolute;
-        top: 10px;
-        right: -3px;
-    }
+  position: relative;
+  &:after {
+    content: "";
+    border: 1px solid #fff;
+    height: 15px;
+    position: absolute;
+    top: 10px;
+    right: -3px;
+  }
 }
 
-.pointer{
-  cursor:pointer;
+.pointer {
+  cursor: pointer;
 }
+
+.rapids {
+  .Modal-box {
+    position: relative;
+  }
+}
+
+.ticker {
+  position: absolute;
+}
+
+.sc-bg {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  span {
+    font-size: 16px;
+  }
+}
+
 //rapid
 // .countdown {
 //   position: relative;
@@ -183,13 +206,11 @@ padding: 0px 50px;
 //   width: 40px;
 //   text-align: center;
 // }
-
 // .countdown-number {
 //   color: white;
 //   display: inline-block;
 //   line-height: 40px;
 // }
-
 // svg {
 //   position: absolute;
 //   top: 0;
@@ -198,7 +219,6 @@ padding: 0px 50px;
 //   height: 40px;
 //   transform: rotateY(-180deg) rotateZ(-90deg);
 // }
-
 // svg circle {
 //   stroke-dasharray: 113px;
 //   stroke-dashoffset: 0px;
@@ -208,7 +228,6 @@ padding: 0px 50px;
 //   fill: none;
 //   animation: countdown 11s linear infinite forwards;
 // }
-
 // @keyframes countdown {
 //   from {
 //     stroke-dashoffset: 0px;
