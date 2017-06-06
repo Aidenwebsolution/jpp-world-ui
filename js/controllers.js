@@ -116,44 +116,131 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.signupdata = {};
-    $scope.submitSignup = function (signupdata) {
-        console.log("signupdata", signupdata);
+      $scope.forgotPassData={}
+    $scope.signupOtpInfo = {};
+    $scope.signupOtpInfo.userid = ''
+    $scope.goSubmitOtp = function(otp) {
+      $scope.errorOTP=false;
+        console.log("length", otp);
+        if (otp) {
+            $scope.signupOtpInfo.otp = otp;
+            console.log("$scope.signupOtpInfo", $scope.signupOtpInfo);
+            NavigationService.signupOtpSubmit($scope.signupOtpInfo, function(data) {
+                console.log("data", data);
+                if (data.logged_in) {
+                    $rootScope.loggedIn = true;
+                    $scope.authentication();
+                    $scope.modalInstanceOtp.close();
+
+                } else {
+                    console.log("im else");
+                    $scope.errorOTP = true;
+                    $rootScope.loggedIn = false;
+                    // $scope.alreadyExist = true;
+                }
+
+            })
+        }
+
+    }
+
+    $scope.submitSignup = function(signupdata) {
+        console.log("signupdata", signupdata.isChecked);
         $scope.incorrectPass = false;
         $scope.isCheckedmsg = false;
         $scope.alreadyExist = false;
         $scope.succesSignup = false;
         if (signupdata) {
             console.log("signupdata", signupdata);
+
             if (signupdata.password == signupdata.confirmPass) {
-
                 $scope.incorrectPass = false;
-                NavigationService.submitSignup(signupdata, function (data) {
-                    console.log("data", data);
-                    if (data.logged_in) {
-                        $rootScope.loggedIn = true;
-                        $scope.succesSignup = true;
-                        $scope.alreadyExist = false;
-                        $timeout(function () {
-
-                            $scope.succesSignup = false;
-                            $scope.alreadyExist = false;
-                            $scope.signupdata = {};
+                if (signupdata.isChecked === undefined) {
+                    $scope.checkMark = 'Please tick mark';
+                } else {
+                    $scope.checkMark = "";
+                    NavigationService.submitSignup(signupdata, function(data) {
+                        console.log("after signup********", data);
+                        if (data.id) {
+                            console.log("im");
+                            $scope.otp();
+                            // $scope.otpsucess();
                             $scope.modalLogsInstance.close();
-                            $scope.authentication();
-                        }, 2000);
+                            $scope.signupdata = {};
+                            $scope.signupOtpInfo.userid = data.id;
+                            77;
+                        } else {
+                            $rootScope.loggedIn = false;
+                            $scope.alreadyExist = true;
+                        }
 
-                    } else {
-                        $scope.succesSignup = false;
-                        $rootScope.loggedIn = false;
-                        console.log("im else");
-                        $scope.alreadyExist = true;
-                    }
-                })
+                    })
+                }
+
+
+
             } else {
                 $scope.incorrectPass = true;
             }
         }
     };
+    $scope.submitEmailId = function(forgotPassData) {
+        $scope.invalidEmail = false;
+        if (forgotPassData) {
+            NavigationService.forgotPassword(forgotPassData, function(data) {
+                console.log("data", data);
+                if (data.id) {
+                    $scope.forgotPassData.userid = data.id;
+                    $scope.modalInstanceOtps.close();
+                    $scope.otpsucess();
+                    $timeout(function() {
+                        $scope.modalInstanceOtpSuccess.close();
+                        $scope.forgotPasswordotp();
+                    }, 2000);
+
+                } else {
+                    console.log("Not A Valid Email");
+                    $scope.invalidEmail = true;
+                }
+            })
+        }
+    }
+    $scope.forgotOtpSubmitFun = function(forgotPassData) {
+        $scope.wrongOTP=false;
+        console.log("forgotPassData", forgotPassData);
+        if (forgotPassData) {
+            $scope.forgotPassData.otp = forgotPassData.otp;
+            $scope.password();
+            $scope.submitChangepassword = function(forgotPassData) {
+                $scope.inavlidPass = false;
+                if (forgotPassData.newPassword && forgotPassData.confirmPassword) {
+                    if (forgotPassData.newPassword == forgotPassData.confirmPassword) {
+                      $scope.forgotPassData.password =forgotPassData.confirmPassword;
+                      console.log("$scope.forgotPassData",$scope.forgotPassData);
+
+                      NavigationService.forgotPasswordSubmit($scope.forgotPassData,function (data) {
+                        console.log("data",data);
+                        if (data == "true") {
+                          $scope.modalLogsInstance.close();
+                          $scope.modalInstancePassword.close();
+                          $scope.modalInstanceForgotPasswordotp.close();
+                          $scope.passconfirm();
+                          $scope.forgotPassData={};
+
+                        }else {
+                          $scope.wrongOTP=true;
+                        }
+                      })
+                    }else {
+                        $scope.inavlidPass = true;
+                    }
+
+                }
+
+            }
+        }
+
+    }
 
     $scope.loginData = {};
     $scope.incorrectDetails = false;
@@ -228,6 +315,71 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.changeSlide($scope.news[0]);
 
     };
+    //added
+    $scope.otps = function () {
+        $scope.modalLogsInstance.close();
+        $scope.modalInstanceOtps = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/otps.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+
+
+
+
+    $scope.forgotPasswordotp = function () {
+            $scope.modalLogsInstance.close();
+            $scope.modalInstanceForgotPasswordotp = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/forgototp.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+
+        //not done
+    $scope.otp = function () {
+        $scope.modalInstanceOtp = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/otp.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+
+    // $scope.otp();
+
+    $scope.otpsucess = function () {
+            $scope.modalInstanceOtpSuccess = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/otp-success.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        // $scope.otpsucess();
+
+    $scope.password = function () {
+            $scope.modalInstancePassword = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/password.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        // $scope.password();
+
+    $scope.passconfirm = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/passconfirm.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        // $scope.passconfirm();
 
 })
 
@@ -1235,44 +1387,171 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.signupdata = {};
-    $scope.submitSignup = function (signupdata) {
-        console.log("signupdata", signupdata);
+    $scope.forgotPassData={};
+    $scope.signupOtpInfo = {};
+    $scope.signupOtpInfo.userid = ''
+    $scope.goSubmitOtp = function(otp) {
+      $scope.errorOTP=false;
+        console.log("length", otp);
+        if (otp) {
+            $scope.signupOtpInfo.otp = otp;
+            console.log("$scope.signupOtpInfo", $scope.signupOtpInfo);
+            NavigationService.signupOtpSubmit($scope.signupOtpInfo, function(data) {
+                console.log("data", data);
+                if (data.logged_in) {
+                    $rootScope.loggedIn = true;
+                    $scope.authentication();
+                    $scope.modalInstanceOtp.close();
+
+                } else {
+                    console.log("im else");
+                    $scope.errorOTP = true;
+                    $rootScope.loggedIn = false;
+                    // $scope.alreadyExist = true;
+                }
+
+            })
+        }
+
+    }
+
+    $scope.submitSignup = function(signupdata) {
+        console.log("signupdata", signupdata.isChecked);
         $scope.incorrectPass = false;
         $scope.isCheckedmsg = false;
         $scope.alreadyExist = false;
         $scope.succesSignup = false;
         if (signupdata) {
             console.log("signupdata", signupdata);
+
             if (signupdata.password == signupdata.confirmPass) {
-
                 $scope.incorrectPass = false;
-                NavigationService.submitSignup(signupdata, function (data) {
-                    console.log("data", data);
-                    if (data.logged_in) {
-                        $rootScope.loggedIn = true;
-                        $scope.succesSignup = true;
-                        $scope.alreadyExist = false;
-                        $timeout(function () {
-
-                            $scope.succesSignup = false;
-                            $scope.alreadyExist = false;
-                            $scope.signupdata = {};
+                if (signupdata.isChecked === undefined) {
+                    $scope.checkMark = 'Please tick mark';
+                } else {
+                    $scope.checkMark = "";
+                    NavigationService.submitSignup(signupdata, function(data) {
+                        console.log("after signup********", data);
+                        if (data.id) {
+                            console.log("im");
+                            $scope.otp();
+                            // $scope.otpsucess();
                             $scope.modalLogsInstance.close();
-                            $scope.authentication();
-                        }, 2000);
+                            $scope.signupdata = {};
+                            $scope.signupOtpInfo.userid = data.id;
+                            77;
+                        } else {
+                            $rootScope.loggedIn = false;
+                            $scope.alreadyExist = true;
+                        }
 
-                    } else {
-                        $scope.succesSignup = false;
-                        $rootScope.loggedIn = false;
-                        console.log("im else");
-                        $scope.alreadyExist = true;
-                    }
-                })
+                    })
+                }
+
+
+
             } else {
                 $scope.incorrectPass = true;
             }
         }
     };
+
+    $scope.submitEmailId = function(forgotPassData) {
+        $scope.invalidEmail = false;
+        if (forgotPassData) {
+            NavigationService.forgotPassword(forgotPassData, function(data) {
+                console.log("data", data);
+                if (data.id) {
+                    $scope.forgotPassData.userid = data.id;
+                    $scope.modalInstanceOtps.close();
+                    $scope.otpsucess();
+                    $timeout(function() {
+                        $scope.modalInstanceOtpSuccess.close();
+                        $scope.forgotPasswordotp();
+                    }, 2000);
+
+                } else {
+                    console.log("Not A Valid Email");
+                    $scope.invalidEmail = true;
+                }
+            })
+        }
+    }
+    $scope.forgotOtpSubmitFun = function(forgotPassData) {
+        $scope.wrongOTP=false;
+        console.log("forgotPassData", forgotPassData);
+        if (forgotPassData) {
+            $scope.forgotPassData.otp = forgotPassData.otp;
+            $scope.password();
+            $scope.submitChangepassword = function(forgotPassData) {
+                $scope.inavlidPass = false;
+                if (forgotPassData.newPassword && forgotPassData.confirmPassword) {
+                    if (forgotPassData.newPassword == forgotPassData.confirmPassword) {
+                      $scope.forgotPassData.password =forgotPassData.confirmPassword;
+                      console.log("$scope.forgotPassData",$scope.forgotPassData);
+
+                      NavigationService.forgotPasswordSubmit($scope.forgotPassData,function (data) {
+                        console.log("data",data);
+                        if (data == "true") {
+                          $scope.modalLogsInstance.close();
+                          $scope.modalInstancePassword.close();
+                          $scope.modalInstanceForgotPasswordotp.close();
+                          $scope.passconfirm();
+                          $scope.forgotPassData={};
+
+                        }else {
+                          $scope.wrongOTP=true;
+                        }
+                      })
+                    }else {
+                        $scope.inavlidPass = true;
+                    }
+
+                }
+
+            }
+        }
+
+    }
+
+    // $scope.submitSignup = function (signupdata) {
+    //     console.log("signupdata", signupdata);
+    //     $scope.incorrectPass = false;
+    //     $scope.isCheckedmsg = false;
+    //     $scope.alreadyExist = false;
+    //     $scope.succesSignup = false;
+    //     if (signupdata) {
+    //         console.log("signupdata", signupdata);
+    //         if (signupdata.password == signupdata.confirmPass) {
+    //
+    //             $scope.incorrectPass = false;
+    //             NavigationService.submitSignup(signupdata, function (data) {
+    //                 console.log("data", data);
+    //                 if (data.logged_in) {
+    //                     $rootScope.loggedIn = true;
+    //                     $scope.succesSignup = true;
+    //                     $scope.alreadyExist = false;
+    //                     $timeout(function () {
+    //
+    //                         $scope.succesSignup = false;
+    //                         $scope.alreadyExist = false;
+    //                         $scope.signupdata = {};
+    //                         $scope.modalLogsInstance.close();
+    //                         $scope.authentication();
+    //                     }, 2000);
+    //
+    //                 } else {
+    //                     $scope.succesSignup = false;
+    //                     $rootScope.loggedIn = false;
+    //                     console.log("im else");
+    //                     $scope.alreadyExist = true;
+    //                 }
+    //             })
+    //         } else {
+    //             $scope.incorrectPass = true;
+    //         }
+    //     }
+    // };
 
     $scope.loginData = {};
     $scope.incorrectDetails = false;
@@ -1319,7 +1598,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.forgotPasswordotp = function () {
-            // $scope.modalLogsInstance.close();
+            $scope.modalLogsInstance.close();
             $scope.modalInstanceForgotPasswordotp = $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/forgototp.html",

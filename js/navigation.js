@@ -225,6 +225,38 @@ var navigationservice = angular.module('navigationservice', [])
                 data: loginData
             }).success(callback);
         },
+        forgotPassword: function (formData, callback) {
+            $http({
+                url: tempUrl + 'forgotpassword',
+                method: 'POST',
+                withCredentials: true,
+                data: formData
+            }).success(callback);
+        },
+        forgotPasswordSubmit: function (formData, callback) {
+            $http({
+                url: tempUrl + 'forgotpasswordsubmit',
+                method: 'POST',
+                withCredentials: true,
+                data: formData
+            }).success(callback);
+        },
+        submitSignup: function (formData, callback) {
+            $http({
+                url: tempUrl + 'signup',
+                method: 'POST',
+                withCredentials: true,
+                data: formData
+            }).success(callback);
+        },
+        signupOtpSubmit: function (formData, callback) {
+            $http({
+                url: tempUrl + 'signupotpsubmit',
+                method: 'POST',
+                withCredentials: true,
+                data: formData
+            }).success(callback);
+        },
         submitSignup: function (formData, callback) {
             $http({
                 url: tempUrl + 'signup',
