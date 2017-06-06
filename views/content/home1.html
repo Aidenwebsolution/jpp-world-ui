@@ -1,4 +1,4 @@
-<section class="hidden-xs"  >
+<section class="hidden-xs">
     <header class="ps-relative">
         <div class="banner wallpapper-img">
             <img src="img/game.jpg" alt="img-responsive">
@@ -15,7 +15,7 @@
             <img src="img/game.jpg" alt="img-responsive">
         </div>
         <div class="text-center bg-layer mobile-layer">
-             <h2 class="color-white pointer" ng-click="logs();">Sign Up </h2>
+            <h2 class="color-white pointer" ng-click="logs();">Sign Up </h2>
             <!--<h2 class="color-white">Sign Up with <i class="fa fa-facebook" ng-click=Share();></i><i class="fa fa-twitter"></i></h2>-->
         </div>
     </header>
@@ -24,49 +24,43 @@
 <section class="land-page hidden-xs">
     <div class="container-fluid">
         <div class="row row-mar-1">
-            <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('WALLPAPERS')" >
-                <div class="wal-img">
-                <div class="img-sider text-center text-top">
-                <div class="wal-text">
-                    <h2>
-                        {{'WALLPAPERS'|translate}}
-
-                    </h2>
-
-                    <!--<div class="text-lable mt15">
+            <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('WALLPAPERS')">
+                <div class="wal-img pointer">
+                    <div class="img-sider text-center text-top">
+                        <div class="wal-text">
+                            <h2>
+                                {{'WALLPAPERS'|translate}}
+                            </h2>
+                            <!--<div class="text-lable mt15">
                          <button class="">{{'CLICK HERE'|translate}}</button>
                     </div>-->
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
             <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('Gallery')">
-                <div class="gal-img">
-                <div class="img-siders text-top text-center">
-                    <div class="gal-text">
-                    <h2>
-
-                          {{'Gallery'|translate}}
-                    </h2>
-
-                    <!--<div class="text-lable mt15">
+                <div class="gal-img pointer">
+                    <div class="img-siders text-top text-center">
+                        <div class="gal-text">
+                            <h2>
+                                {{'Gallery'|translate}}
+                            </h2>
+                            <!--<div class="text-lable mt15">
                         <button class="">{{'CLICK HERE'|translate}}</button>
                     </div>-->
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
         <div class="row row-mar-1">
-            <div class="img wallpapper-img ps-relative pointer"  ui-sref="games">
-               <!--ng-click="isCheckLoggedIn('GAMES')"-->
+            <div class="img wallpapper-img ps-relative pointer" ui-sref="games">
+                <!--ng-click="isCheckLoggedIn('GAMES')"-->
                 <img src="img/full-banner.jpg" alt="img-responsive">
                 <div class="text-center text-top abs-ps-games">
                     <h2>
-                         {{'GAMES'|translate}}
-
+                        {{'GAMES'|translate}}
                     </h2>
-
                     <!--<div class="text-lable mt15">
                         <button class="">{{'CLICK HERE'|translate}}</button>
                     </div>-->
@@ -75,30 +69,26 @@
         </div>
         <div class="row">
             <div class="col-md-6 padding0 col-sm-6">
-            <div class="img wallpapper-img ps-relative jptv-image"  ng-click="isCheckLoggedIn('JPP')">
-                <img src="img/left-side.png" alt="img-responsive" class="img-responsive">
-                <div class="text-center text-top abs-ps-jptv">
-                    <h2>
-                        {{'JPP TV'|translate}}
-
-                    </h2>
-
-                    <!--<div class="text-lable mt15">
+                <div class="img wallpapper-img  pointer ps-relative jptv-image" ng-click="isCheckLoggedIn('JPP')">
+                    <img src="img/left-side.png" alt="img-responsive" class="img-responsive">
+                    <div class="text-center text-top abs-ps-jptv">
+                        <h2>
+                            {{'JPP TV'|translate}}
+                        </h2>
+                        <!--<div class="text-lable mt15">
                         <button class="">
                             {{' CLICK HERE'|translate}}
                             </button>
                     </div>-->
+                    </div>
                 </div>
             </div>
-            </div>
-
             <div class="col-md-6 padding0 col-sm-6">
-                <div class="img-siders2 text-top text-center"  ng-style="{'background-image': 'url(' + pantherworldguesswho.image + ')'}">
+                <div class="img-siders2 pointer text-top text-center" ng-style="{'background-image': 'url(' + pantherworldguesswho.image + ')'}">
                     <div class="ft-box" ng-if="currentlang=='en'">
                         <div class="display-inline vert-middle">
-
-                            <span class="sp1" >{{'play' |translate}} <br>{{'this' |translate}}</span><span class="sp2">{{'contest' |translate}}</span><span class="sp3">{{'on' |translate}}</span>
-
+                            <span class="sp1">{{'play' |translate}} <br>{{'this' |translate}}</span><span class="sp2">{{'contest' |translate}}</span>
+                            <span class="sp3">{{'on' |translate}}</span>
                         </div>
                         <div class="display-inline ml20">
                             <div class="social-link custom-list display-inline text-center-md m-l15">
@@ -124,8 +114,7 @@
                     </div>
                     <div class="ft-box min-h" ng-if="currentlang=='hi'">
                         <div class="display-inline">
-
-                          <span class="sp1 marg-top">{{'play this contest on' |translate}}</span>
+                            <span class="sp1 marg-top">{{'play this contest on' |translate}}</span>
                         </div>
                         <div class="display-inline ml20">
                             <div class="social-link custom-list display-inline text-center-md m-l15">
@@ -154,42 +143,37 @@
         </div>
     </div>
 </section>
-
 <!--//desktop//-->
 <!--//phone//-->
 <section class="mobile-ui visible-xs hidden-sm hidden-md">
     <div class="container-fluid">
         <div class="row row-mar-1">
-            <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('WALLPAPERS')" >
+            <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('WALLPAPERS')">
                 <div class="wal-img">
-                <div class="img-sider text-center text-top">
-                <div class="wal-text">
-                    <h2>
-                        {{'WALLPAPERS'|translate}}
-
-                    </h2>
-
-                    <!--<div class="text-lable mt15">
+                    <div class="img-sider text-center text-top">
+                        <div class="wal-text">
+                            <h2>
+                                {{'WALLPAPERS'|translate}}
+                            </h2>
+                            <!--<div class="text-lable mt15">
                          <button class="">{{'CLICK HERE'|translate}}</button>
                     </div>-->
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
             <div class="col-md-6 padding0 col-sm-6" ng-click="isCheckLoggedIn('Gallery')">
                 <div class="gal-img">
-                <div class="img-siders text-top text-center">
-                    <div class="gal-text">
-                    <h2>
-
-                          {{'Gallery'|translate}}
-                    </h2>
-
-                    <!--<div class="text-lable mt15">
+                    <div class="img-siders text-top text-center">
+                        <div class="gal-text">
+                            <h2>
+                                {{'Gallery'|translate}}
+                            </h2>
+                            <!--<div class="text-lable mt15">
                         <button class="">{{'CLICK HERE'|translate}}</button>
                     </div>-->
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -199,10 +183,8 @@
                 <img src="img/mobile/games.jpg" alt="img-responsive">
                 <div class="text-center text-top abs-ps-games">
                     <h2>
-                         {{'GAMES'|translate}}
-
+                        {{'GAMES'|translate}}
                     </h2>
-
                     <!--<div class="text-lable mt15">
                         <button class="">{{'CLICK HERE'|translate}}</button>
                     </div>-->
@@ -211,30 +193,25 @@
         </div>
         <div class="row">
             <div class="col-md-6 padding0 col-sm-6">
-            <div class="img wallpapper-img ps-relative jptv-image"  ng-click="isCheckLoggedIn('JPP')">
-                <img src="img/mobile/jpptv.jpg" alt="img-responsive" class="img-responsive">
-                <div class="text-center text-top abs-ps-jptv">
-                    <h2>
-                        {{'JPP TV'|translate}}
-
-                    </h2>
-
-                    <!--<div class="text-lable mt15">
+                <div class="img wallpapper-img ps-relative jptv-image" ng-click="isCheckLoggedIn('JPP')">
+                    <img src="img/mobile/jpptv.jpg" alt="img-responsive" class="img-responsive">
+                    <div class="text-center text-top abs-ps-jptv">
+                        <h2>
+                            {{'JPP TV'|translate}}
+                        </h2>
+                        <!--<div class="text-lable mt15">
                         <button class="">
                             {{' CLICK HERE'|translate}}
                             </button>
                     </div>-->
+                    </div>
                 </div>
             </div>
-            </div>
-
             <div class="col-md-6 padding0 col-sm-6">
-                <div class="img-siders2 text-top text-center"  ng-style="{'background-image': 'url(' + pantherworldguesswho.image + ')'}">
+                <div class="img-siders2 text-top text-center" ng-style="{'background-image': 'url(' + pantherworldguesswho.image + ')'}">
                     <div class="ft-box" ng-if="currentlang=='en'">
                         <div class="display-inline vert-middle">
-
-                            <span class="sp1" >play <br>this</span><span class="sp2">contest</span><span class="sp3">on</span>
-
+                            <span class="sp1">play <br>this</span><span class="sp2">contest</span><span class="sp3">on</span>
                         </div>
                         <div class="display-inline ml20">
                             <div class="social-link custom-list display-inline text-center-md m-l15">
@@ -260,8 +237,7 @@
                     </div>
                     <div class="ft-box min-h" ng-if="currentlang=='hi'">
                         <div class="display-inline">
-
-                          <span class="sp1 marg-top">{{'play this contest on' |translate}}</span>
+                            <span class="sp1 marg-top">{{'play this contest on' |translate}}</span>
                         </div>
                         <div class="display-inline ml20">
                             <div class="social-link custom-list display-inline text-center-md m-l15">
