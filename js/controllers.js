@@ -1304,6 +1304,72 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
 
+    //added
+    $scope.otps = function () {
+        $scope.modalLogsInstance.close();
+        $scope.modalInstanceOtps = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/otps.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+
+    // $scope.otps();
+
+
+    $scope.forgotPasswordotp = function () {
+            // $scope.modalLogsInstance.close();
+            $scope.modalInstanceForgotPasswordotp = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/forgototp.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        // $scope.forgotPasswordotp();
+        //not done
+    $scope.otp = function () {
+        $scope.modalInstanceOtp = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/otp.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+
+    // $scope.otp();
+
+    $scope.otpsucess = function () {
+            $scope.modalInstanceOtpSuccess = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/otp-success.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        // $scope.otpsucess();
+
+    $scope.password = function () {
+            $scope.modalInstancePassword = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/password.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        // $scope.password();
+
+    $scope.passconfirm = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/passconfirm.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        // $scope.passconfirm();
+
 })
 
 // .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {

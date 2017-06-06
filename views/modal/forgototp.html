@@ -1,0 +1,20 @@
+<div class="modal-container">
+    <div class="otp-one login-head otp-two text-center">
+        <a href="" class="closes" ng-click="$dismiss();">
+            <img src="img/rapid/close.png" class="img-responsive" alt="cross">
+            <!--<i class="fa fa-2x fa-times-circle-o" aria-hidden="true"></i>-->
+        </a>
+        <h1 class="text-uppercase">otp</h1>
+        <p>Enter the 4 Digit Verification Code sent to your Email id.</p>
+        <form name="forms-otp1" class="form-otp">
+            <div class="form-groups length-fix">
+                <input type="text" ng-model="forgotPassData.otp" minlength="4" maxlength="4" ng-change="forgotOtpSubmitFun(forgotPassData)"
+                    only-digits>
+                <!-- <input type="text">
+    <input type="text">
+    <input type="text"> -->
+                <!-- <button class="btn btn-default btn-go text-uppercase" type="submit">go</button> -->
+            </div>
+        </form>
+    </div>
+</div>

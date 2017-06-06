@@ -209,42 +209,102 @@
   // }
 }
 
-//rapid
-// .countdown {
-//   position: relative;
-//   margin: auto;
-//   margin-top: 100px;
-//   height: 40px;
-//   width: 40px;
-//   text-align: center;
-// }
-// .countdown-number {
-//   color: white;
-//   display: inline-block;
-//   line-height: 40px;
-// }
-// svg {
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   width: 40px;
-//   height: 40px;
-//   transform: rotateY(-180deg) rotateZ(-90deg);
-// }
-// svg circle {
-//   stroke-dasharray: 113px;
-//   stroke-dashoffset: 0px;
-//   stroke-linecap: round;
-//   stroke-width: 2px;
-//   stroke: white;
-//   fill: none;
-//   animation: countdown 11s linear infinite forwards;
-// }
-// @keyframes countdown {
-//   from {
-//     stroke-dashoffset: 0px;
-//   }
-//   to {
-//     stroke-dashoffset: 113px;
-//   }
-// }
+//modals otp,password
+.modal-container {
+  padding: 10px 50px 20px;
+  .login-head-top {
+    margin-top: 80px;
+  }
+  .change-password,
+  .otp-one {
+    h1 {
+      color: #fff;
+      font-weight: 600;
+    }
+    p {
+      font-size: 18px;
+    }
+    .form {
+      padding: 5% 20%;
+    }
+    .form-otp {
+      padding: 10px 20%;
+    }
+    .form-group {
+      input {
+        border: none;
+        border-bottom: 2px solid;
+      }
+    }
+    .closes {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  }
+  .form-groups {
+    input {
+      width: 20px;
+      border: none;
+      border-bottom: 2px solid #fff;
+      margin: 0 5px;
+      display: inline-block;
+      background-color: transparent;
+      &:focus {
+        outline: 0;
+        border: none;
+        border-bottom: 2px solid #fff;
+      }
+      &:active {
+        &:focus {
+          outline: 0;
+          border: none;
+          border-bottom: 2px solid #fff;
+        }
+      }
+    }
+  }
+  .otps {
+    input {
+      width: 100%;
+    }
+  }
+  .btn-go {
+    width: 65%;
+    height: auto;
+    // @include size(65%, auto);
+    padding: 5px 0;
+    border-radius: 0;
+    border-color: #fff;
+    margin: 30px 0 0;
+    color: #1450a1;
+    &:focus {
+      outline: 0;
+    }
+  }
+  .otp-success {
+    .btn-go {
+      width: 40%;
+      height: auto;
+    }
+  }
+  .password {
+    .form-groups {
+      padding: 20px 0;
+    }
+  }
+   ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    font-size: 18px;
+    color: #fff;
+  }
+}
+
+.bg-white {
+  .modal-content {
+    border: 3px solid #fff;
+    background: linear-gradient(-90deg, #343fa9, #1450a1);
+    color: #fff;
+    border-radius: 10px;
+  }
+}
