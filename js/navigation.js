@@ -1,26 +1,16 @@
-var adminURL = "";
+
 var mainurl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/"
-    // var mainurl = "http://admin.jaipurpinkpanthers.com/index.php/";
-    // var mainurl = "http://192.168.0.101/jppbackend/index.php/";
-    //wohlig url for testing
+
 
 var imgurl = "http://wohlig.co.in/pinkpanther/jppbackend/uploads/";
-var tempUrl = "http://wohlig.co.in/pinkpanther/jppbackend/index.phpjson/";
-var tempimgurl = "http://wohlig.co.in/pinkpanther/jppbackend/uploads/";
-// var imgurl = "http://192.168.1.107/jppbackend/uploads/";
-// var imgurl="";
+
 var adminurl1 = mainurl + "json/";
 
 var tempUrl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/json/";
 var tempimgurl = "http://wohlig.co.in/pinkpanther/jppbackend/uploads/";
 
-// if (isproduction) {
-//     adminURL = "http://www.wohlig.co.in/demo/index.php";
-// } else {
-// adminurl = "http://jppworld.in:1337/";
-// adminurl = "http://192.168.1.105:1337/";
 adminurl = "http://pantherworldadmin.jaipurpinkpanthers.com/";
-// }
+
 
 var navigationservice = angular.module('navigationservice', [])
 
@@ -257,14 +247,14 @@ var navigationservice = angular.module('navigationservice', [])
                 data: formData
             }).success(callback);
         },
-        submitSignup: function (formData, callback) {
-            $http({
-                url: tempUrl + 'signup',
-                method: 'POST',
-                withCredentials: true,
-                data: formData
-            }).success(callback);
-        },
+        // submitSignup: function (formData, callback) {
+        //     $http({
+        //         url: tempUrl + 'signup',
+        //         method: 'POST',
+        //         withCredentials: true,
+        //         data: formData
+        //     }).success(callback);
+        // },
         logoutUser: function (callback) {
             $http.get(tempUrl + "logout").success(callback);
         },

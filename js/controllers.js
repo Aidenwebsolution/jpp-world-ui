@@ -1514,44 +1514,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     }
 
-    // $scope.submitSignup = function (signupdata) {
-    //     console.log("signupdata", signupdata);
-    //     $scope.incorrectPass = false;
-    //     $scope.isCheckedmsg = false;
-    //     $scope.alreadyExist = false;
-    //     $scope.succesSignup = false;
-    //     if (signupdata) {
-    //         console.log("signupdata", signupdata);
-    //         if (signupdata.password == signupdata.confirmPass) {
-    //
-    //             $scope.incorrectPass = false;
-    //             NavigationService.submitSignup(signupdata, function (data) {
-    //                 console.log("data", data);
-    //                 if (data.logged_in) {
-    //                     $rootScope.loggedIn = true;
-    //                     $scope.succesSignup = true;
-    //                     $scope.alreadyExist = false;
-    //                     $timeout(function () {
-    //
-    //                         $scope.succesSignup = false;
-    //                         $scope.alreadyExist = false;
-    //                         $scope.signupdata = {};
-    //                         $scope.modalLogsInstance.close();
-    //                         $scope.authentication();
-    //                     }, 2000);
-    //
-    //                 } else {
-    //                     $scope.succesSignup = false;
-    //                     $rootScope.loggedIn = false;
-    //                     console.log("im else");
-    //                     $scope.alreadyExist = true;
-    //                 }
-    //             })
-    //         } else {
-    //             $scope.incorrectPass = true;
-    //         }
-    //     }
-    // };
+  // =============================login==============================
 
     $scope.loginData = {};
     $scope.incorrectDetails = false;
@@ -1606,8 +1569,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: 'bg-white'
             })
         }
-        // $scope.forgotPasswordotp();
-        //not done
+
+    
     $scope.otp = function () {
         $scope.modalInstanceOtp = $uibModal.open({
             animation: true,
@@ -1617,7 +1580,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
     }
 
-    // $scope.otp();
+
 
     $scope.otpsucess = function () {
             $scope.modalInstanceOtpSuccess = $uibModal.open({
@@ -1627,7 +1590,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: 'bg-white'
             })
         }
-        // $scope.otpsucess();
+
 
     $scope.password = function () {
             $scope.modalInstancePassword = $uibModal.open({
@@ -1637,7 +1600,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: 'bg-white'
             })
         }
-        // $scope.password();
+
 
     $scope.passconfirm = function () {
             $uibModal.open({
@@ -1647,7 +1610,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 windowClass: 'bg-white'
             })
         }
-        // $scope.passconfirm();
+
 
 })
 

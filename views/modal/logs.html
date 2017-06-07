@@ -1,116 +1,147 @@
 <div class="hello">
-  <div class="tab">
-    <ul class="list-inline text-center margin0">
-      <li class="tab-item  pointer relative text-center  text-uppercase {{classsa}}" ng-click="tabchanges('design',1)">
-        <h3 class="text-uppercase margin0">log in</h3>
-      </li>
-      <li class="tab-item  pointer relative  text-center  text-uppercase {{classsb}}" ng-click="tabchanges('trim',2)">
-        <h3 class="text-uppercase margin0"> sign up</h3>
-      </li>
-    </ul>
-  </div>
-  <div class="reward-table carts " ng-show="tabs=='design'">
-    <a href="" class="text-uppercase pull-right" ng-click="$dismiss();"><i class="fa fa-times whitey" aria-hidden="true"></i></a>
-    <div class="player-log">
-      <h4 class=" whitey  text-left f20 text-uppercase "> to get exclusive access to </br>raid the panther's universe!</h4>
+   <div class="tab">
+      <ul class="list-inline text-center margin0">
+         <li class="tab-item  relative text-center  text-uppercase {{classsa}} pointer" ng-click="tabchanges('design',1)">
+            <h3 class="text-uppercase margin0">{{'log in'|translate}}</h3>
+         </li>
+         <li class="tab-item  relative  text-center  text-uppercase {{classsb}} pointer" ng-click="tabchanges('trim',2)">
+
+            <h3 class="text-uppercase margin0">{{'sign up'|translate}}</h3>
+
+         </li>
+
+      </ul>
+   </div>
+
+   <div class="reward-table carts " ng-show="tabs=='design'">
+      <a href="" class="text-uppercase pull-right" ng-click="$dismiss();"><i class="fa fa-times whitey" aria-hidden="true"></i></a>
+        <div class="player-log">
+        <h4 class=" whitey  text-left f20 text-uppercase " ng-if="currentlang=='en'">to get exclusive access to </br>raid the panther's universe!</h4>
+          <h4 class=" whitey  text-left f20 text-uppercase " ng-if="currentlang=='hi'">{{'exclusive'|translate}} </br>{{'raiduniverse' |translate}}</h4>
       <div class="image">
-        <img src="img/home/player.png" class="img-responsive" alt="player">
+        <img src="img/home/player.png"  class="img-responsive" alt="player">
       </div>
-    </div>
-    <form name="loginForm" class="form loging-in" ng-submit="loginSubmit(loginData);">
-      <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email Address" ng-model="loginData.email" required>
       </div>
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" ng-model="loginData.password" required>
-      </div>
-      <div ng-if="incorrectDetails" class="text-center">Please Enter valid Email and Password.</div>
-      <!-- <div class="signs">
+      <form name="loginForm" class="form loging-in" ng-submit="loginSubmit(loginData);">
+
+         <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email Address" ng-model="loginData.email" required>
+         </div>
+         <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" ng-model="loginData.password" required>
+         </div>
+         <div ng-if="incorrectDetails" class="text-center" style="
+color: red;">Please enter valid email and password.</div>
+         <!-- <div class="signs">
           <button type="button " class="btn btn-pink pinky">Log In</button>
                   </div> -->
-      <!-- </form> -->
-      <h2 ng-if="successlogin" class="text-center">Thank You.</h2>
-      <h4 class="text-center color-white" ng-click="otps()">Forgot Password?</h4>
-      <div class="social-buttons text-center">
-        <div class="signs">
-          <button type="submit" class="btn btn-pink pinky font-bold">Log In</button>
-        </div>
-        <h4 class="or color-white font-bold">or</h4>
-        <div class="signs">
-          <span class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></span>
-          <button type="button" class="btn btn-pink facbook"> Login with Facebook</button>
-        </div>
-        <div class="signs">
-          <span class="tweet"><i class="fa fa-twitter" aria-hidden="true"></i></span>
-          <button type="button" class="btn btn-pink twitter"> Login with Twitter</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="reward-table carts" ng-show="tabs =='trim'">
-    <a href="" class="text-uppercase pull-right" ng-click="$dismiss();"><i class="fa  fa-times whitey" aria-hidden="true"></i></a>
-    <form class="form" ng-submit="submitSignup(signupdata)" name="signUp">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group signin">
-            <input type="text" class="form-control" placeholder="Name" ng-model="signupdata.firstname" aplha-Only required>
+         <!-- </form> -->
+         <h2 ng-if="successlogin" class="text-center whitey">Thank You.</h2>
+         <h4 class="text-center color-white" ng-click="otps()">Forgot Password?</h4>
+         <div class="social-buttons text-center">
+            <div class="signs">
+               <button type="submit" class="btn btn-pink pinky font-bold">Log In</button>
+            </div>
+            <h4 class="or color-white font-bold">or</h4>
+            <div class="signs">
+               <span class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+               <button type="button" class="btn btn-pink facbook"> Login with Facebook</button>
+            </div>
+            <div class="signs">
+               <span class="tweet"><i class="fa fa-twitter" aria-hidden="true"></i></span>
+               <button type="button" class="btn btn-pink twitter"> Login with Twitter</button>
+            </div>
           </div>
-          <!--<div class="form-group">
+      </form>
+
+
+   </div>
+   <div class="reward-table carts" ng-show="tabs =='trim'">
+      <a href="" class="text-uppercase pull-right" ng-click="$dismiss();"><i class="fa  fa-times whitey" aria-hidden="true"></i></a>
+
+      <form class="form" ng-submit="submitSignup(signupdata)" name="signUp">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Name" ng-model="signupdata.firstname" aplha-Only required>
+               </div>
+               <!--<div class="form-group">
                   <input type="email" class="form-control" placeholder="Email Address" ng-model="signupdata.email" required>
                </div>-->
-          <div class="form-group signin">
-            <input type="text" class="form-control" placeholder="Phone No." ng-model="signupdata.phoneno" required minlength="8" maxlength="10"
-              only-Digits>
-          </div>
-          <div class="form-group signin">
-            <input type="password" name="password" class="form-control" placeholder="Password" ng-model="signupdata.password" required
-              minlength="8" maxlength="14" no-Paste>
-            <p class="error" ng-show="signUp.password.$invalid  && (signUp.password.$dirty || signUp.password.$touched)">Please enter Minimum 8 Characters & Maximum 14 Characters.</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group signin">
-            <input type="text" class="form-control" placeholder="Surname" ng-model="signupdata.lastname" aplha-Only required>
-          </div>
-          <div class="form-group signin">
-            <input type="email" class="form-control" placeholder="Email Address" ng-model="signupdata.email" required>
-          </div>
-          <!--<div class="form-group">
+                 <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Phone No." ng-model="signupdata.phoneno" required minlength="8" maxlength="10" only-Digits>
+               </div>
+               <div class="form-group">
+                  <input type="password" name="password" class="form-control" placeholder="Password" ng-model="signupdata.password" required minlength="8" maxlength="14" no-Paste>
+                  <div  class="msg-err" style="
+    color: red;">
+                    <p ng-show="signUp.password.$invalid  && (signUp.password.$dirty || signUp.password.$touched)">Please enter Minimum 8 Characters & Maximum 14 Characters.</p>
+                  </div>
+
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Surname" ng-model="signupdata.lastname" aplha-Only required>
+               </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Email Address" ng-model="signupdata.email" required>
+               </div>
+               <!--<div class="form-group">
                   <input type="text" class="form-control" placeholder="Phone No." ng-model="signupdata.phoneno" required minlength="8" maxlength="10" only-Digits>
                </div>-->
-          <div class="form-group signin">
-            <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password" ng-model="signupdata.confirmPass"
-              no-Paste required>
-            <div class="error-msg" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter Your Password</div>
-          </div>
-          <div ng-if="incorrectPass">Password does not match.</div>
-        </div>
-      </div>
-      <div class="form-group checkbox">
-        <input type="checkbox" id="agree" ng-model="signupdata.isChecked" required>
-        <label for="agree" class="whitey ">
+               <div class="form-group">
+                  <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password" ng-model="signupdata.confirmPass" no-Paste required>
+                  <div style="
+    color: red;" ng-show="signUp.confirmPassword.$error.required && signUp.confirmPassword.$touched">Please Re-Enter Your Password</div>
+               </div>
+               <div ng-if="incorrectPass" style="
+ color: red;">Password does not match.</div>
+            </div>
+         </div>
+         <div class="form-group checkbox">
+
+            <input type="checkbox" id="agree" ng-model="signupdata.isChecked">
+            <label for="agree" class="whitey">
                <span></span>I agree with the Terms &amp; conditions and Privacy Policy
             </label>
-      </div>
-      <div ng-if="alreadyExist" class="text-center">User Already Exist.</div>
-      <h2 ng-if="succesSignup" class="text-center"> Thank You..</h2>
-      <!-- <div ng-if="isCheckedmsg">please mark check box</div> -->
-      <!-- </form> -->
-      <div class="social-buttons text-center">
-        <div class="signs">
-          <button type="submit " class="btn btn-pink pinky" ng-disable="signup.$invalid">sign up</button>
-        </div>
-        <h4 class="text-center whitey  f15 text-uppercase bold"> now to get exclusive access to raid the panther's universe!</h4>
-        <h4 class="or color-white">or</h4>
-        <div class="signs">
-          <span class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></span>
-          <button type="button" class="btn btn-pink facbook"> Log In with Facebook</button>
-        </div>
-        <div class="signs">
-          <span class="tweet"><i class="fa fa-twitter" aria-hidden="true"></i></span>
-          <button type="button" class="btn btn-pink twitter"> Log In with Twitter</button>
-        </div>
-      </div>
-    </form>
-  </div>
+
+             <small style="
+color: red;">{{checkMark}}</small>
+
+         </div>
+         <div ng-if="alreadyExist" class="text-center" style="
+color: red;">User Already Exist.</div>
+         <h2 ng-if="succesSignup" class="text-center whitey"> Thank You..</h2>
+         <!-- <div ng-if="isCheckedmsg">please mark check box</div> -->
+
+         <!-- </form> -->
+
+
+
+
+
+
+
+
+         <div class="social-buttons text-center">
+            <div class="signs">
+               <button type="submit " class="btn btn-pink pinky" ng-disable="signup.$invalid">sign up</button>
+            </div>
+             <!--<h4 class="text-center whitey  f15 text-uppercase bold"> now to get exclusive access to raid the panther's universe!</h4>-->
+            <h4 class="or color-white">or</h4>
+            <div class="signs">
+               <span class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+               <button type="button" class="btn btn-pink facbook"> Log In with Facebook</button>
+            </div>
+            <div class="signs">
+               <span class="tweet"><i class="fa fa-twitter" aria-hidden="true"></i></span>
+               <button type="button" class="btn btn-pink twitter"> Log In with Twitter</button>
+            </div>
+          </div>
+      </form>
+
+
+   </div>
+
 </div>

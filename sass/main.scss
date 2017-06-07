@@ -4243,6 +4243,11 @@ font-style: italic;
     background-repeat: no-repeat;
     background-size: cover;
 }
+.length-fix {
+input {
+width: 70px !important;
+}
+}
 
 
 @import "navin";
