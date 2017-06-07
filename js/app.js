@@ -8,9 +8,9 @@ var firstapp = angular.module('firstapp', [
 ]);
 
 firstapp.run(['$rootScope', '$window',
-    function($rootScope, $window) {
+    function ($rootScope, $window) {
 
-        $window.fbAsyncInit = function() {
+        $window.fbAsyncInit = function () {
             FB.init({
                 appId: '655719224579290',
                 status: true,
@@ -23,7 +23,7 @@ firstapp.run(['$rootScope', '$window',
             // });
         };
 
-        (function(d) {
+        (function (d) {
             // load the Facebook javascript SDK
 
             var js,
@@ -46,7 +46,7 @@ firstapp.run(['$rootScope', '$window',
     }
 ]);
 
-firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
 
@@ -62,67 +62,67 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'HomeCtrl'
         })
-        .state('ComingSoooon', {
+        // .state('ComingSoooon', {
+        //     url: "/comingsoon",
+        //     templateUrl: "views/template.html",
+        //     controller: 'ComingSooonCtrl'
+        // })
+        .state('comingsoon', {
             url: "/comingsoon",
-            templateUrl: "views/template.html",
-            controller: 'ComingSooonCtrl'
-        })
-        .state('comingsoon1', {
-            url: "/comingsoon1",
             templateUrl: "views/template.html",
             controller: 'ComingSoonCtrl'
         })
 
 
     .state('panthers-den', {
-            url: "/panthers-den",
+        url: "/panthers-den",
+        templateUrl: "views/template.html",
+        controller: 'DenCtrl'
+    })
+
+    .state('crossword', {
+        url: "/crossword",
+        templateUrl: "views/template.html",
+        controller: 'CrosswordCtrl'
+    })
+
+    .state('rapid', {
+        url: "/rapid-fire",
+        templateUrl: "views/template.html",
+        controller: 'RapidCtrl'
+    })
+
+
+    .state('rapid-play', {
+        url: "/rapid-fire-play/:id",
+        templateUrl: "views/template.html",
+        controller: 'RapidPlayCtrl'
+    })
+
+    .state('rapid-score', {
+            url: "/rapid-fire-score/:id",
             templateUrl: "views/template.html",
-            controller: 'DenCtrl'
+            controller: 'RapidScoreCtrl'
         })
-
-          .state('crossword', {
-            url: "/crossword",
-            templateUrl: "views/template.html",
-            controller: 'CrosswordCtrl'
-        })
-
-        .state('rapid', {
-          url: "/rapid-fire",
-          templateUrl: "views/template.html",
-          controller: 'RapidCtrl'
-      })
-
-
-          .state('rapid-play', {
-            url: "/rapid-fire-play/:id",
-            templateUrl: "views/template.html",
-            controller: 'RapidPlayCtrl'
-        })
-
-        .state('rapid-score', {
-          url: "/rapid-fire-score/:id",
-          templateUrl: "views/template.html",
-          controller: 'RapidScoreCtrl'
-      })
-            .state('match', {
+        .state('match', {
             url: "/match",
             templateUrl: "views/template.html",
             controller: 'MatchCtrl'
         })
 
 
-              .state('guess', {
-            url: "/guess-who",
-            templateUrl: "views/template.html",
-            controller: 'GuessCtrl'
-        })
+    .state('guess', {
+        url: "/guess-who",
+        templateUrl: "views/template.html",
+        controller: 'GuessCtrl'
+    })
 
 
-        .state('panther-army', {
-            url: "/panther-army/:level",
-            templateUrl: "views/template.html",
-            controller: 'ArmyCtrl'
-        })
+    .state('panther-army', {
+        url: "/panther-army/:level",
+        templateUrl: "views/template.html",
+        controller: 'ArmyCtrl'
+    })
 
     .state('ultimate-panther', {
             url: "/ultimate-panther",
@@ -173,16 +173,16 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
 });
 
 
-firstapp.directive('img', function($compile, $parse) {
+firstapp.directive('img', function ($compile, $parse) {
     return {
         restrict: 'E',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             var $element = $(element);
             if (!attrs.noloading) {
                 $element.after("<img src='img/loading.gif' class='loading' />");
                 var $loading = $element.next(".loading");
-                $element.load(function() {
+                $element.load(function () {
                     $loading.remove();
                     $(this).addClass("doneLoading");
                 });
@@ -192,10 +192,10 @@ firstapp.directive('img', function($compile, $parse) {
         }
     };
 });
-firstapp.directive('onlyDigits', function() {
+firstapp.directive('onlyDigits', function () {
     return {
         require: 'ngModel',
-        link: function(scope, element, attr, ngModelCtrl) {
+        link: function (scope, element, attr, ngModelCtrl) {
             function fromUser(text) {
                 if (text) {
                     var transformedInput = text.replace(/[^0-9]/g, '');
@@ -212,8 +212,8 @@ firstapp.directive('onlyDigits', function() {
         }
     };
 });
-firstapp.filter('serverimage1', function() {
-    return function(input) {
+firstapp.filter('serverimage1', function () {
+    return function (input) {
         if (input) {
             return tempimgurl + input;
         } else {
@@ -222,11 +222,11 @@ firstapp.filter('serverimage1', function() {
     };
 });
 
-firstapp.directive('fancyboxBox', function($document) {
+firstapp.directive('fancyboxBox', function ($document) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function(scope, element, attr) {
+        link: function (scope, element, attr) {
             var $element = $(element);
             var target;
             if (attr.rel) {
@@ -247,8 +247,8 @@ firstapp.directive('fancyboxBox', function($document) {
     };
 });
 
-firstapp.filter('hindimonth', function() {
-    return function(date, onlymonth) {
+firstapp.filter('hindimonth', function () {
+    return function (date, onlymonth) {
         date = new Date(date);
         var onlyday = date.getDate();
         var onlyyear = date.getFullYear();
@@ -367,7 +367,7 @@ firstapp.filter('hindimonth', function() {
 });
 
 
-firstapp.config(function($translateProvider) {
+firstapp.config(function ($translateProvider) {
     $translateProvider.translations('en', LanguageEnglish);
     $translateProvider.translations('hi', LanguageHindi);
     $translateProvider.preferredLanguage('en');
