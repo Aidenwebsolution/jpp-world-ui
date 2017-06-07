@@ -10,7 +10,7 @@ var globalLocale = moment.locale('hi');
 var localLocale = moment();
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'angular-flexslider', 'rapidAnswer'])
 
-.controller('Home1Ctrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $filter, $rootScope, $translate, $state) {
+.controller('Home1Ctrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $filter, $rootScope, $translate, $state) {
     //Used to name the .html file
 
     console.log("108");
@@ -19,13 +19,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Panther World");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.facebookLogin = function () {
+    $scope.facebookLogin = function() {
         window.location.href = "http://pantherworldadmin.jaipurpinkpanthers.com/user/loginFacebook";
     };
-    $scope.twitterLogin = function () {
+    $scope.twitterLogin = function() {
         window.location.href = "http://pantherworldadmin.jaipurpinkpanthers.com/user/loginTwitter";
     };
-    $scope.Share = function () {
+    $scope.Share = function() {
         $uibModal.open({
             animation: $scope.animationsEnabled,
             templateUrl: 'views/modal/share.html',
@@ -35,7 +35,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
-    $scope.logs = function () {
+    $scope.logs = function() {
         console.log("im in");
         $scope.modalLogsInstance = $uibModal.open({
             animation: true,
@@ -43,24 +43,66 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope,
         });
     };
+    $scope.otps = function() {
+        $scope.modalLogsInstance.close();
+        $scope.modalInstanceOtps = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/otps.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.forgotPasswordotp = function() {
+        $scope.modalLogsInstance.close();
+        $scope.modalInstanceForgotPasswordotp = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/forgototp.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.otp = function() {
+        $scope.modalInstanceOtp = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/otp.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.otpsucess = function() {
+        $scope.modalInstanceOtpSuccess = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/otp-success.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.password = function() {
+        $scope.modalInstancePassword = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/password.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.passconfirm = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/passconfirm.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
 
-    console.log("im in get pantherword");
-    NavigationService.getpantherworldguesswho(function (data) {
+    NavigationService.getpantherworldguesswho(function(data) {
         console.log("im in get pantherword");
         console.log("data", data.data.data);
         $scope.pantherworldguesswho = data.data.data;
         $scope.pantherworldguesswho.image = $filter('serverimage1')($scope.pantherworldguesswho.image);
     });
-    $scope.logs = function () {
-        console.log("im in");
-        $scope.modalLogsInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'views/modal/logs.html',
-            scope: $scope,
-        });
-    };
-    $scope.authentication = function () {
-        NavigationService.getAuthenticate(function (data) {
+
+    $scope.authentication = function() {
+        NavigationService.getAuthenticate(function(data) {
             console.log(data);
             if (data.logged_in) {
                 console.log("data", data.firstname);
@@ -72,15 +114,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         })
     }
-
-
-
-
-
-    $scope.isCheckLoggedIn = function (value) {
+    $scope.isCheckLoggedIn = function(value) {
         console.log("im authenticate");
 
-        NavigationService.getAuthenticate(function (data) {
+        NavigationService.getAuthenticate(function(data) {
             console.log("getAuthenticate", data);
             console.log("data", data);
             if (data.logged_in) {
@@ -116,11 +153,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.signupdata = {};
-      $scope.forgotPassData={}
+    $scope.forgotPassData = {}
     $scope.signupOtpInfo = {};
     $scope.signupOtpInfo.userid = ''
     $scope.goSubmitOtp = function(otp) {
-      $scope.errorOTP=false;
+        $scope.errorOTP = false;
         console.log("length", otp);
         if (otp) {
             $scope.signupOtpInfo.otp = otp;
@@ -131,13 +168,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $rootScope.loggedIn = true;
                     $scope.authentication();
                     $scope.modalInstanceOtp.close();
-
-                } else {
+                  } else {
                     console.log("im else");
                     $scope.errorOTP = true;
                     $rootScope.loggedIn = false;
-                    // $scope.alreadyExist = true;
-                }
+                  }
 
             })
         }
@@ -151,6 +186,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.alreadyExist = false;
         $scope.succesSignup = false;
         if (signupdata) {
+            $scope.checkMark = "";
             console.log("signupdata", signupdata);
 
             if (signupdata.password == signupdata.confirmPass) {
@@ -176,10 +212,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                     })
                 }
-
-
-
-            } else {
+              } else {
                 $scope.incorrectPass = true;
             }
         }
@@ -206,56 +239,56 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
     $scope.forgotOtpSubmitFun = function(forgotPassData) {
-        $scope.wrongOTP=false;
-        console.log("forgotPassData", forgotPassData);
-        if (forgotPassData) {
-            $scope.forgotPassData.otp = forgotPassData.otp;
-            $scope.password();
-            $scope.submitChangepassword = function(forgotPassData) {
-                $scope.inavlidPass = false;
-                if (forgotPassData.newPassword && forgotPassData.confirmPassword) {
-                    if (forgotPassData.newPassword == forgotPassData.confirmPassword) {
-                      $scope.forgotPassData.password =forgotPassData.confirmPassword;
-                      console.log("$scope.forgotPassData",$scope.forgotPassData);
+            $scope.wrongOTP = false;
+            console.log("forgotPassData", forgotPassData);
+            if (forgotPassData) {
+                $scope.forgotPassData.otp = forgotPassData.otp;
+                $scope.password();
+                $scope.submitChangepassword = function(forgotPassData) {
+                    $scope.inavlidPass = false;
+                    if (forgotPassData.newPassword && forgotPassData.confirmPassword) {
+                        if (forgotPassData.newPassword == forgotPassData.confirmPassword) {
+                            $scope.forgotPassData.password = forgotPassData.confirmPassword;
+                            console.log("$scope.forgotPassData", $scope.forgotPassData);
 
-                      NavigationService.forgotPasswordSubmit($scope.forgotPassData,function (data) {
-                        console.log("data",data);
-                        if (data == "true") {
-                          $scope.modalLogsInstance.close();
-                          $scope.modalInstancePassword.close();
-                          $scope.modalInstanceForgotPasswordotp.close();
-                          $scope.passconfirm();
-                          $scope.forgotPassData={};
+                            NavigationService.forgotPasswordSubmit($scope.forgotPassData, function(data) {
+                                console.log("data", data);
+                                if (data == "true") {
+                                    $scope.modalLogsInstance.close();
+                                    $scope.modalInstancePassword.close();
+                                    $scope.modalInstanceForgotPasswordotp.close();
+                                    $scope.passconfirm();
+                                    $scope.forgotPassData = {};
 
-                        }else {
-                          $scope.wrongOTP=true;
+                                } else {
+                                    $scope.wrongOTP = true;
+                                }
+                            })
+                        } else {
+                            $scope.inavlidPass = true;
                         }
-                      })
-                    }else {
-                        $scope.inavlidPass = true;
+
                     }
 
                 }
-
             }
+
         }
-
-    }
-
+        // ============================login===========================
     $scope.loginData = {};
     $scope.incorrectDetails = false;
-    $scope.loginSubmit = function (loginData) {
+    $scope.loginSubmit = function(loginData) {
         console.log("loginData", loginData);
         $scope.incorrectDetails = false;
         if (loginData) {
 
-            NavigationService.submitLogin(loginData, function (data) {
+            NavigationService.submitLogin(loginData, function(data) {
                 console.log("data", data);
                 if (data.logged_in) {
                     $scope.incorrectDetails = false;
                     $rootScope.loggedIn = true;
                     $scope.successlogin = true;
-                    $timeout(function () {
+                    $timeout(function() {
 
                         $scope.successlogin = false;
                         $scope.incorrectDetails = false;
@@ -276,7 +309,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classsa = 'active-tab';
     $scope.classsb = '';
 
-    $scope.tabchanges = function (tab, a) {
+    $scope.tabchanges = function(tab, a) {
         $scope.tabs = tab;
         if (a == 1) {
             $scope.classsa = 'active-tab';
@@ -298,14 +331,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.currentlang = $.jStorage.get("languageSet");
     console.log($scope.currentlang);
 
-    globalFunc.changeLang = function () {
+    globalFunc.changeLang = function() {
         $scope.currentlang = currentlang;
         console.log($scope.currentlang);
     };
 
 
 
-    globalFunc.changeSlides = function (lang) {
+    globalFunc.changeSlides = function(lang) {
         $scope.currentlang = lang;
         if (lang == 'hi') {
             $scope.news = $scope.hindibanner;
@@ -316,74 +349,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
     //added
-    $scope.otps = function () {
-        $scope.modalLogsInstance.close();
-        $scope.modalInstanceOtps = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/otps.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
 
-
-
-
-    $scope.forgotPasswordotp = function () {
-            $scope.modalLogsInstance.close();
-            $scope.modalInstanceForgotPasswordotp = $uibModal.open({
-                animation: true,
-                templateUrl: "views/modal/forgototp.html",
-                scope: $scope,
-                windowClass: 'bg-white'
-            })
-        }
-
-        //not done
-    $scope.otp = function () {
-        $scope.modalInstanceOtp = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/otp.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-
-    // $scope.otp();
-
-    $scope.otpsucess = function () {
-            $scope.modalInstanceOtpSuccess = $uibModal.open({
-                animation: true,
-                templateUrl: "views/modal/otp-success.html",
-                scope: $scope,
-                windowClass: 'bg-white'
-            })
-        }
-        // $scope.otpsucess();
-
-    $scope.password = function () {
-            $scope.modalInstancePassword = $uibModal.open({
-                animation: true,
-                templateUrl: "views/modal/password.html",
-                scope: $scope,
-                windowClass: 'bg-white'
-            })
-        }
-        // $scope.password();
-
-    $scope.passconfirm = function () {
-            $uibModal.open({
-                animation: true,
-                templateUrl: "views/modal/passconfirm.html",
-                scope: $scope,
-                windowClass: 'bg-white'
-            })
-        }
-        // $scope.passconfirm();
 
 })
 
-.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -396,14 +366,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('ComingSoonCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+.controller('ComingSoonCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("comingsoon");
         $scope.menutitle = NavigationService.makeactive("Coming Soon");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
-    .controller('ComingSooonCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('ComingSooonCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("comingSoon");
         $scope.menutitle = NavigationService.makeactive("Coming Soon");
@@ -411,7 +381,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('JPPTVCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+.controller('JPPTVCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -422,7 +392,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('RapidCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state) {
+.controller('RapidCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state) {
         //Used to name the .html file
         console.log("Testing Consoles RapidCtrl");
 
@@ -431,14 +401,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-        $scope.share = function () {
+        $scope.share = function() {
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/share.html",
                 scope: $scope
             });
         };
-        $scope.go = function () {
+        $scope.go = function() {
             $state.go('rapid-play', {
                 id: '1'
             })
@@ -448,7 +418,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
-    .controller('RapidPlayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state) {
+    .controller('RapidPlayCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state) {
         //Used to name the .html file
 
         console.log("Testing Consoles RapidPlayCtrl");
@@ -458,7 +428,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-        $scope.share = function () {
+        $scope.share = function() {
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/share.html",
@@ -473,15 +443,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.currentquestion = RapidAnswer.getQuestion($stateParams.id);
 
-        $scope.selectAnswer = function (s) {
+        $scope.selectAnswer = function(s) {
             $scope.mDisable = false;
-            _.each($scope.currentquestion.options, function (option) {
+            _.each($scope.currentquestion.options, function(option) {
                 option.selected = undefined;
             });
             s.selected = true;
         };
         $scope.mDisable = true;
-        $scope.nextQuestion = function () {
+        $scope.nextQuestion = function() {
             $scope.myUrll = window.location.href;
             console.log('nextq$scope.myUrll', " == ", $scope.myUrll);
             RapidAnswer.saveAnswer($scope.currentquestion);
@@ -498,18 +468,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             }
         };
-        $scope.skipQuestion = function () {
-            _.each($scope.currentquestion.options, function (option) {
+        $scope.skipQuestion = function() {
+            _.each($scope.currentquestion.options, function(option) {
                 option.selected = undefined;
             });
             $scope.nextQuestion();
         };
         $scope.showTimerCount = $.jStorage.get("rapidTimer");
-        $timeout(function () {
+        $timeout(function() {
             makeArc();
         }, 100);
 
-        var counter = $interval(function () {
+        var counter = $interval(function() {
             $scope.showTimerCount = RapidAnswer.changeTimerRapid();
             makeArc();
             if ($scope.showTimerCount == 0) {
@@ -549,7 +519,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('RapidScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state) {
+.controller('RapidScoreCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state) {
     //Used to name the .html file
 
     console.log("Testing Consoles RapidScoreCtrl");
@@ -559,7 +529,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    $scope.share = function () {
+    $scope.share = function() {
         $uibModal.open({
             animation: true,
             templateUrl: "views/modal/share.html",
@@ -576,7 +546,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('GuessCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('GuessCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -586,7 +556,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    $scope.share = function () {
+    $scope.share = function() {
         $uibModal.open({
             animation: true,
             templateUrl: "views/modal/share.html",
@@ -596,18 +566,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.sect1 = true;
     $scope.quiz = true;
     $scope.score = true;
-    $scope.go = function () {
+    $scope.go = function() {
         $scope.quiz = false;
         $scope.sect1 = false;
     }
-    $scope.next = function () {
+    $scope.next = function() {
         $scope.quiz = true;
         $scope.score = false;
     }
 
 })
 
-.controller('MatchCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('MatchCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -617,7 +587,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    $scope.share = function () {
+    $scope.share = function() {
         $uibModal.open({
             animation: true,
             templateUrl: "views/modal/share.html",
@@ -627,18 +597,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.sect1 = true;
     $scope.quiz = true;
     $scope.score = true;
-    $scope.go = function () {
+    $scope.go = function() {
         $scope.quiz = false;
         $scope.sect1 = false;
     }
-    $scope.next = function () {
+    $scope.next = function() {
         $scope.quiz = true;
         $scope.score = false;
     }
 
 })
 
-.controller('CrosswordCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+.controller('CrosswordCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -652,7 +622,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('DenCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+.controller('DenCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("panthers-den");
     $scope.menutitle = NavigationService.makeactive("The Panther Den");
@@ -662,7 +632,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('GamesCtrl', function ($scope, TemplateService, NavigationService, $timeout, $filter, $interval) {
+.controller('GamesCtrl', function($scope, TemplateService, NavigationService, $timeout, $filter, $interval) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -679,14 +649,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-        $scope.refreshTimer = function (eventTime) {
+        $scope.refreshTimer = function(eventTime) {
             $scope.countdown = {};
             eventTime = new Date(eventTime);
             console.log(eventTime);
             $scope.rightNow = new Date();
             $scope.diffTime = eventTime - $scope.rightNow;
             var duration = moment.duration($scope.diffTime, 'milliseconds');
-            $interval(function () {
+            $interval(function() {
                 duration = moment.duration(duration - 1000, 'milliseconds');
                 console.log("duration", duration._data.days);
                 $scope.countdown.days = duration._data.days;
@@ -700,7 +670,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.refreshTimer($scope.latestmatch.startTimedate);
 
     })
-    .controller('NewsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('NewsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -711,7 +681,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('GalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+.controller('GalleryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -722,7 +692,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('RoomCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('RoomCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -733,7 +703,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('ArmyCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
+.controller('ArmyCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
         $scope.template = TemplateService.changecontent("panther-army");
         $scope.menutitle = NavigationService.makeactive("Panther Army");
         TemplateService.title = $scope.menutitle;
@@ -743,7 +713,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             accuracy2: ""
         };
 
-        NavigationService.getAuthenticate(function (data) {
+        NavigationService.getAuthenticate(function(data) {
             if (data.value != true) {
                 $state.go('home');
             } else {
@@ -753,7 +723,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         break;
                     case 'level2':
                         console.log("demodemodemo");
-                        NavigationService.checkLevel(function (data) {
+                        NavigationService.checkLevel(function(data) {
                             console.log(data);
                             if (!data.data.accuracy || data.data.accuracy === '') {
                                 console.log("in if");
@@ -1048,7 +1018,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         //task integration
-        $scope.kabaddiClick = function () {
+        $scope.kabaddiClick = function() {
             inc++;
             if (inc === 1) {
                 first = new Date();
@@ -1063,9 +1033,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.createJson = [];
 
-        $scope.textChange = function () {
+        $scope.textChange = function() {
                 var text = "";
-                _.each($scope.task3, function (n) {
+                _.each($scope.task3, function(n) {
                     var spl = _.filter(n.textfield, {
                         class: "spl"
                     });
@@ -1078,10 +1048,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //
             //
             // };
-        $scope.levelTwo = function () {
+        $scope.levelTwo = function() {
                 $scope.games.accuracy = $scope.game2.accuracy1 + " " + $scope.game2.accuracy2;
                 console.log($scope.games);
-                NavigationService.storeLevel($scope.games, function (data) {
+                NavigationService.storeLevel($scope.games, function(data) {
                     console.log(data);
                     if (data.value === true) {
                         $scope.submitData();
@@ -1099,7 +1069,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //     console.log(encoded);
             //     // window.location.href = encoded;
             // }
-        $scope.storeUserData = function (armyname, url1, url2, url3, url4, url5, url6, friend1, friend2, friend3, friend4, friend5, friend6) {
+        $scope.storeUserData = function(armyname, url1, url2, url3, url4, url5, url6, friend1, friend2, friend3, friend4, friend5, friend6) {
             if (armyname === undefined || url1 === undefined || url2 === undefined || url3 === undefined || url4 === undefined || url5 === undefined || url6 === undefined || friend1 === undefined || friend2 === undefined || friend3 === undefined || friend4 === undefined || friend5 === undefined || friend6 === undefined) {
                 $scope.openerror();
             } else {
@@ -1129,18 +1099,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://jaipurpinkpanthers.com/panther-army.html&redirect_uri=http://jaipurpinkpanthers.com/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
             }
         };
-        $scope.submitAnswer = function (option) {
+        $scope.submitAnswer = function(option) {
             console.log($scope.sendUserData);
             $scope.option = option;
             if (option.question1option === undefined || option.question2option === undefined || option.question3option === undefined || option.question4option === undefined || option.question5option === undefined) {
                 $scope.openerror();
             } else {
-                NavigationService.storeUserData($scope.sendUserData, function (data) {
+                NavigationService.storeUserData($scope.sendUserData, function(data) {
                     console.log($scope.sendUserData);
                     console.log("success user data");
                     console.log(data);
                 });
-                NavigationService.storeAnswer($scope.option, function (data) {
+                NavigationService.storeAnswer($scope.option, function(data) {
                     if (data.value === true) {
                         $scope.submitData();
                         $scope.option = {};
@@ -1171,7 +1141,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
         };
-        $scope.redirectAfterClose = function () {
+        $scope.redirectAfterClose = function() {
             // $state.reload();
             switch ($state.params.level) {
                 case 'level1':
@@ -1185,21 +1155,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         // GET ALL FACEBOOK DETAILS
-        NavigationService.getFacebookDetails(function (data) {
+        NavigationService.getFacebookDetails(function(data) {
             $scope.obj = JSON.parse(data.data);
             $scope.obj = $scope.obj.data;
             console.log($scope.obj);
         });
         //Used to name the .html file
         // $scope.pageShow = 1;
-        $scope.goToPage = function (page, option) {
+        $scope.goToPage = function(page, option) {
             $scope.pageShow = page;
         };
 
         //check if registered
 
-        $scope.checkIfRegistered = function () {
-            NavigationService.getAuthenticate(function (data) {
+        $scope.checkIfRegistered = function() {
+            NavigationService.getAuthenticate(function(data) {
                 console.log(data);
                 if (data.value === true) {
                     if (data.data.friend1 !== '' || data.data.friend2 !== '' || data.data.friend3 !== '' || data.data.friend4 !== '' || data.data.friend5 !== '' || data.data.friend6 !== '') {
@@ -1216,7 +1186,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.messageToFriends = [];
         $scope.item = {};
         $scope.lines = globalItems;
-        $scope.insertSelectedFriends = function (item) {
+        $scope.insertSelectedFriends = function(item) {
             $scope.item = item;
             var object = $scope.item;
             if (item.toggle) {
@@ -1229,7 +1199,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.messageToFriends = $scope.lines;
         };
         $scope.registershow = true;
-        $scope.toggleForms = function (choice) {
+        $scope.toggleForms = function(choice) {
             $scope.registershow = false;
             $scope.friendsshow = false;
             $scope.challengeshow = false;
@@ -1242,7 +1212,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-        $scope.openfrnds = function () {
+        $scope.openfrnds = function() {
             $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/modal/select-army.html',
@@ -1250,28 +1220,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
 
-        $scope.openerror = function () {
+        $scope.openerror = function() {
             $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/modal/error-message.html',
                 scope: $scope,
             });
         };
-        $scope.somethingwentwrong = function () {
+        $scope.somethingwentwrong = function() {
             $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/modal/somethingwentwrong.html',
                 scope: $scope,
             });
         };
-        $scope.submitData = function () {
+        $scope.submitData = function() {
             $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/modal/submitData.html',
                 scope: $scope,
             });
         };
-        $scope.doNotRegister = function () {
+        $scope.doNotRegister = function() {
             $uibModal.open({
                 animation: $scope.animationsEnabled,
                 templateUrl: 'views/modal/doNotRegister.html',
@@ -1280,7 +1250,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
     })
-    .controller('UltimateCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('UltimateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -1290,7 +1260,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
-    .controller('SurveyCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('SurveyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -1301,13 +1271,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('headerctrl', function ($scope, TemplateService, NavigationService, $state, $rootScope, $uibModal, $timeout) {
+.controller('headerctrl', function($scope, TemplateService, NavigationService, $state, $rootScope, $uibModal, $timeout) {
     $scope.template = TemplateService;
-    $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+    $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
     console.log($state.current.name);
-    NavigationService.getAuthenticate(function (data) {
+    NavigationService.getAuthenticate(function(data) {
         console.log(data);
         if (data.value === true) {
             // $.jStorage.set("user",data);
@@ -1326,7 +1296,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classsa = 'active-tab';
     $scope.classsb = '';
 
-    $scope.tabchanges = function (tab, a) {
+    $scope.tabchanges = function(tab, a) {
         $scope.tabs = tab;
         if (a == 1) {
             $scope.classsa = 'active-tab';
@@ -1343,7 +1313,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     };
-    $scope.logs = function () {
+    $scope.logs = function() {
         console.log("im in");
         $scope.modalLogsInstance = $uibModal.open({
             animation: true,
@@ -1351,9 +1321,58 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope,
         });
     };
-
-    $scope.logout = function () {
-        NavigationService.logout(function (data) {
+    $scope.otps = function() {
+        $scope.modalLogsInstance.close();
+        $scope.modalInstanceOtps = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/otps.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.forgotPasswordotp = function() {
+        $scope.modalLogsInstance.close();
+        $scope.modalInstanceForgotPasswordotp = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/forgototp.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.otp = function() {
+        $scope.modalInstanceOtp = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/otp.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.otpsucess = function() {
+        $scope.modalInstanceOtpSuccess = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/otp-success.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.password = function() {
+        $scope.modalInstancePassword = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/password.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.passconfirm = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/passconfirm.html",
+            scope: $scope,
+            windowClass: 'bg-white'
+        })
+    }
+    $scope.logout = function() {
+        NavigationService.logout(function(data) {
             console.log(data);
             if (data.value === true) {
                 $state.go('home');
@@ -1363,15 +1382,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
-    $scope.logoutUser = function () {
+    $scope.logoutUser = function() {
         $rootScope.loggedIn = false;
-        NavigationService.logoutUser(function (data) {
+        NavigationService.logoutUser(function(data) {
             console.log("im in logout", data);
         })
     };
 
-    $scope.authentication = function () {
-        NavigationService.getAuthenticate(function (data) {
+    $scope.authentication = function() {
+        NavigationService.getAuthenticate(function(data) {
             console.log(data);
             if (data.logged_in) {
                 console.log("data", data.firstname);
@@ -1387,11 +1406,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     $scope.signupdata = {};
-    $scope.forgotPassData={};
+    $scope.forgotPassData = {};
     $scope.signupOtpInfo = {};
     $scope.signupOtpInfo.userid = ''
     $scope.goSubmitOtp = function(otp) {
-      $scope.errorOTP=false;
+        $scope.errorOTP = false;
         console.log("length", otp);
         if (otp) {
             $scope.signupOtpInfo.otp = otp;
@@ -1478,7 +1497,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
     $scope.forgotOtpSubmitFun = function(forgotPassData) {
-        $scope.wrongOTP=false;
+        $scope.wrongOTP = false;
         console.log("forgotPassData", forgotPassData);
         if (forgotPassData) {
             $scope.forgotPassData.otp = forgotPassData.otp;
@@ -1487,23 +1506,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.inavlidPass = false;
                 if (forgotPassData.newPassword && forgotPassData.confirmPassword) {
                     if (forgotPassData.newPassword == forgotPassData.confirmPassword) {
-                      $scope.forgotPassData.password =forgotPassData.confirmPassword;
-                      console.log("$scope.forgotPassData",$scope.forgotPassData);
+                        $scope.forgotPassData.password = forgotPassData.confirmPassword;
+                        console.log("$scope.forgotPassData", $scope.forgotPassData);
 
-                      NavigationService.forgotPasswordSubmit($scope.forgotPassData,function (data) {
-                        console.log("data",data);
-                        if (data == "true") {
-                          $scope.modalLogsInstance.close();
-                          $scope.modalInstancePassword.close();
-                          $scope.modalInstanceForgotPasswordotp.close();
-                          $scope.passconfirm();
-                          $scope.forgotPassData={};
+                        NavigationService.forgotPasswordSubmit($scope.forgotPassData, function(data) {
+                            console.log("data", data);
+                            if (data == "true") {
+                                $scope.modalLogsInstance.close();
+                                $scope.modalInstancePassword.close();
+                                $scope.modalInstanceForgotPasswordotp.close();
+                                $scope.passconfirm();
+                                $scope.forgotPassData = {};
 
-                        }else {
-                          $scope.wrongOTP=true;
-                        }
-                      })
-                    }else {
+                            } else {
+                                $scope.wrongOTP = true;
+                            }
+                        })
+                    } else {
                         $scope.inavlidPass = true;
                     }
 
@@ -1514,22 +1533,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     }
 
-  // =============================login==============================
+    // =============================login==============================
 
     $scope.loginData = {};
     $scope.incorrectDetails = false;
-    $scope.loginSubmit = function (loginData) {
+    $scope.loginSubmit = function(loginData) {
         console.log("loginData", loginData);
         $scope.incorrectDetails = false;
         if (loginData) {
 
-            NavigationService.submitLogin(loginData, function (data) {
+            NavigationService.submitLogin(loginData, function(data) {
                 console.log("data", data);
                 if (data.logged_in) {
                     $scope.incorrectDetails = false;
                     $rootScope.loggedIn = true;
                     $scope.successlogin = true;
-                    $timeout(function () {
+                    $timeout(function() {
 
                         $scope.successlogin = false;
                         $scope.incorrectDetails = false;
@@ -1546,70 +1565,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
 
-    //added
-    $scope.otps = function () {
-        $scope.modalLogsInstance.close();
-        $scope.modalInstanceOtps = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/otps.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-
-    // $scope.otps();
 
 
-    $scope.forgotPasswordotp = function () {
-            $scope.modalLogsInstance.close();
-            $scope.modalInstanceForgotPasswordotp = $uibModal.open({
-                animation: true,
-                templateUrl: "views/modal/forgototp.html",
-                scope: $scope,
-                windowClass: 'bg-white'
-            })
-        }
-
-    
-    $scope.otp = function () {
-        $scope.modalInstanceOtp = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/otp.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-
-
-
-    $scope.otpsucess = function () {
-            $scope.modalInstanceOtpSuccess = $uibModal.open({
-                animation: true,
-                templateUrl: "views/modal/otp-success.html",
-                scope: $scope,
-                windowClass: 'bg-white'
-            })
-        }
-
-
-    $scope.password = function () {
-            $scope.modalInstancePassword = $uibModal.open({
-                animation: true,
-                templateUrl: "views/modal/password.html",
-                scope: $scope,
-                windowClass: 'bg-white'
-            })
-        }
-
-
-    $scope.passconfirm = function () {
-            $uibModal.open({
-                animation: true,
-                templateUrl: "views/modal/passconfirm.html",
-                scope: $scope,
-                windowClass: 'bg-white'
-            })
-        }
 
 
 })
@@ -1636,7 +1593,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 //
 //
 // })
-.controller('languageCtrl', function ($scope, $state, TemplateService, $translate, $rootScope, $uibModal) {
+.controller('languageCtrl', function($scope, $state, TemplateService, $translate, $rootScope, $uibModal) {
     var siteLanguage = $.jStorage.get('languageSet');
     $scope.languageActive = siteLanguage;
 
@@ -1652,7 +1609,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     var languagePicker = {};
-    $scope.changeLanguage = function (val) {
+    $scope.changeLanguage = function(val) {
         $translate.use(val);
         if ($state.current.name == 'home') {
             globalFunc.changeSlides(val);
@@ -1662,7 +1619,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         languagePicker.close();
         $scope.languageActive = val;
     };
-    $scope.changeLanguage2 = function (val) {
+    $scope.changeLanguage2 = function(val) {
         currentlang = val;
         console.log('currentlang', currentlang);
         $translate.use(val);
@@ -1673,7 +1630,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.languageActive = val;
         globalFunc.changeLang();
     };
-    $scope.languagePicker = function () {
+    $scope.languagePicker = function() {
         // languagePicker = $uibModal.open({
         //     animation: true,
         //     templateUrl: 'views/modal/language-picker.html',
