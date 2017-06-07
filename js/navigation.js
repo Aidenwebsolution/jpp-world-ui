@@ -1,4 +1,3 @@
-
 var mainurl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/"
 
 
@@ -84,17 +83,17 @@ var navigationservice = angular.module('navigationservice', [])
             subnav: []
         }, {
             name: "News",
-            link: "http://jaipurpinkpanthers.com/news-media",
+            link: "http://jaipurpinkpanthers.com/#/news-media",
             classis: "active",
             // subnav: []
         }, {
             name: "About",
-            link: "http://jaipurpinkpanthers.com/about-us",
+            link: "http://jaipurpinkpanthers.com/#/about-us",
             classis: "active",
             subnav: []
         }, {
             name: "Fan Corner",
-            link: "http://jaipurpinkpanthers.com/fan-corner",
+            link: "http://jaipurpinkpanthers.com/#/fan-corner",
             classis: "active",
             // subnav: []
         }
