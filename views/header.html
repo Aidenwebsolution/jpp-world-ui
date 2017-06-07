@@ -19,7 +19,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" ui-sref="home">
+                        <a class="navbar-brand" href="http://jaipurpinkpanthers.com/beta/#/">
                             <img src="img/mini-logo.png" alt="logo" title="Jpp" class="img-responsive">
                         </a>
                     </div>
@@ -36,16 +36,12 @@
                         <!-- <li ng-if="loggedIn" ng-click="logoutUser();"><a>{{'Logout'|translate}}</a></li> -->
                     </ul>
                     <div class="dropdown reg" ng-if="loggedIn">
-
-              <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown" > Hi {{userFirstName}}<img src="img/Abhi.png" class="img-responsive display-inline photo" alt="">
+                        <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown"> Hi {{userFirstName}}<img src="img/banner/Abhi.png" class="img-responsive display-inline photo" alt="">
                 <span class="arrow-down"><i class="fa fa-angle-down" aria-hidden="true"></i></span></button>
-                <ul class="drops dropdown-menu">
-
-                  <li><a ng-click="logoutUser()" ng-if="loggedIn">{{'Logout'|translate}}</a></li>
-
-
-                </ul>
-              </div>
+                        <ul class="drops dropdown-menu">
+                            <li><a ng-click="logoutUser()" ng-if="loggedIn">{{'Logout'|translate}}</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
