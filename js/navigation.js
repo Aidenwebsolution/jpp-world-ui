@@ -83,7 +83,7 @@ var navigationservice = angular.module('navigationservice', [])
             subnav: []
         }, {
             name: "News",
-            link: "http://jaipurpinkpanthers.com/#/news-media",
+            link: "http://jaipurpinkpanthers.com/beta/#/news-media",
             classis: "active",
             // subnav: []
         }, {
