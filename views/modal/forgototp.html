@@ -8,8 +8,13 @@
         <p>Enter the 4 Digit Verification Code sent to your Email id.</p>
         <form name="forms-otp1" class="form-otp">
             <div class="form-groups length-fix">
-                <input type="text" ng-model="forgotPassData.otp" minlength="4" maxlength="4" ng-change="forgotOtpSubmitFun(forgotPassData)"
-                    only-digits>
+                <!-- <input type="text" ng-model="forgotPassData.otp" minlength="4" maxlength="4" ng-change="forgotOtpSubmitFun(forgotPassData)"
+                    only-digits> -->
+
+                    <input type="text" maxlength="1" minlength="1" ng-model="forgotPassDataMOdel1" only-digits focus ng-change="forgotPassDataFunction(forgotPassDataMOdel1)">
+                    <input type="text" maxlength="1" minlength="1" ng-model="forgotPassDataMOdel2" only-digits focus ng-change="forgotPassDataFunction(forgotPassDataMOdel2)">
+                    <input type="text" maxlength="1" minlength="1" ng-model="forgotPassDataMOdel3" only-digits focus ng-change="forgotPassDataFunction(forgotPassDataMOdel3)">
+                    <input type="text" maxlength="1" minlength="1" ng-model="forgotPassDataMOdel4" only-digits focus ng-change="forgotPassDataFunction(forgotPassDataMOdel4)">
                 <!-- <input type="text">
     <input type="text">
     <input type="text"> -->
