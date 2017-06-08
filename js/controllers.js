@@ -61,6 +61,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'bg-white'
         })
     }
+
     $scope.otp = function () {
         $scope.modalInstanceOtp = $uibModal.open({
             animation: true,
@@ -69,6 +70,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'bg-white'
         })
     }
+    
     $scope.otpsucess = function () {
         $scope.modalInstanceOtpSuccess = $uibModal.open({
             animation: true,
