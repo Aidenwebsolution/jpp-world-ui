@@ -8,7 +8,11 @@
         <p>Enter the 4 Digit Verification Code sent to your Email id.</p>
         <form name="forms-otp1" class="form-otp">
             <div class="form-groups length-fix">
-                <input type="text" ng-model="OneTimePass" minlength="4" maxlength="4" ng-change="goSubmitOtp(OneTimePass)" only-digits>
+                <!-- <input type="text" ng-model="OneTimePass" minlength="4" maxlength="4" ng-change="goSubmitOtp(OneTimePass)" only-digits> -->
+                <input type="text" maxlength="1" minlength="1" ng-model="OneTimePass1" only-digits focus ng-change="specialFunction(OneTimePass1)">
+                <input type="text" maxlength="1" minlength="1" ng-model="OneTimePass2" only-digits focus ng-change="specialFunction(OneTimePass2)">
+                <input type="text" maxlength="1" minlength="1" ng-model="OneTimePass3" only-digits focus ng-change="specialFunction(OneTimePass3)">
+                <input type="text" maxlength="1" minlength="1" ng-model="OneTimePass4" only-digits focus ng-change="specialFunction(OneTimePass4)">
                 <!-- <input type="text">
     <input type="text">
     <input type="text"> -->

@@ -61,6 +61,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'bg-white'
         })
     }
+
     $scope.otp = function () {
         $scope.modalInstanceOtp = $uibModal.open({
             animation: true,
@@ -69,6 +70,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'bg-white'
         })
     }
+
     $scope.otpsucess = function () {
         $scope.modalInstanceOtpSuccess = $uibModal.open({
             animation: true,
@@ -177,7 +179,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         }
 
+    };
+    $scope.myarrOfOtp = [];
+    $scope.specialFunction = function(data) {
+        $scope.myarrOfOtp.push(data);
+        $scope.myarrOfOtp1 = $scope.myarrOfOtp.join();
+        $scope.myarrOfOtp1 = $scope.myarrOfOtp1.split(',').join('');
+
+        console.log("$scope.myarrOfOtp1", $scope.myarrOfOtp1.length);
+        if ($scope.myarrOfOtp1.length == 4) {
+            $scope.goSubmitOtp($scope.myarrOfOtp1);
+              console.log("$scope.myarrOfOtp", $scope.myarrOfOtp1);
+        }
     }
+
 
     $scope.submitSignup = function (signupdata) {
         console.log("signupdata", signupdata.isChecked);
@@ -242,7 +257,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.wrongOTP = false;
             console.log("forgotPassData", forgotPassData);
             if (forgotPassData) {
-                $scope.forgotPassData.otp = forgotPassData.otp;
+                $scope.forgotPassData.otp = forgotPassData;
+                // $scope.forgotPassData.otp = forgotPassData.otp;
                 $scope.password();
                 $scope.submitChangepassword = function (forgotPassData) {
                     $scope.inavlidPass = false;
@@ -274,6 +290,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
         }
+
+        $scope.myarrOfOtpForForgotPwd = [];
+        $scope.forgotPassDataFunction = function(data) {
+            $scope.myarrOfOtpForForgotPwd.push(data);
+            $scope.myarrOfOtpForForgotPwd1 = $scope.myarrOfOtpForForgotPwd.join();
+            $scope.myarrOfOtpForForgotPwd1 = $scope.myarrOfOtpForForgotPwd1.split(',').join('');
+
+
+            if ($scope.myarrOfOtpForForgotPwd1.length == 4) {
+                          console.log("$scope.myarrOfOtp1", $scope.myarrOfOtpForForgotPwd1.length);
+                $scope.forgotOtpSubmitFun($scope.myarrOfOtpForForgotPwd1);
+                  console.log("$scope.myarrOfOtpForForgotPwd1", $scope.myarrOfOtpForForgotPwd1);
+            }
+        }
+
         // ============================login===========================
     $scope.loginData = {};
     $scope.incorrectDetails = false;
@@ -1339,6 +1370,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'bg-white'
         })
     }
+
     $scope.otp = function () {
         $scope.modalInstanceOtp = $uibModal.open({
             animation: true,
@@ -1347,6 +1379,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             windowClass: 'bg-white'
         })
     }
+
     $scope.otpsucess = function () {
         $scope.modalInstanceOtpSuccess = $uibModal.open({
             animation: true,
@@ -1433,6 +1466,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
     }
+    $scope.myarrOfOtp = [];
+    $scope.specialFunction = function(data) {
+        $scope.myarrOfOtp.push(data);
+        $scope.myarrOfOtp1 = $scope.myarrOfOtp.join();
+        $scope.myarrOfOtp1 = $scope.myarrOfOtp1.split(',').join('');
+
+        console.log("$scope.myarrOfOtp1", $scope.myarrOfOtp1.length);
+        if ($scope.myarrOfOtp1.length == 4) {
+            $scope.goSubmitOtp($scope.myarrOfOtp1);
+              console.log("$scope.myarrOfOtp", $scope.myarrOfOtp1);
+        }
+    }
+
 
     $scope.submitSignup = function (signupdata) {
         console.log("signupdata", signupdata.isChecked);
@@ -1500,7 +1546,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.wrongOTP = false;
         console.log("forgotPassData", forgotPassData);
         if (forgotPassData) {
-            $scope.forgotPassData.otp = forgotPassData.otp;
+            $scope.forgotPassData.otp = forgotPassData;
+            // $scope.forgotPassData.otp = forgotPassData.otp;
             $scope.password();
             $scope.submitChangepassword = function (forgotPassData) {
                 $scope.inavlidPass = false;
@@ -1531,6 +1578,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
+    }
+    $scope.myarrOfOtpForForgotPwd = [];
+    $scope.forgotPassDataFunction = function(data) {
+        $scope.myarrOfOtpForForgotPwd.push(data);
+        $scope.myarrOfOtpForForgotPwd1 = $scope.myarrOfOtpForForgotPwd.join();
+        $scope.myarrOfOtpForForgotPwd1 = $scope.myarrOfOtpForForgotPwd1.split(',').join('');
+
+
+        if ($scope.myarrOfOtpForForgotPwd1.length == 4) {
+                      console.log("$scope.myarrOfOtp1", $scope.myarrOfOtpForForgotPwd1.length);
+            $scope.forgotOtpSubmitFun($scope.myarrOfOtpForForgotPwd1);
+              console.log("$scope.myarrOfOtpForForgotPwd1", $scope.myarrOfOtpForForgotPwd1);
+        }
     }
 
     // =============================login==============================
