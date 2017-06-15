@@ -308,3 +308,15 @@
     border-radius: 10px;
   }
 }
+
+.fix-heights {
+  height: 399px;
+  position: relative;
+}
+
+.contest-position {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
