@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav head-menu hidden-xs ">
+<ul class="nav navbar-nav navs head-menu hidden-xs ">
   <li ng-repeat="menu in navigation" class="menu-custom-li {{menu.classis}}">
     <a ui-sref="{{menu.anchor}}" ng-if="menu.anchor" class=" menu-custom">{{menu.name |translate}}</a>
     <a href="{{menu.link}}"  class="menu-custom"  ng-if="menu.link">{{menu.name |translate}}</a>
