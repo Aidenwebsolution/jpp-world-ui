@@ -1,14 +1,14 @@
-var mainurl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/"
+var mainurl = "http://admin.jaipurpinkpanthers.com/index.php/"
 
 
-var imgurl = "http://wohlig.co.in/pinkpanther/jppbackend/uploads/";
+var imgurl = "http://admin.jaipurpinkpanthers.com/uploads/";
 
 var adminurl1 = mainurl + "json/";
 
-var tempUrl = "http://wohlig.co.in/pinkpanther/jppbackend/index.php/json/";
-var tempimgurl = "http://wohlig.co.in/pinkpanther/jppbackend/uploads/";
+var tempUrl = "http://admin.jaipurpinkpanthers.com/index.php/json/";
+var tempimgurl = "http://admin.jaipurpinkpanthers.com/uploads/";
 
-adminurl = "http://pantherworldadmin.jaipurpinkpanthers.com/";
+adminurl = "http://admin.jaipurpinkpanthers.com/";
 
 
 var navigationservice = angular.module('navigationservice', [])
@@ -57,7 +57,7 @@ var navigationservice = angular.module('navigationservice', [])
             // subnav: [{
             //         name: "Panther Army",
             //         classis: "active",
-            //         link: "panther-army",
+            //         link: "panther-abrmy",
             //     }, {
             //         name: "Ultimate Panther",
             //         classis: "active",
@@ -97,12 +97,12 @@ var navigationservice = angular.module('navigationservice', [])
             classis: "active",
             // subnav: []
         }
-    ];
+    ];b
 
     return {
         getnav: function () {
             return navigation;
-        },
+        },b
         // callProfile: function (callback) {
         //     //console.log('Navigation form data: ', formData);
         //     $http({
@@ -110,7 +110,7 @@ var navigationservice = angular.module('navigationservice', [])
         //         method: 'POST',
         //         withCredentials: true
 
-        //     }).then(function (data) {
+        //     }).then(function (data)b {
         //         data = data.data;
         //         callback(data);
         //     });
