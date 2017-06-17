@@ -97,12 +97,12 @@ var navigationservice = angular.module('navigationservice', [])
             classis: "active",
             // subnav: []
         }
-    ];b
+    ];
 
     return {
         getnav: function () {
             return navigation;
-        },b
+        },
         // callProfile: function (callback) {
         //     //console.log('Navigation form data: ', formData);
         //     $http({
