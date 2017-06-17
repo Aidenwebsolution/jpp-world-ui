@@ -132,13 +132,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $state.go('games');
                 }
                 if (value == 'Gallery') {
-                    window.location = "http://jaipurpinkpanthers.com/beta/#/gallery";
+                    window.location = "http://jaipurpinkpanthers.com/#/gallery";
                 }
                 if (value == 'WALLPAPERS') {
-                    window.location = "http://jaipurpinkpanthers.com/beta/#/wallpaper";
+                    window.location = "http://jaipurpinkpanthers.com/#/wallpaper";
                 }
                 if (value == 'JPP') {
-                    window.location = "http://jaipurpinkpanthers.com/beta/#/jpp-tv";
+                    window.location = "http://jaipurpinkpanthers.com/#/jpp-tv";
                 }
 
 

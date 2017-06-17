@@ -77,23 +77,23 @@ var navigationservice = angular.module('navigationservice', [])
             subnav: []
         }, {
             name: "Players",
-            link: "http://jaipurpinkpanthers.com/beta/#/players",
+            link: "http://jaipurpinkpanthers.com/#/players",
             // url: "ComingSoooon",
             classis: "active",
             subnav: []
         }, {
             name: "News",
-            link: "http://jaipurpinkpanthers.com/beta/#/news-media",
+            link: "http://jaipurpinkpanthers.com/#/news-media",
             classis: "active",
             // subnav: []
         }, {
             name: "About",
-            link: " http://jaipurpinkpanthers.com/beta/#/about-us",
+            link: " http://jaipurpinkpanthers.com/#/about-us",
             classis: "active",
             subnav: []
         }, {
             name: "Fan Corner",
-            link: "http://jaipurpinkpanthers.com/beta/#/fan-corner",
+            link: "http://jaipurpinkpanthers.com/#/fan-corner",
             classis: "active",
             // subnav: []
         }

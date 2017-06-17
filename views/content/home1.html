@@ -54,7 +54,8 @@
             </div>
         </div>
         <div class="row row-mar-1">
-            <div class="img wallpapper-img ps-relative pointer" ui-sref="games">
+            <div class="img wallpapper-img ps-relative pointer" ng-click="isCheckLoggedIn('GAMES')">
+                <!--ui-sref="games"-->
                 <!--ng-click="isCheckLoggedIn('GAMES')"-->
                 <img src="img/full-banner.jpg" alt="img-responsive">
                 <div class="text-center text-top abs-ps-games">
@@ -69,7 +70,7 @@
         </div>
         <div class="row">
             <div class="col-md-6 padding0 col-sm-6">
-                <div class="img wallpapper-img  pointer ps-relative jptv-image" ng-click="isCheckLoggedIn('JPP')">
+                <div class="img wallpapper-img  pointer fixing-heights ps-relative jptv-image" ng-click="isCheckLoggedIn('JPP')">
                     <img src="img/left-side.png" alt="img-responsive" class="img-responsive">
                     <div class="text-center text-top abs-ps-jptv">
                         <h2>
