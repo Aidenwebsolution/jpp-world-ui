@@ -538,7 +538,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var r = 15;
             var s = 0; //1.5 * Math.PI;
             context.clearRect(0, 0, 75, 75);
-            context.strokeStyle = '#4ecaf5';
+            context.strokeStyle = '#fff';
             context.beginPath();
             context.lineWidth = 2;
             context.arc(x, y, r, s, radians, false);
