@@ -516,7 +516,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if ($scope.showTimerCount == 0) {
                 $interval.cancel(counter);
                 $scope.firstUI = true;
-                // $scope.showScore=true;
                 $state.go('rapid-score', {
                     id: RapidAnswer.getScore()
                 });
