@@ -27,7 +27,7 @@
     "bootstrap-sass": "~3.3.5",
     "bourbon": "~4.2.5",
     "angular-sanitize": "~1.4.3",
-    "font-awesome": "~4.4.0",
+    "font-awesome": "^4.6.3",
     "lodash": "~4.0.0",
     "fancyBox": "fancybox#^2.1.5",
     "jStorage": "^0.4.12",
