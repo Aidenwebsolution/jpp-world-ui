@@ -615,7 +615,7 @@ nav {
                 display: block;
             }
         }
-        &.active,
+        
         &:hover {
             a.menu-custom {
                 @include background-image (linear-gradient(to bottom,
@@ -650,6 +650,12 @@ nav {
                     @include transition( all 0.5s ease);
                 }
             }
+        }
+          &.active{
+             a.menu-custom {
+                 background-color: transparent !important;
+             }
+
         }
     }
     a.menu-custom {
