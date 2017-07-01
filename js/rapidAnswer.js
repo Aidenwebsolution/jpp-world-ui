@@ -227,6 +227,9 @@ var rapidAnswer = angular.module('rapidAnswer', [])
         getQuestion: function (questionNo) {
             return questions[questionNo - 1];
         },
+        getTotalQuestion: function () {
+            return questions.length;
+        },
         lastAnswer: function () {
             return questions.length;
         },

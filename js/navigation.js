@@ -271,6 +271,15 @@ var navigationservice = angular.module('navigationservice', [])
                 returnVal = 0;
             }
             return returnVal;
+        },
+         saveScore: function (formData, callback) {
+           //console.log(formData,"scoreeee");
+            $http({
+                url: tempUrl + 'savescore',
+                method: 'POST',
+                withCredentials: true,
+                data: formData
+            }).success(callback);
         }
 
     };

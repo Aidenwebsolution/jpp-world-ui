@@ -8,7 +8,7 @@ var globalFunc = {};
 var currentlang = '';
 var globalLocale = moment.locale('hi');
 var localLocale = moment();
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'angular-flexslider', 'rapidAnswer'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'angular-flexslider', 'rapidAnswer','guessAnswer'])
 
 .controller('Home1Ctrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $filter, $rootScope, $translate, $state) {
     //Used to name the .html file
@@ -488,7 +488,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             RapidAnswer.saveAnswer($scope.currentquestion);
             if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
                 $interval.cancel(counter);
-                $state.go('rapid-score', {
+               
+                
+                 $state.go('rapid-score', {
                     id: RapidAnswer.getScore()
                 });
             } else {
@@ -549,15 +551,44 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('RapidScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state) {
+.controller('RapidScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state,$http) {
     //Used to name the .html file
 
     console.log("Testing Consoles RapidScoreCtrl");
+    var history_api = typeof history.pushState !== 'undefined';
+// history.pushState must be called out side of AngularJS Code
+    if ( history_api ) history.pushState(null, '', '#rapid-fire');  // After the # you should write something, do not leave it empty
 
     $scope.template = TemplateService.changecontent("rapid");
     $scope.menutitle = NavigationService.makeactive("Rapid Fire");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+     $scope.scoreData={};
+    // var scoreData = {};
+    NavigationService.getAuthenticate(function (data) {
+        //console.log(data,"userrrrr");
+        $scope.scoreData.user=data.id;
+        $scope.scoreData.email=data.email;
+        $scope.scoreData.score= $stateParams.id;
+        var totalq=RapidAnswer.getTotalQuestion();
+        console.log(totalq);
+        scoreData={contest:1,score:$stateParams.id,user:data.id,email:data.email,totalquestions:totalq,correctanswer: $stateParams.id};
+        //console.log($scope.scoreData,"scoredata");
+        //var scoreData = $scope.scoreData;
+        console.log(scoreData,"scoredata");
+        $http({
+            method : "POST",
+            url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+            data:scoreData,
+        }).then(function mySuccess(response) {
+           // $scope.myWelcome = response.data;
+        });
+        /*NavigationService.saveScore(scoreData,function (data) {
+            
+        });*/
+        
+    });
 
     $scope.share = function () {
         $uibModal.open({
@@ -575,7 +606,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 })
-
+/*
 .controller('GuessCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
 
@@ -605,7 +636,193 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.score = false;
     }
 
+})*/
+
+.controller('GuessCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GuessAnswer, $stateParams, $interval, $state) {
+        //Used to name the .html file
+        console.log("Testing Consoles GuessCtrl");
+
+        $scope.template = TemplateService.changecontent("guess-who");
+        $scope.menutitle = NavigationService.makeactive("Guess Who");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.share = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/share.html",
+                scope: $scope
+            });
+        };
+        $scope.go = function () {
+            $state.go('guess-play', {
+                id: '1'
+            })
+        }
+
+
+
+
+    })
+.controller('GuessPlayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GuessAnswer, $stateParams, $interval, $state) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles RapidPlayCtrl");
+
+        $scope.template = TemplateService.changecontent("guess-who");
+        $scope.menutitle = NavigationService.makeactive("Guess Who");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.share = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/share.html",
+                scope: $scope
+            });
+        };
+
+
+
+        $scope.firstUI = true;
+        // $scope.count = $stateParams.id;
+
+        $scope.currentquestion = GuessAnswer.getQuestion($stateParams.id);
+
+        $scope.selectAnswer = function (s) {
+            $scope.mDisable = false;
+            _.each($scope.currentquestion.options, function (option) {
+                option.selected = undefined;
+            });
+            s.selected = true;
+        };
+        $scope.mDisable = true;
+        $scope.nextQuestion = function () {
+            $scope.myUrll = window.location.href;
+            console.log('nextq$scope.myUrll', " == ", $scope.myUrll);
+            GuessAnswer.saveAnswer($scope.currentquestion);
+            if (parseInt($stateParams.id) == GuessAnswer.lastAnswer()) {
+                $interval.cancel(counter);
+               
+                
+                 $state.go('guess-score', {
+                    id: GuessAnswer.getScore()
+                });
+            } else {
+                $interval.cancel(counter);
+                $scope.myState = window.location.href;
+                $state.go('guess-play', {
+                    id: parseInt($stateParams.id) + 1
+                });
+            }
+        };
+        $scope.skipQuestion = function () {
+            _.each($scope.currentquestion.options, function (option) {
+                option.selected = undefined;
+            });
+            $scope.nextQuestion();
+        };
+        $scope.showTimerCount = $.jStorage.get("guessTimer");
+        $timeout(function () {
+            makeArc();
+        }, 100);
+
+        var counter = $interval(function () {
+            $scope.showTimerCount = GuessAnswer.changeTimerGuess();
+            makeArc();
+            if ($scope.showTimerCount == 0) {
+                $interval.cancel(counter);
+                $scope.firstUI = true;
+                $state.go('guess-score', {
+                    id: GuessAnswer.getScore()
+                });
+
+            }
+        }, 1000);
+
+        function makeArc() {
+            var totalTime = GuessAnswer.getTotalTime();
+            currentTime = parseInt($.jStorage.get("guessTimer"));
+            var can = $('#canvas1').get(0);
+            context = can.getContext('2d');
+
+            var percentage = currentTime / totalTime; // no specific length
+            var degrees = percentage * 360.0;
+            var radians = degrees * (Math.PI / 180);
+
+            var x = 18;
+            var y = 17;
+            var r = 15;
+            var s = 0; //1.5 * Math.PI;
+            context.clearRect(0, 0, 75, 75);
+            context.strokeStyle = '#fff';
+            context.beginPath();
+            context.lineWidth = 2;
+            context.arc(x, y, r, s, radians, false);
+            //context.closePath();
+            context.stroke();
+        }
+
+
+    })
+
+.controller('GuessScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GuessAnswer, $stateParams, $interval, $state,$http) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles RapidScoreCtrl");
+    var history_api = typeof history.pushState !== 'undefined';
+// history.pushState must be called out side of AngularJS Code
+    if ( history_api ) history.pushState(null, '', '#guess-who');  // After the # you should write something, do not leave it empty
+    
+    $scope.template = TemplateService.changecontent("guess-who");
+    $scope.menutitle = NavigationService.makeactive("guess-who");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+     $scope.scoreData={};
+    // var scoreData = {};
+    NavigationService.getAuthenticate(function (data) {
+        //console.log(data,"userrrrr");
+        $scope.scoreData.user=data.id;
+        $scope.scoreData.email=data.email;
+        $scope.scoreData.score= $stateParams.id;
+        var totalq=GuessAnswer.getTotalQuestion();
+        console.log(totalq);
+        scoreData={contest:3,score:$stateParams.id,user:data.id,email:data.email,totalquestions:totalq,correctanswer: $stateParams.id};
+        //console.log($scope.scoreData,"scoredata");
+        //var scoreData = $scope.scoreData;
+        console.log(scoreData,"scoredata");
+        $http({
+            method : "POST",
+            url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+            data:scoreData,
+        }).then(function mySuccess(response) {
+           // $scope.myWelcome = response.data;
+        });
+        /*NavigationService.saveScore(scoreData,function (data) {
+            
+        });*/
+        
+    });
+
+    $scope.share = function () {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/share.html",
+            scope: $scope
+        });
+    };
+
+
+    $scope.showTimerCount = 0;
+    $scope.showScorescreen = true;
+    $scope.count = $stateParams.id;
+
+
+
 })
+
+
 
 .controller('MatchCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
@@ -638,7 +855,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('CrosswordCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+.controller('CrosswordCtrl', function ($scope, TemplateService, NavigationService, $timeout,$http) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -647,6 +864,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Crossword");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.scoreData = {};
+    $scope.crosswordscore = function (score){
+         NavigationService.getAuthenticate(function (data) {
+            //console.log(data,"userrrrr");
+            $scope.scoreData.user=data.id;
+            $scope.scoreData.email=data.email;
+            $scope.scoreData.score= score;
+            scoreData={score:score,user:data.id,email:data.email,totalquestions:0,correctanswer: score,contest:2};
+            //console.log($scope.scoreData,"scoredata");
+            //var scoreData = $scope.scoreData;
+            console.log(scoreData,"scoredata");
+            $http({
+                method : "POST",
+                url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+                data:scoreData,
+            }).then(function mySuccess(response) {
+            // $scope.myWelcome = response.data;
+            });
+            /*NavigationService.saveScore(scoreData,function (data) {
+                
+            });*/
+            
+        });
+
+    };
 })
 
 
@@ -1308,7 +1550,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
     console.log($state.current.name);
     NavigationService.getAuthenticate(function (data) {
-        console.log(data);
+        console.log(data,"userdata");
         if (data.value === true) {
             // $.jStorage.set("user",data);
             $scope.name = data.data.name;
