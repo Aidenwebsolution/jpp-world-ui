@@ -579,7 +579,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(scoreData,"scoredata");
         $http({
             method : "POST",
-            url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+            url : "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
             data:scoreData,
         }).then(function mySuccess(response) {
            // $scope.myWelcome = response.data;
@@ -794,7 +794,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(scoreData,"scoredata");
         $http({
             method : "POST",
-            url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+            url : "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
             data:scoreData,
         }).then(function mySuccess(response) {
            // $scope.myWelcome = response.data;
@@ -877,7 +877,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(scoreData,"scoredata");
             $http({
                 method : "POST",
-                url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+                url : "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
                 data:scoreData,
             }).then(function mySuccess(response) {
             // $scope.myWelcome = response.data;
