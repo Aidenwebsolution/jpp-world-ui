@@ -8,252 +8,252 @@ var globalFunc = {};
 var currentlang = '';
 var globalLocale = moment.locale('hi');
 var localLocale = moment();
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'angular-flexslider', 'rapidAnswer','guessAnswer','matchAnswer'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'angular-flexslider', 'rapidAnswer', 'guessAnswer', 'matchAnswer'])
 
-.controller('Home1Ctrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $filter, $rootScope, $translate, $state) {
-    //Used to name the .html file
+    .controller('Home1Ctrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $filter, $rootScope, $translate, $state) {
+        //Used to name the .html file
 
-    console.log("108");
+        console.log("108");
 
-    $scope.template = TemplateService.changecontent("home1");
-    $scope.menutitle = NavigationService.makeactive("Panther World");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.facebookLogin = function () {
-        window.location.href = "http://admin.jaipurpinkpanthers.com/user/loginFacebook";
-    };
-    $scope.twitterLogin = function () {
-        window.location.href = "http://admin.jaipurpinkpanthers.com/user/loginTwitter";
-    };
-    $scope.Share = function () {
-        $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'views/modal/share.html',
-            size: 'md',
-            windowClass: 'share',
-            scope: $scope
+        $scope.template = TemplateService.changecontent("home1");
+        $scope.menutitle = NavigationService.makeactive("Panther World");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.facebookLogin = function () {
+            window.location.href = "http://admin.jaipurpinkpanthers.com/user/loginFacebook";
+        };
+        $scope.twitterLogin = function () {
+            window.location.href = "http://admin.jaipurpinkpanthers.com/user/loginTwitter";
+        };
+        $scope.Share = function () {
+            $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/share.html',
+                size: 'md',
+                windowClass: 'share',
+                scope: $scope
+            });
+        };
+
+        $scope.logs = function () {
+            console.log("im in");
+            $scope.modalLogsInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/logs.html',
+                scope: $scope,
+            });
+        };
+        $scope.otps = function () {
+            $scope.modalLogsInstance.close();
+            $scope.modalInstanceOtps = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/otps.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        $scope.forgotPasswordotp = function () {
+            $scope.modalLogsInstance.close();
+            $scope.modalInstanceForgotPasswordotp = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/forgototp.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+
+        $scope.otp = function () {
+            $scope.modalInstanceOtp = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/otp.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+
+        $scope.otpsucess = function () {
+            $scope.modalInstanceOtpSuccess = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/otp-success.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        $scope.password = function () {
+            $scope.modalInstancePassword = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/password.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        $scope.passconfirm = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/passconfirm.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+
+        NavigationService.getpantherworldguesswho(function (data) {
+            console.log("im in get pantherword");
+            console.log("data", data.data.data);
+            $scope.pantherworldguesswho = data.data.data;
+            $scope.pantherworldguesswho.image = $filter('serverimage1')($scope.pantherworldguesswho.image);
         });
-    };
 
-    $scope.logs = function () {
-        console.log("im in");
-        $scope.modalLogsInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'views/modal/logs.html',
-            scope: $scope,
-        });
-    };
-    $scope.otps = function () {
-        $scope.modalLogsInstance.close();
-        $scope.modalInstanceOtps = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/otps.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-    $scope.forgotPasswordotp = function () {
-        $scope.modalLogsInstance.close();
-        $scope.modalInstanceForgotPasswordotp = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/forgototp.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-
-    $scope.otp = function () {
-        $scope.modalInstanceOtp = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/otp.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-
-    $scope.otpsucess = function () {
-        $scope.modalInstanceOtpSuccess = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/otp-success.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-    $scope.password = function () {
-        $scope.modalInstancePassword = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/password.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-    $scope.passconfirm = function () {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/passconfirm.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-
-    NavigationService.getpantherworldguesswho(function (data) {
-        console.log("im in get pantherword");
-        console.log("data", data.data.data);
-        $scope.pantherworldguesswho = data.data.data;
-        $scope.pantherworldguesswho.image = $filter('serverimage1')($scope.pantherworldguesswho.image);
-    });
-
-    $scope.authentication = function () {
-        NavigationService.getAuthenticate(function (data) {
-            console.log(data);
-            if (data.logged_in) {
-                console.log("data", data.firstname);
-                $rootScope.userFirstName = data.firstname;
-                console.log("data", $rootScope.userFirstName);
-                $rootScope.loggedIn = true;
-            } else {
-                $rootScope.loggedIn = false;
-            }
-        })
-    }
-    $scope.isCheckLoggedIn = function (value) {
-        console.log("im authenticate");
-
-        NavigationService.getAuthenticate(function (data) {
-            console.log("getAuthenticate", data);
-            console.log("data", data);
-            if (data.logged_in) {
-                console.log("im in true");
-                $rootScope.userFirstName = data.firstname;
-                $rootScope.loggedIn = true;
-
-                // $state.go('games');
-                if (value == 'GAMES') {
-                    $state.go('games');
-                }
-                if (value == 'Gallery') {
-                    window.location = "http://jaipurpinkpanthers.com/beta/#/gallery";
-                }
-                if (value == 'WALLPAPERS') {
-                    window.location = "http://jaipurpinkpanthers.com/beta/#/wallpaper";
-                }
-                if (value == 'JPP') {
-                    window.location = "http://jaipurpinkpanthers.com/beta/#/jpp-tv";
-                }
-
-
-
-            } else {
-                $rootScope.loggedIn = false;
-                $scope.modalLogsInstance = $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/logs.html',
-                    scope: $scope
-                });
-            }
-        })
-    };
-
-    $scope.signupdata = {};
-    $scope.forgotPassData = {}
-    $scope.signupOtpInfo = {};
-    $scope.signupOtpInfo.userid = ''
-    $scope.goSubmitOtp = function (otp) {
-        $scope.errorOTP = false;
-        console.log("length", otp);
-        if (otp) {
-            $scope.signupOtpInfo.otp = otp;
-            console.log("$scope.signupOtpInfo", $scope.signupOtpInfo);
-            NavigationService.signupOtpSubmit($scope.signupOtpInfo, function (data) {
-                console.log("data", data);
+        $scope.authentication = function () {
+            NavigationService.getAuthenticate(function (data) {
+                console.log(data);
                 if (data.logged_in) {
+                    console.log("data", data.firstname);
+                    $rootScope.userFirstName = data.firstname;
+                    console.log("data", $rootScope.userFirstName);
                     $rootScope.loggedIn = true;
-                    $scope.authentication();
-                    $scope.modalInstanceOtp.close();
                 } else {
-                    console.log("im else");
-                    $scope.errorOTP = true;
                     $rootScope.loggedIn = false;
                 }
-
             })
         }
+        $scope.isCheckLoggedIn = function (value) {
+            console.log("im authenticate");
 
-    };
-    $scope.myarrOfOtp = [];
-    $scope.specialFunction = function(data) {
-        $scope.myarrOfOtp.push(data);
-        $scope.myarrOfOtp1 = $scope.myarrOfOtp.join();
-        $scope.myarrOfOtp1 = $scope.myarrOfOtp1.split(',').join('');
+            NavigationService.getAuthenticate(function (data) {
+                console.log("getAuthenticate", data);
+                console.log("data", data);
+                if (data.logged_in) {
+                    console.log("im in true");
+                    $rootScope.userFirstName = data.firstname;
+                    $rootScope.loggedIn = true;
 
-        console.log("$scope.myarrOfOtp1", $scope.myarrOfOtp1.length);
-        if ($scope.myarrOfOtp1.length == 4) {
-            $scope.goSubmitOtp($scope.myarrOfOtp1);
-              console.log("$scope.myarrOfOtp", $scope.myarrOfOtp1);
-        }
-    }
+                    // $state.go('games');
+                    if (value == 'GAMES') {
+                        $state.go('games');
+                    }
+                    if (value == 'Gallery') {
+                        window.location = "http://jaipurpinkpanthers.com/beta/#/gallery";
+                    }
+                    if (value == 'WALLPAPERS') {
+                        window.location = "http://jaipurpinkpanthers.com/beta/#/wallpaper";
+                    }
+                    if (value == 'JPP') {
+                        window.location = "http://jaipurpinkpanthers.com/beta/#/jpp-tv";
+                    }
 
 
-    $scope.submitSignup = function (signupdata) {
-        console.log("signupdata", signupdata.isChecked);
-        $scope.incorrectPass = false;
-        $scope.isCheckedmsg = false;
-        $scope.alreadyExist = false;
-        $scope.succesSignup = false;
-        if (signupdata) {
-            $scope.checkMark = "";
-            console.log("signupdata", signupdata);
 
-            if (signupdata.password == signupdata.confirmPass) {
-                $scope.incorrectPass = false;
-                if (signupdata.isChecked === undefined) {
-                    $scope.checkMark = 'Please tick mark';
                 } else {
-                    $scope.checkMark = "";
-                    NavigationService.submitSignup(signupdata, function (data) {
-                        console.log("after signup********", data);
-                        if (data.id) {
-                            console.log("im");
-                            $scope.otp();
-                            // $scope.otpsucess();
-                            $scope.modalLogsInstance.close();
-                            $scope.signupdata = {};
-                            $scope.signupOtpInfo.userid = data.id;
-                            77;
-                        } else {
-                            $rootScope.loggedIn = false;
-                            $scope.alreadyExist = true;
-                        }
-
-                    })
+                    $rootScope.loggedIn = false;
+                    $scope.modalLogsInstance = $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/logs.html',
+                        scope: $scope
+                    });
                 }
-            } else {
-                $scope.incorrectPass = true;
+            })
+        };
+
+        $scope.signupdata = {};
+        $scope.forgotPassData = {};
+        $scope.signupOtpInfo = {};
+        $scope.signupOtpInfo.userid = '';
+        $scope.goSubmitOtp = function (otp) {
+            $scope.errorOTP = false;
+            console.log("length", otp);
+            if (otp) {
+                $scope.signupOtpInfo.otp = otp;
+                console.log("$scope.signupOtpInfo", $scope.signupOtpInfo);
+                NavigationService.signupOtpSubmit($scope.signupOtpInfo, function (data) {
+                    console.log("data", data);
+                    if (data.logged_in) {
+                        $rootScope.loggedIn = true;
+                        $scope.authentication();
+                        $scope.modalInstanceOtp.close();
+                    } else {
+                        console.log("im else");
+                        $scope.errorOTP = true;
+                        $rootScope.loggedIn = false;
+                    }
+
+                })
+            }
+
+        };
+        $scope.myarrOfOtp = [];
+        $scope.specialFunction = function (data) {
+            $scope.myarrOfOtp.push(data);
+            $scope.myarrOfOtp1 = $scope.myarrOfOtp.join();
+            $scope.myarrOfOtp1 = $scope.myarrOfOtp1.split(',').join('');
+
+            console.log("$scope.myarrOfOtp1", $scope.myarrOfOtp1.length);
+            if ($scope.myarrOfOtp1.length == 4) {
+                $scope.goSubmitOtp($scope.myarrOfOtp1);
+                console.log("$scope.myarrOfOtp", $scope.myarrOfOtp1);
             }
         }
-    };
-    $scope.submitEmailId = function (forgotPassData) {
-        $scope.invalidEmail = false;
-        if (forgotPassData) {
-            NavigationService.forgotPassword(forgotPassData, function (data) {
-                console.log("data", data);
-                if (data.id) {
-                    $scope.forgotPassData.userid = data.id;
-                    $scope.modalInstanceOtps.close();
-                    $scope.otpsucess();
-                    $timeout(function () {
-                        $scope.modalInstanceOtpSuccess.close();
-                        $scope.forgotPasswordotp();
-                    }, 2000);
 
+
+        $scope.submitSignup = function (signupdata) {
+            console.log("signupdata", signupdata.isChecked);
+            $scope.incorrectPass = false;
+            $scope.isCheckedmsg = false;
+            $scope.alreadyExist = false;
+            $scope.succesSignup = false;
+            if (signupdata) {
+                $scope.checkMark = "";
+                console.log("signupdata", signupdata);
+
+                if (signupdata.password == signupdata.confirmPass) {
+                    $scope.incorrectPass = false;
+                    if (signupdata.isChecked === undefined) {
+                        $scope.checkMark = 'Please tick mark';
+                    } else {
+                        $scope.checkMark = "";
+                        NavigationService.submitSignup(signupdata, function (data) {
+                            console.log("after signup********", data);
+                            if (data.id) {
+                                console.log("im");
+                                $scope.otp();
+                                // $scope.otpsucess();
+                                $scope.modalLogsInstance.close();
+                                $scope.signupdata = {};
+                                $scope.signupOtpInfo.userid = data.id;
+                                77;
+                            } else {
+                                $rootScope.loggedIn = false;
+                                $scope.alreadyExist = true;
+                            }
+
+                        })
+                    }
                 } else {
-                    console.log("Not A Valid Email");
-                    $scope.invalidEmail = true;
+                    $scope.incorrectPass = true;
                 }
-            })
+            }
+        };
+        $scope.submitEmailId = function (forgotPassData) {
+            $scope.invalidEmail = false;
+            if (forgotPassData) {
+                NavigationService.forgotPassword(forgotPassData, function (data) {
+                    console.log("data", data);
+                    if (data.id) {
+                        $scope.forgotPassData.userid = data.id;
+                        $scope.modalInstanceOtps.close();
+                        $scope.otpsucess();
+                        $timeout(function () {
+                            $scope.modalInstanceOtpSuccess.close();
+                            $scope.forgotPasswordotp();
+                        }, 2000);
+
+                    } else {
+                        console.log("Not A Valid Email");
+                        $scope.invalidEmail = true;
+                    }
+                })
+            }
         }
-    }
-    $scope.forgotOtpSubmitFun = function (forgotPassData) {
+        $scope.forgotOtpSubmitFun = function (forgotPassData) {
             $scope.wrongOTP = false;
             console.log("forgotPassData", forgotPassData);
             if (forgotPassData) {
@@ -292,112 +292,112 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.myarrOfOtpForForgotPwd = [];
-        $scope.forgotPassDataFunction = function(data) {
+        $scope.forgotPassDataFunction = function (data) {
             $scope.myarrOfOtpForForgotPwd.push(data);
             $scope.myarrOfOtpForForgotPwd1 = $scope.myarrOfOtpForForgotPwd.join();
             $scope.myarrOfOtpForForgotPwd1 = $scope.myarrOfOtpForForgotPwd1.split(',').join('');
 
 
             if ($scope.myarrOfOtpForForgotPwd1.length == 4) {
-                          console.log("$scope.myarrOfOtp1", $scope.myarrOfOtpForForgotPwd1.length);
+                console.log("$scope.myarrOfOtp1", $scope.myarrOfOtpForForgotPwd1.length);
                 $scope.forgotOtpSubmitFun($scope.myarrOfOtpForForgotPwd1);
-                  console.log("$scope.myarrOfOtpForForgotPwd1", $scope.myarrOfOtpForForgotPwd1);
+                console.log("$scope.myarrOfOtpForForgotPwd1", $scope.myarrOfOtpForForgotPwd1);
             }
         }
 
         // ============================login===========================
-    $scope.loginData = {};
-    $scope.incorrectDetails = false;
-    $scope.loginSubmit = function (loginData) {
-        console.log("loginData", loginData);
+        $scope.loginData = {};
         $scope.incorrectDetails = false;
-        if (loginData) {
+        $scope.loginSubmit = function (loginData) {
+            console.log("loginData", loginData);
+            $scope.incorrectDetails = false;
+            if (loginData) {
 
-            NavigationService.submitLogin(loginData, function (data) {
-                console.log("data", data);
-                if (data.logged_in) {
-                    $scope.incorrectDetails = false;
-                    $rootScope.loggedIn = true;
-                    $scope.successlogin = true;
-                    $timeout(function () {
-
-                        $scope.successlogin = false;
+                NavigationService.submitLogin(loginData, function (data) {
+                    console.log("data", data);
+                    if (data.logged_in) {
                         $scope.incorrectDetails = false;
-                        $scope.loginData = {};
-                        $scope.modalLogsInstance.close();
-                        $scope.authentication();
-                    }, 2000);
-                    console.log("im in");
-                } else {
-                    $scope.incorrectDetails = true;
-                    $rootScope.loggedIn = false;
-                }
-            })
-        }
-    }
+                        $rootScope.loggedIn = true;
+                        $scope.successlogin = true;
+                        $timeout(function () {
 
-    $scope.tabs = "design";
-    $scope.classsa = 'active-tab';
-    $scope.classsb = '';
-
-    $scope.tabchanges = function (tab, a) {
-        $scope.tabs = tab;
-        if (a == 1) {
-            $scope.classsa = 'active-tab';
-            $scope.classsb = '';
-
-
-        }
-        if (a == 2) {
-            $scope.classsb = 'active-tab';
-            $scope.classsa = '';
-
-
+                            $scope.successlogin = false;
+                            $scope.incorrectDetails = false;
+                            $scope.loginData = {};
+                            $scope.modalLogsInstance.close();
+                            $scope.authentication();
+                        }, 2000);
+                        console.log("im in");
+                    } else {
+                        $scope.incorrectDetails = true;
+                        $rootScope.loggedIn = false;
+                    }
+                })
+            }
         }
 
+        $scope.tabs = "design";
+        $scope.classsa = 'active-tab';
+        $scope.classsb = '';
 
-    };
+        $scope.tabchanges = function (tab, a) {
+            $scope.tabs = tab;
+            if (a == 1) {
+                $scope.classsa = 'active-tab';
+                $scope.classsb = '';
 
 
-    $scope.currentlang = $.jStorage.get("languageSet");
-    console.log($scope.currentlang);
+            }
+            if (a == 2) {
+                $scope.classsb = 'active-tab';
+                $scope.classsa = '';
 
-    globalFunc.changeLang = function () {
-        $scope.currentlang = currentlang;
+
+            }
+
+
+        };
+
+
+        $scope.currentlang = $.jStorage.get("languageSet");
         console.log($scope.currentlang);
-    };
+
+        globalFunc.changeLang = function () {
+            $scope.currentlang = currentlang;
+            console.log($scope.currentlang);
+        };
 
 
 
-    globalFunc.changeSlides = function (lang) {
-        $scope.currentlang = lang;
-        if (lang == 'hi') {
-            $scope.news = $scope.hindibanner;
-        } else {
-            $scope.news = $scope.englishbanner;
-        }
-        // $scope.changeSlide($scope.news[0]);
+        globalFunc.changeSlides = function (lang) {
+            $scope.currentlang = lang;
+            if (lang == 'hi') {
+                $scope.news = $scope.hindibanner;
+            } else {
+                $scope.news = $scope.englishbanner;
+            }
+            // $scope.changeSlide($scope.news[0]);
 
-    };
-    //added
-
-
-})
-
-.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-
-    console.log("Testing Consoles");
-
-    $scope.template = TemplateService.changecontent("home");
-    $scope.menutitle = NavigationService.makeactive("Home");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        };
+        //added
 
 
-})
+    })
 
-.controller('ComingSoonCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+
+        $scope.template = TemplateService.changecontent("home");
+        $scope.menutitle = NavigationService.makeactive("Home");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+
+    })
+
+    .controller('ComingSoonCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("comingsoon");
         $scope.menutitle = NavigationService.makeactive("Coming Soon");
@@ -412,18 +412,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     $scope.navigation = NavigationService.getnav();
     // })
 
-.controller('JPPTVCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
+    .controller('JPPTVCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
 
-    console.log("Testing Consoles");
+        console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("jpp-tv");
-    $scope.menutitle = NavigationService.makeactive("JPP 'TV'");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-})
+        $scope.template = TemplateService.changecontent("jpp-tv");
+        $scope.menutitle = NavigationService.makeactive("JPP 'TV'");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
 
-.controller('RapidCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state) {
+    .controller('RapidCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state) {
         //Used to name the .html file
         console.log("Testing Consoles RapidCtrl");
 
@@ -488,9 +488,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             RapidAnswer.saveAnswer($scope.currentquestion);
             if (parseInt($stateParams.id) == RapidAnswer.lastAnswer()) {
                 $interval.cancel(counter);
-               
-                
-                 $state.go('rapid-score', {
+
+
+                $state.go('rapid-score', {
                     id: RapidAnswer.getScore()
                 });
             } else {
@@ -551,94 +551,101 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('RapidScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state,$http) {
-    //Used to name the .html file
+    .controller('RapidScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, RapidAnswer, $stateParams, $interval, $state, $http) {
+        //Used to name the .html file
 
-    console.log("Testing Consoles RapidScoreCtrl");
-    var history_api = typeof history.pushState !== 'undefined';
-// history.pushState must be called out side of AngularJS Code
-    if ( history_api ) history.pushState(null, '', '#rapid-fire');  // After the # you should write something, do not leave it empty
+        console.log("Testing Consoles RapidScoreCtrl");
+        var history_api = typeof history.pushState !== 'undefined';
+        // history.pushState must be called out side of AngularJS Code
+        if (history_api) history.pushState(null, '', '#rapid-fire'); // After the # you should write something, do not leave it empty
 
-    $scope.template = TemplateService.changecontent("rapid");
-    $scope.menutitle = NavigationService.makeactive("Rapid Fire");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("rapid");
+        $scope.menutitle = NavigationService.makeactive("Rapid Fire");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-     $scope.scoreData={};
-    // var scoreData = {};
-    NavigationService.getAuthenticate(function (data) {
-        //console.log(data,"userrrrr");
-        $scope.scoreData.user=data.id;
-        $scope.scoreData.email=data.email;
-        $scope.scoreData.score= $stateParams.id;
-        var totalq=RapidAnswer.getTotalQuestion();
-        console.log(totalq);
-        scoreData={contest:1,score:$stateParams.id,user:data.id,email:data.email,totalquestions:totalq,correctanswer: $stateParams.id};
-        //console.log($scope.scoreData,"scoredata");
-        //var scoreData = $scope.scoreData;
-        console.log(scoreData,"scoredata");
-        $http({
-            method : "POST",
-            url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
-            data:scoreData,
-        }).then(function mySuccess(response) {
-           // $scope.myWelcome = response.data;
+        $scope.scoreData = {};
+        // var scoreData = {};
+        NavigationService.getAuthenticate(function (data) {
+            //console.log(data,"userrrrr");
+            $scope.scoreData.user = data.id;
+            $scope.scoreData.email = data.email;
+            $scope.scoreData.score = $stateParams.id;
+            var totalq = RapidAnswer.getTotalQuestion();
+            console.log(totalq);
+            scoreData = {
+                contest: 1,
+                score: $stateParams.id,
+                user: data.id,
+                email: data.email,
+                totalquestions: totalq,
+                correctanswer: $stateParams.id
+            };
+            //console.log($scope.scoreData,"scoredata");
+            //var scoreData = $scope.scoreData;
+            console.log(scoreData, "scoredata");
+            $http({
+                method: "POST",
+                url: "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+                data: scoreData,
+            }).then(function mySuccess(response) {
+                // $scope.myWelcome = response.data;
+            });
+            /*NavigationService.saveScore(scoreData,function (data) {
+                
+            });*/
+
         });
-        /*NavigationService.saveScore(scoreData,function (data) {
-            
-        });*/
-        
-    });
 
-    $scope.share = function () {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/share.html",
-            scope: $scope
-        });
-    };
+        $scope.share = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/share.html",
+                scope: $scope
+            });
+        };
 
 
-    $scope.showTimerCount = 0;
-    $scope.showScorescreen = true;
-    $scope.count = $stateParams.id;
+        $scope.showTimerCount = 0;
+        $scope.showScorescreen = true;
+        $scope.count = $stateParams.id;
 
 
 
-})
-/*
-.controller('GuessCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
-    //Used to name the .html file
+    })
+    /*
+    .controller('GuessCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+        //Used to name the .html file
 
-    console.log("Testing Consoles");
+        console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("guess");
-    $scope.menutitle = NavigationService.makeactive("Guess Who");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("guess");
+        $scope.menutitle = NavigationService.makeactive("Guess Who");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-    $scope.share = function () {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/share.html",
-            scope: $scope
-        });
-    };
-    $scope.sect1 = true;
-    $scope.quiz = true;
-    $scope.score = true;
-    $scope.go = function () {
-        $scope.quiz = false;
-        $scope.sect1 = false;
-    }
-    $scope.next = function () {
+        $scope.share = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/share.html",
+                scope: $scope
+            });
+        };
+        $scope.sect1 = true;
         $scope.quiz = true;
-        $scope.score = false;
-    }
+        $scope.score = true;
+        $scope.go = function () {
+            $scope.quiz = false;
+            $scope.sect1 = false;
+        }
+        $scope.next = function () {
+            $scope.quiz = true;
+            $scope.score = false;
+        }
 
-})*/
+    })*/
 
-.controller('GuessCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GuessAnswer, $stateParams, $interval, $state) {
+    .controller('GuessCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GuessAnswer, $stateParams, $interval, $state) {
         //Used to name the .html file
         console.log("Testing Consoles GuessCtrl");
 
@@ -664,7 +671,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
-.controller('GuessPlayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GuessAnswer, $stateParams, $interval, $state) {
+    .controller('GuessPlayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GuessAnswer, $stateParams, $interval, $state) {
         //Used to name the .html file
 
         console.log("Testing Consoles RapidPlayCtrl");
@@ -703,9 +710,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             GuessAnswer.saveAnswer($scope.currentquestion);
             if (parseInt($stateParams.id) == GuessAnswer.lastAnswer()) {
                 $interval.cancel(counter);
-               
-                
-                 $state.go('guess-score', {
+
+
+                $state.go('guess-score', {
                     id: GuessAnswer.getScore()
                 });
             } else {
@@ -766,100 +773,77 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('GuessScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GuessAnswer, $stateParams, $interval, $state,$http) {
-    //Used to name the .html file
-
-    console.log("Testing Consoles RapidScoreCtrl");
-    var history_api = typeof history.pushState !== 'undefined';
-// history.pushState must be called out side of AngularJS Code
-    if ( history_api ) history.pushState(null, '', '#guess-who');  // After the # you should write something, do not leave it empty
-    
-    $scope.template = TemplateService.changecontent("guess-who");
-    $scope.menutitle = NavigationService.makeactive("guess-who");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-
-     $scope.scoreData={};
-    // var scoreData = {};
-    NavigationService.getAuthenticate(function (data) {
-        //console.log(data,"userrrrr");
-        $scope.scoreData.user=data.id;
-        $scope.scoreData.email=data.email;
-        $scope.scoreData.score= $stateParams.id;
-        var totalq=GuessAnswer.getTotalQuestion();
-        console.log(totalq);
-        scoreData={contest:3,score:$stateParams.id,user:data.id,email:data.email,totalquestions:totalq,correctanswer: $stateParams.id};
-        //console.log($scope.scoreData,"scoredata");
-        //var scoreData = $scope.scoreData;
-        console.log(scoreData,"scoredata");
-        $http({
-            method : "POST",
-            url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
-            data:scoreData,
-        }).then(function mySuccess(response) {
-           // $scope.myWelcome = response.data;
-        });
-        /*NavigationService.saveScore(scoreData,function (data) {
-            
-        });*/
-        
-    });
-
-    $scope.share = function () {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/share.html",
-            scope: $scope
-        });
-    };
-
-
-    $scope.showTimerCount = 0;
-    $scope.showScorescreen = true;
-    $scope.count = $stateParams.id;
-
-
-
-})
-
-
-
-.controller('MatchCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
-    //Used to name the .html file
-
-    console.log("Testing Consoles");
-
-    $scope.template = TemplateService.changecontent("match");
-    $scope.menutitle = NavigationService.makeactive("Match");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-
-    $scope.share = function () {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/share.html",
-            scope: $scope
-        });
-    };
-    $scope.sect1 = true;
-    $scope.quiz = true;
-    $scope.score = true;
-    $scope.go = function () {
-        $scope.quiz = false;
-        $scope.sect1 = false;
-    }
-    $scope.next = function () {
-        $scope.quiz = true;
-        $scope.score = false;
-    }
-
-})
-/*
-.controller('MatchCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, MatchAnswer, $stateParams, $interval, $state) {
+    .controller('GuessScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GuessAnswer, $stateParams, $interval, $state, $http) {
         //Used to name the .html file
-        console.log("Testing Consoles MatchCtrl");
 
-        $scope.template = TemplateService.changecontent("match-panthers");
+        console.log("Testing Consoles RapidScoreCtrl");
+        var history_api = typeof history.pushState !== 'undefined';
+        // history.pushState must be called out side of AngularJS Code
+        if (history_api) history.pushState(null, '', '#guess-who'); // After the # you should write something, do not leave it empty
+
+        $scope.template = TemplateService.changecontent("guess-who");
+        $scope.menutitle = NavigationService.makeactive("guess-who");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.scoreData = {};
+        // var scoreData = {};
+        NavigationService.getAuthenticate(function (data) {
+            //console.log(data,"userrrrr");
+            $scope.scoreData.user = data.id;
+            $scope.scoreData.email = data.email;
+            $scope.scoreData.score = $stateParams.id;
+            var totalq = GuessAnswer.getTotalQuestion();
+            console.log(totalq);
+            scoreData = {
+                contest: 3,
+                score: $stateParams.id,
+                user: data.id,
+                email: data.email,
+                totalquestions: totalq,
+                correctanswer: $stateParams.id
+            };
+            //console.log($scope.scoreData,"scoredata");
+            //var scoreData = $scope.scoreData;
+            console.log(scoreData, "scoredata");
+            $http({
+                method: "POST",
+                url: "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+                data: scoreData,
+            }).then(function mySuccess(response) {
+                // $scope.myWelcome = response.data;
+            });
+            /*NavigationService.saveScore(scoreData,function (data) {
+                
+            });*/
+
+        });
+
+        $scope.share = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/share.html",
+                scope: $scope
+            });
+        };
+
+
+        $scope.showTimerCount = 0;
+        $scope.showScorescreen = true;
+        $scope.count = $stateParams.id;
+
+
+
+    })
+
+
+
+    .controller('MatchCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+
+        $scope.template = TemplateService.changecontent("match");
         $scope.menutitle = NavigationService.makeactive("Match");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
@@ -871,190 +855,171 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             });
         };
-       $scope.go = function () {
-            $state.go('match-play', {
-                id: '1'
-            })
+        $scope.sect1 = true;
+        $scope.quiz = true;
+        $scope.score = true;
+        $scope.go = function () {
+            $scope.quiz = false;
+            $scope.sect1 = false;
+        }
+        $scope.next = function () {
+            $scope.quiz = true;
+            $scope.score = false;
         }
 
-
-
-
     })
-.controller('MatchPlayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, MatchAnswer, $stateParams, $interval, $state) {
+    /*
+    .controller('MatchCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, MatchAnswer, $stateParams, $interval, $state) {
+            //Used to name the .html file
+            console.log("Testing Consoles MatchCtrl");
+
+            $scope.template = TemplateService.changecontent("match-panthers");
+            $scope.menutitle = NavigationService.makeactive("Match");
+            TemplateService.title = $scope.menutitle;
+            $scope.navigation = NavigationService.getnav();
+
+            $scope.share = function () {
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: "views/modal/share.html",
+                    scope: $scope
+                });
+            };
+           $scope.go = function () {
+                $state.go('match-play', {
+                    id: '1'
+                })
+            }
+
+
+
+
+        })
+    .controller('MatchPlayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, MatchAnswer, $stateParams, $interval, $state) {
+            //Used to name the .html file
+
+            console.log("Testing Consoles RapidPlayCtrl");
+
+            $scope.template = TemplateService.changecontent("match-panthers");
+            $scope.menutitle = NavigationService.makeactive("Match");
+            TemplateService.title = $scope.menutitle;
+            $scope.navigation = NavigationService.getnav();
+
+            $scope.share = function () {
+                $uibModal.open({Match
+                    animation: true,
+                    templateUrl: "views/modal/share.html",
+                    scope: $scope
+                });
+            };
+
+
+
+            $scope.firstUI = true;
+            // $scope.count = $stateParams.id;
+
+            $scope.currentquestion = MatchAnswer.getQuestion($stateParams.id);
+
+            $scope.selectAnswer = function (s) {
+                $scope.mDisable = false;
+                _.each($scope.currentquestion.options, function (option) {
+                    option.selected = undefined;
+                });
+                s.selected = true;
+            };
+            $scope.mDisable = true;
+             $scope.nextQuestion = function () {
+                $scope.myUrll = window.location.href;
+                console.log('nextq$scope.myUrll', " == ", $scope.myUrll);
+                MatchAnswer.saveAnswer($scope.currentquestion);
+                if (parseInt($stateParams.id) == MatchAnswer.lastAnswer()) {
+                    $interval.cancel(counter);
+                   
+                    
+                     $state.go('match-score', {
+                        id: MatchAnswer.getScore()
+                    });
+                } else {
+                    $interval.cancel(counter);
+                    $scope.myState = window.location.href;
+                    $state.go('match-play', {
+                        id: parseInt($stateParams.id) + 1
+                    });
+                }
+            };
+            $scope.skipQuestion = function () {
+                _.each($scope.currentquestion.options, function (option) {
+                    option.selected = undefined;
+                });
+                $scope.nextQuestion();
+            };
+            $scope.showTimerCount = $.jStorage.get("matchTimer");
+            $timeout(function () {
+                makeArc();
+            }, 100);
+
+            var counter = $interval(function () {
+                $scope.showTimerCount = MatchAnswer.changeTimerMatch();
+                makeArc();
+                if ($scope.showTimerCount == 0) {
+                    $interval.cancel(counter);
+                    $scope.firstUI = true;
+                    $state.go('match-score', {
+                        id: MatchAnswer.getScore()
+                    });
+
+                }
+            }, 1000);
+
+            function makeArc() {
+                var totalTime = MatchAnswer.getTotalTime();
+                currentTime = parseInt($.jStorage.get("matchTimer"));
+                var can = $('#canvas1').get(0);
+                context = can.getContext('2d');
+
+                var percentage = currentTime / totalTime; // no specific length
+                var degrees = percentage * 360.0;
+                var radians = degrees * (Math.PI / 180);
+
+                var x = 18;
+                var y = 17;
+                var r = 15;
+                var s = 0; //1.5 * Math.PI;
+                context.clearRect(0, 0, 75, 75);
+                context.strokeStyle = '#fff';
+                context.beginPath();
+                context.lineWidth = 2;
+                context.arc(x, y, r, s, radians, false);
+                //context.closePath();
+                context.stroke();
+            }
+
+
+        })
+
+    .controller('MatchScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, MatchAnswer, $stateParams, $interval, $state,$http) {
         //Used to name the .html file
 
-        console.log("Testing Consoles RapidPlayCtrl");
-
+        console.log("Testing Consoles RapidScoreCtrl");
+        var history_api = typeof history.pushState !== 'undefined';
+    // history.pushState must be called out side of AngularJS Code
+        if ( history_api ) history.pushState(null, '', '#match-panthers');  // After the # you should write something, do not leave it empty
+        
         $scope.template = TemplateService.changecontent("match-panthers");
-        $scope.menutitle = NavigationService.makeactive("Match");
+        $scope.menutitle = NavigationService.makeactive("match-panthers");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-        $scope.share = function () {
-            $uibModal.open({Match
-                animation: true,
-                templateUrl: "views/modal/share.html",
-                scope: $scope
-            });
-        };
-
-
-
-        $scope.firstUI = true;
-        // $scope.count = $stateParams.id;
-
-        $scope.currentquestion = MatchAnswer.getQuestion($stateParams.id);
-
-        $scope.selectAnswer = function (s) {
-            $scope.mDisable = false;
-            _.each($scope.currentquestion.options, function (option) {
-                option.selected = undefined;
-            });
-            s.selected = true;
-        };
-        $scope.mDisable = true;
-         $scope.nextQuestion = function () {
-            $scope.myUrll = window.location.href;
-            console.log('nextq$scope.myUrll', " == ", $scope.myUrll);
-            MatchAnswer.saveAnswer($scope.currentquestion);
-            if (parseInt($stateParams.id) == MatchAnswer.lastAnswer()) {
-                $interval.cancel(counter);
-               
-                
-                 $state.go('match-score', {
-                    id: MatchAnswer.getScore()
-                });
-            } else {
-                $interval.cancel(counter);
-                $scope.myState = window.location.href;
-                $state.go('match-play', {
-                    id: parseInt($stateParams.id) + 1
-                });
-            }
-        };
-        $scope.skipQuestion = function () {
-            _.each($scope.currentquestion.options, function (option) {
-                option.selected = undefined;
-            });
-            $scope.nextQuestion();
-        };
-        $scope.showTimerCount = $.jStorage.get("matchTimer");
-        $timeout(function () {
-            makeArc();
-        }, 100);
-
-        var counter = $interval(function () {
-            $scope.showTimerCount = MatchAnswer.changeTimerMatch();
-            makeArc();
-            if ($scope.showTimerCount == 0) {
-                $interval.cancel(counter);
-                $scope.firstUI = true;
-                $state.go('match-score', {
-                    id: MatchAnswer.getScore()
-                });
-
-            }
-        }, 1000);
-
-        function makeArc() {
-            var totalTime = MatchAnswer.getTotalTime();
-            currentTime = parseInt($.jStorage.get("matchTimer"));
-            var can = $('#canvas1').get(0);
-            context = can.getContext('2d');
-
-            var percentage = currentTime / totalTime; // no specific length
-            var degrees = percentage * 360.0;
-            var radians = degrees * (Math.PI / 180);
-
-            var x = 18;
-            var y = 17;
-            var r = 15;
-            var s = 0; //1.5 * Math.PI;
-            context.clearRect(0, 0, 75, 75);
-            context.strokeStyle = '#fff';
-            context.beginPath();
-            context.lineWidth = 2;
-            context.arc(x, y, r, s, radians, false);
-            //context.closePath();
-            context.stroke();
-        }
-
-
-    })
-
-.controller('MatchScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, MatchAnswer, $stateParams, $interval, $state,$http) {
-    //Used to name the .html file
-
-    console.log("Testing Consoles RapidScoreCtrl");
-    var history_api = typeof history.pushState !== 'undefined';
-// history.pushState must be called out side of AngularJS Code
-    if ( history_api ) history.pushState(null, '', '#match-panthers');  // After the # you should write something, do not leave it empty
-    
-    $scope.template = TemplateService.changecontent("match-panthers");
-    $scope.menutitle = NavigationService.makeactive("match-panthers");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-
-     $scope.scoreData={};
-    // var scoreData = {};
-    NavigationService.getAuthenticate(function (data) {
-        //console.log(data,"userrrrr");
-        $scope.scoreData.user=data.id;
-        $scope.scoreData.email=data.email;
-        $scope.scoreData.score= $stateParams.id;
-        var totalq=MatchAnswer.getTotalQuestion();
-        console.log(totalq);
-        scoreData={contest:4,score:$stateParams.id,user:data.id,email:data.email,totalquestions:totalq,correctanswer: $stateParams.id};
-        //console.log($scope.scoreData,"scoredata");
-        //var scoreData = $scope.scoreData;
-        console.log(scoreData,"scoredata");
-        $http({
-            method : "POST",
-            url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
-            data:scoreData,
-        }).then(function mySuccess(response) {
-           // $scope.myWelcome = response.data;
-        });
-       
-        
-    });
-
-    $scope.share = function () {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/share.html",
-            scope: $scope
-        });
-    };
-
-
-    $scope.showTimerCount = 0;
-    $scope.showScorescreen = true;
-    $scope.count = $stateParams.id;
-
-
-
-})*/
-
-
-.controller('CrosswordCtrl', function ($scope, TemplateService, NavigationService, $timeout,$http) {
-    //Used to name the .html file
-
-    console.log("Testing Consoles");
-
-    $scope.template = TemplateService.changecontent("crossword");
-    $scope.menutitle = NavigationService.makeactive("Crossword");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.scoreData = {};
-    $scope.crosswordscore = function (score){
-         NavigationService.getAuthenticate(function (data) {
+         $scope.scoreData={};
+        // var scoreData = {};
+        NavigationService.getAuthenticate(function (data) {
             //console.log(data,"userrrrr");
             $scope.scoreData.user=data.id;
             $scope.scoreData.email=data.email;
-            $scope.scoreData.score= score;
-            scoreData={score:score,user:data.id,email:data.email,totalquestions:0,correctanswer: score,contest:2};
+            $scope.scoreData.score= $stateParams.id;
+            var totalq=MatchAnswer.getTotalQuestion();
+            console.log(totalq);
+            scoreData={contest:4,score:$stateParams.id,user:data.id,email:data.email,totalquestions:totalq,correctanswer: $stateParams.id};
             //console.log($scope.scoreData,"scoredata");
             //var scoreData = $scope.scoreData;
             console.log(scoreData,"scoredata");
@@ -1063,29 +1028,85 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
                 data:scoreData,
             }).then(function mySuccess(response) {
-            // $scope.myWelcome = response.data;
+               // $scope.myWelcome = response.data;
             });
-            
+           
             
         });
 
-    };
-})
+        $scope.share = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/share.html",
+                scope: $scope
+            });
+        };
+
+
+        $scope.showTimerCount = 0;
+        $scope.showScorescreen = true;
+        $scope.count = $stateParams.id;
+
+
+
+    })*/
+
+
+    .controller('CrosswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, $http) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+
+        $scope.template = TemplateService.changecontent("crossword");
+        $scope.menutitle = NavigationService.makeactive("Crossword");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.scoreData = {};
+        $scope.crosswordscore = function (score) {
+            NavigationService.getAuthenticate(function (data) {
+                //console.log(data,"userrrrr");
+                $scope.scoreData.user = data.id;
+                $scope.scoreData.email = data.email;
+                $scope.scoreData.score = score;
+                scoreData = {
+                    score: score,
+                    user: data.id,
+                    email: data.email,
+                    totalquestions: 0,
+                    correctanswer: score,
+                    contest: 2
+                };
+                //console.log($scope.scoreData,"scoredata");
+                //var scoreData = $scope.scoreData;
+                console.log(scoreData, "scoredata");
+                $http({
+                    method: "POST",
+                    url: "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+                    data: scoreData,
+                }).then(function mySuccess(response) {
+                    // $scope.myWelcome = response.data;
+                });
+
+
+            });
+
+        };
+    })
 
 
 
 
-.controller('DenCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("panthers-den");
-    $scope.menutitle = NavigationService.makeactive("The Panther Den");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+    .controller('DenCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("panthers-den");
+        $scope.menutitle = NavigationService.makeactive("The Panther Den");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
 
-})
+    })
 
-.controller('GamesCtrl', function ($scope, TemplateService, NavigationService, $timeout, $filter, $interval) {
+    .controller('GamesCtrl', function ($scope, TemplateService, NavigationService, $timeout, $filter, $interval) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -1134,7 +1155,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('GalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('GalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -1156,7 +1177,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('ArmyCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
+    .controller('ArmyCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $uibModal) {
         $scope.template = TemplateService.changecontent("panther-army");
         $scope.menutitle = NavigationService.makeactive("Panther Army");
         TemplateService.title = $scope.menutitle;
@@ -1487,41 +1508,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.createJson = [];
 
         $scope.textChange = function () {
-                var text = "";
-                _.each($scope.task3, function (n) {
-                    var spl = _.filter(n.textfield, {
-                        class: "spl"
-                    });
-                    text += spl[0].text;
+            var text = "";
+            _.each($scope.task3, function (n) {
+                var spl = _.filter(n.textfield, {
+                    class: "spl"
                 });
-                $scope.games.intelligence = text;
-                console.log(text);
-            }
-            // $scope.pinkCharacters  = function() {
-            //
-            //
-            // };
+                text += spl[0].text;
+            });
+            $scope.games.intelligence = text;
+            console.log(text);
+        }
+        // $scope.pinkCharacters  = function() {
+        //
+        //
+        // };
         $scope.levelTwo = function () {
-                $scope.games.accuracy = $scope.game2.accuracy1 + " " + $scope.game2.accuracy2;
-                console.log($scope.games);
-                NavigationService.storeLevel($scope.games, function (data) {
-                    console.log(data);
-                    if (data.value === true) {
-                        $scope.submitData();
-                    } else {
-                        $scope.somethingwentwrong();
-                    }
-                })
+            $scope.games.accuracy = $scope.game2.accuracy1 + " " + $scope.game2.accuracy2;
+            console.log($scope.games);
+            NavigationService.storeLevel($scope.games, function (data) {
+                console.log(data);
+                if (data.value === true) {
+                    $scope.submitData();
+                } else {
+                    $scope.somethingwentwrong();
+                }
+            })
 
-            }
-            // $scope.sendMessage = function() {
-            //     // NavigationService.sendMessage($scope.messageToFriends, function(data, status) {
-            //     //     console.log(data);
-            //     // })
-            //     var encoded = encodeURI("http://www.facebook.com/beta/dialog/send?app_id=655719224579290&link=http://www.nytimes.com/beta/interactive/2015/04/15/travel/europe-favorite-streets.html&redirect_uri=http://jaipurpinkpanthers.com/beta/pantherworld/");
-            //     console.log(encoded);
-            //     // window.location.href = encoded;
-            // }
+        }
+        // $scope.sendMessage = function() {
+        //     // NavigationService.sendMessage($scope.messageToFriends, function(data, status) {
+        //     //     console.log(data);
+        //     // })
+        //     var encoded = encodeURI("http://www.facebook.com/beta/dialog/send?app_id=655719224579290&link=http://www.nytimes.com/beta/interactive/2015/04/15/travel/europe-favorite-streets.html&redirect_uri=http://jaipurpinkpanthers.com/beta/pantherworld/");
+        //     console.log(encoded);
+        //     // window.location.href = encoded;
+        // }
         $scope.storeUserData = function (armyname, url1, url2, url3, url4, url5, url6, friend1, friend2, friend3, friend4, friend5, friend6) {
             if (armyname === undefined || url1 === undefined || url2 === undefined || url3 === undefined || url4 === undefined || url5 === undefined || url6 === undefined || friend1 === undefined || friend2 === undefined || friend3 === undefined || friend4 === undefined || friend5 === undefined || friend6 === undefined) {
                 $scope.openerror();
@@ -1724,407 +1745,407 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('headerctrl', function ($scope, TemplateService, NavigationService, $state, $rootScope, $uibModal, $timeout) {
-    $scope.template = TemplateService;
-    $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-        $(window).scrollTop(0);
-    });
-    console.log($state.current.name);
-    NavigationService.getAuthenticate(function (data) {
-        console.log(data,"userdata");
-        if (data.value === true) {
-            // $.jStorage.set("user",data);
-            $scope.name = data.data.name;
-            $scope.profileimage = data.data.profilePic;
-            $scope.accesstoken = data.data.K120K200;
-        } else {
-            if ($state.current.name == "panther-army") {
-                // $state.go('home');
-
-            }
-        }
-
-    });
-    $scope.tabs = "design";
-    $scope.classsa = 'active-tab';
-    $scope.classsb = '';
-
-    $scope.tabchanges = function (tab, a) {
-        $scope.tabs = tab;
-        if (a == 1) {
-            $scope.classsa = 'active-tab';
-            $scope.classsb = '';
-
-
-        }
-        if (a == 2) {
-            $scope.classsb = 'active-tab';
-            $scope.classsa = '';
-
-
-        }
-
-
-    };
-    $scope.logs = function () {
-        console.log("im in");
-        $scope.modalLogsInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'views/modal/logs.html',
-            scope: $scope,
+    .controller('headerctrl', function ($scope, TemplateService, NavigationService, $state, $rootScope, $uibModal, $timeout) {
+        $scope.template = TemplateService;
+        $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+            $(window).scrollTop(0);
         });
-    };
-    $scope.otps = function () {
-        $scope.modalLogsInstance.close();
-        $scope.modalInstanceOtps = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/otps.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-    $scope.forgotPasswordotp = function () {
-        $scope.modalLogsInstance.close();
-        $scope.modalInstanceForgotPasswordotp = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/forgototp.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-
-    $scope.otp = function () {
-        $scope.modalInstanceOtp = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/otp.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-
-    $scope.otpsucess = function () {
-        $scope.modalInstanceOtpSuccess = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/otp-success.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-    $scope.password = function () {
-        $scope.modalInstancePassword = $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/password.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-    $scope.passconfirm = function () {
-        $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/passconfirm.html",
-            scope: $scope,
-            windowClass: 'bg-white'
-        })
-    }
-    $scope.logout = function () {
-        NavigationService.logout(function (data) {
-            console.log(data);
-            if (data.value === true) {
-                $state.go('home');
-            } else if (data.value === false) {
-                location.reload();
-            }
-        });
-    };
-
-    $scope.logoutUser = function () {
-        $rootScope.loggedIn = false;
-        NavigationService.logoutUser(function (data) {
-            console.log("im in logout", data);
-        })
-    };
-
-    $scope.authentication = function () {
+        console.log($state.current.name);
         NavigationService.getAuthenticate(function (data) {
-            console.log(data);
-            if (data.logged_in) {
-                console.log("data", data.firstname);
-                $rootScope.userFirstName = data.firstname;
-                console.log("data", $rootScope.userFirstName);
-                $rootScope.loggedIn = true;
+            console.log(data, "userdata");
+            if (data.value === true) {
+                // $.jStorage.set("user",data);
+                $scope.name = data.data.name;
+                $scope.profileimage = data.data.profilePic;
+                $scope.accesstoken = data.data.K120K200;
             } else {
-                $rootScope.loggedIn = false;
-            }
-        })
-    }
-    $scope.authentication();
+                if ($state.current.name == "panther-army") {
+                    // $state.go('home');
 
-
-    $scope.signupdata = {};
-    $scope.forgotPassData = {};
-    $scope.signupOtpInfo = {};
-    $scope.signupOtpInfo.userid = ''
-    $scope.goSubmitOtp = function (otp) {
-        $scope.errorOTP = false;
-        console.log("length", otp);
-        if (otp) {
-            $scope.signupOtpInfo.otp = otp;
-            console.log("$scope.signupOtpInfo", $scope.signupOtpInfo);
-            NavigationService.signupOtpSubmit($scope.signupOtpInfo, function (data) {
-                console.log("data", data);
-                if (data.logged_in) {
-                    $rootScope.loggedIn = true;
-                    $scope.authentication();
-                    $scope.modalInstanceOtp.close();
-
-                } else {
-                    console.log("im else");
-                    $scope.errorOTP = true;
-                    $rootScope.loggedIn = false;
-                    // $scope.alreadyExist = true;
                 }
+            }
 
+        });
+        $scope.tabs = "design";
+        $scope.classsa = 'active-tab';
+        $scope.classsb = '';
+
+        $scope.tabchanges = function (tab, a) {
+            $scope.tabs = tab;
+            if (a == 1) {
+                $scope.classsa = 'active-tab';
+                $scope.classsb = '';
+
+
+            }
+            if (a == 2) {
+                $scope.classsb = 'active-tab';
+                $scope.classsa = '';
+
+
+            }
+
+
+        };
+        $scope.logs = function () {
+            console.log("im in");
+            $scope.modalLogsInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/logs.html',
+                scope: $scope,
+            });
+        };
+        $scope.otps = function () {
+            $scope.modalLogsInstance.close();
+            $scope.modalInstanceOtps = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/otps.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        $scope.forgotPasswordotp = function () {
+            $scope.modalLogsInstance.close();
+            $scope.modalInstanceForgotPasswordotp = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/forgototp.html",
+                scope: $scope,
+                windowClass: 'bg-white'
             })
         }
 
-    }
-    $scope.myarrOfOtp = [];
-    $scope.specialFunction = function(data) {
-        $scope.myarrOfOtp.push(data);
-        $scope.myarrOfOtp1 = $scope.myarrOfOtp.join();
-        $scope.myarrOfOtp1 = $scope.myarrOfOtp1.split(',').join('');
-
-        console.log("$scope.myarrOfOtp1", $scope.myarrOfOtp1.length);
-        if ($scope.myarrOfOtp1.length == 4) {
-            $scope.goSubmitOtp($scope.myarrOfOtp1);
-              console.log("$scope.myarrOfOtp", $scope.myarrOfOtp1);
+        $scope.otp = function () {
+            $scope.modalInstanceOtp = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/otp.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
         }
-    }
 
+        $scope.otpsucess = function () {
+            $scope.modalInstanceOtpSuccess = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/otp-success.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        $scope.password = function () {
+            $scope.modalInstancePassword = $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/password.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        $scope.passconfirm = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/passconfirm.html",
+                scope: $scope,
+                windowClass: 'bg-white'
+            })
+        }
+        $scope.logout = function () {
+            NavigationService.logout(function (data) {
+                console.log(data);
+                if (data.value === true) {
+                    $state.go('home');
+                } else if (data.value === false) {
+                    location.reload();
+                }
+            });
+        };
 
-    $scope.submitSignup = function (signupdata) {
-        console.log("signupdata", signupdata.isChecked);
-        $scope.incorrectPass = false;
-        $scope.isCheckedmsg = false;
-        $scope.alreadyExist = false;
-        $scope.succesSignup = false;
-        if (signupdata) {
-            console.log("signupdata", signupdata);
+        $scope.logoutUser = function () {
+            $rootScope.loggedIn = false;
+            NavigationService.logoutUser(function (data) {
+                console.log("im in logout", data);
+            })
+        };
 
-            if (signupdata.password == signupdata.confirmPass) {
-                $scope.incorrectPass = false;
-                if (signupdata.isChecked === undefined) {
-                    $scope.checkMark = 'Please tick mark';
+        $scope.authentication = function () {
+            NavigationService.getAuthenticate(function (data) {
+                console.log(data);
+                if (data.logged_in) {
+                    console.log("data", data.firstname);
+                    $rootScope.userFirstName = data.firstname;
+                    console.log("data", $rootScope.userFirstName);
+                    $rootScope.loggedIn = true;
                 } else {
-                    $scope.checkMark = "";
-                    NavigationService.submitSignup(signupdata, function (data) {
-                        console.log("after signup********", data);
-                        if (data.id) {
-                            console.log("im");
-                            $scope.otp();
-                            // $scope.otpsucess();
-                            $scope.modalLogsInstance.close();
-                            $scope.signupdata = {};
-                            $scope.signupOtpInfo.userid = data.id;
-                            77;
+                    $rootScope.loggedIn = false;
+                }
+            })
+        }
+        $scope.authentication();
+
+
+        $scope.signupdata = {};
+        $scope.forgotPassData = {};
+        $scope.signupOtpInfo = {};
+        $scope.signupOtpInfo.userid = ''
+        $scope.goSubmitOtp = function (otp) {
+            $scope.errorOTP = false;
+            console.log("length", otp);
+            if (otp) {
+                $scope.signupOtpInfo.otp = otp;
+                console.log("$scope.signupOtpInfo", $scope.signupOtpInfo);
+                NavigationService.signupOtpSubmit($scope.signupOtpInfo, function (data) {
+                    console.log("data", data);
+                    if (data.logged_in) {
+                        $rootScope.loggedIn = true;
+                        $scope.authentication();
+                        $scope.modalInstanceOtp.close();
+
+                    } else {
+                        console.log("im else");
+                        $scope.errorOTP = true;
+                        $rootScope.loggedIn = false;
+                        // $scope.alreadyExist = true;
+                    }
+
+                })
+            }
+
+        }
+        $scope.myarrOfOtp = [];
+        $scope.specialFunction = function (data) {
+            $scope.myarrOfOtp.push(data);
+            $scope.myarrOfOtp1 = $scope.myarrOfOtp.join();
+            $scope.myarrOfOtp1 = $scope.myarrOfOtp1.split(',').join('');
+
+            console.log("$scope.myarrOfOtp1", $scope.myarrOfOtp1.length);
+            if ($scope.myarrOfOtp1.length == 4) {
+                $scope.goSubmitOtp($scope.myarrOfOtp1);
+                console.log("$scope.myarrOfOtp", $scope.myarrOfOtp1);
+            }
+        }
+
+
+        $scope.submitSignup = function (signupdata) {
+            console.log("signupdata", signupdata.isChecked);
+            $scope.incorrectPass = false;
+            $scope.isCheckedmsg = false;
+            $scope.alreadyExist = false;
+            $scope.succesSignup = false;
+            if (signupdata) {
+                console.log("signupdata", signupdata);
+
+                if (signupdata.password == signupdata.confirmPass) {
+                    $scope.incorrectPass = false;
+                    if (signupdata.isChecked === undefined) {
+                        $scope.checkMark = 'Please tick mark';
+                    } else {
+                        $scope.checkMark = "";
+                        NavigationService.submitSignup(signupdata, function (data) {
+                            console.log("after signup********", data);
+                            if (data.id) {
+                                console.log("im");
+                                $scope.otp();
+                                // $scope.otpsucess();
+                                $scope.modalLogsInstance.close();
+                                $scope.signupdata = {};
+                                $scope.signupOtpInfo.userid = data.id;
+                                77;
+                            } else {
+                                $rootScope.loggedIn = false;
+                                $scope.alreadyExist = true;
+                            }
+
+                        })
+                    }
+
+
+
+                } else {
+                    $scope.incorrectPass = true;
+                }
+            }
+        };
+
+        $scope.submitEmailId = function (forgotPassData) {
+            $scope.invalidEmail = false;
+            if (forgotPassData) {
+                NavigationService.forgotPassword(forgotPassData, function (data) {
+                    console.log("data", data);
+                    if (data.id) {
+                        $scope.forgotPassData.userid = data.id;
+                        $scope.modalInstanceOtps.close();
+                        $scope.otpsucess();
+                        $timeout(function () {
+                            $scope.modalInstanceOtpSuccess.close();
+                            $scope.forgotPasswordotp();
+                        }, 2000);
+
+                    } else {
+                        console.log("Not A Valid Email");
+                        $scope.invalidEmail = true;
+                    }
+                })
+            }
+        }
+        $scope.forgotOtpSubmitFun = function (forgotPassData) {
+            $scope.wrongOTP = false;
+            console.log("forgotPassData", forgotPassData);
+            if (forgotPassData) {
+                $scope.forgotPassData.otp = forgotPassData;
+                // $scope.forgotPassData.otp = forgotPassData.otp;
+                $scope.password();
+                $scope.submitChangepassword = function (forgotPassData) {
+                    $scope.inavlidPass = false;
+                    if (forgotPassData.newPassword && forgotPassData.confirmPassword) {
+                        if (forgotPassData.newPassword == forgotPassData.confirmPassword) {
+                            $scope.forgotPassData.password = forgotPassData.confirmPassword;
+                            console.log("$scope.forgotPassData", $scope.forgotPassData);
+
+                            NavigationService.forgotPasswordSubmit($scope.forgotPassData, function (data) {
+                                console.log("data", data);
+                                if (data == "true") {
+                                    $scope.modalLogsInstance.close();
+                                    $scope.modalInstancePassword.close();
+                                    $scope.modalInstanceForgotPasswordotp.close();
+                                    $scope.passconfirm();
+                                    $scope.forgotPassData = {};
+
+                                } else {
+                                    $scope.wrongOTP = true;
+                                }
+                            })
                         } else {
-                            $rootScope.loggedIn = false;
-                            $scope.alreadyExist = true;
+                            $scope.inavlidPass = true;
                         }
 
-                    })
-                }
-
-
-
-            } else {
-                $scope.incorrectPass = true;
-            }
-        }
-    };
-
-    $scope.submitEmailId = function (forgotPassData) {
-        $scope.invalidEmail = false;
-        if (forgotPassData) {
-            NavigationService.forgotPassword(forgotPassData, function (data) {
-                console.log("data", data);
-                if (data.id) {
-                    $scope.forgotPassData.userid = data.id;
-                    $scope.modalInstanceOtps.close();
-                    $scope.otpsucess();
-                    $timeout(function () {
-                        $scope.modalInstanceOtpSuccess.close();
-                        $scope.forgotPasswordotp();
-                    }, 2000);
-
-                } else {
-                    console.log("Not A Valid Email");
-                    $scope.invalidEmail = true;
-                }
-            })
-        }
-    }
-    $scope.forgotOtpSubmitFun = function (forgotPassData) {
-        $scope.wrongOTP = false;
-        console.log("forgotPassData", forgotPassData);
-        if (forgotPassData) {
-            $scope.forgotPassData.otp = forgotPassData;
-            // $scope.forgotPassData.otp = forgotPassData.otp;
-            $scope.password();
-            $scope.submitChangepassword = function (forgotPassData) {
-                $scope.inavlidPass = false;
-                if (forgotPassData.newPassword && forgotPassData.confirmPassword) {
-                    if (forgotPassData.newPassword == forgotPassData.confirmPassword) {
-                        $scope.forgotPassData.password = forgotPassData.confirmPassword;
-                        console.log("$scope.forgotPassData", $scope.forgotPassData);
-
-                        NavigationService.forgotPasswordSubmit($scope.forgotPassData, function (data) {
-                            console.log("data", data);
-                            if (data == "true") {
-                                $scope.modalLogsInstance.close();
-                                $scope.modalInstancePassword.close();
-                                $scope.modalInstanceForgotPasswordotp.close();
-                                $scope.passconfirm();
-                                $scope.forgotPassData = {};
-
-                            } else {
-                                $scope.wrongOTP = true;
-                            }
-                        })
-                    } else {
-                        $scope.inavlidPass = true;
                     }
 
                 }
+            }
 
+        }
+        $scope.myarrOfOtpForForgotPwd = [];
+        $scope.forgotPassDataFunction = function (data) {
+            $scope.myarrOfOtpForForgotPwd.push(data);
+            $scope.myarrOfOtpForForgotPwd1 = $scope.myarrOfOtpForForgotPwd.join();
+            $scope.myarrOfOtpForForgotPwd1 = $scope.myarrOfOtpForForgotPwd1.split(',').join('');
+
+
+            if ($scope.myarrOfOtpForForgotPwd1.length == 4) {
+                console.log("$scope.myarrOfOtp1", $scope.myarrOfOtpForForgotPwd1.length);
+                $scope.forgotOtpSubmitFun($scope.myarrOfOtpForForgotPwd1);
+                console.log("$scope.myarrOfOtpForForgotPwd1", $scope.myarrOfOtpForForgotPwd1);
             }
         }
 
-    }
-    $scope.myarrOfOtpForForgotPwd = [];
-    $scope.forgotPassDataFunction = function(data) {
-        $scope.myarrOfOtpForForgotPwd.push(data);
-        $scope.myarrOfOtpForForgotPwd1 = $scope.myarrOfOtpForForgotPwd.join();
-        $scope.myarrOfOtpForForgotPwd1 = $scope.myarrOfOtpForForgotPwd1.split(',').join('');
+        // =============================login==============================
 
-
-        if ($scope.myarrOfOtpForForgotPwd1.length == 4) {
-                      console.log("$scope.myarrOfOtp1", $scope.myarrOfOtpForForgotPwd1.length);
-            $scope.forgotOtpSubmitFun($scope.myarrOfOtpForForgotPwd1);
-              console.log("$scope.myarrOfOtpForForgotPwd1", $scope.myarrOfOtpForForgotPwd1);
-        }
-    }
-
-    // =============================login==============================
-
-    $scope.loginData = {};
-    $scope.incorrectDetails = false;
-    $scope.loginSubmit = function (loginData) {
-        console.log("loginData", loginData);
+        $scope.loginData = {};
         $scope.incorrectDetails = false;
-        if (loginData) {
+        $scope.loginSubmit = function (loginData) {
+            console.log("loginData", loginData);
+            $scope.incorrectDetails = false;
+            if (loginData) {
 
-            NavigationService.submitLogin(loginData, function (data) {
-                console.log("data", data);
-                if (data.logged_in) {
-                    $scope.incorrectDetails = false;
-                    $rootScope.loggedIn = true;
-                    $scope.successlogin = true;
-                    $timeout(function () {
-
-                        $scope.successlogin = false;
+                NavigationService.submitLogin(loginData, function (data) {
+                    console.log("data", data);
+                    if (data.logged_in) {
                         $scope.incorrectDetails = false;
-                        $scope.loginData = {};
-                        $scope.modalLogsInstance.close();
-                        $scope.authentication();
-                    }, 2000);
-                    console.log("im in");
-                } else {
-                    $scope.incorrectDetails = true;
-                    $rootScope.loggedIn = false;
-                }
-            })
+                        $rootScope.loggedIn = true;
+                        $scope.successlogin = true;
+                        $timeout(function () {
+
+                            $scope.successlogin = false;
+                            $scope.incorrectDetails = false;
+                            $scope.loginData = {};
+                            $scope.modalLogsInstance.close();
+                            $scope.authentication();
+                        }, 2000);
+                        console.log("im in");
+                    } else {
+                        $scope.incorrectDetails = true;
+                        $rootScope.loggedIn = false;
+                    }
+                })
+            }
         }
-    }
 
 
 
 
 
-})
+    })
 
-// .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
-//
-//     $scope.changeLanguage = function() {
-//         console.log("Language CLicked");
-//
-//         if (!$.jStorage.get("language")) {
-//             $translate.use("hi");
-//             $.jStorage.set("language", "hi");
-//         } else {
-//             if ($.jStorage.get("language") == "en") {
-//                 $translate.use("hi");
-//                 $.jStorage.set("language", "hi");
-//             } else {
-//                 $translate.use("en");
-//                 $.jStorage.set("language", "en");
-//             }
-//         }
-//
-//     };
-//
-//
-// })
-.controller('languageCtrl', function ($scope, $state, TemplateService, $translate, $rootScope, $uibModal) {
-    var siteLanguage = $.jStorage.get('languageSet');
-    $scope.languageActive = siteLanguage;
+    // .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
+    //
+    //     $scope.changeLanguage = function() {
+    //         console.log("Language CLicked");
+    //
+    //         if (!$.jStorage.get("language")) {
+    //             $translate.use("hi");
+    //             $.jStorage.set("language", "hi");
+    //         } else {
+    //             if ($.jStorage.get("language") == "en") {
+    //                 $translate.use("hi");
+    //                 $.jStorage.set("language", "hi");
+    //             } else {
+    //                 $translate.use("en");
+    //                 $.jStorage.set("language", "en");
+    //             }
+    //         }
+    //
+    //     };
+    //
+    //
+    // })
+    .controller('languageCtrl', function ($scope, $state, TemplateService, $translate, $rootScope, $uibModal) {
+        var siteLanguage = $.jStorage.get('languageSet');
+        $scope.languageActive = siteLanguage;
 
 
 
-    $scope.language = 'img/lan-' + siteLanguage + '.jpg';
-    if (siteLanguage) {
-        $translate.use(siteLanguage);
-        $.jStorage.set("languageSet", siteLanguage);
-        if ($state.current.name == 'home') {
-            globalFunc.changeSlides(siteLanguage);
+        $scope.language = 'img/lan-' + siteLanguage + '.jpg';
+        if (siteLanguage) {
+            $translate.use(siteLanguage);
+            $.jStorage.set("languageSet", siteLanguage);
+            if ($state.current.name == 'home') {
+                globalFunc.changeSlides(siteLanguage);
+            }
         }
-    }
 
-    var languagePicker = {};
-    $scope.changeLanguage = function (val) {
-        $translate.use(val);
-        if ($state.current.name == 'home') {
-            globalFunc.changeSlides(val);
+        var languagePicker = {};
+        $scope.changeLanguage = function (val) {
+            $translate.use(val);
+            if ($state.current.name == 'home') {
+                globalFunc.changeSlides(val);
+            }
+            $.jStorage.set("languageSet", val);
+            $scope.language = 'img/lan-' + val + '.jpg';
+            languagePicker.close();
+            $scope.languageActive = val;
+        };
+        $scope.changeLanguage2 = function (val) {
+            currentlang = val;
+            console.log('currentlang', currentlang);
+            $translate.use(val);
+            if ($state.current.name == 'home') {
+                globalFunc.changeSlides(val);
+            }
+            $.jStorage.set("languageSet", val);
+            $scope.languageActive = val;
+            globalFunc.changeLang();
+        };
+        $scope.languagePicker = function () {
+            // languagePicker = $uibModal.open({
+            //     animation: true,
+            //     templateUrl: 'views/modal/language-picker.html',
+            //     size: 'md',
+            //     backdrop: 'static',
+            //     scope: $scope,
+            //     keyboard: false
+            // });
+        };
+
+        if (!siteLanguage) {
+            $scope.languagePicker();
         }
-        $.jStorage.set("languageSet", val);
-        $scope.language = 'img/lan-' + val + '.jpg';
-        languagePicker.close();
-        $scope.languageActive = val;
-    };
-    $scope.changeLanguage2 = function (val) {
-        currentlang = val;
-        console.log('currentlang', currentlang);
-        $translate.use(val);
-        if ($state.current.name == 'home') {
-            globalFunc.changeSlides(val);
-        }
-        $.jStorage.set("languageSet", val);
-        $scope.languageActive = val;
-        globalFunc.changeLang();
-    };
-    $scope.languagePicker = function () {
-        // languagePicker = $uibModal.open({
-        //     animation: true,
-        //     templateUrl: 'views/modal/language-picker.html',
-        //     size: 'md',
-        //     backdrop: 'static',
-        //     scope: $scope,
-        //     keyboard: false
-        // });
-    };
 
-    if (!siteLanguage) {
-        $scope.languagePicker();
-    }
-
-})
+    })
