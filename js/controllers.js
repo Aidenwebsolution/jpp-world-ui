@@ -132,13 +132,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $state.go('games');
                     }
                     if (value == 'Gallery') {
-                        window.location = "http://jaipurpinkpanthers.com/beta/#/gallery";
+                        window.location = "http://jaipurpinkpanthers.com/#/gallery";
                     }
                     if (value == 'WALLPAPERS') {
-                        window.location = "http://jaipurpinkpanthers.com/beta/#/wallpaper";
+                        window.location = "http://jaipurpinkpanthers.com/#/wallpaper";
                     }
                     if (value == 'JPP') {
-                        window.location = "http://jaipurpinkpanthers.com/beta/#/jpp-tv";
+                        window.location = "http://jaipurpinkpanthers.com/#/jpp-tv";
                     }
 
 
@@ -586,7 +586,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(scoreData, "scoredata");
             $http({
                 method: "POST",
-                url: "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+                url: "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
                 data: scoreData,
             }).then(function mySuccess(response) {
                 // $scope.myWelcome = response.data;
@@ -808,7 +808,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(scoreData, "scoredata");
             $http({
                 method: "POST",
-                url: "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+                url: "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
                 data: scoreData,
             }).then(function mySuccess(response) {
                 // $scope.myWelcome = response.data;
@@ -1025,7 +1025,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(scoreData,"scoredata");
             $http({
                 method : "POST",
-                url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+                url : "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
                 data:scoreData,
             }).then(function mySuccess(response) {
                // $scope.myWelcome = response.data;
@@ -1123,7 +1123,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     	formdata.score= iScore;
                     	formdata.contest=3;
                     	formdata.totalquestions=0;
-                    	$.getJSON( "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",formdata, function( resoponse ) {
+                    	$.getJSON( "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",formdata, function( resoponse ) {
 
                     	});
                     });*/
@@ -1183,7 +1183,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log(scoreData, "scoredata");
                 $http({
                     method: "POST",
-                    url: "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+                    url: "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
                     data: scoreData,
                 }).then(function mySuccess(response) {
                     // $scope.myWelcome = response.data;
@@ -1641,7 +1641,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     // NavigationService.sendMessage($scope.messageToFriends, function(data, status) {
         //     //     console.log(data);
         //     // })
-        //     var encoded = encodeURI("http://www.facebook.com/beta/dialog/send?app_id=655719224579290&link=http://www.nytimes.com/beta/interactive/2015/04/15/travel/europe-favorite-streets.html&redirect_uri=http://jaipurpinkpanthers.com/beta/pantherworld/");
+        //     var encoded = encodeURI("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html&redirect_uri=http://jaipurpinkpanthers.com/pantherworld/");
         //     console.log(encoded);
         //     // window.location.href = encoded;
         // }
@@ -1672,7 +1672,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 var left = ((width / 2) - (800 / 2)) + dualScreenLeft;
                 var top = ((height / 2) - (500 / 2)) + dualScreenTop;
-                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://jaipurpinkpanthers.com/beta/panther-army.html&redirect_uri=http://jaipurpinkpanthers.com/beta/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
+                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://jaipurpinkpanthers.com/panther-army.html&redirect_uri=http://jaipurpinkpanthers.com/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
             }
         };
         $scope.submitAnswer = function (option) {

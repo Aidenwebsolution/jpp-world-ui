@@ -1,14 +1,14 @@
-var mainurl = "http://admin.jaipurpinkpanthers.com/beta/index.php/"
+var mainurl = "http://admin.jaipurpinkpanthers.com/index.php/"
 
 
-var imgurl = "http://admin.jaipurpinkpanthers.com/beta/uploads/";
+var imgurl = "http://admin.jaipurpinkpanthers.com/uploads/";
 
 var adminurl1 = mainurl + "json/";
 
-var tempUrl = "http://admin.jaipurpinkpanthers.com/beta/index.php/json/";
-var tempimgurl = "http://admin.jaipurpinkpanthers.com/beta/uploads/";
+var tempUrl = "http://admin.jaipurpinkpanthers.com/index.php/json/";
+var tempimgurl = "http://admin.jaipurpinkpanthers.com/uploads/";
 
-adminurl = "http://admin.jaipurpinkpanthers.com/beta/";
+adminurl = "http://admin.jaipurpinkpanthers.com/";
 
 
 var navigationservice = angular.module('navigationservice', [])
@@ -17,7 +17,7 @@ var navigationservice = angular.module('navigationservice', [])
     var navigation = [{
             name: "Fixtures & Results",
             // classis: "active",
-             link: "http://jaipurpinkpanthers.com/beta/#/fixtures",
+             link: "http://jaipurpinkpanthers.com/#/fixtures",
             //url: "comingsoon",
             //url : "fixtures",
             //     subnav:[{
@@ -30,7 +30,7 @@ var navigationservice = angular.module('navigationservice', [])
         {
             name: "Panther World",
             url: "home",
-            //link: "http://jaipurpinkpanthers.com/beta/pantherworld",
+            //link: "http://jaipurpinkpanthers.com/pantherworld",
             // id:"panther",
             // classis: "active",
             subnav: []
@@ -53,8 +53,8 @@ var navigationservice = angular.module('navigationservice', [])
                 // }
         }, {
             name: "Tickets",
-            link: "http://jaipurpinkpanthers.com/beta/ticket",
-            //url: "comingsoon",
+            //link: "http://jaipurpinkpanthers.com/#/ticket",
+            url: "comingsoon",
             classis: "active",
             // subnav: [{
             //         name: "Panther Army",
@@ -73,29 +73,29 @@ var navigationservice = angular.module('navigationservice', [])
             // ]
         }, {
             name: "Merchandise",
-             link: "http://jaipurpinkpanthers.com/beta/ticket-merchandise",
-            //url: "comingsoon",
+            // link: "http://jaipurpinkpanthers.com/ticket-merchandise",
+            url: "comingsoon",
             classis: "active",
             subnav: []
         }, {
             name: "Players",
-            link: "http://jaipurpinkpanthers.com/beta/players",
+            link: "http://jaipurpinkpanthers.com/#players",
             // url: "ComingSoooon",
             classis: "active",
             subnav: []
         }, {
             name: "News",
-            link: "http://jaipurpinkpanthers.com/beta/news-media",
+            link: "http://jaipurpinkpanthers.com/#news-media",
             classis: "active",
              subnav: []
         }, {
             name: "About",
-            link: " http://jaipurpinkpanthers.com/beta/about-us",
+            link: " http://jaipurpinkpanthers.com/#about-us",
             classis: "active",
             subnav: []
         }, {
             name: "Fan Corner",
-            link: "http://jaipurpinkpanthers.com/beta/fan-corner",
+            link: "http://jaipurpinkpanthers.com/#fan-corner",
             classis: "active",
              subnav: []
         }
@@ -179,7 +179,7 @@ var navigationservice = angular.module('navigationservice', [])
             FB.ui({
                 method: 'send',
                 link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
-                redirect_uri: "http://jaipurpinkpanthers.com/beta/pantherworld"
+                redirect_uri: "http://jaipurpinkpanthers.com/pantherworld"
             });
         },
         makeactive: function (menuname) {

@@ -3990,7 +3990,16 @@ a {
         font-size: 15px;
     }
 }
-
+.loggedinbtn:active:hover, .loggedinbtn:active:focus, .loggedinbtn:active.focus, .loggedinbtn.active:hover, .loggedinbtn.active:focus, .loggedinbtn.active.focus, .open > .loggedinbtn.dropdown-toggle:hover, .open > .loggedinbtn.dropdown-toggle:focus, .open > .loggedinbtn.dropdown-toggle.focus {
+    background-color:transparent !important;
+    border-color:transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+     
+}
+.loggedinbtn {
+    padding-right:0px;
+}
 .marg-top {
     margin-top: 21px;
 }
@@ -3998,7 +4007,11 @@ a {
 .min-h {
     min-height: 73px;
 }
-
+span.tgc {
+  display: inline-block; }
+  span.tgc img {
+    height: 10px;
+    margin-top: 5px; }
 //modal//
 // Games scss
 // .abs-game1 , .abs-game3{
