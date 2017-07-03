@@ -1062,6 +1062,105 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.scoreData = {};
+
+        $scope.$on('$viewContentLoaded', function () {
+
+            var oMain = new CMain({
+                bonus_time: 1800, //BONUS TIME ADDED WHEN THE USER COMPLETE THE PUZZLE BETWEEN TIME IN SECONDS
+                num_levels_for_ads: 3 //NUMBER OF TURNS PLAYED BEFORE AD SHOWING //
+                //////// THIS FEATURE  IS ACTIVATED ONLY WITH CTL ARCADE PLUGIN./////////////////////////// 
+                /////////////////// YOU CAN GET IT AT: ///////////////////////////////////////////////////////// 
+                // http://codecanyon.net/item/ctl-arcade-wordpress-plugin/13856421 ///////////
+            });
+            //oMain.gotoGame('Players');
+
+            $(oMain).on("start_session", function (evt) {
+                if (getParamValue('ctl-arcade') === "true") {
+                    parent.__ctlArcadeStartSession();
+                }
+            });
+
+
+            $(oMain).on("end_session", function (evt) {
+                if (getParamValue('ctl-arcade') === "true") {
+                    parent.__ctlArcadeEndSession();
+                }
+            });
+
+
+            $(oMain).on("start_level", function (evt, iLevel) {
+                if (getParamValue('ctl-arcade') === "true") {
+                    parent.__ctlArcadeStartLevel({
+                        level: iLevel
+                    });
+                }
+            });
+
+            $(oMain).on("end_level", function (evt, iLevel) {
+                if (getParamValue('ctl-arcade') === "true") {
+                    parent.__ctlArcadeEndLevel({
+                        level: iLevel
+                    });
+                }
+            });
+
+            $(oMain).on("save_score", function (evt, iScore) {
+                if (getParamValue('ctl-arcade') === "true") {
+                    parent.__ctlArcadeSaveScore({
+                        score: iScore
+                    });
+                }
+                /*document.addEventListener('DOMContentLoaded', function () {
+                	angular.element(document.body).scope().crosswordscore(iScore);
+                	console.log(iScore,"score");
+                });*/
+                angular.element("#canvas").scope().crosswordscore(iScore);
+                /*
+                var formdata={};
+                $.getJSON(adminurl+"index.php/json/authenticate",function(data){
+                	formdata.user=data.id;
+                	formdata.email=data.email;
+                	formdata.score= iScore;
+                	formdata.contest=3;
+                	formdata.totalquestions=0;
+                	$.getJSON( "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",formdata, function( resoponse ) {
+
+                	});
+                });*/
+                //angular.element($0).scope.crosswordscore(iScore);
+
+            });
+
+            $(oMain).on("show_interlevel_ad", function (evt) {
+                if (getParamValue('ctl-arcade') === "true") {
+                    parent.__ctlArcadeShowInterlevelAD();
+                }
+            });
+
+            $(oMain).on("share_event", function (evt, iScore) {
+                if (getParamValue('ctl-arcade') === "true") {
+                    parent.__ctlArcadeShareEvent({
+                        img: TEXT_SHARE_IMAGE,
+                        title: TEXT_SHARE_TITLE,
+                        msg: TEXT_SHARE_MSG1 + iScore +
+                            TEXT_SHARE_MSG2,
+                        msg_share: TEXT_SHARE_SHARE1 +
+                            iScore + TEXT_SHARE_SHARE1
+                    });
+                }
+            });
+
+            if (isIOS()) {
+                setTimeout(function () {
+                    sizeHandler();
+                }, 200);
+            } else {
+                sizeHandler();
+            }
+
+        });
+
+
         $scope.crosswordscore = function (score) {
             NavigationService.getAuthenticate(function (data) {
                 //console.log(data,"userrrrr");

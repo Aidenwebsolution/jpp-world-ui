@@ -1,5 +1,5 @@
 var jsArray = [
-    './bower_components/jquery/dist/jquery.min.js',
+    './bower_components/jquery/dist/jquery.js',
     './bower_components/flexslider/jquery.flexslider-min.js',
     './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
     './bower_components/fancyBox/source/jquery.fancybox.js',
@@ -8,7 +8,7 @@ var jsArray = [
     './bower_components/angular-flexslider/angular-flexslider.js',
     './bower_components/ui-router/release/angular-ui-router.min.js',
     './bower_components/angular-bootstrap/ui-bootstrap.min.js',
-    './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+    './bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
     './bower_components/lodash/lodash.js',
     './bower_components/angular-translate/angular-translate.js',
     './bower_components/moment/moment.js',
@@ -19,7 +19,7 @@ var jsArray = [
     './js/templateservice.js',
     './js/rapidAnswer.js',
     './js/guessAnswer.js',
-    './js/matchAnswer.js',  
+    './js/matchAnswer.js',
     './js/createjs-2014.12.12.min.js',
     './js/crossword.js',
     //please do not change it
