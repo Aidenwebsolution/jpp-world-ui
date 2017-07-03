@@ -132,6 +132,24 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'GuessScoreCtrl'
         })
+    
+    
+    .state('match-panthers', {
+        url: "/match-panthers",
+        templateUrl: "views/template.html",
+        controller: 'MatchCtrl'
+    })
+    .state('match-play', {
+        url: "/match-play/:id",
+        templateUrl: "views/template.html",
+        controller: 'MatchPlayCtrl'
+    })
+
+    .state('match-score', {
+            url: "/match-score/:id",
+            templateUrl: "views/template.html",
+            controller: 'MatchScoreCtrl'
+        })
 
     .state('panther-army', {
         url: "/panther-army/:level",

@@ -8,7 +8,7 @@ var globalFunc = {};
 var currentlang = '';
 var globalLocale = moment.locale('hi');
 var localLocale = moment();
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'angular-flexslider', 'rapidAnswer','guessAnswer'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'angular-flexslider', 'rapidAnswer','guessAnswer','matchAnswer'])
 
 .controller('Home1Ctrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $filter, $rootScope, $translate, $state) {
     //Used to name the .html file
@@ -20,10 +20,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.facebookLogin = function () {
-        window.location.href = "http://pantherworldadmin.jaipurpinkpanthers.com/user/loginFacebook";
+        window.location.href = "http://admin.jaipurpinkpanthers.com/user/loginFacebook";
     };
     $scope.twitterLogin = function () {
-        window.location.href = "http://pantherworldadmin.jaipurpinkpanthers.com/user/loginTwitter";
+        window.location.href = "http://admin.jaipurpinkpanthers.com/user/loginTwitter";
     };
     $scope.Share = function () {
         $uibModal.open({
@@ -132,13 +132,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $state.go('games');
                 }
                 if (value == 'Gallery') {
-                    window.location = "http://jaipurpinkpanthers.com/#/gallery";
+                    window.location = "http://jaipurpinkpanthers.com/beta/#/gallery";
                 }
                 if (value == 'WALLPAPERS') {
-                    window.location = "http://jaipurpinkpanthers.com/#/wallpaper";
+                    window.location = "http://jaipurpinkpanthers.com/beta/#/wallpaper";
                 }
                 if (value == 'JPP') {
-                    window.location = "http://jaipurpinkpanthers.com/#/jpp-tv";
+                    window.location = "http://jaipurpinkpanthers.com/beta/#/jpp-tv";
                 }
 
 
@@ -579,7 +579,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(scoreData,"scoredata");
         $http({
             method : "POST",
-            url : "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
+            url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
             data:scoreData,
         }).then(function mySuccess(response) {
            // $scope.myWelcome = response.data;
@@ -794,7 +794,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(scoreData,"scoredata");
         $http({
             method : "POST",
-            url : "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
+            url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
             data:scoreData,
         }).then(function mySuccess(response) {
            // $scope.myWelcome = response.data;
@@ -854,6 +854,189 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
 })
+/*
+.controller('MatchCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, MatchAnswer, $stateParams, $interval, $state) {
+        //Used to name the .html file
+        console.log("Testing Consoles MatchCtrl");
+
+        $scope.template = TemplateService.changecontent("match-panthers");
+        $scope.menutitle = NavigationService.makeactive("Match");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.share = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: "views/modal/share.html",
+                scope: $scope
+            });
+        };
+       $scope.go = function () {
+            $state.go('match-play', {
+                id: '1'
+            })
+        }
+
+
+
+
+    })
+.controller('MatchPlayCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, MatchAnswer, $stateParams, $interval, $state) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles RapidPlayCtrl");
+
+        $scope.template = TemplateService.changecontent("match-panthers");
+        $scope.menutitle = NavigationService.makeactive("Match");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.share = function () {
+            $uibModal.open({Match
+                animation: true,
+                templateUrl: "views/modal/share.html",
+                scope: $scope
+            });
+        };
+
+
+
+        $scope.firstUI = true;
+        // $scope.count = $stateParams.id;
+
+        $scope.currentquestion = MatchAnswer.getQuestion($stateParams.id);
+
+        $scope.selectAnswer = function (s) {
+            $scope.mDisable = false;
+            _.each($scope.currentquestion.options, function (option) {
+                option.selected = undefined;
+            });
+            s.selected = true;
+        };
+        $scope.mDisable = true;
+         $scope.nextQuestion = function () {
+            $scope.myUrll = window.location.href;
+            console.log('nextq$scope.myUrll', " == ", $scope.myUrll);
+            MatchAnswer.saveAnswer($scope.currentquestion);
+            if (parseInt($stateParams.id) == MatchAnswer.lastAnswer()) {
+                $interval.cancel(counter);
+               
+                
+                 $state.go('match-score', {
+                    id: MatchAnswer.getScore()
+                });
+            } else {
+                $interval.cancel(counter);
+                $scope.myState = window.location.href;
+                $state.go('match-play', {
+                    id: parseInt($stateParams.id) + 1
+                });
+            }
+        };
+        $scope.skipQuestion = function () {
+            _.each($scope.currentquestion.options, function (option) {
+                option.selected = undefined;
+            });
+            $scope.nextQuestion();
+        };
+        $scope.showTimerCount = $.jStorage.get("matchTimer");
+        $timeout(function () {
+            makeArc();
+        }, 100);
+
+        var counter = $interval(function () {
+            $scope.showTimerCount = MatchAnswer.changeTimerMatch();
+            makeArc();
+            if ($scope.showTimerCount == 0) {
+                $interval.cancel(counter);
+                $scope.firstUI = true;
+                $state.go('match-score', {
+                    id: MatchAnswer.getScore()
+                });
+
+            }
+        }, 1000);
+
+        function makeArc() {
+            var totalTime = MatchAnswer.getTotalTime();
+            currentTime = parseInt($.jStorage.get("matchTimer"));
+            var can = $('#canvas1').get(0);
+            context = can.getContext('2d');
+
+            var percentage = currentTime / totalTime; // no specific length
+            var degrees = percentage * 360.0;
+            var radians = degrees * (Math.PI / 180);
+
+            var x = 18;
+            var y = 17;
+            var r = 15;
+            var s = 0; //1.5 * Math.PI;
+            context.clearRect(0, 0, 75, 75);
+            context.strokeStyle = '#fff';
+            context.beginPath();
+            context.lineWidth = 2;
+            context.arc(x, y, r, s, radians, false);
+            //context.closePath();
+            context.stroke();
+        }
+
+
+    })
+
+.controller('MatchScoreCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, MatchAnswer, $stateParams, $interval, $state,$http) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles RapidScoreCtrl");
+    var history_api = typeof history.pushState !== 'undefined';
+// history.pushState must be called out side of AngularJS Code
+    if ( history_api ) history.pushState(null, '', '#match-panthers');  // After the # you should write something, do not leave it empty
+    
+    $scope.template = TemplateService.changecontent("match-panthers");
+    $scope.menutitle = NavigationService.makeactive("match-panthers");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+     $scope.scoreData={};
+    // var scoreData = {};
+    NavigationService.getAuthenticate(function (data) {
+        //console.log(data,"userrrrr");
+        $scope.scoreData.user=data.id;
+        $scope.scoreData.email=data.email;
+        $scope.scoreData.score= $stateParams.id;
+        var totalq=MatchAnswer.getTotalQuestion();
+        console.log(totalq);
+        scoreData={contest:4,score:$stateParams.id,user:data.id,email:data.email,totalquestions:totalq,correctanswer: $stateParams.id};
+        //console.log($scope.scoreData,"scoredata");
+        //var scoreData = $scope.scoreData;
+        console.log(scoreData,"scoredata");
+        $http({
+            method : "POST",
+            url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
+            data:scoreData,
+        }).then(function mySuccess(response) {
+           // $scope.myWelcome = response.data;
+        });
+       
+        
+    });
+
+    $scope.share = function () {
+        $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/share.html",
+            scope: $scope
+        });
+    };
+
+
+    $scope.showTimerCount = 0;
+    $scope.showScorescreen = true;
+    $scope.count = $stateParams.id;
+
+
+
+})*/
+
 
 .controller('CrosswordCtrl', function ($scope, TemplateService, NavigationService, $timeout,$http) {
     //Used to name the .html file
@@ -877,14 +1060,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(scoreData,"scoredata");
             $http({
                 method : "POST",
-                url : "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
+                url : "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
                 data:scoreData,
             }).then(function mySuccess(response) {
             // $scope.myWelcome = response.data;
             });
-            /*NavigationService.saveScore(scoreData,function (data) {
-                
-            });*/
+            
             
         });
 
@@ -1337,7 +1518,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //     // NavigationService.sendMessage($scope.messageToFriends, function(data, status) {
             //     //     console.log(data);
             //     // })
-            //     var encoded = encodeURI("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html&redirect_uri=http://jaipurpinkpanthers.com/pantherworld/");
+            //     var encoded = encodeURI("http://www.facebook.com/beta/dialog/send?app_id=655719224579290&link=http://www.nytimes.com/beta/interactive/2015/04/15/travel/europe-favorite-streets.html&redirect_uri=http://jaipurpinkpanthers.com/beta/pantherworld/");
             //     console.log(encoded);
             //     // window.location.href = encoded;
             // }
@@ -1368,7 +1549,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 var left = ((width / 2) - (800 / 2)) + dualScreenLeft;
                 var top = ((height / 2) - (500 / 2)) + dualScreenTop;
-                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://jaipurpinkpanthers.com/panther-army.html&redirect_uri=http://jaipurpinkpanthers.com/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
+                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://jaipurpinkpanthers.com/beta/panther-army.html&redirect_uri=http://jaipurpinkpanthers.com/beta/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
             }
         };
         $scope.submitAnswer = function (option) {

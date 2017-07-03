@@ -18,7 +18,10 @@ var jsArray = [
     './js/navigation.js',
     './js/templateservice.js',
     './js/rapidAnswer.js',
-
+    './js/guessAnswer.js',
+    './js/matchAnswer.js',  
+    './js/createjs-2014.12.12.min.js',
+    './js/crossword.js',
     //please do not change it
     './w/js/templates.js',
 ];
