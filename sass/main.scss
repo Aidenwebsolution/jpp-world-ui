@@ -3990,7 +3990,7 @@ a {
         font-size: 15px;
     }
 }
-.loggedinbtn:active:hover, .loggedinbtn:active:focus, .loggedinbtn:active.focus, .loggedinbtn.active:hover, .loggedinbtn.active:focus, .loggedinbtn.active.focus, .open > .loggedinbtn.dropdown-toggle:hover, .open > .loggedinbtn.dropdown-toggle:focus, .open > .loggedinbtn.dropdown-toggle.focus {
+.loggedinbtn:hover ,.loggedinbtn:active:hover, .loggedinbtn:active:focus, .loggedinbtn:active.focus, .loggedinbtn.active:hover, .loggedinbtn.active:focus, .loggedinbtn.active.focus, .open > .loggedinbtn.dropdown-toggle:hover, .open > .loggedinbtn.dropdown-toggle:focus, .open > .loggedinbtn.dropdown-toggle.focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
     background-color:transparent !important;
     border-color:transparent !important;
     outline: none !important;
