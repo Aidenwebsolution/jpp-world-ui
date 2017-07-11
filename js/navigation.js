@@ -1,14 +1,14 @@
-var mainurl = "http://admin.jaipurpinkpanthers.com/index.php/"
+var mainurl = "http://admin.jaipurpinkpanthers.com/beta/index.php/"
 
 
-var imgurl = "http://admin.jaipurpinkpanthers.com/uploads/";
+var imgurl = "http://admin.jaipurpinkpanthers.com/beta/uploads/";
 
 var adminurl1 = mainurl + "json/";
 
-var tempUrl = "http://admin.jaipurpinkpanthers.com/index.php/json/";
-var tempimgurl = "http://admin.jaipurpinkpanthers.com/uploads/";
+var tempUrl = "http://admin.jaipurpinkpanthers.com/beta/index.php/json/";
+var tempimgurl = "http://admin.jaipurpinkpanthers.com/beta/uploads/";
 
-adminurl = "http://admin.jaipurpinkpanthers.com/";
+adminurl = "http://admin.jaipurpinkpanthers.com/beta/";
 
 
 var navigationservice = angular.module('navigationservice', [])

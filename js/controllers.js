@@ -19,6 +19,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Panther World");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+         $scope.closeAllModal = function () {
+            $scope.modalLogsInstance.close();
+        };
+        if($.jStorage.get("showloginmodal")=="1")
+        {
+            console.log("showmodal");
+            $scope.modalLogsInstance = $uibModal.open({
+                animation: true,
+                backdrop: true,
+                templateUrl: 'views/modal/logs.html',
+                scope: $scope
+            });
+        }
         $scope.facebookLogin = function () {
             window.location.href = "http://admin.jaipurpinkpanthers.com/user/loginFacebook";
         };
@@ -586,7 +599,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(scoreData, "scoredata");
             $http({
                 method: "POST",
-                url: "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
+                url: "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
                 data: scoreData,
             }).then(function mySuccess(response) {
                 // $scope.myWelcome = response.data;
@@ -808,7 +821,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(scoreData, "scoredata");
             $http({
                 method: "POST",
-                url: "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
+                url: "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
                 data: scoreData,
             }).then(function mySuccess(response) {
                 // $scope.myWelcome = response.data;
@@ -1183,7 +1196,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log(scoreData, "scoredata");
                 $http({
                     method: "POST",
-                    url: "http://admin.jaipurpinkpanthers.com/index.php/json/savescore",
+                    url: "http://admin.jaipurpinkpanthers.com/beta/index.php/json/savescore",
                     data: scoreData,
                 }).then(function mySuccess(response) {
                     // $scope.myWelcome = response.data;
@@ -1208,7 +1221,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('GamesCtrl', function ($scope, TemplateService, NavigationService, $timeout, $filter, $interval) {
+    .controller('GamesCtrl', function ($scope, TemplateService, NavigationService, $timeout, $filter, $interval,$state,$rootScope) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -1219,31 +1232,57 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
         // 2017-05-09T05:51:26.652Z
-        $scope.latestmatch = {};
-        $scope.latestmatch.startTimedate = new Date('Wed May 10 2017 18:19:38 GMT+0530 (IST)');
-        $scope.latestmatch.startTimedate = $scope.latestmatch.startTimedate.setDate($scope.latestmatch.startTimedate.getDate() + 31);
+         NavigationService.getAuthenticate(function (data) {
+        if (data.logged_in) {
+            $scope.latestmatch = {};
+            $scope.latestmatch.startTimedate = new Date('Wed May 10 2017 18:19:38 GMT+0530 (IST)');
+            $scope.latestmatch.startTimedate = $scope.latestmatch.startTimedate.setDate($scope.latestmatch.startTimedate.getDate() + 31);
 
 
 
-        $scope.refreshTimer = function (eventTime) {
-            $scope.countdown = {};
-            eventTime = new Date(eventTime);
-            console.log(eventTime);
-            $scope.rightNow = new Date();
-            $scope.diffTime = eventTime - $scope.rightNow;
-            var duration = moment.duration($scope.diffTime, 'milliseconds');
-            $interval(function () {
-                duration = moment.duration(duration - 1000, 'milliseconds');
-                console.log("duration", duration._data.days);
-                $scope.countdown.days = duration._data.days;
-                $scope.countdown.hours = duration._data.hours;
-                $scope.countdown.minutes = duration._data.minutes;
-                $scope.countdown.seconds = duration._data.seconds;
+            $scope.refreshTimer = function (eventTime) {
+                $scope.countdown = {};
+                eventTime = new Date(eventTime);
+                console.log(eventTime);
+                $scope.rightNow = new Date();
+                $scope.diffTime = eventTime - $scope.rightNow;
+                var duration = moment.duration($scope.diffTime, 'milliseconds');
+                $interval(function () {
+                    duration = moment.duration(duration - 1000, 'milliseconds');
+                    console.log("duration", duration._data.days);
+                    $scope.countdown.days = duration._data.days;
+                    $scope.countdown.hours = duration._data.hours;
+                    $scope.countdown.minutes = duration._data.minutes;
+                    $scope.countdown.seconds = duration._data.seconds;
 
-            }, 1000);
-        };
+                }, 1000);
+            };
 
-        $scope.refreshTimer($scope.latestmatch.startTimedate);
+            $scope.refreshTimer($scope.latestmatch.startTimedate);
+        }
+        else {
+            $state.go('home', {
+                null: null
+            }).then(function (d) {
+                // add functionality
+
+                $rootScope.loggedin = false;
+                //this.isCheckLoggedIn('Gallery');
+                //alert("Please Login to continue");   
+                $rootScope.$emit("isloggedin", 'Gallery');
+                $.jStorage.set("showloginmodal", '1');
+                /*
+                $timeout(function () {
+                 $scope.modalLogsInstance = $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modal/logs.html',
+                        scope: $scope,
+                    });
+                }, 5000);*/
+
+            });
+        }
+    });
 
     })
     .controller('NewsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
