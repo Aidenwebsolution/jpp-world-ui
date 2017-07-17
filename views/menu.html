@@ -1,8 +1,8 @@
 <ul class="nav navbar-nav navs head-menu hidden-xs ">
   <li ng-repeat="menu in navigation" class="menu-custom-li {{menu.classis}}">
     <a ui-sref="{{menu.anchor}}" ng-if="menu.anchor" class=" menu-custom">{{menu.name |translate}}</a>
-    <a href="{{menu.link}}"  class="menu-custom"  ng-if="menu.link">{{menu.name |translate}}</a>
-    <a  ui-sref="{{menu.url}}" class="menu-custom"  ng-if="menu.url">{{menu.name |translate}}</a>
+    <a href="{{menu.link}}" class="menu-custom" ng-if="menu.link">{{menu.name |translate}}</a>
+    <a ui-sref="{{menu.url}}" class="menu-custom" ng-if="menu.url">{{menu.name |translate}}</a>
     <ul class="dropdown-menu" ng-if="menu.subnav!='';">
       <li ng-repeat="submenu in menu.subnav">
         <a class="subnav" ui-sref="{{submenu.link}}">{{submenu.name}}</a>
@@ -19,31 +19,28 @@
           <li><a href="#">Log Out</a></li>
         </ul>
       </div> -->
-      <!-- <select name="registering" id="register">
+    <!-- <select name="registering" id="register">
       <option value="log in">log in</option>
       <option value="know more">know more</option>
     </select> -->
-  </div></li>
+    </div>
+  </li>
 </ul>
-
-
 <ul class="nav navbar-nav head-menu visible-xs hidden-sm hidden-md">
-    <li ng-repeat="menu in navigation" class="menu-custom-li {{menu.classis}}">
+  <li ng-repeat="menu in navigation" class="menu-custom-li {{menu.classis}}">
     <a ui-sref="{{menu.anchor}}" ng-if="menu.anchor" class=" menu-custom">{{menu.name |translate}}</a>
-    <a href="{{menu.link}}"  class="menu-custom"  ng-if="menu.link">{{menu.name |translate}}</a>
-    <a  ui-sref="{{menu.url}}" class="menu-custom"  ng-if="menu.url">{{menu.name |translate}}</a>
+    <a href="{{menu.link}}" class="menu-custom" ng-if="menu.link">{{menu.name |translate}}</a>
+    <a ui-sref="{{menu.url}}" class="menu-custom" ng-if="menu.url">{{menu.name |translate}}</a>
     <ul class="dropdown-menu" ng-if="menu.subnav!='';">
       <li ng-repeat="submenu in menu.subnav">
         <a class="subnav" ui-sref="{{submenu.link}}">{{submenu.name}}</a>
       </li>
     </ul>
   </li>
-    <li class="menu-changed">
-        <ul class="list-inline mt20 log-sign text-center">
-    <li class="line-after" ng-if="!loggedIn" ng-click="logs();"><a>{{'Login' |translate}}</a></li>
-    <li ng-click="logs();" ng-if="!loggedIn"><a >{{'Signup'|translate}}</a></li>
-   
- </ul>
-    </li>
-
+  <li class="menu-changed">
+    <ul class="list-inline mt20 log-sign text-center">
+      <li class="line-after" ng-if="!loggedIn" ng-click="logs();"><a>{{'Login' |translate}}</a></li>
+      <li ng-click="logs();" ng-if="!loggedIn"><a>{{'Signup'|translate}}</a></li>
+    </ul>
+  </li>
 </ul>
