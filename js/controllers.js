@@ -145,13 +145,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $state.go('games');
                     }
                     if (value == 'Gallery') {
-                        window.location = "http://jaipurpinkpanthers.com/gallery";
+                        window.location = "http://jaipurpinkpanthers.com/#/gallery";
                     }
                     if (value == 'WALLPAPERS') {
-                        window.location = "http://jaipurpinkpanthers.com/wallpaper";
+                        window.location = "http://jaipurpinkpanthers.com/#/wallpaper";
                     }
                     if (value == 'JPP') {
-                        window.location = "http://jaipurpinkpanthers.com/jpp-tv";
+                        window.location = "http://jaipurpinkpanthers.com/#/jpp-tv";
                     }
 
 
@@ -1711,7 +1711,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 var left = ((width / 2) - (800 / 2)) + dualScreenLeft;
                 var top = ((height / 2) - (500 / 2)) + dualScreenTop;
-                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://jaipurpinkpanthers.com/panther-army.html&redirect_uri=http://jaipurpinkpanthers.com/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
+                var newWindow = window.open("http://www.facebook.com/dialog/send?app_id=655719224579290&link=http://jaipurpinkpanthers.com/panther-army.html&redirect_uri=http://jaipurpinkpanthers.com/#/pantherworld", "Send Message", 'scrollbars=yes, width=800, height=500, top=' + top + ', left=' + left);
             }
         };
         $scope.submitAnswer = function (option) {

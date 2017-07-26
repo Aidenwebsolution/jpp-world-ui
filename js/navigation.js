@@ -17,7 +17,7 @@ var navigationservice = angular.module('navigationservice', [])
     var navigation = [{
             name: "Fixtures & Results",
             // classis: "active",
-             link: "http://jaipurpinkpanthers.com/fixtures",
+             link: "http://jaipurpinkpanthers.com/#/fixtures",
             //url: "comingsoon",
             //url : "fixtures",
             //     subnav:[{
@@ -79,23 +79,23 @@ var navigationservice = angular.module('navigationservice', [])
             subnav: []
         }, {
             name: "Players",
-            link: "http://jaipurpinkpanthers.com/players",
+            link: "http://jaipurpinkpanthers.com/#/players",
             // url: "ComingSoooon",
             classis: "active",
             subnav: []
         }, {
             name: "News",
-            link: "http://jaipurpinkpanthers.com/news-media",
+            link: "http://jaipurpinkpanthers.com/#/news-media",
             classis: "active",
              subnav: []
         }, {
             name: "About",
-            link: " http://jaipurpinkpanthers.com/about-us",
+            link: " http://jaipurpinkpanthers.com/#/about-us",
             classis: "active",
             subnav: []
         }, {
             name: "Fan Corner",
-            link: "http://jaipurpinkpanthers.com/fan-corner",
+            link: "http://jaipurpinkpanthers.com/#/fan-corner",
             classis: "active",
              subnav: []
         }
@@ -179,7 +179,7 @@ var navigationservice = angular.module('navigationservice', [])
             FB.ui({
                 method: 'send',
                 link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
-                redirect_uri: "http://jaipurpinkpanthers.com/pantherworld"
+                redirect_uri: "http://jaipurpinkpanthers.com/#/pantherworld"
             });
         },
         makeactive: function (menuname) {
