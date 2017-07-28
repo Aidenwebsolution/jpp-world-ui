@@ -130,7 +130,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         font-size: 14px;
     }
     .li-footer {
-        margin: 0 10px 4px 0;
+        margin: 0 30px 4px 0;
     }
     //page
     .title-name {
@@ -151,6 +151,10 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
                 width: 24%;
             }
         }
+
+            .li-footer {
+        margin: 0 10px 4px 0;
+    }
         // .crossword{
         //   text-align: center;
         //   margin: 0 auto;
