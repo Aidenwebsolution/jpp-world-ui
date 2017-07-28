@@ -266,6 +266,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 })
             }
         }
+                $scope.closeAllModal = function () {
+            $scope.modalLogsInstance.close();
+        };
         $scope.forgotOtpSubmitFun = function (forgotPassData) {
             $scope.wrongOTP = false;
             console.log("forgotPassData", forgotPassData);
@@ -2163,6 +2166,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
         }
+                $scope.closeAllModal = function () {
+            $scope.modalLogsInstance.close();
+        };
         $scope.myarrOfOtpForForgotPwd = [];
         $scope.forgotPassDataFunction = function (data) {
             $scope.myarrOfOtpForForgotPwd.push(data);
