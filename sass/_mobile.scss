@@ -25,8 +25,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     }
     nav a.menu-custom {
         padding: 25px 3px !important;
-    }
-    // .fixture-match {
+    } // .fixture-match {
     //   zoom: 0.7;
     // }
     .slider {
@@ -38,12 +37,10 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         .carousel-control.left {
             left: -70px;
         }
-    }
-    // Header
+    } // Header
     .navbar-brand {
         padding: 8px 0;
-    }
-    //page
+    } //page
     .title-name {
         h1 {
             font-size: 28px;
@@ -107,8 +104,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     }
     .f25 {
         font-size: 17px;
-    }
-    // .fixture-match{
+    } // .fixture-match{
     //   zoom:0.6;
     // }
     .pnl-title {
@@ -131,8 +127,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     }
     .li-footer {
         margin: 0 30px 4px 0;
-    }
-    //page
+    } //page
     .title-name {
         padding: 17px 50px 16px;
         h1 {
@@ -142,6 +137,34 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
 }
 
 @media (max-width: $screen-sm-max) {
+    //footer sponsor starts here
+    .foo_sponsor {
+        color: #b41e72;
+        padding: 0px;
+        padding-top: 50px;
+    }
+    .foo_s_row {
+        padding: 50px;
+        padding-top: 20px;
+        padding-bottom: 0px;
+    }
+    .foo_icon {
+        width: 250px;
+    }
+    .foo_first_icon {
+        width: 150px;
+    }
+    .pix_10 {
+        padding: 10px;
+    }
+    .foo_icon2 {
+        padding: 5px;
+        width: auto;
+        height: auto;
+        max-width: 198px;
+        max-height: 80px;
+        margin: 10px;
+    } // footer sponsor ends here
     .section4 {
         .task {
             left: 315px;
@@ -151,11 +174,9 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
                 width: 24%;
             }
         }
-
-            .li-footer {
-        margin: 0 10px 4px 0;
-    }
-        // .crossword{
+        .li-footer {
+            margin: 0 10px 4px 0;
+        } // .crossword{
         //   text-align: center;
         //   margin: 0 auto;
         //   display: table;
@@ -332,8 +353,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     .f-23 {
         font-size: 25px;
         margin: 8px 0 0;
-    }
-    // .fixture-match {
+    } // .fixture-match {
     //   zoom: 0.5;
     // }
     .mb200 {
@@ -439,8 +459,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         h1 {
             font-size: 18px;
         }
-    }
-    // Header
+    } // Header
     .navbar-toggle {
         border-color: #4ECAF5 !important;
         transition: all 0.3s ease;
@@ -465,8 +484,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     }
     .nav {
         li {
-            padding-right: 13px;
-            // a {
+            padding-right: 13px; // a {
             //   padding: 16px 4px !important;
             // }
             &.active,
@@ -510,8 +528,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     }
     .mr70 {
         margin-right: 0;
-    }
-    // /footer
+    } // /footer
     .name-sponser {
         text-align: center;
         display: block;
@@ -674,8 +691,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     }
     .font-16 {
         font-size: 16px;
-    }
-    //menu
+    } //menu
     nav {
         li {
             padding-right: 0 !important;
@@ -709,8 +725,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     .navbar .col-md-10,
     .navbar-collapse {
         padding: 0;
-    }
-    //end menu
+    } //end menu
     .sliders .play-img {
         height: 50px;
         height: 200px;
@@ -866,8 +881,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     }
     .modal-dialog {
         width: 80%;
-    }
-    //ruchi//
+    } //ruchi//
     .mobile-ui {
         .img-sider,
         .img-siders {
@@ -921,8 +935,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         position: absolute;
         top: 4px;
         right: -5px;
-    }
-    //ruchi//
+    } //ruchi//
     //nav //
     .hello {
         li h3 {
@@ -1030,9 +1043,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
     .menu-changed .line-after:after {
         height: 22px;
         right: -5px;
-    }
-//nav //
-
+    } //nav //
     //gameslanding//
     .calenders,
     .calendaring {
@@ -1046,12 +1057,11 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         right: 10px;
         left: initial;
     }
-    .title  {
+    .title {
         padding: 14px 0;
-        h4{
- font-size: 20px;
+        h4 {
+            font-size: 20px;
         }
-       
     }
     .head-glanding {
         h4,
@@ -1073,75 +1083,62 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
         min-width: 30px !important;
         font-size: 14px !important;
     }
-
     .pall35 {
-    padding: 15px 0;
-}
-.martp15{
-    margin-top: 0;
-}
-//rapid fire//
-.rapid{
-    .bgclas{
-        padding-top: 30px !important;
+        padding: 15px 0;
+    }
+    .martp15 {
+        margin-top: 0;
+    } //rapid fire//
+    .rapid {
+        .bgclas {
+            padding-top: 30px !important;
             height: 110vh;
+        }
+        .Modal-box h1 {
+            font-size: 18px;
+        }
+        .radio-quiz .form-group {
+            padding: 0;
+            label {
+                font-size: 16px;
+            }
+        }
+    } //
+    //crossword//
+    .maincrossword {
+        width: auto;
+        .table {
+            td {
+                font-size: 14px;
+            }
+        }
+    } //match//
+    .guess-image {
+        width: 150px !important;
     }
-    .Modal-box h1{
-        font-size: 18px;
+    .abolute {
+        .rapidss {
+            display: block !important;
+            width: auto !important;
+        }
     }
-    .radio-quiz .form-group{
-    padding: 0;
-    label{
-            font-size: 16px;
+    .crosswordsec {
+        width: auto !important;
     }
-}
-}
-//
-//crossword//
-.maincrossword{
-    width: auto;
-    .table{
-    td{
-        font-size: 14px; 
+    .radio-quiz {
+        padding: 0;
     }
-}
-}
-
-//match//
-.guess-image {
-    width: 150px  !important;
-}
-
-
-.abolute{
-    .rapidss{
- display: block !important;
-    width: auto !important;
+    .sections3 {
+        .Modal-box {
+            padding: 50px 20px;
+        }
     }
-   
-}
-
-.crosswordsec{
-    width: auto !important;
-}
-
-.radio-quiz{
-    padding: 0;
-}
-
-.sections3{
-    .Modal-box{
-        padding: 50px 20px;
+    .rapid .radio-quiz .form-group label {
+        font-size: 9px;
     }
-}
-
-.rapid .radio-quiz .form-group label{
-    font-size: 9px;
-}
-.rapid .Modal-box h1{
-    font-size: 14px !important;
-}
-//ruchi
+    .rapid .Modal-box h1 {
+        font-size: 14px !important;
+    } //ruchi
 }
 
 @media (max-width: 480px) {
@@ -1471,8 +1468,7 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
             background-color: #438daa;
             border: 1px solid #438daa;
         }
-    }
-    //     .slider .carousel-control.right {
+    } //     .slider .carousel-control.right {
     //     right: -48px;
     // }
     // .slider .carousel-control.left {
@@ -1656,6 +1652,23 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
 }
 
 @media (max-width: 580px) {
+    //footer sponsor starts here
+    .foo_icon {
+        width: 60%;
+    }
+    .foo_icon_first {
+        width: 50%;
+    }
+    .foo_icon2 {
+        padding: 5px;
+        width: auto;
+        height: auto;
+        max-width: 50%;
+        max-height: 60px;
+    }
+    .n_pix_10 {
+        margin-top: -10px;
+    } //footer sponsor ends here
     .contain-fixtures {
         width: auto;
     }
