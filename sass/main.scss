@@ -219,9 +219,10 @@ a {
 }
 
 .dropdown-menu {
-    padding: 0; //   .subnav{
-    //   color:#000 !important;
-    // }
+    padding: 0; //  
+    .subnav:hover {
+        color: white !important;
+    }
 }
 
 .reg {
@@ -290,13 +291,13 @@ a {
         padding: 0;
         font-size: 18px;
         text-align: center;
-        font-family: Oswald,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: Oswald, "Helvetica Neue", Helvetica, Arial, sans-serif;
         &:nth-child(odd) {
             background: url(../img/odd.png) no-repeat;
             background-size: 100% 100%;
             padding: 8px 25px;
             margin: -3px 0 0 -45px;
-            font-family: Oswald,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: Oswald, "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         &:nth-child(even) {
             background: url("../img/even.png");
@@ -741,14 +742,15 @@ nav {
 }
 
 .head-menu {
-  padding: 0;
-  a {
-    color: $white !important;
-  }
-&:hover{
-    color: $white !important;
+    padding: 0;
+    a {
+        color: $white !important;
+    }
+    &:hover {
+        color: $white !important;
+    }
 }
-}
+
 .center-position {
     .logo {
         position: absolute;
