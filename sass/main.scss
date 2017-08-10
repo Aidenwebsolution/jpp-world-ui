@@ -68,8 +68,7 @@ serif !default;
 @font-face {
     font-family: "Dreamwalker";
     src: url("Dreamwalker.ttf");
-    src: url("Dreamwalker.eot#iefix") format("embedded-opentype"), url("../fonts/Dreamwalker.ttf") format("ttf"), url("../fonts/Dreamwalker.ttf") format("truetype"), url("../fonts/Dreamwalker.svg") format("svg");
-    // src: url("Dreamwalker.ttf");
+    src: url("Dreamwalker.eot#iefix") format("embedded-opentype"), url("../fonts/Dreamwalker.ttf") format("ttf"), url("../fonts/Dreamwalker.ttf") format("truetype"), url("../fonts/Dreamwalker.svg") format("svg"); // src: url("Dreamwalker.ttf");
     font-weight: normal;
     font-style: normal;
 }
@@ -291,12 +290,13 @@ a {
         padding: 0;
         font-size: 18px;
         text-align: center;
+        font-family: Oswald,"Helvetica Neue",Helvetica,Arial,sans-serif;
         &:nth-child(odd) {
-            background: url("../img/odd.png");
-            background-repeat: no-repeat;
+            background: url(../img/odd.png) no-repeat;
             background-size: 100% 100%;
-            padding: 4px 6px;
-            margin: -1px 0 0 -50px;
+            padding: 8px 25px;
+            margin: -3px 0 0 -45px;
+            font-family: Oswald,"Helvetica Neue",Helvetica,Arial,sans-serif;
         }
         &:nth-child(even) {
             background: url("../img/even.png");
@@ -615,7 +615,6 @@ nav {
                 display: block;
             }
         }
-        
         &:hover {
             a.menu-custom {
                 @include background-image (linear-gradient(to bottom,
@@ -651,11 +650,10 @@ nav {
                 }
             }
         }
-          &.active{
-             a.menu-custom {
-                 background-color: transparent !important;
-             }
-
+        &.active {
+            a.menu-custom {
+                background-color: transparent !important;
+            }
         }
     }
     a.menu-custom {
@@ -742,12 +740,15 @@ nav {
     background-color: black;
 }
 
-// .head-menu {
-//   padding: 0;
-//   a {
-//     color: $white !important;
-//   }
-// }
+.head-menu {
+  padding: 0;
+  a {
+    color: $white !important;
+  }
+&:hover{
+    color: $white !important;
+}
+}
 .center-position {
     .logo {
         position: absolute;
@@ -851,8 +852,7 @@ nav {
             height: 60px;
             width: 60px;
             line-height: 60px;
-            text-align: center;
-            // border-radius: 100%;
+            text-align: center; // border-radius: 100%;
             // border: 1px solid #fff;
         }
         &:hover {
@@ -1095,8 +1095,7 @@ nav {
 }
 
 .pall35 {
-    padding: 15px 0 12px;
-    // padding: 30px 0 30px;
+    padding: 15px 0 12px; // padding: 30px 0 30px;
 }
 
 .mb10 {
@@ -1922,7 +1921,8 @@ img.fancybox-image {
     position: absolute;
     top: 50%;
     left: 50%;
-    @include transform(translate(-50%,-50%) !important);
+    @include transform(translate(-50%,
+    -50%) !important);
 }
 
 .modal-content {
@@ -2070,11 +2070,10 @@ img.fancybox-image {
         font-size: 18px;
         text-align: center;
         &:nth-child(odd) {
-            background: url("../img/odd.png");
-            background-repeat: no-repeat;
+            background: url(img/odd.png) no-repeat;
             background-size: 100% 100%;
             padding: 8px 25px;
-            margin: -7px 0 0 -45px;
+            margin: -3px 0 0 -45px;
         }
         &:nth-child(even) {
             background: url("../img/even.png");
@@ -2595,8 +2594,7 @@ img.fancybox-image {
     $pinky 22%,
     $pinky 73%,
     transparent 100%));
-    z-index: 0;
-    // padding: 10px 0;
+    z-index: 0; // padding: 10px 0;
 }
 
 .high-z {
@@ -3371,21 +3369,16 @@ a {
 }
 
 .img-sider {
-    background: url("../img/imageside.jpg") no-repeat;
-    // -webkit-clip-path: polygon(0 0, 100% 0%, 92% 100%, 0% 100%);
-    clip-path: polygon(0 0, 100% 0%, 92% 100%, 0% 100%);
-    // position: relative;
+    background: url("../img/imageside.jpg") no-repeat; // -webkit-clip-path: polygon(0 0, 100% 0%, 92% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0%, 92% 100%, 0% 100%); // position: relative;
     padding: 322px 0 59px;
-    background-position: top center;
-    // mar
-    margin-right: -9px;
-    // z-index: 9;
+    background-position: top center; // mar
+    margin-right: -9px; // z-index: 9;
     background-size: cover;
 }
 
 .img-slider2 {
-    @extend .img-sider;
-    //     background: url("../img/left-side.png") no-repeat;
+    @extend .img-sider; //     background: url("../img/left-side.png") no-repeat;
     //     background-position: top center;
     // background-size: cover;
 }
@@ -3451,12 +3444,10 @@ a {
                 i {
                     background: #2b9ec6;
                     color: #fff;
-                    border-radius: 100%;
-                    // height: 40px;
+                    border-radius: 100%; // height: 40px;
                     // width: 40px;
                     height: 30px;
-                    width: 30px;
-                    // padding: 8px 9px;
+                    width: 30px; // padding: 8px 9px;
                     padding: 5px 0px;
                     font-size: 22px;
                     @include transition(all ease 300ms);
@@ -3642,7 +3633,7 @@ a {
 }
 
 .rapids {
-  min-height: calc(100vh - 48px);
+    min-height: calc(100vh - 48px);
     .quizbutton {
         background: $brand-success;
         color: #f60094;
@@ -3698,14 +3689,15 @@ a {
     background-size: cover;
     background-position: 100% 100%;
     background-repeat: no-repeat;
-   position: relative;
+    position: relative;
     padding-top: 100px;
 }
-.absolute{
+
+.absolute {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 .highlight {
@@ -3989,16 +3981,30 @@ a {
         font-size: 15px;
     }
 }
-.loggedinbtn:hover ,.loggedinbtn:active:hover, .loggedinbtn:active:focus, .loggedinbtn:active.focus, .loggedinbtn.active:hover, .loggedinbtn.active:focus, .loggedinbtn.active.focus, .open > .loggedinbtn.dropdown-toggle:hover, .open > .loggedinbtn.dropdown-toggle:focus, .open > .loggedinbtn.dropdown-toggle.focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
-    background-color:transparent !important;
-    border-color:transparent !important;
+
+.loggedinbtn:hover,
+.loggedinbtn:active:hover,
+.loggedinbtn:active:focus,
+.loggedinbtn:active.focus,
+.loggedinbtn.active:hover,
+.loggedinbtn.active:focus,
+.loggedinbtn.active.focus,
+.open>.loggedinbtn.dropdown-toggle:hover,
+.open>.loggedinbtn.dropdown-toggle:focus,
+.open>.loggedinbtn.dropdown-toggle.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open>.btn-primary.dropdown-toggle {
+    background-color: transparent !important;
+    border-color: transparent !important;
     outline: none !important;
     box-shadow: none !important;
-     
 }
+
 .loggedinbtn {
-    padding-right:0px;
+    padding-right: 0px;
 }
+
 .marg-top {
     margin-top: 21px;
 }
@@ -4006,11 +4012,16 @@ a {
 .min-h {
     min-height: 73px;
 }
+
 span.tgc {
-  display: inline-block; }
-  span.tgc img {
+    display: inline-block;
+}
+
+span.tgc img {
     height: 10px;
-    margin-top: 5px; }
+    margin-top: 5px;
+}
+
 //modal//
 // Games scss
 // .abs-game1 , .abs-game3{
@@ -4055,31 +4066,31 @@ span.tgc {
 //         width: 70px !important;
 //     }
 // }
-
-.mt7{
- margin-top: 7px;
-}
-.mt5{
- margin-top: 5px;
+.mt7 {
+    margin-top: 7px;
 }
 
-.mt6{
+.mt5 {
+    margin-top: 5px;
+}
+
+.mt6 {
     margin-top: 6px;
 }
 
-.social-link{
-    ul{
-        li{
+.social-link {
+    ul {
+        li {
             // margin: 0 -1.5px;
-            a{
-                i{
+            a {
+                i {
                     background: #2b9ec6;
-    color: #fff;
-    border-radius: 100%;
-    height: 30px;
-    width: 30px;
-    padding: 8px 9px;
-    font-size: 15px;
+                    color: #fff;
+                    border-radius: 100%;
+                    height: 30px;
+                    width: 30px;
+                    padding: 8px 9px;
+                    font-size: 15px;
                 }
             }
         }
@@ -4112,8 +4123,20 @@ span.tgc {
     width: 100%;
     padding: 10px 30px 30px;
 }
+
 .mutho_kalyan_icon {
     padding: 5px;
 }
+
 @import "navin";
+.dropdown-header,
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px !important;
+    line-height: 1.42857;
+    white-space: nowrap;
+    font-weight: 400;
+    font-family: Oswald, sans-serif;
+}
+
 @import "mobile"; // @import "style";

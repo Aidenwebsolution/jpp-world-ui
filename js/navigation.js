@@ -92,7 +92,11 @@ var navigationservice = angular.module('navigationservice', [])
             name: "About",
             link: " http://jaipurpinkpanthers.com/#/about-us",
             classis: "active",
-            subnav: []
+              subnav: [{
+                    name: "Sponsors",
+                    link: "http://jaipurpinkpanthers.com/#/sponsors",
+                    classis: "active"
+                }]
         }, {
             name: "Fan Corner",
             link: "http://jaipurpinkpanthers.com/#/fan-corner",
