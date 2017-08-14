@@ -4100,6 +4100,25 @@ span.tgc img {
 }
 
 // footer sponspor starts here
+.spon {
+    display: flex;
+    min-height: 150px;
+    align-items: center;
+    .arran {
+        margin: 0 auto;
+        img {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 10px;
+            max-height: 100px;
+        }
+        .mutho_kalyan_icon {
+            padding: 2px;
+            padding-top: 10px;
+        }
+    }
+}
+
 .foo_sponsor {
     color: #b41e72;
     padding: 50px;
