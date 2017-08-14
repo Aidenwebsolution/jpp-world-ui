@@ -4119,6 +4119,15 @@ span.tgc img {
     }
 }
 
+.spon_small {
+    .arran {
+        img {
+            max-height: 80px;
+            max-width: 80%;
+        }
+    }
+}
+
 .foo_sponsor {
     color: #b41e72;
     padding: 50px;
