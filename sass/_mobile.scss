@@ -1589,6 +1589,14 @@ $screen-lg: 1200px !default; // @media only screen and (min-device-width: 1200px
 }
 
 @media (max-width: 767px) {
+    //footer 
+    .spon {
+        .arran {
+            .mutho_kalyan_icon {
+                object-fit: cover;
+            }
+        }
+    } //footer ends here
     a.navbar-brand {
         position: relative;
         z-index: 1;
