@@ -1,5 +1,5 @@
 <ul class="nav navbar-nav navs head-menu hidden-xs ">
-  <li ng-repeat="menu in navigation" class="menu-custom-li {{menu.classis}}">
+  <li ng-repeat="menu in navigation" class="menu-custom-li {{menu.classis}} {{menu.highlighter}}">
     <a ui-sref="{{menu.anchor}}" ng-if="menu.anchor" class=" menu-custom">{{menu.name |translate}}</a>
     <a href="{{menu.link}}" class="menu-custom" ng-if="menu.link">{{menu.name |translate}}</a>
     <a ui-sref="{{menu.url}}" class="menu-custom" ng-if="menu.url">{{menu.name |translate}}</a>

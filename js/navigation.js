@@ -17,7 +17,8 @@ var navigationservice = angular.module('navigationservice', [])
         var navigation = [{
                 name: "Fixtures & Results",
                 // classis: "active",
-                link: "http://jaipurpinkpanthers.com/#/fixtures",
+                link: "http://jaipurpinkpanthers.com/#/fixtures/",
+
                 //url: "comingsoon",
                 //url : "fixtures",
                 //     subnav:[{
@@ -53,9 +54,10 @@ var navigationservice = angular.module('navigationservice', [])
                 // }
             }, {
                 name: "Tickets",
-                //link: "http://jaipurpinkpanthers.com/ticket",
-                url: "comingsoon",
+                link: "http://jaipurpinkpanthers.com/#/ticket",
+                // url: "comingsoon",
                 classis: "active",
+                highlighter: "high"
                 // subnav: [{
                 //         name: "Panther Army",
                 //         classis: "active",

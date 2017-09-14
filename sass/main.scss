@@ -616,6 +616,53 @@ nav {
                 display: block;
             }
         }
+        &.high {
+            &:before {
+                content: "";
+                background-image: url("../img/buy-now.png");
+                height: 30px;
+                background-size: contain;
+                position: absolute;
+                top: -7px;
+                width: 100%;
+                left: -15px;
+                z-index: 999;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            a.menu-custom {
+                @include background-image (linear-gradient(#4ac3ed,
+                #217d9e));
+                &:before {
+                    left: -12px;
+                    height: 100%;
+                    width: 25px;
+                    position: absolute;
+                    content: "";
+                    top: 0;
+                    @include background-image (linear-gradient(to bottom,
+                    #4ac3ed 0%,
+                    #217d9e 100%));
+                    @include transform(skew(20deg));
+                    z-index: -1;
+                    @include transition(all 0.5s ease);
+                }
+                &:after {
+                    right: -12px;
+                    height: 100%;
+                    width: 25px;
+                    position: absolute;
+                    content: "";
+                    top: 0;
+                    @include background-image (linear-gradient(to bottom,
+                    #4ac3ed 0%,
+                    #217d9e 100%));
+                    @include transform(skew(20deg));
+                    z-index: -1;
+                    @include transition( all 0.5s ease);
+                }
+            }
+        }
         &:hover {
             a.menu-custom {
                 @include background-image (linear-gradient(to bottom,
@@ -4169,6 +4216,10 @@ span.tgc img {
 
 .mutho_kalyan_icon {
     padding: 5px;
+}
+
+.nara {
+    padding: 0px !important;
 }
 
 @import "navin";
