@@ -57,7 +57,7 @@ var navigationservice = angular.module('navigationservice', [])
                 link: "http://jaipurpinkpanthers.com/#/ticket",
                 // url: "comingsoon",
                 classis: "active",
-                highlighter: "high"
+                // highlighter: "high"
                 // subnav: [{
                 //         name: "Panther Army",
                 //         classis: "active",
