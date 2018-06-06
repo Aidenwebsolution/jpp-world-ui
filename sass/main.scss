@@ -9,7 +9,6 @@
 @import "../bower_components/fancyBox/source/helpers/jquery.fancybox-thumbs.css";
 @import "../bower_components/font-awesome/css/font-awesome.css"; // @import "../bower_components/angular-loading-bar/src/loading-bar.css";
 //@import "../css/boutique.css";
-
 /* Bootstrap Variables Goes Here */
 
 $brand-primary: #b41e72 !default;
@@ -40,7 +39,6 @@ Georgia,
 Times,
 serif !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
-
 /* font-family-serif*/
 
 @font-face {
@@ -89,7 +87,6 @@ serif !default;
 .flaticon-tshirt18:before {
     content: "\e001";
 }
-
 
 /* mixing*/
 
@@ -236,7 +233,7 @@ a {
         position: absolute;
         li:nth-child(even),
         li:nth-child(odd) {
-            background: $brand-success!important;
+            background: $brand-success !important;
             margin: 0;
             padding: 0;
             a {
@@ -256,8 +253,8 @@ a {
 
 .dropdown-menu>li>a:focus,
 .dropdown-menu>li>a:hover {
-    background: transparent!important;
-    color: #000!important;
+    background: transparent !important;
+    color: #000 !important;
 }
 
 .reg {
@@ -267,8 +264,8 @@ a {
     }
     .dropdown-menu>li>a:focus,
     .dropdown-menu>li>a:hover {
-        background: $brand-primary!important;
-        color: #fff!important;
+        background: $brand-primary !important;
+        color: #fff !important;
     }
 }
 
@@ -281,7 +278,7 @@ a {
 }
 
 .dropdown-menu {
-    background-color: transparent!important;
+    background-color: transparent !important;
     border: none;
     border-radius: 0;
     -webkit-box-shadow: none;
@@ -396,7 +393,7 @@ a {
 }
 
 .section2 {
-     ::-webkit-input-placeholder {
+    ::-webkit-input-placeholder {
         color: white;
         letter-spacing: 1px;
     }
@@ -710,7 +707,6 @@ nav {
     }
 }
 
-
 /* Start writing sass here */
 
 .padding0 {
@@ -742,7 +738,7 @@ nav {
 }
 
 .transparent {
-    background-color: transparent!important;
+    background-color: transparent !important;
 }
 
 .navbar-default {
@@ -1188,8 +1184,7 @@ nav {
     padding: 20px 0;
     margin: 0 6px 15px 0;
     border: 2px solid #fff;
-    @include transition(all 300ms ease);
-    cursor: pointer;
+    @include transition(all 300ms ease); // cursor: pointer;
     &:hover {
         border: 2px solid $brand-primary;
     }
@@ -1322,7 +1317,7 @@ hr {
     &:hover {
         background-color: darken($brand-success, 20%);
         border-color: darken($brand-success, 20%);
-        color: darken($brand-primary, 10%)!important;
+        color: darken($brand-primary, 10%) !important;
     }
 }
 
@@ -2093,7 +2088,6 @@ img.fancybox-image {
     height: 60px;
 }
 
-
 /* Move it (define the animation) */
 
 // @include keyframes (scroll-left) {
@@ -2112,7 +2106,7 @@ img.fancybox-image {
     a {
         &:focus,
         &:hover {
-            background-color: transparent!important;
+            background-color: transparent !important;
         }
     }
     li {
@@ -2145,18 +2139,18 @@ img.fancybox-image {
 .carousel-fade {
     .carousel-inner {
         .item {
-            transition-property: opacity!important;
+            transition-property: opacity !important;
         }
         .active.left,
         .active.right,
         .item {
-            transition-property: opacity!important;
-            opacity: 0!important;
+            transition-property: opacity !important;
+            opacity: 0 !important;
         }
         .active,
         .next.left,
         .prev.right {
-            opacity: 1!important;
+            opacity: 1 !important;
         }
     }
     .carousel-control {
@@ -3898,7 +3892,7 @@ a {
                 border-radius: 0;
             }
         }
-         ::-webkit-input-placeholder {
+        ::-webkit-input-placeholder {
             color: #fff;
             font-size: 16px;
         }

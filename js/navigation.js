@@ -54,8 +54,8 @@ var navigationservice = angular.module('navigationservice', [])
                 // }
             }, {
                 name: "Tickets",
-                link: "http://jaipurpinkpanthers.com/#/ticket",
-                // url: "comingsoon",
+                // link: "http://jaipurpinkpanthers.com/#/ticket",
+                url: "come",
                 classis: "active",
                 // highlighter: "high"
                 // subnav: [{
@@ -75,8 +75,8 @@ var navigationservice = angular.module('navigationservice', [])
                 // ]
             }, {
                 name: "Merchandise",
-                link: "http://jaipurpinkpanthers.com/#/ticket-merchandise",
-                // url: "comingsoon",
+                // link: "http://jaipurpinkpanthers.com/#/ticket-merchandise",
+                url: "come",
                 classis: "active",
                 subnav: []
             }, {
