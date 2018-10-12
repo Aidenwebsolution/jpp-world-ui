@@ -1180,8 +1180,20 @@ nav {
         display: block;
     }
 
+    .p25 {
+        padding-top: 25px !important;
+    }
+
     .h60 {
         max-height: 60px !important;
+    }
+
+    .h20 {
+        max-height: 20px !important;
+    }
+
+    .display-sm {
+        display: inline;
     }
 }
 
